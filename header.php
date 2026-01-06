@@ -87,6 +87,7 @@
             .menu-toggle {
                 display: flex;
                 z-index: 1001;
+                padding-right: 100px;
             }
 
             nav {
