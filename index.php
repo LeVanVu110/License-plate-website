@@ -977,7 +977,7 @@
         /* Hình dáng biển số xe máy thực tế */
         .bike-plate-box {
             background: #fdfdfd;
-            width: 420px;
+            width: 100%;
             height: 120px;
             margin: 20px auto;
             border-radius: 8px;
@@ -1040,6 +1040,63 @@
             object-fit: cover;
             filter: grayscale(0.5);
         }
+        @media (max-width: 768px) {
+    .split-chooser {
+        flex-direction: column;
+        height: 400px; /* Giới hạn tổng chiều cao cố định cho cả 2 phần */
+    }
+
+    .side {
+        flex: 1; /* Chia đều không gian */
+        height: 200px; /* Giảm chiều cao mỗi bên xuống khoảng 200px */
+        padding: 20px;
+    }
+
+    .side h2 {
+        font-size: 1.5rem; /* Thu nhỏ tiêu đề */
+        letter-spacing: 2px;
+    }
+
+    .side p {
+        font-size: 0.85rem;
+        opacity: 1; /* Luôn hiện text trên mobile */
+        transform: translateY(0);
+    }
+}
+@media (max-width: 768px) {
+    .bike-collection {
+        padding: 30px 15px; /* Giảm khoảng cách lề hai bên */
+    }
+
+    .bike-grid {
+        gap: 20px; /* Thu hẹp khoảng cách giữa các thẻ */
+    }
+
+    .bike-card {
+        padding: 10px;
+    }
+
+    /* Thu nhỏ khu vực hiển thị biển số */
+    .bike-plate-box {
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .region-code {
+        font-size: 1.2rem; /* Thu nhỏ số vùng (ví dụ: 29) */
+    }
+
+    .number-line {
+        font-size: 1.8rem; /* Thu nhỏ dãy số chính (ví dụ: 888.88) */
+        line-height: 1.2;
+    }
+
+    .bike-price {
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+}
+        
     </style>
 </head>
 
