@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,17 @@
             --obsidian: #0B0B0B;
             --champagne: #F7E7CE;
             --titan-white: #E5E5E5;
+            --floor-gradient: radial-gradient(circle, #1A1A1A 0%, #0B0B0B 70%);
+            --laser-color: #E0FFFF;
+            --bg-deep-black: #000000;
+            --grey-dark: #222222;
+            --ruby-red: #E0115F;
+            --gold-glow: rgba(212, 175, 55, 0.4);
+            --gold-bright: #D4AF37;
+            --elite-gold: #F7E7CE;
+            --dynamic-blue: #00A8FF;
+            --titanium: #E5E4E2;
+            --gunmetal: #1C1C1C;
         }
 
         * {
@@ -23,11 +35,13 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
+
         .logo {
-            font-weight: 700;
+            font-weight: 700;   
             font-size: 24px;
             letter-spacing: 4px;
             color: var(--champagne);
+            text-decoration: none;;
         }
 
         nav a {
@@ -47,13 +61,18 @@
         header {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            z-index: 1000;
+            /* Giữ 100% để phủ hết màn hình */
+            box-sizing: border-box;
+            /* CỰC KỲ QUAN TRỌNG: Nó sẽ ép padding vào bên trong 100% */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 8%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+            padding: 18px 5%;
+            /* Giảm bớt padding cho mobile */
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
         }
 
@@ -63,6 +82,7 @@
             letter-spacing: 4px;
             color: var(--champagne);
         }
+
         /* --- Responsive Logic --- */
         .menu-toggle {
             display: none;
@@ -87,7 +107,6 @@
             .menu-toggle {
                 display: flex;
                 z-index: 1001;
-                padding-right: 100px;
             }
 
             nav {
@@ -137,16 +156,17 @@
         }
     </style>
 </head>
+
 <body>
     <header>
-        <div class="logo">GATEWAY</div>
+        <div class="logo"><a  href="index.php" class="logo">GATEWAY</a></div>
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
         <nav id="nav-menu">
-            <a>Sưu tập</a>
+            <a href="">Sưu tập</a>
             <a>Định giá AI</a>
             <a>Đấu giá</a>
             <a href="">Liên hệ</a>
@@ -156,20 +176,21 @@
 <script>
     // ------------------------------- phần 2 nav-menu------------------------------  //
 
-        const menuToggle = document.getElementById('mobile-menu');
-        const navMenu = document.getElementById('nav-menu');
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
 
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('is-active');
-            navMenu.classList.toggle('active');
-        });
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('is-active');
+        navMenu.classList.toggle('active');
+    });
 
-        // Đóng menu khi người dùng click vào một link bất kỳ
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('is-active');
-                navMenu.classList.remove('active');
-            });
+    // Đóng menu khi người dùng click vào một link bất kỳ
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('is-active');
+            navMenu.classList.remove('active');
         });
+    });
 </script>
+
 </html>
