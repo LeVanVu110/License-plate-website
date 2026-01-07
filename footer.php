@@ -201,6 +201,59 @@
             border-top: 0.5px solid #111;
             padding-top: 25px;
         }
+        /* --- RESPONSIVE QUERIES --- */
+
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 5% 20px 5% !important;
+        text-align: center;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr !important; /* Xếp chồng các cột */
+        gap: 30px !important;
+    }
+
+    /* Thu nhỏ Slogan */
+    .brand-essence .slogan {
+        margin: 10px auto !important;
+        font-size: 0.85rem;
+    }
+
+    /* Cho menu Dịch vụ và Hỗ trợ nằm cạnh nhau thay vì xếp dọc toàn bộ */
+    .nav-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Chia 2 cột nhỏ */
+        text-align: left;
+        gap: 15px;
+    }
+
+    .nav-column h4 {
+        margin-bottom: 15px !important;
+        font-size: 0.75rem !important;
+        padding-left: 10px;
+    }
+    .nav-column ul li{
+        padding-left: 15px;
+    }
+
+    /* Tối ưu Hotline */
+    .hotline-vip {
+        font-size: 1.3rem !important;
+        letter-spacing: 3px !important;
+    }
+
+    /* Thu nhỏ nút Back to top để không đè lên nội dung */
+    #backToTop {
+        width: 35px;
+        height: 35px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .social-links{
+        justify-content: center;
+    }
+}
     </style>
 </head>
 <body>

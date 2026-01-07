@@ -205,6 +205,70 @@
             font-size: 16px;
             outline: none;
         }
+        /* --- Responsive Hero Section --- */
+
+/* Màn hình máy tính bảng (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 48px; /* Giảm size chữ tiêu đề */
+    }
+    .search-container {
+        width: 80%; /* Chuyển sang dùng % để co giãn theo màn hình */
+    }
+    .search-container:focus-within {
+        width: 85%;
+    }
+}
+
+/* Màn hình điện thoại (Dưới 768px) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 20px; /* Thêm padding 2 bên để text không sát mép */
+        height: 0;
+    }
+
+    .hero h1 {
+        font-size: 36px; /* Size chữ phù hợp điện thoại */
+        margin-bottom: 30px;
+        line-height: 1.2;
+    }
+
+    .search-container {
+        width: 100%; /* Full màn hình mobile (trừ padding của hero) */
+        padding: 12px 20px;
+        border-radius: 30px; /* Bo tròn vừa phải hơn */
+        flex-direction: row; /* Vẫn giữ hàng ngang hoặc dọc tùy bạn */
+    }
+
+    .search-container:focus-within {
+        width: 100%; /* Không cần nở rộng trên mobile để tránh lag */
+    }
+
+    .search-container input {
+        font-size: 10px; /* Chữ nhỏ lại một chút cho cân đối */
+    }
+
+    .search-container span {
+        font-size: 14px;
+        white-space: nowrap; /* Không cho chữ AI Search bị xuống dòng */
+    }
+}
+
+/* Màn hình điện thoại siêu nhỏ (Dưới 480px) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    /* Nếu muốn nút AI Search xuống dòng cho thoáng thì dùng đoạn này */
+    
+    /* .search-container {
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 15px;
+    } */
+   
+}
 
         /* ------------------------------------------------------------- section 2 ---------------------------------------------------------------  */
         /* --- Trading Floor (Grid) --- */
@@ -295,6 +359,67 @@
             overflow-x: hidden;
             /* Cấm tuyệt đối việc trượt ngang */
         }
+        /* --- Responsive Trading Floor --- */
+
+/* Màn hình máy tính bảng và Laptop nhỏ (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .trading-floor {
+        padding: 60px 30px; /* Giảm padding tổng thể */
+    }
+    
+    .plate-number {
+        font-size: 26px; /* Thu nhỏ biển số một chút */
+        letter-spacing: 3px;
+    }
+}
+
+/* Màn hình điện thoại (Dưới 768px) */
+@media (max-width: 768px) {
+    .trading-floor {
+        padding: 50px 20px;
+    }
+
+    .trading-floor h2 {
+        font-size: 26px !important; /* Cân đối lại tiêu đề */
+        text-align: center;
+        margin-bottom: 20px !important;
+    }
+
+    .grid {
+        grid-template-columns: 1fr; /* Ép về 1 cột duy nhất trên mobile */
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .plate-card {
+        height: auto; /* Cho phép chiều cao co giãn theo nội dung */
+        padding: 40px 20px;
+    }
+
+    .plate-number {
+        font-size: 22px; 
+        padding: 8px 15px;
+        letter-spacing: 2px;
+        width: 80%; /* Giới hạn độ rộng biển trên mobile */
+        text-align: center;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+}
+
+/* Màn hình điện thoại nhỏ (Dưới 480px) */
+@media (max-width: 480px) {
+    .plate-number {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    
+    .trading-floor h2 {
+        font-size: 22px !important;
+    }
+}
 
         /* ---------------------------------------------- section 3 -------------------------------------------  */
         .virtual-garage {
@@ -418,6 +543,74 @@
             pointer-events: none;
             border-radius: 50%;
         }
+        /* --- Responsive Virtual Garage --- */
+
+@media (max-width: 1024px) {
+    .virtual-garage {
+        flex-direction: column; /* Chuyển thành hàng dọc */
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 50px;
+    }
+
+    .info-panel {
+        padding: 40px 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .info-panel h2 {
+        font-size: 2rem;
+    }
+
+    .info-panel p {
+        max-width: 100%;
+    }
+
+    .garage-workspace {
+        width: 100%;
+        padding: 20px;
+        justify-content: flex-start;
+    }
+
+    .car-container {
+        width: 100%; /* Xe to rõ hơn trên mobile */
+        margin-bottom: 120px; /* Tạo khoảng trống cho khay biển số */
+    }
+
+    /* Tinh chỉnh lại tỉ lệ drop-zone trên màn hình nhỏ */
+    .drop-zone {
+        width: 15%; /* Sử dụng % thay vì px để co giãn theo ảnh xe */
+        height: 7%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .plate-tray {
+        bottom: 20px;
+        width: 95%;
+        height: auto;
+        padding: 15px 10px;
+        flex-wrap: wrap; /* Cho phép biển số xuống dòng nếu khay quá hẹp */
+        gap: 10px;
+    }
+
+    .plate {
+        width: 80px; /* Thu nhỏ biển số một chút */
+        height: 20px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-panel h2 {
+        font-size: 1.5rem;
+    }
+    
+    .car-container {
+        margin-bottom: 160px; /* Tăng khoảng cách nếu khay biển số bị xuống dòng */
+    }
+}
 
         /* ---------------------------------------------- section 4 -------------------------------------------  */
         .auction-section {
@@ -576,6 +769,93 @@
             background: var(--gold-bright);
             color: #000;
         }
+        /* --- Responsive Live Auction --- */
+
+/* Màn hình máy tính bảng (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .auction-row {
+        /* Thu hẹp tỉ lệ các cột để vừa màn hình nhỏ hơn */
+        grid-template-columns: 1.5fr 1.5fr 1.2fr 1.8fr 0.8fr;
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .plate-numbers {
+        font-size: 1.2rem;
+    }
+}
+
+/* Màn hình điện thoại (Dưới 768px) */
+@media (max-width: 768px) {
+    .auction-section {
+        padding: 40px 15px;
+    }
+
+    .header-box {
+        justify-content: center; /* Căn giữa tiêu đề Live trên mobile */
+    }
+
+    .auction-row {
+        /* Chuyển từ Grid ngang sang Flexbox dọc */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        border-radius: 12px;
+        border: 1px solid #1a1a1a;
+        margin-bottom: 10px;
+    }
+
+    /* Tạo bố cục 2 cột giả cho các thông tin quan trọng */
+    .plate-numbers {
+        font-size: 1.6rem;
+        width: 100%;
+        border-bottom: 1px solid #222;
+        padding-bottom: 10px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    .bid-info {
+        font-size: 0.85rem;
+    }
+
+    .current-price {
+        font-size: 1.4rem;
+        margin: 5px 0;
+    }
+
+    .countdown-timer {
+        width: 100%;
+        justify-content: center; /* Căn giữa đồng hồ lật trên mobile */
+        background: #111;
+        padding: 15px 0;
+        border-radius: 8px;
+    }
+
+    .flip-card {
+        width: 35px; /* Tăng kích thước số lật một chút để dễ đọc trên mobile */
+        height: 50px;
+    }
+
+    .btn-bid {
+        width: 100%; /* Nút bấm full chiều ngang để dễ chạm bằng ngón tay */
+        padding: 15px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+}
+
+/* Màn hình điện thoại rất nhỏ (Dưới 480px) */
+@media (max-width: 480px) {
+    .plate-numbers {
+        font-size: 1.4rem;
+    }
+    
+    .current-price {
+        font-size: 1.2rem;
+    }
+}
 
         /* ---------------------------------------------- section 5 -------------------------------------------  */
         /* --- 1. Split Screen Chooser --- */
@@ -697,7 +977,7 @@
         /* Hình dáng biển số xe máy thực tế */
         .bike-plate-box {
             background: #fdfdfd;
-            width: 420px;
+            width: 100%;
             height: 120px;
             margin: 20px auto;
             border-radius: 8px;
@@ -760,6 +1040,63 @@
             object-fit: cover;
             filter: grayscale(0.5);
         }
+        @media (max-width: 768px) {
+    .split-chooser {
+        flex-direction: column;
+        height: 400px; /* Giới hạn tổng chiều cao cố định cho cả 2 phần */
+    }
+
+    .side {
+        flex: 1; /* Chia đều không gian */
+        height: 200px; /* Giảm chiều cao mỗi bên xuống khoảng 200px */
+        padding: 20px;
+    }
+
+    .side h2 {
+        font-size: 1.5rem; /* Thu nhỏ tiêu đề */
+        letter-spacing: 2px;
+    }
+
+    .side p {
+        font-size: 0.85rem;
+        opacity: 1; /* Luôn hiện text trên mobile */
+        transform: translateY(0);
+    }
+}
+@media (max-width: 768px) {
+    .bike-collection {
+        padding: 30px 15px; /* Giảm khoảng cách lề hai bên */
+    }
+
+    .bike-grid {
+        gap: 20px; /* Thu hẹp khoảng cách giữa các thẻ */
+    }
+
+    .bike-card {
+        padding: 10px;
+    }
+
+    /* Thu nhỏ khu vực hiển thị biển số */
+    .bike-plate-box {
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .region-code {
+        font-size: 1.2rem; /* Thu nhỏ số vùng (ví dụ: 29) */
+    }
+
+    .number-line {
+        font-size: 1.8rem; /* Thu nhỏ dãy số chính (ví dụ: 888.88) */
+        line-height: 1.2;
+    }
+
+    .bike-price {
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+}
+        
     </style>
 </head>
 
@@ -784,7 +1121,7 @@
 
         <div class="plate-box">M ZS 7299</div>
 
-        <div class="scroll-indicator">SCROLL TO EXPLORE</div>
+        <!-- <div class="scroll-indicator">SCROLL TO EXPLORE</div> -->
     </div>
     <!-- ------------------------------------------ section 1 --------------------------------------------  -->
 
