@@ -205,7 +205,6 @@
 </head>
 <body>
 
-<div style="height: 1000px;"></div>
 
 <footer>
     <div class="footer-grid">
