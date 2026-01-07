@@ -543,6 +543,74 @@
             pointer-events: none;
             border-radius: 50%;
         }
+        /* --- Responsive Virtual Garage --- */
+
+@media (max-width: 1024px) {
+    .virtual-garage {
+        flex-direction: column; /* Chuyển thành hàng dọc */
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 50px;
+    }
+
+    .info-panel {
+        padding: 40px 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .info-panel h2 {
+        font-size: 2rem;
+    }
+
+    .info-panel p {
+        max-width: 100%;
+    }
+
+    .garage-workspace {
+        width: 100%;
+        padding: 20px;
+        justify-content: flex-start;
+    }
+
+    .car-container {
+        width: 100%; /* Xe to rõ hơn trên mobile */
+        margin-bottom: 120px; /* Tạo khoảng trống cho khay biển số */
+    }
+
+    /* Tinh chỉnh lại tỉ lệ drop-zone trên màn hình nhỏ */
+    .drop-zone {
+        width: 15%; /* Sử dụng % thay vì px để co giãn theo ảnh xe */
+        height: 7%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .plate-tray {
+        bottom: 20px;
+        width: 95%;
+        height: auto;
+        padding: 15px 10px;
+        flex-wrap: wrap; /* Cho phép biển số xuống dòng nếu khay quá hẹp */
+        gap: 10px;
+    }
+
+    .plate {
+        width: 80px; /* Thu nhỏ biển số một chút */
+        height: 20px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-panel h2 {
+        font-size: 1.5rem;
+    }
+    
+    .car-container {
+        margin-bottom: 160px; /* Tăng khoảng cách nếu khay biển số bị xuống dòng */
+    }
+}
 
         /* ---------------------------------------------- section 4 -------------------------------------------  */
         .auction-section {
