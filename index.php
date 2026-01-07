@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Gateway | Auto Cinematic Experience</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
 
     <style>
         /* --- Video Section --- */
@@ -293,6 +295,115 @@
             overflow-x: hidden;
             /* Cấm tuyệt đối việc trượt ngang */
         }
+
+        /* ---------------------------------------------- section 3 -------------------------------------------  */
+        .virtual-garage {
+            display: flex;
+            height: 100vh;
+            background: radial-gradient(circle at 70% 50%, #1A1A1A 0%, #0B0B0B 100%);
+        }
+
+        /* Bên trái: Thông tin */
+        .info-panel {
+            flex: 1;
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .info-panel h2 { font-size: 2.5rem; color: var(--laser-color); text-transform: uppercase; letter-spacing: 2px; }
+        .info-panel p { color: #888; line-height: 1.6; max-width: 400px; }
+
+        /* Bên phải: Khu vực xe */
+        .garage-workspace {
+            flex: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        .car-container {
+            position: relative;
+            width: 90%;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .car-image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            /* Ảnh xe Mazda góc nghiêng đẹp từ Unsplash */
+            filter: drop-shadow(0 30px 50px rgba(0,0,0,0.5));
+        }
+
+        /* Điểm thả biển số (Drop Zone) */
+        .drop-zone {
+            position: absolute;
+            /* Căn chỉnh theo ảnh xe Mazda cụ thể bên dưới */
+            bottom: 29%; 
+            right: 69%;
+            width: 80px;
+            height: 25px;
+            border: 2px dashed rgba(224, 255, 255, 0.4);
+            transform: rotate(4deg) skewX(0deg); /* Làm nghiêng để khớp góc 45 độ của xe */
+            z-index: 5;
+        }
+
+        .drop-zone.active {
+            border-color: var(--laser-color);
+            background: rgba(224, 255, 255, 0.2);
+            box-shadow: 0 0 20px var(--laser-color);
+        }
+
+        /* Khay chứa biển số */
+        .plate-tray {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 80px;
+            background: #000;
+            border: 1px solid #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            border-radius: 15px;
+            z-index: 10;
+        }
+
+        .plate {
+            width: 90px;
+            height: 22px;
+            background: #f0f0f0;
+            color: #333;
+            font-weight: bold;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            cursor: grab;
+            border: 1px solid #999;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Hiệu ứng Ting */
+        #ting-flash {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--laser-color);
+            opacity: 0;
+            pointer-events: none;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
@@ -356,6 +467,40 @@
             </div>
         </div>
     </section>
+    
+    <!-- ------------------------------------------ section 3 --------------------------------------------  -->
+     <section class="virtual-garage">
+    <div class="info-panel">
+        <h2>Virtual Garage</h2>
+        <p>Chọn một biển số từ khay bên dưới và kéo thả trực tiếp vào đầu xe để xem độ tương thích.</p>
+    </div>
+
+    <div class="garage-workspace" id="workspace">
+        <div class="car-container" id="carContainer">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=1000" class="car-image">
+            
+            <div class="drop-zone" id="dropZone">
+                <div id="ting-flash"></div>
+            </div>
+        </div>
+
+        <div class="plate-tray">
+            <div class="plate">30F-888.88</div>
+            <div class="plate">51G-999.99</div>
+            <div class="plate">VIP-666.66</div>
+            <div class="plate">43A-123.45</div>
+            <div class="plate">99A-777.77</div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- ------------------------------------------ section 4 --------------------------------------------  -->
+
+    <!-- ------------------------------------------ section 5 --------------------------------------------  -->
+
+    <!-- ------------------------------------------ section 6 --------------------------------------------  -->
+
 
     <script>
         // ------------------------------- phần 1 video xe banner------------------------  //
@@ -392,7 +537,108 @@
                 // Có thể thêm hiệu ứng âm thanh click nhẹ ở đây
             });
         });
-    </script>
+
+        // --------------------------------- section 3 ------------------------------- //
+        gsap.registerPlugin(Draggable);
+
+    const carContainer = document.getElementById('carContainer');
+    const workspace = document.getElementById('workspace');
+    const dropZone = document.getElementById('dropZone');
+    
+    // Biến lưu trữ biển số hiện tại đang được gắn trên xe
+    let currentPlate = null;
+
+    // 1. Hiệu ứng Parallax Xe nghiêng
+    workspace.addEventListener('mousemove', (e) => {
+        const xPos = (e.clientX / window.innerWidth - 0.5) * 15;
+        const yPos = (e.clientY / window.innerHeight - 0.5) * 8;
+        gsap.to(carContainer, {
+            rotateY: xPos,
+            rotateX: -yPos,
+            duration: 0.6,
+            ease: "power2.out"
+        });
+    });
+
+    // 2. Kéo thả biển số
+    Draggable.create(".plate", {
+        type: "x,y",
+        onDragStart: function() {
+            // Khi bắt đầu kéo, đưa biển lên lớp trên cùng
+            gsap.set(this.target, { zIndex: 100 });
+        },
+        onDrag: function() {
+            if (this.hitTest(dropZone, "50%")) {
+                dropZone.classList.add('active');
+            } else {
+                dropZone.classList.remove('active');
+            }
+        },
+        onDragEnd: function() {
+            if (this.hitTest(dropZone, "50%")) {
+                
+                // --- LOGIC ĐẨY BIỂN CŨ XUỐNG ---
+                if (currentPlate && currentPlate !== this.target) {
+                    gsap.to(currentPlate, { 
+                        x: 0, 
+                        y: 0, 
+                        rotation: 0, 
+                        skewX: 0, 
+                        scale: 1, 
+                        duration: 0.5,
+                        ease: "power2.inOut"
+                    });
+                }
+
+                // Cập nhật biển hiện tại là biển vừa thả vào
+                currentPlate = this.target;
+
+                // Tính toán vị trí tâm
+                const dzRect = dropZone.getBoundingClientRect();
+                const plateRect = this.target.getBoundingClientRect();
+                const deltaX = dzRect.left - plateRect.left + (dzRect.width - plateRect.width) / 2;
+                const deltaY = dzRect.top - plateRect.top + (dzRect.height - plateRect.height) / 2;
+
+                // Gắn biển mới lên xe
+                gsap.to(this.target, {
+                    x: "+=" + deltaX,
+                    y: "+=" + deltaY,
+                    rotation: 4,      // Góc bạn chỉnh
+                    skewX: 0,       // Góc bạn chỉnh
+                    scale: 0.85,
+                    duration: 0.4,
+                    ease: "back.out(1.2)",
+                    zIndex: 5 // Đảm bảo nằm dưới hiệu ứng loé sáng
+                });
+
+                // Hiệu ứng "Ting"
+                gsap.fromTo("#ting-flash", 
+                    { opacity: 1, scale: 0 }, 
+                    { opacity: 0, scale: 4, duration: 0.6 }
+                );
+                
+                dropZone.style.borderColor = "transparent";
+            } else {
+                // Nếu thả trượt hoặc kéo ra khỏi xe:
+                if (currentPlate === this.target) {
+                    currentPlate = null; // Giải phóng vị trí nếu kéo biển đang gắn ra ngoài
+                    dropZone.style.borderColor = "rgba(224, 255, 255, 0.4)";
+                }
+                
+                gsap.to(this.target, { 
+                    x: 0, 
+                    y: 0, 
+                    rotation: 0, 
+                    skewX: 0, 
+                    scale: 1, 
+                    duration: 0.5,
+                    zIndex: 1
+                });
+            }
+            dropZone.classList.remove('active');
+        }
+    });
+</script>
 </body>
 
 

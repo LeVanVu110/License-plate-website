@@ -10,6 +10,8 @@
             --obsidian: #0B0B0B;
             --champagne: #F7E7CE;
             --titan-white: #E5E5E5;
+            --floor-gradient: radial-gradient(circle, #1A1A1A 0%, #0B0B0B 70%);
+            --laser-color: #E0FFFF;
         }
 
         * {
