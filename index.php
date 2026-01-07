@@ -136,6 +136,11 @@
                 margin-top: -40%;
                 margin-left: -5%;
             }
+            .plate-box{
+                text-align: center;
+                padding: 5px 5px;
+                width: 70%;
+            }
         }
 
         
@@ -262,6 +267,12 @@
             50% { opacity: 0.3; }
             100% { opacity: 1; }
         }
+        html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Cấm tuyệt đối việc trượt ngang */
+}
 
     </style>
 </head>

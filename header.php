@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +24,7 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
+
         .logo {
             font-weight: 700;
             font-size: 24px;
@@ -47,13 +49,18 @@
         header {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            z-index: 1000;
+            /* Giữ 100% để phủ hết màn hình */
+            box-sizing: border-box;
+            /* CỰC KỲ QUAN TRỌNG: Nó sẽ ép padding vào bên trong 100% */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 8%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+            padding: 18px 5%;
+            /* Giảm bớt padding cho mobile */
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
         }
 
@@ -63,6 +70,7 @@
             letter-spacing: 4px;
             color: var(--champagne);
         }
+
         /* --- Responsive Logic --- */
         .menu-toggle {
             display: none;
@@ -87,7 +95,6 @@
             .menu-toggle {
                 display: flex;
                 z-index: 1001;
-                padding-right: 100px;
             }
 
             nav {
@@ -137,6 +144,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo">GATEWAY</div>
@@ -156,20 +164,21 @@
 <script>
     // ------------------------------- phần 2 nav-menu------------------------------  //
 
-        const menuToggle = document.getElementById('mobile-menu');
-        const navMenu = document.getElementById('nav-menu');
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
 
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('is-active');
-            navMenu.classList.toggle('active');
-        });
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('is-active');
+        navMenu.classList.toggle('active');
+    });
 
-        // Đóng menu khi người dùng click vào một link bất kỳ
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('is-active');
-                navMenu.classList.remove('active');
-            });
+    // Đóng menu khi người dùng click vào một link bất kỳ
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('is-active');
+            navMenu.classList.remove('active');
         });
+    });
 </script>
+
 </html>
