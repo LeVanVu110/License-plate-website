@@ -12,6 +12,11 @@
             --titan-white: #E5E5E5;
             --floor-gradient: radial-gradient(circle, #1A1A1A 0%, #0B0B0B 70%);
             --laser-color: #E0FFFF;
+            --bg-deep-black: #000000;
+            --grey-dark: #222222;
+            --ruby-red: #E0115F;
+            --gold-glow: rgba(212, 175, 55, 0.4);
+            --gold-bright: #D4AF37;
         }
 
         * {
@@ -28,7 +33,7 @@
         }
 
         .logo {
-            font-weight: 700;
+            font-weight: 700;   
             font-size: 24px;
             letter-spacing: 4px;
             color: var(--champagne);
