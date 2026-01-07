@@ -30,6 +30,7 @@
             font-size: 24px;
             letter-spacing: 4px;
             color: var(--champagne);
+            text-decoration: none;;
         }
 
         nav a {
@@ -147,14 +148,14 @@
 
 <body>
     <header>
-        <div class="logo">GATEWAY</div>
+        <div class="logo"><a  href="index.php" class="logo">GATEWAY</a></div>
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
         <nav id="nav-menu">
-            <a>Sưu tập</a>
+            <a href="suutam.php">Sưu tập</a>
             <a>Định giá AI</a>
             <a>Đấu giá</a>
             <a href="">Liên hệ</a>

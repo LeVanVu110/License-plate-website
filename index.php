@@ -136,14 +136,15 @@
                 margin-top: -40%;
                 margin-left: -5%;
             }
-            .plate-box{
+
+            .plate-box {
                 text-align: center;
                 padding: 5px 5px;
                 width: 70%;
             }
         }
 
-        
+
         /* ------------------------------------------------------- section 1 ---------------------------------------------------------  */
         /* --- Hero Section --- */
         .hero {
@@ -159,7 +160,10 @@
 
         .hero-video-placeholder {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1920') center/cover;
             opacity: 0.3;
             z-index: -1;
@@ -173,6 +177,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         /* --- AI Search Bar --- */
         .search-container {
             width: 600px;
@@ -198,11 +203,13 @@
             font-size: 16px;
             outline: none;
         }
+
         /* ------------------------------------------------------------- section 2 ---------------------------------------------------------------  */
         /* --- Trading Floor (Grid) --- */
         .trading-floor {
             padding: 100px 50px;
         }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -230,7 +237,7 @@
         .plate-card:hover {
             transform: translateY(-10px) scale(1.02);
             border-color: var(--champagne);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .plate-number {
@@ -254,8 +261,10 @@
 
         .urgency-dot {
             position: absolute;
-            top: 20px; right: 20px;
-            width: 8px; height: 8px;
+            top: 20px;
+            right: 20px;
+            width: 8px;
+            height: 8px;
             background: #00ff00;
             border-radius: 50%;
             box-shadow: 0 0 10px #00ff00;
@@ -263,17 +272,27 @@
         }
 
         @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
-        html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Cấm tuyệt đối việc trượt ngang */
-}
+            0% {
+                opacity: 1;
+            }
 
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        html,
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            /* Cấm tuyệt đối việc trượt ngang */
+        }
     </style>
 </head>
 
@@ -313,7 +332,7 @@
     <!-- ------------------------------------------ section 2 --------------------------------------------  -->
     <section class="trading-floor">
         <h2 style="font-family: 'Playfair Display'; font-size: 32px; margin-bottom: 40px;">The Trading Floor</h2>
-        
+
         <div class="grid">
             <div class="plate-card">
                 <div class="urgency-dot"></div>
@@ -357,7 +376,7 @@
         const video = document.getElementById('car-video');
         video.playbackRate = 0.9; // Làm chậm video lại một chút (80%) để cinematic hơn
 
-        
+
 
         // --------------------------------- section 1 ------------------------------- //
 
