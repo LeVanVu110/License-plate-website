@@ -769,6 +769,93 @@
             background: var(--gold-bright);
             color: #000;
         }
+        /* --- Responsive Live Auction --- */
+
+/* Màn hình máy tính bảng (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .auction-row {
+        /* Thu hẹp tỉ lệ các cột để vừa màn hình nhỏ hơn */
+        grid-template-columns: 1.5fr 1.5fr 1.2fr 1.8fr 0.8fr;
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .plate-numbers {
+        font-size: 1.2rem;
+    }
+}
+
+/* Màn hình điện thoại (Dưới 768px) */
+@media (max-width: 768px) {
+    .auction-section {
+        padding: 40px 15px;
+    }
+
+    .header-box {
+        justify-content: center; /* Căn giữa tiêu đề Live trên mobile */
+    }
+
+    .auction-row {
+        /* Chuyển từ Grid ngang sang Flexbox dọc */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        border-radius: 12px;
+        border: 1px solid #1a1a1a;
+        margin-bottom: 10px;
+    }
+
+    /* Tạo bố cục 2 cột giả cho các thông tin quan trọng */
+    .plate-numbers {
+        font-size: 1.6rem;
+        width: 100%;
+        border-bottom: 1px solid #222;
+        padding-bottom: 10px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    .bid-info {
+        font-size: 0.85rem;
+    }
+
+    .current-price {
+        font-size: 1.4rem;
+        margin: 5px 0;
+    }
+
+    .countdown-timer {
+        width: 100%;
+        justify-content: center; /* Căn giữa đồng hồ lật trên mobile */
+        background: #111;
+        padding: 15px 0;
+        border-radius: 8px;
+    }
+
+    .flip-card {
+        width: 35px; /* Tăng kích thước số lật một chút để dễ đọc trên mobile */
+        height: 50px;
+    }
+
+    .btn-bid {
+        width: 100%; /* Nút bấm full chiều ngang để dễ chạm bằng ngón tay */
+        padding: 15px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+}
+
+/* Màn hình điện thoại rất nhỏ (Dưới 480px) */
+@media (max-width: 480px) {
+    .plate-numbers {
+        font-size: 1.4rem;
+    }
+    
+    .current-price {
+        font-size: 1.2rem;
+    }
+}
 
         /* ---------------------------------------------- section 5 -------------------------------------------  */
         /* --- 1. Split Screen Chooser --- */
