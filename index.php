@@ -224,7 +224,7 @@
 @media (max-width: 768px) {
     .hero {
         padding: 0 20px; /* Thêm padding 2 bên để text không sát mép */
-        height: 0;
+        height: 10vh;
     }
 
     .hero h1 {
