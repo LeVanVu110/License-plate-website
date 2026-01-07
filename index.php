@@ -359,6 +359,67 @@
             overflow-x: hidden;
             /* Cấm tuyệt đối việc trượt ngang */
         }
+        /* --- Responsive Trading Floor --- */
+
+/* Màn hình máy tính bảng và Laptop nhỏ (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .trading-floor {
+        padding: 60px 30px; /* Giảm padding tổng thể */
+    }
+    
+    .plate-number {
+        font-size: 26px; /* Thu nhỏ biển số một chút */
+        letter-spacing: 3px;
+    }
+}
+
+/* Màn hình điện thoại (Dưới 768px) */
+@media (max-width: 768px) {
+    .trading-floor {
+        padding: 50px 20px;
+    }
+
+    .trading-floor h2 {
+        font-size: 26px !important; /* Cân đối lại tiêu đề */
+        text-align: center;
+        margin-bottom: 20px !important;
+    }
+
+    .grid {
+        grid-template-columns: 1fr; /* Ép về 1 cột duy nhất trên mobile */
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .plate-card {
+        height: auto; /* Cho phép chiều cao co giãn theo nội dung */
+        padding: 40px 20px;
+    }
+
+    .plate-number {
+        font-size: 22px; 
+        padding: 8px 15px;
+        letter-spacing: 2px;
+        width: 80%; /* Giới hạn độ rộng biển trên mobile */
+        text-align: center;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+}
+
+/* Màn hình điện thoại nhỏ (Dưới 480px) */
+@media (max-width: 480px) {
+    .plate-number {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    
+    .trading-floor h2 {
+        font-size: 22px !important;
+    }
+}
 
         /* ---------------------------------------------- section 3 -------------------------------------------  */
         .virtual-garage {
