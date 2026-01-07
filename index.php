@@ -205,6 +205,70 @@
             font-size: 16px;
             outline: none;
         }
+        /* --- Responsive Hero Section --- */
+
+/* Màn hình máy tính bảng (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 48px; /* Giảm size chữ tiêu đề */
+    }
+    .search-container {
+        width: 80%; /* Chuyển sang dùng % để co giãn theo màn hình */
+    }
+    .search-container:focus-within {
+        width: 85%;
+    }
+}
+
+/* Màn hình điện thoại (Dưới 768px) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 20px; /* Thêm padding 2 bên để text không sát mép */
+        height: 0;
+    }
+
+    .hero h1 {
+        font-size: 36px; /* Size chữ phù hợp điện thoại */
+        margin-bottom: 30px;
+        line-height: 1.2;
+    }
+
+    .search-container {
+        width: 100%; /* Full màn hình mobile (trừ padding của hero) */
+        padding: 12px 20px;
+        border-radius: 30px; /* Bo tròn vừa phải hơn */
+        flex-direction: row; /* Vẫn giữ hàng ngang hoặc dọc tùy bạn */
+    }
+
+    .search-container:focus-within {
+        width: 100%; /* Không cần nở rộng trên mobile để tránh lag */
+    }
+
+    .search-container input {
+        font-size: 10px; /* Chữ nhỏ lại một chút cho cân đối */
+    }
+
+    .search-container span {
+        font-size: 14px;
+        white-space: nowrap; /* Không cho chữ AI Search bị xuống dòng */
+    }
+}
+
+/* Màn hình điện thoại siêu nhỏ (Dưới 480px) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    /* Nếu muốn nút AI Search xuống dòng cho thoáng thì dùng đoạn này */
+    
+    /* .search-container {
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 15px;
+    } */
+   
+}
 
         /* ------------------------------------------------------------- section 2 ---------------------------------------------------------------  */
         /* --- Trading Floor (Grid) --- */
@@ -784,7 +848,7 @@
 
         <div class="plate-box">M ZS 7299</div>
 
-        <div class="scroll-indicator">SCROLL TO EXPLORE</div>
+        <!-- <div class="scroll-indicator">SCROLL TO EXPLORE</div> -->
     </div>
     <!-- ------------------------------------------ section 1 --------------------------------------------  -->
 
