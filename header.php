@@ -17,6 +17,10 @@
             --ruby-red: #E0115F;
             --gold-glow: rgba(212, 175, 55, 0.4);
             --gold-bright: #D4AF37;
+            --elite-gold: #F7E7CE;
+            --dynamic-blue: #00A8FF;
+            --titanium: #E5E4E2;
+            --gunmetal: #1C1C1C;
         }
 
         * {
@@ -162,7 +166,7 @@
             <span class="bar"></span>
         </div>
         <nav id="nav-menu">
-            <a href="suutam.php">Sưu tập</a>
+            <a href="">Sưu tập</a>
             <a>Định giá AI</a>
             <a>Đấu giá</a>
             <a href="">Liên hệ</a>

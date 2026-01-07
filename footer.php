@@ -82,7 +82,7 @@
         }
 
         .nav-column h4 {
-            color: var(--antique-gold);
+            color: var(--gold-primary);
             text-transform: uppercase;
             font-size: 0.8rem;
             letter-spacing: 2px;
@@ -121,7 +121,7 @@
 
         /* Khu vực 3: Newsletter & Contact */
         .newsletter h4 {
-            color: var(--antique-gold);
+            color: var(--gold-primary);
             text-transform: uppercase;
             font-size: 0.8rem;
             margin-bottom: 25px;
