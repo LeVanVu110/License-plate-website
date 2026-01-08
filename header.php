@@ -10,6 +10,21 @@
             --obsidian: #0B0B0B;
             --champagne: #F7E7CE;
             --titan-white: #E5E5E5;
+            --floor-gradient: radial-gradient(circle, #1A1A1A 0%, #0B0B0B 70%);
+            --laser-color: #E0FFFF;
+            --bg-deep-black: #000000;
+            --grey-dark: #222222;
+            --ruby-red: #E0115F;
+            --gold-glow: rgba(212, 175, 55, 0.4);
+            --gold-bright: #D4AF37;
+            --elite-gold: #F7E7CE;
+            --dynamic-blue: #00A8FF;
+            --titanium: #E5E4E2;
+            --gunmetal: #1C1C1C;
+            --glass: rgba(255, 255, 255, 0.03);
+            --champagnes: #D4AF37;
+            /* Màu Vàng cho Ô tô (Đã thêm s) */
+            --titaniums: #A5A9B4;
         }
 
         * {
@@ -30,7 +45,8 @@
             font-size: 24px;
             letter-spacing: 4px;
             color: var(--champagne);
-            text-decoration: none;;
+            text-decoration: none;
+            ;
         }
 
         nav a {
@@ -148,14 +164,14 @@
 
 <body>
     <header>
-        <div class="logo"><a  href="index.php" class="logo">GATEWAY</a></div>
+        <div class="logo"><a href="index.php" class="logo">GATEWAY</a></div>
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
         <nav id="nav-menu">
-            <a href="suutam.php">Sưu tập</a>
+            <a href="">Sưu tập</a>
             <a>Định giá AI</a>
             <a>Đấu giá</a>
             <a href="">Liên hệ</a>
