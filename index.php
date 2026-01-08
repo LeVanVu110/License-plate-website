@@ -1221,6 +1221,85 @@
                 grid-template-columns: 1fr;
             }
         }
+         /* ------------------------------------------ section 6 --------------------------------------------   */
+         /* --- Section Tin tức: The Journal --- */
+.section-journal {
+    padding: 100px 5%;
+    background: #000;
+    color: #fff;
+}
+
+.journal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 1 hàng ngang 3 thẻ */
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.journal-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    group: hover;
+}
+
+/* Hình ảnh khổ dọc Portrait (Tỉ lệ 3:4 hoặc 2:3) */
+.journal-img-wrapper {
+    width: 100%;
+    aspect-ratio: 3 / 4; 
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background: #1a1a1a;
+}
+
+.journal-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.journal-card:hover .journal-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.journal-category {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--champagnes); /* Dùng biến màu vàng đã tạo ở trên */
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Tiêu đề dùng font Serif sang trọng */
+.journal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    line-height: 1.3;
+    font-weight: 700;
+    margin-bottom: 15px;
+    transition: color 0.3s;
+}
+
+.journal-card:hover .journal-title {
+    color: var(--champagnes);
+}
+
+.journal-date {
+    font-size: 0.8rem;
+    color: #666;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .journal-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .journal-grid { grid-template-columns: 1fr; }
+}
     </style>
 </head>
 
@@ -1458,7 +1537,41 @@
         </div>
     </section>
     <!-- ------------------------------------------ section 6 --------------------------------------------  -->
+    <section class="section-journal">
+    <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+        <h2 style="font-family: 'Playfair Display'; font-size: 42px; letter-spacing: 2px;">THE JOURNAL</h2>
+        <div style="width: 50px; height: 1px; background: var(--champagnes); margin: 20px auto;"></div>
+    </div>
 
+    <div class="journal-grid">
+        <a href="#" class="journal-card">
+            <div class="journal-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop" alt="The Art of Speed">
+            </div>
+            <span class="journal-category">Lifestyle</span>
+            <h3 class="journal-title">Nghệ thuật chọn biển số: Đẳng cấp khẳng định vị thế chủ nhân</h3>
+            <span class="journal-date">OCTOBER 24, 2023</span>
+        </a>
+
+        <a href="#" class="journal-card">
+            <div class="journal-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" alt="Luxury Interior">
+            </div>
+            <span class="journal-category">Market Update</span>
+            <h3 class="journal-title">Xu hướng thị trường biển số xe máy ngũ quý cuối năm 2023</h3>
+            <span class="journal-date">OCTOBER 20, 2023</span>
+        </a>
+
+        <a href="#" class="journal-card">
+            <div class="journal-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop" alt="Racing Heritage">
+            </div>
+            <span class="journal-category">Exclusive</span>
+            <h3 class="journal-title">Phỏng vấn giới sưu tầm: Tại sao "Bạc Titanium" lại lên ngôi?</h3>
+            <span class="journal-date">OCTOBER 15, 2023</span>
+        </a>
+    </div>
+</section>
     <?php include "footer.php" ?>
     <script>
         // ------------------------------- phần 1 video xe banner------------------------  //
