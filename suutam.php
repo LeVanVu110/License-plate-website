@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Masterpiece | Bộ Sưu Tập Độc Bản</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --gold-glow: rgba(212, 175, 55, 0.1);
@@ -400,7 +400,112 @@
         }
 
         /* ---------------------------------------- section 3----------------------------------  */
+        .value-prospect {
+            background: var(--obsidian);
+            padding: 120px 8%;
+            min-height: 80vh;
+            color: #fff;
+        }
 
+        .value-container {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        /* Phần biểu đồ */
+        .chart-box {
+            flex: 0 0 60%;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 320px;
+            margin-top: 40px;
+            border-bottom: 1px solid #333;
+            border-left: 1px solid #333;
+        }
+
+        /* Phần chỉ số */
+        .metrics-box {
+            flex: 0 0 40%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding-top: 80px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px 20px;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .metric-card:hover {
+            background: rgba(212, 175, 55, 0.05);
+            border-color: var(--gold-heritage);
+        }
+
+        .metric-label {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--lead-gray);
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .metric-value {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .neon-text {
+            color: #00FF41;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+        }
+
+        .metric-desc {
+            font-size: 0.8rem;
+            color: var(--lead-gray);
+            line-height: 1.4;
+        }
+
+        .main-title-serif {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--smoke-white);
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 1024px) {
+            .value-container {
+                flex-direction: column;
+            }
+
+            .chart-box,
+            .metrics-box {
+                flex: 0 0 100%;
+                width: 100%;
+            }
+
+            .metrics-box {
+                display: flex;
+                overflow-x: auto;
+                gap: 15px;
+                padding-bottom: 20px;
+                scroll-snap-type: x mandatory;
+                padding-top: 0;
+            }
+
+            .metric-card {
+                min-width: 250px;
+                scroll-snap-align: center;
+            }
+        }
 
         /* ---------------------------------------- section 4----------------------------------  */
 
@@ -475,6 +580,46 @@
     </section>
     <!-- -----------------------------------section 3 -----------------------------------  -->
 
+
+    <section class="value-prospect">
+        <div class="value-container">
+            <div class="chart-box">
+                <div class="chart-header">
+                    <span class="sub-headline">MARKET ANALYSIS</span>
+                    <h2 class="main-title-serif">Tăng trưởng giá trị</h2>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="valueChart"></canvas>
+                </div>
+            </div>
+
+            <div class="metrics-box">
+                <div class="metric-card">
+                    <span class="metric-label">RARITY</span>
+                    <div class="metric-value"><span class="counter">0.01</span>%</div>
+                    <p class="metric-desc">Tỷ lệ xuất hiện trên toàn quốc</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-label">DEMAND</span>
+                    <div class="metric-value">+<span class="counter">1250</span></div>
+                    <p class="metric-desc">Nhà sưu tầm đang săn đón</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-label">ANNUAL GROWTH</span>
+                    <div class="metric-value neon-text">+<span class="counter">45</span>%</div>
+                    <p class="metric-desc">Lợi nhuận trung bình hàng năm</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-label">LIQUIDITY</span>
+                    <div class="metric-value">HIGH</div>
+                    <p class="metric-desc">Thời gian thanh khoản: 24h - 72h</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- -----------------------------------section 4 -----------------------------------  -->
 
@@ -602,7 +747,118 @@
         });
 
         // -------------------------------------- section 3 ------------------------------- //
+        // --- 1. HIỆU ỨNG DATA DRAW (Biểu đồ tự vẽ) & HOVER POINT (Tooltip) ---
+        const ctx = document.getElementById('valueChart').getContext('2d');
 
+        // Tạo gradient cho đường biểu đồ
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgba(212, 175, 55, 0.2)');
+        gradient.addColorStop(1, 'rgba(212, 175, 55, 0)');
+
+        const valueChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+                datasets: [{
+                    label: 'Giá trị (Tỷ VNĐ)',
+                    data: [0.8, 1.3, 1.1, 2.2, 2.8, 3.5],
+                    borderColor: '#D4AF37',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#D4AF37',
+                    pointBorderColor: '#000',
+                    pointHoverRadius: 8, // Hiệu ứng khi hover vào điểm
+                    pointHoverBorderWidth: 3,
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: gradient,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                // Cấu hình Tooltip (Hover Point)
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: '#111',
+                        titleFont: {
+                            family: 'Inter',
+                            size: 14
+                        },
+                        bodyFont: {
+                            family: 'Inter',
+                            size: 13
+                        },
+                        padding: 12,
+                        displayColors: false,
+                        borderColor: '#D4AF37',
+                        borderWidth: 1,
+                        callbacks: {
+                            label: function(context) {
+                                return ' Giá trị: ' + context.parsed.y + ' Tỷ VNĐ';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        display: false
+                    }, // Ẩn trục Y cho tối giản
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#888',
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                },
+                // Quan trọng: Animation Draw
+                animation: {
+                    duration: 2500,
+                    easing: 'easeOutQuart'
+                }
+            }
+        });
+
+        // Kích hoạt vẽ lại biểu đồ khi cuộn tới
+        ScrollTrigger.create({
+            trigger: ".value-prospect",
+            start: "top 70%",
+            onEnter: () => {
+                valueChart.update(); // Chạy hiệu ứng vẽ
+            }
+        });
+
+        // --- 2. HIỆU ỨNG NUMBER COUNTER (Số chạy tăng dần) ---
+        const counters = document.querySelectorAll('.counter');
+
+        counters.forEach(counter => {
+            const target = +counter.innerText; // Lấy giá trị đích từ HTML
+            counter.innerText = "0"; // Reset về 0 trước khi chạy
+
+            gsap.to(counter, {
+                innerText: target,
+                duration: 2.5,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".value-prospect",
+                    start: "top 75%",
+                },
+                snap: {
+                    innerText: 1
+                }, // Nhảy số nguyên (hoặc 0.1 nếu là số thập phân)
+                onUpdate: function() {
+                    // Định dạng lại số nếu cần (thêm dấu phẩy...)
+                    // counter.innerText = Math.ceil(this.targets()[0].innerText);
+                }
+            });
+        });
 
         // -------------------------------------- section 4 ------------------------------- //
 
