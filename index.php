@@ -320,7 +320,7 @@
         }
 
         .plate-number {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 700;
             letter-spacing: 5px;
             color: var(--titan-white);
@@ -1144,6 +1144,7 @@
 
             .bike-card {
                 padding: 10px;
+                width: 80%;
             }
 
             /* Thu nhỏ khu vực hiển thị biển số */
@@ -1179,6 +1180,7 @@
         @media (max-width: 600px) {
             .bike-grid {
                 grid-template-columns: 1fr;
+                justify-items: anchor-center;
             }
         }
 
@@ -1212,6 +1214,7 @@
             .bike-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
         }
 
         @media (max-width: 600px) {
@@ -1219,93 +1222,143 @@
             .car-grid,
             .bike-grid {
                 grid-template-columns: 1fr;
+                justify-items: anchor-center;
+            }
+            .car-card{
+                width: 80%;
             }
         }
-         /* ------------------------------------------ section 6 --------------------------------------------   */
-         /* --- Section Tin tức: The Journal --- */
-.section-journal {
-    padding: 100px 5%;
-    background: #000;
-    color: #fff;
-}
 
-.journal-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 1 hàng ngang 3 thẻ */
-    gap: 40px;
-    margin-top: 50px;
-}
+        /* Ẩn các card có class hidden-card  ô tô*/
+        .hidden-card {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
 
-.journal-card {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    group: hover;
-}
+        /* Hiệu ứng khi hiện ra xe máy */
+        .show-card {
+            display: block !important;
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-/* Hình ảnh khổ dọc Portrait (Tỉ lệ 3:4 hoặc 2:3) */
-.journal-img-wrapper {
-    width: 100%;
-    aspect-ratio: 3 / 4; 
-    overflow: hidden;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    background: #1a1a1a;
-}
+        #loadMoreBtn:hover {
+            background: var(--champagnes);
+            color: #000;
+        }
 
-.journal-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
+        .hidden-bike {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+        }
 
-.journal-card:hover .journal-img-wrapper img {
-    transform: scale(1.1);
-}
+        .show-bike {
+            display: block !important;
+            animation: fadeInUp 0.6s ease forwards;
+        }
 
-.journal-category {
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--champagnes); /* Dùng biến màu vàng đã tạo ở trên */
-    margin-bottom: 10px;
-    display: block;
-}
+        #loadMoreBikes:hover {
+            background: var(--titaniums);
+            color: #000;
+        }
 
-/* Tiêu đề dùng font Serif sang trọng */
-.journal-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    line-height: 1.3;
-    font-weight: 700;
-    margin-bottom: 15px;
-    transition: color 0.3s;
-}
+        /* ------------------------------------------ section 6 --------------------------------------------   */
+        /* --- Section Tin tức: The Journal --- */
+        .section-journal {
+            padding: 100px 5%;
+            background: #000;
+            color: #fff;
+        }
 
-.journal-card:hover .journal-title {
-    color: var(--champagnes);
-}
+        .journal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* 1 hàng ngang 3 thẻ */
+            gap: 40px;
+            margin-top: 50px;
+        }
 
-.journal-date {
-    font-size: 0.8rem;
-    color: #666;
-    font-family: 'Inter', sans-serif;
-}
+        .journal-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            group: hover;
+        }
 
-/* Responsive */
-@media (max-width: 1024px) {
-    .journal-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 768px) {
-    .journal-grid { grid-template-columns: 1fr; }
-}
+        /* Hình ảnh khổ dọc Portrait (Tỉ lệ 3:4 hoặc 2:3) */
+        .journal-img-wrapper {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            background: #1a1a1a;
+        }
+
+        .journal-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .journal-card:hover .journal-img-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .journal-category {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--champagnes);
+            /* Dùng biến màu vàng đã tạo ở trên */
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Tiêu đề dùng font Serif sang trọng */
+        .journal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            line-height: 1.3;
+            font-weight: 700;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .journal-card:hover .journal-title {
+            color: var(--champagnes);
+        }
+
+        .journal-date {
+            font-size: 0.8rem;
+            color: #666;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .journal-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .journal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <!-- ------------------------------------------ phần 1video xe banner || phần 2 nav-menu --------------------------------------------  -->
+    <!-- ------------------------------------------ Header --------------------------------------------  -->
     <?php include "header.php" ?>
+
+    <!-- ------------------------------------------ phần 1video xe banner || phần 2 nav-menu --------------------------------------------  -->
 
     <div class="video-container">
         <video id="car-video" autoplay muted playsinline>
@@ -1469,25 +1522,60 @@
             <p style="color: #666;">Dòng biển số định danh dành cho xe ô tô</p>
         </div>
 
-        <div class="car-grid">
+        <div class="car-grid" id="carGrid">
             <div class="gallery-card car-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
                 <div class="plate-ui-car">30K-999.99</div>
-                <div style="color: #fff; text-align: center; font-weight: bold; font-size: 1.3rem;">3.200.000.000 đ</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">3.200.000.000 đ</div>
             </div>
             <div class="gallery-card car-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
                 <div class="plate-ui-car">51K-888.88</div>
-                <div style="color: #fff; text-align: center; font-weight: bold; font-size: 1.3rem;">2.850.000.000 đ</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">2.850.000.000 đ</div>
             </div>
-
             <div class="gallery-card car-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
                 <div class="plate-ui-car">43A-666.66</div>
-                <div style="color: #fff; text-align: center; font-weight: bold; font-size: 1.3rem;">1.500.000.000 đ</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">1.500.000.000 đ</div>
+            </div>
+
+            <div class="gallery-card car-card ">
+                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
+                <div class="plate-ui-car">30L-555.55</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">950.000.000 đ</div>
+            </div>
+            <div class="gallery-card car-card ">
+                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
+                <div class="plate-ui-car">51L-222.22</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">820.000.000 đ</div>
+            </div>
+            <div class="gallery-card car-card ">
+                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
+                <div class="plate-ui-car">15A-999.99</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">1.200.000.000 đ</div>
+            </div>
+            <div class="gallery-card car-card hidden-card">
+                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
+                <div class="plate-ui-car">30K-123.45</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">450.000.000 đ</div>
+            </div>
+            <div class="gallery-card car-card hidden-card">
+                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
+                <div class="plate-ui-car">51K-678.90</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">380.000.000 đ</div>
+            </div>
+            <div class="gallery-card car-card hidden-card">
+                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
+                <div class="plate-ui-car">30L-888.68</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">760.000.000 đ</div>
             </div>
         </div>
 
+        <div style="text-align: center; margin-top: 50px;">
+            <button id="loadMoreBtn" style="background: transparent; border: 1px solid var(--champagnes); color: var(--champagnes); padding: 12px 35px; cursor: pointer; font-family: 'Inter'; font-weight: bold; letter-spacing: 2px; transition: all 0.3s;">
+                XEM THÊM
+            </button>
+        </div>
     </section>
 
     <section class="section-bikes" style="padding: 3%;">
@@ -1495,10 +1583,10 @@
             <h2 style="color: var(--titaniums); font-family: 'Playfair Display'; font-size: 35px; text-transform: uppercase; letter-spacing: 3px;">
                 Motorbike Collection
             </h2>
-            <p style="color: #666;">Dòng biển số xe máy </p>
+            <p style="color: #666;">Dòng biển số xe máy - Đẳng cấp Titanium</p>
         </div>
 
-        <div class="bike-grid">
+        <div class="bike-grid" id="bikeGrid">
             <div class="gallery-card bike-card">
                 <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
                 <div class="plate-ui-bike">
@@ -1507,7 +1595,6 @@
                 </div>
                 <div style="color: #fff; text-align: center; font-weight: bold;">155.000.000 đ</div>
             </div>
-
             <div class="gallery-card bike-card">
                 <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
                 <div class="plate-ui-bike">
@@ -1516,7 +1603,6 @@
                 </div>
                 <div style="color: #fff; text-align: center; font-weight: bold;">92.000.000 đ</div>
             </div>
-
             <div class="gallery-card bike-card">
                 <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
                 <div class="plate-ui-bike">
@@ -1525,7 +1611,6 @@
                 </div>
                 <div style="color: #fff; text-align: center; font-weight: bold;">88.000.000 đ</div>
             </div>
-
             <div class="gallery-card bike-card">
                 <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
                 <div class="plate-ui-bike">
@@ -1534,44 +1619,100 @@
                 </div>
                 <div style="color: #fff; text-align: center; font-weight: bold;">75.000.000 đ</div>
             </div>
+            <div class="gallery-card bike-card">
+                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
+                <div class="plate-ui-bike">
+                    <div class="top">29-P1</div>
+                    <div class="bottom">999.99</div>
+                </div>
+                <div style="color: #fff; text-align: center; font-weight: bold;">110.000.000 đ</div>
+            </div>
+            <div class="gallery-card bike-card">
+                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
+                <div class="plate-ui-bike">
+                    <div class="top">51-F3</div>
+                    <div class="bottom">555.55</div>
+                </div>
+                <div style="color: #fff; text-align: center; font-weight: bold;">85.000.000 đ</div>
+            </div>
+            <div class="gallery-card bike-card">
+                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
+                <div class="plate-ui-bike">
+                    <div class="top">75-G1</div>
+                    <div class="bottom">222.22</div>
+                </div>
+                <div style="color: #fff; text-align: center; font-weight: bold;">65.000.000 đ</div>
+            </div>
+            <div class="gallery-card bike-card">
+                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
+                <div class="plate-ui-bike">
+                    <div class="top">37-B2</div>
+                    <div class="bottom">333.33</div>
+                </div>
+                <div style="color: #fff; text-align: center; font-weight: bold;">70.000.000 đ</div>
+            </div>
+
+            <div class="gallery-card bike-card hidden-bike">
+                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
+                <div class="plate-ui-bike">
+                    <div class="top">60-B8</div>
+                    <div class="bottom">888.88</div>
+                </div>
+                <div style="color: #fff; text-align: center; font-weight: bold;">95.000.000 đ</div>
+            </div>
+            <div class="gallery-card bike-card hidden-bike">
+                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
+                <div class="plate-ui-bike">
+                    <div class="top">92-H1</div>
+                    <div class="bottom">678.89</div>
+                </div>
+                <div style="color: #fff; text-align: center; font-weight: bold;">45.000.000 đ</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <button id="loadMoreBikes" style="background: transparent; border: 1px solid var(--titaniums); color: var(--titaniums); padding: 12px 35px; cursor: pointer; font-family: 'Inter'; font-weight: bold; letter-spacing: 2px; transition: all 0.3s;">
+                XEM THÊM XE MÁY
+            </button>
         </div>
     </section>
     <!-- ------------------------------------------ section 6 --------------------------------------------  -->
     <section class="section-journal">
-    <div class="section-header" style="text-align: center; margin-bottom: 60px;">
-        <h2 style="font-family: 'Playfair Display'; font-size: 42px; letter-spacing: 2px;">THE JOURNAL</h2>
-        <div style="width: 50px; height: 1px; background: var(--champagnes); margin: 20px auto;"></div>
-    </div>
+        <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+            <h2 style="font-family: 'Playfair Display'; font-size: 42px; letter-spacing: 2px;">THE JOURNAL</h2>
+            <div style="width: 50px; height: 1px; background: var(--champagnes); margin: 20px auto;"></div>
+        </div>
 
-    <div class="journal-grid">
-        <a href="#" class="journal-card">
-            <div class="journal-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop" alt="The Art of Speed">
-            </div>
-            <span class="journal-category">Lifestyle</span>
-            <h3 class="journal-title">Nghệ thuật chọn biển số: Đẳng cấp khẳng định vị thế chủ nhân</h3>
-            <span class="journal-date">OCTOBER 24, 2023</span>
-        </a>
+        <div class="journal-grid">
+            <a href="#" class="journal-card">
+                <div class="journal-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop" alt="The Art of Speed">
+                </div>
+                <span class="journal-category">Lifestyle</span>
+                <h3 class="journal-title">Nghệ thuật chọn biển số: Đẳng cấp khẳng định vị thế chủ nhân</h3>
+                <span class="journal-date">OCTOBER 24, 2023</span>
+            </a>
 
-        <a href="#" class="journal-card">
-            <div class="journal-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" alt="Luxury Interior">
-            </div>
-            <span class="journal-category">Market Update</span>
-            <h3 class="journal-title">Xu hướng thị trường biển số xe máy ngũ quý cuối năm 2023</h3>
-            <span class="journal-date">OCTOBER 20, 2023</span>
-        </a>
+            <a href="#" class="journal-card">
+                <div class="journal-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" alt="Luxury Interior">
+                </div>
+                <span class="journal-category">Market Update</span>
+                <h3 class="journal-title">Xu hướng thị trường biển số xe máy ngũ quý cuối năm 2023</h3>
+                <span class="journal-date">OCTOBER 20, 2023</span>
+            </a>
 
-        <a href="#" class="journal-card">
-            <div class="journal-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop" alt="Racing Heritage">
-            </div>
-            <span class="journal-category">Exclusive</span>
-            <h3 class="journal-title">Phỏng vấn giới sưu tầm: Tại sao "Bạc Titanium" lại lên ngôi?</h3>
-            <span class="journal-date">OCTOBER 15, 2023</span>
-        </a>
-    </div>
-</section>
+            <a href="#" class="journal-card">
+                <div class="journal-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop" alt="Racing Heritage">
+                </div>
+                <span class="journal-category">Exclusive</span>
+                <h3 class="journal-title">Phỏng vấn giới sưu tầm: Tại sao "Bạc Titanium" lại lên ngôi?</h3>
+                <span class="journal-date">OCTOBER 15, 2023</span>
+            </a>
+        </div>
+    </section>
+    <!-- ------------------------------------------ footer --------------------------------------------  -->
     <?php include "footer.php" ?>
     <script>
         // ------------------------------- phần 1 video xe banner------------------------  //
@@ -1752,6 +1893,28 @@
         }
 
         startCountdown();
+        // --------------------------------- section 5 --------------------------- //
+        // 1. Sự kiện cho Ô tô
+        document.getElementById('loadMoreBtn').addEventListener('click', function() {
+            const hiddenCards = document.querySelectorAll('.hidden-card');
+            hiddenCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('show-card');
+                }, index * 100);
+            });
+            this.style.display = 'none';
+        }); // Kết thúc sự kiện ô tô ở đây
+
+        // 2. Sự kiện cho Xe máy (Đưa ra ngoài để chạy độc lập)
+        document.getElementById('loadMoreBikes').addEventListener('click', function() {
+            const hiddenBikes = document.querySelectorAll('.hidden-bike');
+            hiddenBikes.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('show-bike');
+                }, index * 100);
+            });
+            this.style.display = 'none';
+        });
     </script>
 </body>
 
