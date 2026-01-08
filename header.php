@@ -21,6 +21,10 @@
             --dynamic-blue: #00A8FF;
             --titanium: #E5E4E2;
             --gunmetal: #1C1C1C;
+            --glass: rgba(255, 255, 255, 0.03);
+            --champagnes: #D4AF37;
+            /* Màu Vàng cho Ô tô (Đã thêm s) */
+            --titaniums: #A5A9B4;
         }
 
         * {
@@ -37,11 +41,12 @@
         }
 
         .logo {
-            font-weight: 700;   
+            font-weight: 700;
             font-size: 24px;
             letter-spacing: 4px;
             color: var(--champagne);
-            text-decoration: none;;
+            text-decoration: none;
+            ;
         }
 
         nav a {
@@ -159,7 +164,7 @@
 
 <body>
     <header>
-        <div class="logo"><a  href="index.php" class="logo">GATEWAY</a></div>
+        <div class="logo"><a href="index.php" class="logo">GATEWAY</a></div>
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
