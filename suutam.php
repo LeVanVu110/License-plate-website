@@ -20,49 +20,57 @@
 
         /* ---------------------------------------- section 1----------------------------------  */
         .bg-text-back {
-        position: absolute;
-        font-family: 'Playfair Display', serif;
-        font-weight: 900;
-        color: #fff;
-        opacity: 0.20;
-        z-index: 1;
-        letter-spacing: 20px;
-        pointer-events: none;
-        transition: all 0.5s ease;
-        text-align: center;
-        width: 100%;
-        font-size: 15rem; /* Desktop mặc định */
-    }
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            color: #fff;
+            opacity: 0.20;
+            z-index: 1;
+            letter-spacing: 20px;
+            pointer-events: none;
+            transition: all 0.5s ease;
+            text-align: center;
+            width: 100%;
+            font-size: 15rem;
+            /* Desktop mặc định */
+        }
 
-    /* Container bao ngoài */
-.artifact-container {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    background: #000000;
-    display: flex;             /* Sử dụng Flexbox */
-    flex-direction: column;    /* Xếp các thành phần theo hàng dọc */
-    justify-content: center;   /* Căn giữa theo chiều dọc */
-    align-items: center;       /* Căn giữa theo chiều ngang - QUAN TRỌNG */
-    overflow: hidden;
-}
+        /* Container bao ngoài */
+        .artifact-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            background: #000000;
+            display: flex;
+            /* Sử dụng Flexbox */
+            flex-direction: column;
+            /* Xếp các thành phần theo hàng dọc */
+            justify-content: center;
+            /* Căn giữa theo chiều dọc */
+            align-items: center;
+            /* Căn giữa theo chiều ngang - QUAN TRỌNG */
+            overflow: hidden;
+        }
 
-/* Biển số trung tâm */
-.plate-artifact {
-    width: 450px;              /* Kích thước Desktop */
-    height: 110px;
-    background: linear-gradient(135deg, #fff 0%, #dcdcdc 50%, #fff 100%);
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid #aaa;
-    z-index: 10;
-    margin: 0 auto;            /* Đảm bảo lề tự động căn giữa */
-    box-shadow: 0 40px 100px rgba(0,0,0,1);
-    filter: drop-shadow(0 20px 50px rgba(0,0,0,0.8));
-    transform-style: preserve-3d; /* Giúp hiệu ứng nghiêng mượt hơn */
-}
+        /* Biển số trung tâm */
+        .plate-artifact {
+            width: 450px;
+            /* Kích thước Desktop */
+            height: 110px;
+            background: linear-gradient(135deg, #fff 0%, #dcdcdc 50%, #fff 100%);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #aaa;
+            z-index: 10;
+            margin: 0 auto;
+            /* Đảm bảo lề tự động căn giữa */
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 1);
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.8));
+            transform-style: preserve-3d;
+            /* Giúp hiệu ứng nghiêng mượt hơn */
+        }
 
         /* 2. Quầng sáng sau biển số */
         .glow-backdrop {
@@ -135,59 +143,77 @@
         }
 
         /* Chỉ dẫn cuộn */
-    .scroll-guide {
-        position: absolute;
-        bottom: 30px;
-        text-align: center;
-        z-index: 20;
-        color: var(--silver-text);
-    }
-
-    .scroll-text {
-        font-size: 0.7rem;
-        letter-spacing: 4px;
-        display: block;
-    }
-
-    /* --- RESPONSIVE CHO MOBILE --- */
-    @media (max-width: 768px) {
-        .artifact-container {
-            align-items: center;
-            padding-top: 0; /* Có thể chỉnh padding để đẩy lên cao nếu cần */
-            height: 65vh;
-        }
-
-        .bg-text-back {
-            font-size: 2rem; /* Thu nhỏ font */
-            letter-spacing: 11px;
-            top: 55%; /* Đẩy lên trên biển số */
-        }
-
-        .plate-artifact {
-            width: 50vw; /* Tràn lề 50vw */ 
-            height: auto;
-            aspect-ratio: 16/5;
-        }
-
-        .plate-inner {
-            font-size: 4vw; /* Chữ trong biển số tự co giãn 4vw */
-            letter-spacing: 5px;
+        .scroll-guide {
+            position: absolute;
+            bottom: 30px;
+            text-align: center;
+            z-index: 20;
+            color: var(--silver-text);
         }
 
         .scroll-text {
-            display: none; /* Ẩn chữ trên mobile */
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            display: block;
         }
 
-        .arrow-down {
-            animation: pulse 2s infinite; /* Hiệu ứng Pulse cho mũi tên */
-        }
-    }
+        /* --- RESPONSIVE CHO MOBILE --- */
+        @media (max-width: 768px) {
+            .artifact-container {
+                align-items: center;
+                padding-top: 0;
+                /* Có thể chỉnh padding để đẩy lên cao nếu cần */
+                height: 65vh;
+            }
 
-    @keyframes pulse {
-        0% { transform: scale(1); opacity: 0.3; }
-        50% { transform: scale(1.2); opacity: 0.8; }
-        100% { transform: scale(1); opacity: 0.3; }
-    }
+            .bg-text-back {
+                font-size: 2rem;
+                /* Thu nhỏ font */
+                letter-spacing: 11px;
+                top: 55%;
+                /* Đẩy lên trên biển số */
+            }
+
+            .plate-artifact {
+                width: 50vw;
+                /* Tràn lề 50vw */
+                height: auto;
+                aspect-ratio: 16/5;
+            }
+
+            .plate-inner {
+                font-size: 4vw;
+                /* Chữ trong biển số tự co giãn 4vw */
+                letter-spacing: 5px;
+            }
+
+            .scroll-text {
+                display: none;
+                /* Ẩn chữ trên mobile */
+            }
+
+            .arrow-down {
+                animation: pulse 2s infinite;
+                /* Hiệu ứng Pulse cho mũi tên */
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+        }
 
         /* ---------------------------------------- section 2----------------------------------  */
         .heritage-hall {
@@ -285,26 +311,93 @@
             flex-direction: column;
             align-items: flex-end;
         }
-        /* Mobile CSS cho Section 2 */
-@media (max-width: 768px) {
-    .heritage-block {
-        flex-direction: column !important; /* Ép về một hàng dọc */
-        text-align: center;
-        gap: 30px;
-    }
-    /* Đảm bảo ảnh luôn nằm trên văn bản */
-    .heritage-block.reverse {
-        flex-direction: column-reverse !important;
-    }
-    .story-content {
-        width: 100%;
-        padding: 0 10px;
-    }
-    .showcase-image-wrapper {
-        width: 100%;
-        height: auto;
-    }
-}
+
+        /* --- RESPONSIVE CHO SECTION 2 (HERITAGE HALL) --- */
+        @media (max-width: 768px) {
+            .heritage-hall {
+                padding: 80px 0;
+                /* Giảm padding tổng thể */
+            }
+
+            /* Vô hiệu hóa đường kẻ dọc trên mobile để đỡ rối mắt */
+            .vertical-line-guide {
+                display: none;
+            }
+
+            .heritage-block {
+                flex-direction: column !important;
+                /* Chuyển sang hàng dọc cho tất cả các block */
+                padding: 0px 8% 46% 8% !important;
+                /* Tăng khoảng cách giữa các khối sản phẩm */
+                text-align: center !important;
+                min-height: 80vh !important;
+                /* Căn giữa toàn bộ văn bản */
+            }
+
+            /* 1. Kích thước ảnh: Chiếm 100% chiều ngang */
+            .showcase-container {
+                width: 100% !important;
+                flex: none !important;
+                padding: 0;
+                margin-bottom: 30px;
+                /* Giảm khoảng cách giữa ảnh và chữ */
+            }
+
+            .glass-frame {
+                width: 100% !important;
+                /* Tràn lề */
+                border-radius: 0;
+                /* Bỏ bo góc để tạo cảm giác tràn viền quyền lực */
+                border-left: none;
+                border-right: none;
+                aspect-ratio: 16/9;
+            }
+
+            .plate-mini {
+                transform: scale(0.7);
+                /* Thu nhỏ biển số một chút để cân đối với khung hình mobile */
+            }
+
+            /* 2. Căn lề văn bản và Font chữ */
+            .story-container {
+                width: 100% !important;
+                flex: none !important;
+                padding: 0 25px !important;
+                /* Padding vừa đủ để không chạm mép màn hình */
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .main-title {
+                font-size: 2.2rem !important;
+                /* Giảm kích cỡ khoảng 30% */
+                font-weight: 900 !important;
+                /* Tăng độ dày */
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+
+            .sub-headline {
+                letter-spacing: 3px;
+                margin-bottom: 10px;
+            }
+
+            .description {
+                font-size: 1rem;
+                line-height: 1.6;
+                max-width: 100%;
+                /* Cho phép text dàn trải đều */
+                margin: 0 auto;
+            }
+
+            /* Loại bỏ căn lề phải của block-right trên mobile */
+            .block-right .story-container {
+                text-align: center !important;
+                align-items: center !important;
+            }
+        }
 
         /* ---------------------------------------- section 3----------------------------------  */
 
@@ -325,23 +418,23 @@
 <body>
     <!-- -----------------------------------section 1 -----------------------------------  -->
     <section class="artifact-container">
-    <div class="bg-text-back" id="bgText">MASTERPIECE</div>
-    <div class="glow-backdrop"></div>
+        <div class="bg-text-back" id="bgText">MASTERPIECE</div>
+        <div class="glow-backdrop"></div>
 
-    <div class="plate-wrapper">
-        <div class="plate-artifact" id="mainPlate">
-            <div class="plate-content">
-                <div class="plate-inner">30K - 999.99</div>
-                <div class="shine-streak"></div>
+        <div class="plate-wrapper">
+            <div class="plate-artifact" id="mainPlate">
+                <div class="plate-content">
+                    <div class="plate-inner">30K - 999.99</div>
+                    <div class="shine-streak"></div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="scroll-guide">
-        <span class="scroll-text">SCROLL TO EXPLORE</span>
-        <div class="arrow-down"></div>
-    </div>
-</section>
+        <div class="scroll-guide">
+            <span class="scroll-text">SCROLL TO EXPLORE</span>
+            <div class="arrow-down"></div>
+        </div>
+    </section>
     <!-- -----------------------------------section 2 -----------------------------------  -->
     <section class="heritage-hall">
         <div class="vertical-line-guide"></div>
@@ -399,112 +492,114 @@
     <?php include "footer.php" ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
         // -------------------------------------- section 1 ------------------------------- //
         const plate = document.getElementById('mainPlate');
-    const isMobile = window.innerWidth <= 768;
+        const isMobile = window.innerWidth <= 768;
 
-    // 1. Hiệu ứng lơ lửng chung (Floating)
-    gsap.to(plate, {
-        y: -15,
-        duration: 3,
-        ease: "power1.inOut",
-        yoyo: true,
-        repeat: -1
-    });
-
-    if (!isMobile) {
-        // --- CHẾ ĐỘ DESKTOP: Nghiêng theo chuột ---
-        document.addEventListener('mousemove', (e) => {
-            const { clientX, clientY } = e;
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-
-            const rotateX = (centerY - clientY) / 25;
-            const rotateY = (clientX - centerX) / 25;
-
-            gsap.to(plate, {
-                rotateX: rotateX,
-                rotateY: rotateY,
-                duration: 0.5,
-                ease: "power2.out"
-            });
-        });
-    } else {
-        // --- CHẾ ĐỘ MOBILE: Nghiêng tự động (Auto-tilt) ---
+        // 1. Hiệu ứng lơ lửng chung (Floating)
         gsap.to(plate, {
-            rotateY: 15,
-            rotateX: 5,
-            duration: 2.5,
-            ease: "sine.inOut",
+            y: -15,
+            duration: 3,
+            ease: "power1.inOut",
             yoyo: true,
             repeat: -1
         });
-        
-        // Đẩy tiêu đề nền lên trên biển số một chút bằng GSAP nếu cần tinh chỉnh
-        gsap.set("#bgText", { y: -100 });
-    }
+
+        if (!isMobile) {
+            // --- CHẾ ĐỘ DESKTOP: Nghiêng theo chuột ---
+            document.addEventListener('mousemove', (e) => {
+                const {
+                    clientX,
+                    clientY
+                } = e;
+                const centerX = window.innerWidth / 2;
+                const centerY = window.innerHeight / 2;
+
+                const rotateX = (centerY - clientY) / 25;
+                const rotateY = (clientX - centerX) / 25;
+
+                gsap.to(plate, {
+                    rotateX: rotateX,
+                    rotateY: rotateY,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            });
+        } else {
+            // --- CHẾ ĐỘ MOBILE: Nghiêng tự động (Auto-tilt) ---
+            gsap.to(plate, {
+                rotateY: 15,
+                rotateX: 5,
+                duration: 2.5,
+                ease: "sine.inOut",
+                yoyo: true,
+                repeat: -1
+            });
+
+            // Đẩy tiêu đề nền lên trên biển số một chút bằng GSAP nếu cần tinh chỉnh
+            gsap.set("#bgText", {
+                y: -100
+            });
+        }
         // -------------------------------------- section 2 ------------------------------- //
         // Đăng ký plugin với GSAP
-    gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger);
 
-    // Kiểm tra nếu các phần tử tồn tại trước khi chạy để tránh lỗi
-    const blocks = gsap.utils.toArray(".heritage-block");
-    
-    blocks.forEach((block) => {
-        const subTitle = block.querySelector(".sub-headline");
-        const mainTitle = block.querySelector(".main-title");
-        const desc = block.querySelector(".description");
-        const imgFrame = block.querySelector(".glass-frame");
+        // Kiểm tra nếu các phần tử tồn tại trước khi chạy để tránh lỗi
+        const blocks = gsap.utils.toArray(".heritage-block");
 
-        // Tạo Timeline cho từng block
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: block,
-                start: "top 80%", // Kích hoạt khi block cách đỉnh màn hình 80%
-                toggleActions: "play none none reverse"
-            }
-        });
+        blocks.forEach((block) => {
+            const subTitle = block.querySelector(".sub-headline");
+            const mainTitle = block.querySelector(".main-title");
+            const desc = block.querySelector(".description");
+            const imgFrame = block.querySelector(".glass-frame");
 
-        tl.from(subTitle, {
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out"
-        })
-        .from(mainTitle, {
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out"
-        }, "-=0.6")
-        .from(desc, {
-            y: 40,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out"
-        }, "-=0.7");
+            // Tạo Timeline cho từng block
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: block,
+                    start: "top 80%", // Kích hoạt khi block cách đỉnh màn hình 80%
+                    toggleActions: "play none none reverse"
+                }
+            });
 
-        // Hiệu ứng Zoom hình ảnh từ 1.1 về 1
-        gsap.fromTo(imgFrame, 
-            { 
-                scale: 1.15, 
-                opacity: 0 
-            }, 
-            { 
-                scale: 1, 
-                opacity: 1, 
-                duration: 1.5, 
+            tl.from(subTitle, {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "power3.out"
+                })
+                .from(mainTitle, {
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power3.out"
+                }, "-=0.6")
+                .from(desc, {
+                    y: 40,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power3.out"
+                }, "-=0.7");
+
+            // Hiệu ứng Zoom hình ảnh từ 1.1 về 1
+            gsap.fromTo(imgFrame, {
+                scale: 1.15,
+                opacity: 0
+            }, {
+                scale: 1,
+                opacity: 1,
+                duration: 1.5,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: imgFrame,
                     start: "top 90%",
                 }
-            }
-        );
-    });
+            });
+        });
 
         // -------------------------------------- section 3 ------------------------------- //
 
