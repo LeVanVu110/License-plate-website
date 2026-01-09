@@ -224,6 +224,141 @@
         }
 
         /* ------------------------------ section 2--------------------------  */
+        .neural-processing {
+        position: relative;
+        height: 100vh;
+        background: #020202;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-family: 'Roboto Mono', monospace; /* Font kiểu mã lệnh */
+    }
+
+    /* Terminal Text */
+    .terminal-overlay {
+        position: absolute;
+        inset: 20px;
+        pointer-events: none;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+    }
+    .terminal-log {
+        font-size: 0.6rem;
+        color: #00F2FF;
+        opacity: 0.4;
+        line-height: 1.5;
+        width: 250px;
+        overflow: hidden;
+    }
+
+    /* Core & Rings */
+    .processing-core {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wireframe-plate {
+        position: relative;
+        width: 400px;
+        height: 100px;
+        border: 1px solid rgba(0, 242, 255, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 242, 255, 0.05);
+        backdrop-filter: blur(5px);
+    }
+
+    .plate-text {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: rgba(0, 242, 255, 0.2); /* Hiệu ứng Wireframe */
+        -webkit-text-stroke: 1px rgba(0, 242, 255, 0.6);
+        letter-spacing: 10px;
+    }
+
+    /* Vòng xoay Orbit */
+    .orbit-rings {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+    }
+
+    .ring {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid rgba(0, 242, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+    }
+    .ring span {
+        font-size: 0.5rem;
+        color: #00F2FF;
+        margin-top: -10px;
+        background: #020202;
+        padding: 0 10px;
+    }
+
+    .ring-1 { width: 300px; height: 300px; animation: rotate 10s linear infinite; }
+    .ring-2 { width: 400px; height: 400px; animation: rotate 15s linear infinite reverse; }
+    .ring-3 { width: 500px; height: 500px; animation: rotate 20s linear infinite; }
+    .ring-4 { width: 600px; height: 600px; animation: rotate 25s linear infinite reverse; }
+
+    @keyframes rotate { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+    /* Scanner Line */
+    .scanner-line {
+        position: absolute;
+        top: 0; left: 0;
+        width: 2px; height: 100%;
+        background: #00F2FF;
+        box-shadow: 0 0 15px #00F2FF;
+        animation: scanMove 2s ease-in-out infinite;
+    }
+    @keyframes scanMove { 0%, 100% { left: 0; } 50% { left: 100%; } }
+
+    /* Progress Bar */
+    .progress-container {
+        position: absolute;
+        bottom: 50px;
+        width: 60%;
+        text-align: center;
+    }
+    .progress-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 0.7rem;
+        color: #00F2FF;
+        letter-spacing: 2px;
+    }
+    .progress-bar {
+        width: 100%;
+        height: 2px;
+        background: rgba(255,255,255,0.1);
+    }
+    .progress-fill {
+        width: 0%;
+        height: 100%;
+        background: #00F2FF;
+        box-shadow: 0 0 10px #00F2FF;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .wireframe-plate { width: 85vw; }
+        .ring-3, .ring-4 { display: none; } /* Giảm vòng xoay trên mobile */
+        .orbit-rings { width: 100vw; height: 100vw; }
+        .terminal-log { width: 120px; font-size: 0.5rem; }
+    }
         /* ------------------------------ section 3--------------------------  */
         /* ------------------------------ section 4--------------------------  */
         /* ------------------------------ section 5--------------------------  */
@@ -277,6 +412,38 @@
         <div class="vignette-overlay"></div>
     </section>
     <!-- /* ------------------------------ section 2--------------------------  */ -->
+     <section class="neural-processing" id="processingSection">
+    <div class="terminal-overlay">
+        <div class="terminal-log left" id="logLeft"></div>
+        <div class="terminal-log right" id="logRight"></div>
+    </div>
+
+    <div class="processing-core">
+        <div class="orbit-rings">
+            <div class="ring ring-1"><span>LỊCH SỬ THỊ TRƯỜNG</span></div>
+            <div class="ring ring-2"><span>PHONG THỦY HỌC</span></div>
+            <div class="ring ring-3"><span>ĐỘ KHAN HIẾM</span></div>
+            <div class="ring ring-4"><span>QUY LUẬT SỐ</span></div>
+        </div>
+
+        <div class="wireframe-plate">
+            <div class="plate-text" id="displayPlate">29A - 888.88</div>
+            <div class="scanner-line"></div>
+            <div class="glint gold-point-1"></div>
+            <div class="glint gold-point-2"></div>
+        </div>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-info">
+            <span class="status-text">AI ANALYSIS IN PROGRESS...</span>
+            <span class="percentage" id="procPercent">0%</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="procFill"></div>
+        </div>
+    </div>
+</section>
 
     <!-- /* ------------------------------ section 3--------------------------  */ -->
 
@@ -333,6 +500,58 @@
         }
     });
     // -------------------------------------- section 2 ------------------------------- //
+    // Giả lập dữ liệu Terminal
+    const logs = [
+        "Analyzing: Region code 29...",
+        "Scanning: Feng Shui Balance...",
+        "Fetching: Auction History 2025...",
+        "Rule Detection: Quadruple Numbers...",
+        "Calculating: Market Demand Index...",
+        "Neural Link: Verifying Liquidity...",
+        "Processing: Final Result Generation..."
+    ];
+
+    function startProcessing() {
+        let logIndex = 0;
+        const logLeft = document.getElementById('logLeft');
+        
+        // Chạy dòng lệnh giả lập
+        const logInterval = setInterval(() => {
+            if(logIndex < logs.length) {
+                const p = document.createElement('div');
+                p.innerText = `> ${logs[logIndex]}`;
+                logLeft.appendChild(p);
+                logIndex++;
+            } else {
+                clearInterval(logInterval);
+            }
+        }, 800);
+
+        // Chạy thanh tiến trình và số %
+        gsap.to("#procFill", {
+            width: "100%",
+            duration: 5,
+            ease: "none",
+            onUpdate: function() {
+                const progress = Math.round(this.progress() * 100);
+                document.getElementById('procPercent').innerText = progress + "%";
+                
+                // Hiệu ứng Glitch ở 99%
+                if(progress === 99) {
+                    gsap.to("#processingSection", {
+                        x: 2, y: 2, duration: 0.1, repeat: 10, yoyo: true
+                    });
+                }
+            },
+            onComplete: () => {
+                alert("PHÂN TÍCH HOÀN TẤT. ĐANG TRÍCH XUẤT DỮ LIỆU...");
+                // Chuyển sang Section kết quả
+            }
+        });
+    }
+
+    // Tự động chạy khi tải (hoặc sau khi nhấn nút ở Section 1)
+    window.onload = startProcessing;
     // -------------------------------------- section 3 ------------------------------- //
     // -------------------------------------- section 4 ------------------------------- //
     // -------------------------------------- section 5 ------------------------------- //
