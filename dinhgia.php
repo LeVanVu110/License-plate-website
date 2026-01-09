@@ -286,7 +286,7 @@
         }
 
         .plate-text {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 700;
             color: rgba(0, 242, 255, 0.2);
             /* Hiệu ứng Wireframe */
@@ -814,6 +814,126 @@
         }
 
         /* ------------------------------ section 5--------------------------  */
+        /* --- SECTION 5: STRATEGIC CALL (FIXED) --- */
+        .strategic-call {
+            position: relative;
+            height: 100vh;
+            background: #020202;
+            overflow: hidden;
+            z-index: 10;
+            display: flex;
+            padding-top: 5%;
+            /* Đảm bảo con trực tiếp dàn đều */
+        }
+
+        .split-layout {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .gate {
+            position: relative;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 5%;
+            transition: flex 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            overflow: hidden;
+        }
+
+        /* Sửa lỗi đụng màu đen: Đảm bảo content luôn có z-index cao */
+        .gate-content {
+            position: relative;
+            text-align: center;
+            z-index: 20;
+            width: 100%;
+            max-width: 450px;
+            opacity: 1 !important;
+            /* Đảm bảo không bị ẩn bởi script */
+        }
+
+        .liquidate-gate {
+            background: #050b18;
+            border-right: 0.5px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .secure-gate {
+            background: #0c0a09;
+        }
+
+        /* Nút bấm tinh chỉnh */
+        .btn-gate {
+            padding: 18px 45px;
+            background: transparent;
+            cursor: pointer;
+            letter-spacing: 2px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-silver {
+            border: 1px solid #c0c0c0;
+            color: #fff;
+        }
+
+        .btn-gold {
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
+        }
+
+        /* Divider và Logo chính giữa */
+        .divider-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #D4AF37, transparent);
+            z-index: 30;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .logo-anchor {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #020202;
+            padding: 15px;
+            z-index: 31;
+        }
+
+        /* Fix Mobile */
+        @media (max-width: 768px) {
+            .split-layout {
+                flex-direction: column;
+            }
+
+            .gate {
+                height: 50vh;
+                padding: 40px 20px;
+            }
+
+            .gate-title {
+                font-size: 1.8rem;
+            }
+
+            .divider-line {
+                width: 100%;
+                height: 1px;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
         /* ------------------------------ section 6--------------------------  */
         /* ------------------------------ section 7--------------------------  */
         /* ------------------------------ section 8--------------------------  */
@@ -1044,6 +1164,33 @@
         </div>
     </section>
     <!-- /* ------------------------------ section 5--------------------------  */ -->
+    <section class="strategic-call" id="callSection">
+    <div class="split-layout">
+        <div class="gate liquidate-gate" id="gateLeft">
+            <div class="gate-content">
+                <span class="gate-label">DÀNH CHO NGƯỜI BÁN</span>
+                <h3 class="gate-title" style="color: #fff; margin-bottom: 15px;">THANH KHOẢN NGAY</h3>
+                <p class="gate-desc" style="color: #aaa; margin-bottom: 30px;">Bán biển số nhanh chóng với mức giá AI đề xuất thông qua mạng lưới độc quyền.</p>
+                <button class="btn-gate btn-silver" onclick="openGateForm('Bán')">ĐĂNG BÁN ƯU TIÊN</button>
+            </div>
+        </div>
+
+        <div class="divider-line">
+            <div class="logo-anchor">
+                <div class="mini-logo-circle">PS</div>
+            </div>
+        </div>
+
+        <div class="gate secure-gate" id="gateRight">
+            <div class="gate-content">
+                <span class="gate-label">DÀNH CHO NHÀ SƯU TẦM</span>
+                <h3 class="gate-title" style="color: #fff; margin-bottom: 15px;">KÝ GỬI & BẢO MẬT</h3>
+                <p class="gate-desc" style="color: #aaa; margin-bottom: 30px;">Đưa tài sản vào danh mục quản trị chuyên sâu để tối ưu hóa giá trị bền vững.</p>
+                <button class="btn-gate btn-gold" onclick="openGateForm('Ký gửi')">KÝ GỬI CHUYÊN GIA</button>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- /* ------------------------------ section 6--------------------------  */ -->
 
@@ -1302,6 +1449,69 @@
 
     }
     window.addEventListener('load', animateSection4);
+    // -------------------------   SECTION 5 -------------------------//
+    function openGateForm(type) {
+        const formOverlay = document.getElementById('gateForm');
+        document.getElementById('formTypeTitle').innerText = 'YÊU CẦU ' + type.toUpperCase();
+
+        // Hiệu ứng hiện Form mượt mà
+        gsap.to(formOverlay, {
+            display: 'flex',
+            opacity: 1,
+            duration: 0.5
+        });
+        gsap.from(".form-container > *", {
+            y: 30,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.5
+        });
+    }
+
+    function closeGateForm() {
+        gsap.to("#gateForm", {
+            opacity: 0,
+            duration: 0.3,
+            onComplete: () => {
+                document.getElementById('gateForm').style.display = 'none';
+            }
+        });
+    }
+
+    function submitGateForm() {
+        const name = document.getElementById('clientName').value;
+        const tel = document.getElementById('clientTel').value;
+
+        if (name && tel) {
+            alert("Thông tin đã được gửi tới chuyên gia. Chúng tôi sẽ liên hệ lại ngay.");
+            closeGateForm();
+        } else {
+            alert("Vui lòng nhập đủ thông tin.");
+        }
+    }
+
+    // Thêm hiệu ứng ScrollTrigger cho Section 5
+    function animateSection5() {
+    // Reset trạng thái ban đầu để tránh bị mất nội dung nếu ScrollTrigger chưa chạy
+    gsap.set(".gate-content", { opacity: 1, y: 0 });
+
+    gsap.from(".gate-content", {
+        scrollTrigger: {
+            trigger: "#callSection",
+            start: "top 70%",
+            toggleActions: "play none none reverse"
+        },
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.3,
+        ease: "power3.out"
+    });
+}
+
+    document.addEventListener('DOMContentLoaded', () => {
+        animateSection5();
+    });
 </script>
 
 </html>
