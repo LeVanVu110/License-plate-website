@@ -524,7 +524,7 @@
         /* Toast Mobile */
         .bid-toast {
             position: fixed;
-            top: 20px;
+            top: 70px;
             right: -300px;
             background: #00F2FF;
             color: #000;
