@@ -344,6 +344,196 @@
         }
 
         /* ----------------------------- section 3 -----------------------------  */
+        .knowledge-gallery {
+            background: #0A0A0B;
+            padding: 100px 0;
+            min-height: 100vh;
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            color: var(--silver-grey);
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            position: relative;
+            padding: 10px 0;
+            transition: color 0.3s ease;
+        }
+
+        .filter-btn.active {
+            color: #fff;
+        }
+
+        .filter-btn .dot {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            width: 4px;
+            height: 4px;
+            background: #D4AF37;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .filter-btn.active .dot {
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* Masonry Grid */
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 250px;
+            gap: 25px;
+        }
+
+        .art-card {
+            position: relative;
+            overflow: hidden;
+            background: #161618;
+            border-radius: 2px;
+        }
+
+        .big-card {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .tall-card {
+            grid-row: span 2;
+        }
+
+        /* Card Effects */
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .parallax-wrapper {
+            width: 100%;
+            height: 120%;
+            /* Dư để chạy parallax */
+            position: absolute;
+            top: -10%;
+        }
+
+        .parallax-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 60%);
+            transition: background 0.5s ease;
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 30px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .card-meta {
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: #D4AF37;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #fff;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .big-card .card-title {
+            font-size: 2.2rem;
+        }
+
+        .card-excerpt {
+            font-size: 13px;
+            color: #888;
+            margin-top: 15px;
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        /* Hover Silk Transition */
+        .art-card:hover .card-overlay {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .art-card:hover .card-excerpt {
+            height: auto;
+            opacity: 1;
+        }
+
+        .art-card:hover .parallax-img {
+            transform: scale(1.05);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .masonry-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .big-card {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .filter-bar {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 20px;
+                white-space: nowrap;
+            }
+
+            .masonry-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 400px;
+            }
+
+            .big-card,
+            .tall-card {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
 
         /* ----------------------------- section 4 -----------------------------  */
 
@@ -448,6 +638,186 @@
     </section>
 
     <!-- ------------------------------ section 3 ------------------------------  -->
+    <section class="knowledge-gallery" id="knowledgeSection">
+        <div class="gallery-container">
+            <div class="filter-bar reveal-item">
+                <button class="filter-btn active" data-filter="all">TẤT CẢ <span class="dot"></span></button>
+                <button class="filter-btn" data-filter="phong-thuy">PHONG THỦY <span class="dot"></span></button>
+                <button class="filter-btn" data-filter="thi-truong">THỊ TRƯỜNG <span class="dot"></span></button>
+                <button class="filter-btn" data-filter="phap-ly">PHÁP LÝ <span class="dot"></span></button>
+                <button class="filter-btn" data-filter="thuong-luu">ĐỜI SỐNG THƯỢNG LƯU <span class="dot"></span></button>
+            </div>
+            <div class="masonry-grid">
+                <div class="art-card big-card phap-ly" data-category="phap-ly">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070" class="parallax-img" alt="Pháp lý">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">PHÁP LÝ • 12 THÁNG 10, 2023</span>
+                            <h2 class="card-title">Quy trình định danh biển số: Những điều giới sưu tầm cần lưu ý</h2>
+                            <p class="card-excerpt">Cập nhật những thay đổi mới nhất về luật định và cách thức bảo tồn tài sản số...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card thi-truong" data-category="thi-truong">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2073" class="parallax-img" alt="Thị trường">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">THỊ TRƯỜNG • 08 THÁNG 10, 2023</span>
+                            <h2 class="card-title">Dự báo dòng tiền chảy vào thị trường biển số quý cuối năm</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card phong-thuy" data-category="phong-thuy">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070" class="parallax-img" alt="Phong thủy">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">PHONG THỦY • 10 THÁNG 10, 2023</span>
+                            <h2 class="card-title">Ngũ hành và màu xe: Tìm sự cân bằng tuyệt đối</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card tall-card phong-thuy" data-category="phong-thuy">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?q=80&w=2070" class="parallax-img" alt="Cửu tử hỏa tinh">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">PHONG THỦY • VẬN 9 CẬN KỀ</span>
+                            <h2 class="card-title">Cửu Tử Hỏa Tinh: Tại sao số 9 sẽ thống trị thập kỷ tới?</h2>
+                            <p class="card-excerpt">Phân tích sự chuyển dịch năng lượng từ Vận 8 sang Vận 9 và tầm ảnh hưởng đến giá trị các dòng biển số đuôi 9...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card tall-card phong-thuy" data-category="phong-thuy">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=1944" class="parallax-img" alt="Ngũ hành">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">KIẾN THỨC • NGŨ HÀNH</span>
+                            <h2 class="card-title">Tương sinh hay Tương khắc: Cách chọn màu biển số theo bản mệnh</h2>
+                            <p class="card-excerpt">Đừng để sự xung khắc về màu sắc cản trở vượng khí của bạn. Hướng dẫn chi tiết cho người mệnh Kim và Thủy...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card thuong-luu" data-category="thuong-luu">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069" class="parallax-img" alt="Sự kiện thượng lưu">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">SỰ KIỆN • ĐẶC QUYỀN</span>
+                            <h2 class="card-title">Bên trong buổi tiệc kín của các "Whale" trong giới sưu tầm số</h2>
+                            <p class="card-excerpt">Nơi những thương vụ triệu đô được chốt nhanh chóng bên ly vang đỏ và những câu chuyện về phong thủy đạo học...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card thi-truong" data-category="thi-truong">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=2025" class="parallax-img" alt="Siêu xe biển số đẹp">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">THỊ TRƯỜNG • GIAO DỊCH</span>
+                            <h2 class="card-title">Điểm danh 5 thương vụ "khủng" nhất quý 3 năm 2023</h2>
+                            <p class="card-excerpt">Từ những dãy số tiến đều cho đến ngũ quý, cùng nhìn lại những mức giá kỷ lục đã được thiết lập...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card big-card thi-truong" data-category="thi-truong">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=2000" class="parallax-img" alt="Biểu đồ thị trường">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">THỊ TRƯỜNG • PHÂN TÍCH</span>
+                            <h2 class="card-title">Sóng ngầm thị trường: Tại sao giới đầu tư bất động sản đang chuyển hướng sang biển số?</h2>
+                            <p class="card-excerpt">Khi tính thanh khoản của các kênh đầu tư truyền thống chậm lại, "bất động sản trên những con số" đang trở thành nơi trú ẩn an toàn...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card tall-card thuong-luu" data-category="thuong-luu">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?q=80&w=1974" class="parallax-img" alt="Thượng lưu">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">LIFESTYLE • 05 THÁNG 10, 2023</span>
+                            <h2 class="card-title">Bộ sưu tập xe của giới tài phiệt Trung Đông</h2>
+                            <p class="card-excerpt">Khám phá những gara trị giá hàng trăm triệu USD...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card tall-card thi-truong" data-category="thi-truong">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=2070" class="parallax-img" alt="Chiến lược đầu tư">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">KINH NGHIỆM • CHIẾN LƯỢC</span>
+                            <h2 class="card-title">Đầu tư biển số: Cuộc chơi lướt sóng hay tích sản dài hạn?</h2>
+                            <p class="card-excerpt">Lời khuyên từ các chuyên gia lâu năm về việc nhận định giá trị thực của một dãy số trước khi xuống tiền...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card big-card phong-thuy" data-category="phong-thuy">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070" class="parallax-img" alt="Doanh nhân">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">PHONG THỦY • KINH DOANH</span>
+                            <h2 class="card-title">Đại cát - Đại lợi: Những dãy số giúp khai thông cung tài lộc cho chủ doanh nghiệp</h2>
+                            <p class="card-excerpt">Không chỉ là vẻ ngoài, một dãy số đúng phong thủy là "bùa hộ mệnh" giúp các hợp đồng triệu đô trở nên suôn sẻ hơn...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card big-card thuong-luu" data-category="thuong-luu">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070" class="parallax-img" alt="Resort hạng sang">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">TRẢI NGHIỆM • THƯỢNG LƯU</span>
+                            <h2 class="card-title">Hành trình xuyên Việt trên những chiếc xe "biển xanh" định danh: Đẳng cấp mới của du lịch trải nghiệm</h2>
+                            <p class="card-excerpt">Không chỉ là di chuyển, đó là cách giới tinh hoa khẳng định vị thế cá nhân trên mỗi cung đường họ đi qua...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card tall-card thuong-luu" data-category="thuong-luu">
+                    <div class="card-inner">
+                        <div class="parallax-wrapper">
+                            <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070" class="parallax-img" alt="Siêu xe và Lifestyle">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-meta">LIFESTYLE • ĐỘC BẢN</span>
+                            <h2 class="card-title">Thú chơi biển số: Trang sức cuối cùng cho những chiếc Hypercar</h2>
+                            <p class="card-excerpt">Tại sao một chiếc xe 100 tỷ vẫn chưa được coi là hoàn hảo nếu thiếu đi một tấm biển số "ngũ quý" tương xứng?...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ------------------------------ section 4 ------------------------------  -->
 
@@ -582,10 +952,76 @@
         });
     });
     // ------------------------ section 3 ------------------------ //
+    document.addEventListener("DOMContentLoaded", function() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.art-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 1. Đổi trạng thái nút bấm (Active)
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const filterValue = this.getAttribute('data-filter');
+
+                // 2. Hiệu ứng ẩn các bài viết hiện tại
+                gsap.to(cards, {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.3,
+                    stagger: 0.05,
+                    onComplete: () => {
+                        // 3. Lọc logic ẩn/hiện
+                        cards.forEach(card => {
+                            card.style.display = 'none'; // Ẩn hết
+
+                            if (filterValue === 'all' || card.classList.contains(filterValue)) {
+                                card.style.display = 'block'; // Chỉ hiện cái được chọn
+                            }
+                        });
+
+                        // 4. Hiệu ứng hiện các bài viết mới trồi lên
+                        // Ta chọn các thẻ đang có display: block
+                        const visibleCards = Array.from(cards).filter(c => c.style.display === 'block');
+
+                        gsap.to(visibleCards, {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.6,
+                            stagger: 0.1,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+            });
+        });
+    });
 
     // ------------------------ section 4 ------------------------ //
 
     // ------------------------ section 5 ------------------------ //
 </script>
+<!-- -------------------- section 3 ------------------  -->
+<style>
+    /* CSS cho Cursor */
+    .custom-cursor-read {
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        background: #D4AF37;
+        color: #000;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        opacity: 0;
+        transform: scale(0);
+    }
+</style>
 
 </html>
