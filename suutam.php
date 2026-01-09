@@ -508,7 +508,169 @@
         }
 
         /* ---------------------------------------- section 4----------------------------------  */
+        .private-vault {
+        position: relative;
+        height: 100vh;
+        background: #020202;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        perspective: 2000px;
+    }
 
+    /* Hiệu ứng tối dần 4 góc */
+    .vignette-overlay {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.9) 100%);
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    /* Khung bảo mật Glassmorphism */
+    .vault-content {
+        position: relative;
+        z-index: 10;
+        padding: 60px;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-image: linear-gradient(135deg, #D4AF37, #E5E5E5, #D4AF37) 1;
+        text-align: center;
+        max-width: 600px;
+        width: 90%;
+    }
+
+    /* Biểu tượng vân tay & hiệu ứng nhịp thở */
+    .fingerprint-icon {
+        width: 80px;
+        margin: 0 auto 30px;
+        position: relative;
+        animation: pulseGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+        0%, 100% { filter: drop-shadow(0 0 5px rgba(212,175,55,0.2)); opacity: 0.5; }
+        50% { filter: drop-shadow(0 0 20px rgba(212,175,55,0.6)); opacity: 1; }
+    }
+
+    .scan-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #D4AF37;
+        box-shadow: 0 0 15px #D4AF37;
+        animation: scanning 3s linear infinite;
+    }
+
+    @keyframes scanning {
+        0% { top: 0; }
+        100% { top: 100%; }
+    }
+
+    /* Typography */
+    .vault-title {
+        font-family: 'Playfair Display', serif;
+        color: #D4AF37;
+        letter-spacing: 10px;
+        margin-bottom: 15px;
+    }
+
+    .vault-msg {
+        color: #888;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        line-height: 1.8;
+        margin-bottom: 40px;
+    }
+
+    /* Nút bấm hiệu ứng Laser */
+    .btn-access {
+        background: transparent;
+        border: 1px solid #D4AF37;
+        color: #D4AF37;
+        padding: 15px 40px;
+        letter-spacing: 3px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: 0.4s;
+    }
+
+    .btn-access:hover {
+        color: #fff;
+        box-shadow: 0 0 30px rgba(255,255,255,0.1);
+    }
+
+    .glow-laser {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: 0.5s;
+    }
+
+    .btn-access:hover .glow-laser {
+        left: 100%;
+    }
+
+    /* Vault Panels (Cửa hầm) */
+    .vault-panel {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background: #050505;
+        z-index: 5;
+        transition: transform 1.5s cubic-bezier(0.7, 0, 0.3, 1);
+        border: 1px solid rgba(255,255,255,0.02);
+    }
+    .left-panel { left: 0; border-right: 1px solid #111; }
+    .right-panel { right: 0; border-left: 1px solid #111; }
+
+    .vault-open .left-panel { transform: translateX(-100%); }
+    .vault-open .right-panel { transform: translateX(100%); }
+
+    /* Mobile Responsive */
+    .mobile-unlock-zone { display: none; }
+
+    @media (max-width: 768px) {
+        .vault-content { padding: 40px 20px; border-image: none; border: 1px solid #333; }
+        .btn-access { display: none; }
+        .mobile-unlock-zone { display: block; margin-top: 20px; }
+        
+        .slide-track {
+            width: 100%;
+            height: 50px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 25px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+        }
+
+        .slide-handle {
+            position: absolute;
+            left: 5px;
+            width: 40px;
+            height: 40px;
+            background: #D4AF37;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000;
+        }
+    }
 
         /* ---------------------------------------- section 5----------------------------------  */
 
@@ -580,7 +742,6 @@
     </section>
     <!-- -----------------------------------section 3 -----------------------------------  -->
 
-
     <section class="value-prospect">
         <div class="value-container">
             <div class="chart-box">
@@ -622,6 +783,45 @@
     </section>
 
     <!-- -----------------------------------section 4 -----------------------------------  -->
+     <section class="private-vault">
+    <div class="vignette-overlay"></div>
+    
+    <div class="vault-door-container" id="vaultDoor">
+        <div class="vault-panel left-panel"></div>
+        <div class="vault-panel right-panel"></div>
+        
+        <div class="vault-content">
+            <div class="security-scanner">
+                <div class="fingerprint-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1" stroke-linecap="round">
+                        <path d="M12 11c0-3.517 2.157-6.528 5.222-7.758M12 11c0 3.517-2.157 6.528-5.222 7.758M12 11V5M12 11v6m0 0c0 1.657-1.343 3-3 3s-3-1.343-3-3m6 0c0 1.657 1.343 3 3 3s3-1.343 3-3"/>
+                        <circle cx="12" cy="11" r="10" opacity="0.2"/>
+                    </svg>
+                    <div class="scan-line"></div>
+                </div>
+            </div>
+
+            <h2 class="vault-title">THE PRIVATE VAULT</h2>
+            <p class="vault-msg">Chỉ dành cho những yêu cầu đặc biệt.<br>Khám phá danh mục biển số chưa niêm yết.</p>
+            
+            <button class="btn-access" id="accessVault">
+                <span class="btn-text">REQUEST ACCESS</span>
+                <div class="glow-laser"></div>
+            </button>
+
+            <div class="mobile-unlock-zone">
+                <div class="slide-track">
+                    <div class="slide-handle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </div>
+                    <span>SLIDE TO UNLOCK</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
     <!-- -----------------------------------section 5 -----------------------------------  -->
@@ -861,7 +1061,61 @@
         });
 
         // -------------------------------------- section 4 ------------------------------- //
+        const accessBtn = document.getElementById('accessVault');
+    const vaultDoor = document.getElementById('vaultDoor');
 
+    // Giả lập âm thanh Click kim loại
+    const playClickSound = () => {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
+        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + 0.05);
+    };
+
+    accessBtn.addEventListener('mouseenter', playClickSound);
+
+    accessBtn.addEventListener('click', () => {
+        // Hiệu ứng mở cửa hầm
+        vaultDoor.classList.add('vault-open');
+        
+        // Sau khi cửa mở, chuyển trang hoặc hiện Form
+        setTimeout(() => {
+            alert("Đang xác thực quyền truy cập hầm kín...");
+            // window.location.href = 'contact.php'; 
+        }, 1500);
+    });
+
+    // Xử lý Slide to Unlock trên Mobile
+    if (window.innerWidth <= 768) {
+        const handle = document.querySelector('.slide-handle');
+        const track = document.querySelector('.slide-track');
+        let isDragging = false;
+
+        handle.addEventListener('touchstart', () => isDragging = true);
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            let x = e.touches[0].clientX - track.getBoundingClientRect().left - 20;
+            if (x < 5) x = 5;
+            if (x > track.offsetWidth - 45) {
+                x = track.offsetWidth - 45;
+                vaultDoor.classList.add('vault-open');
+                isDragging = false;
+            }
+            handle.style.left = x + 'px';
+        });
+        document.addEventListener('touchend', () => {
+            if (parseInt(handle.style.left) < track.offsetWidth - 50) {
+                handle.style.left = '5px';
+            }
+            isDragging = false;
+        });
+    }
 
         // -------------------------------------- section 5 ------------------------------- //
 
