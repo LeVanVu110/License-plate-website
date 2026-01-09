@@ -571,188 +571,430 @@
 
         /* -------------------------------- section 3 ------------------------  */
         .upcoming-treasures {
-    background: #010101;
-    padding: 120px 0;
-    overflow: hidden;
-}
+            background: #010101;
+            padding: 120px 0;
+            overflow: hidden;
+        }
 
-.showroom-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 5%;
-}
+        .showroom-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
 
-/* Header */
-.showroom-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 80px;
-}
+        /* Header */
+        .showroom-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 80px;
+        }
 
-.serif-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    font-weight: 400;
-    color: #fff;
-    margin: 0;
-}
+        .serif-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: #fff;
+            margin: 0;
+        }
 
-.subtitle {
-    color: #666;
-    letter-spacing: 5px;
-    font-size: 0.7rem;
-    margin-top: 10px;
-}
+        .subtitle {
+            color: #666;
+            letter-spacing: 5px;
+            font-size: 0.7rem;
+            margin-top: 10px;
+        }
 
-.global-countdown {
-    text-align: right;
-    border-left: 1px solid #333;
-    padding-left: 30px;
-}
+        .global-countdown {
+            text-align: right;
+            border-left: 1px solid #333;
+            padding-left: 30px;
+        }
 
-.next-timer {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 1.5rem;
-    color: var(--gold);
-    margin-top: 5px;
-}
+        .next-timer {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-top: 5px;
+        }
 
-/* Grid & Cards */
-.treasure-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-}
+        /* Grid & Cards */
+        .treasure-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
 
-.treasure-card {
-    background: var(--dark-grey);
-    border-radius: 4px;
-    position: relative;
-    transition: all 0.5s ease;
-    cursor: pointer;
-}
+        .treasure-card {
+            background: var(--dark-grey);
+            border-radius: 4px;
+            position: relative;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
 
-/* Hiệu ứng Glow Border khi Hover */
-.treasure-card::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    z-index: -1;
-    opacity: 0;
-    transition: 0.5s;
-}
+        /* Hiệu ứng Glow Border khi Hover */
+        .treasure-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            z-index: -1;
+            opacity: 0;
+            transition: 0.5s;
+        }
 
-.treasure-card:hover::before { opacity: 1; }
+        .treasure-card:hover::before {
+            opacity: 1;
+        }
 
-.card-inner {
-    padding: 30px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
+        .card-inner {
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
 
-.plate-preview {
-    position: relative;
-    height: 180px;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-bottom: 25px;
-}
+        .plate-preview {
+            position: relative;
+            height: 180px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
 
-.plate-mockup {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #333; /* Lúc đầu hơi mờ */
-    filter: blur(8px);
-    transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-}
+        .plate-mockup {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #333;
+            /* Lúc đầu hơi mờ */
+            filter: blur(8px);
+            transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
 
-.treasure-card:hover .plate-mockup {
-    filter: blur(0);
-    color: #fff;
-    transform: scale(1.1);
-}
+        .treasure-card:hover .plate-mockup {
+            filter: blur(0);
+            color: #fff;
+            transform: scale(1.1);
+        }
 
-.starting-label {
-    position: absolute;
-    bottom: 10px; left: 15px;
-    font-size: 10px;
-    color: var(--champagne);
-    letter-spacing: 1px;
-}
+        .starting-label {
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            font-size: 10px;
+            color: var(--champagne);
+            letter-spacing: 1px;
+        }
 
-.fengshui-tags {
-    margin-bottom: 15px;
-}
+        .fengshui-tags {
+            margin-bottom: 15px;
+        }
 
-.fengshui-tags span {
-    font-size: 9px;
-    border: 0.5px solid #444;
-    padding: 3px 10px;
-    margin-right: 5px;
-    color: #888;
-}
+        .fengshui-tags span {
+            font-size: 9px;
+            border: 0.5px solid #444;
+            padding: 3px 10px;
+            margin-right: 5px;
+            color: #888;
+        }
 
-.plate-id { font-size: 1.5rem; margin: 10px 0; color: #fff; }
-.launch-date { font-size: 12px; color: #555; margin-bottom: 25px; }
+        .plate-id {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #fff;
+        }
 
-/* Nút Nhận thông báo */
-.btn-remind {
-    background: transparent;
-    border: 1px solid #333;
-    color: #fff;
-    padding: 15px;
-    width: 100%;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    position: relative;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        .launch-date {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 25px;
+        }
 
-.btn-remind:hover { border-color: var(--titan); color: var(--titan); }
+        /* Nút Nhận thông báo */
+        .btn-remind {
+            background: transparent;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 15px;
+            width: 100%;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-.pulse-circle {
-    display: inline-block;
-    width: 6px; height: 6px;
-    background: var(--gold);
-    border-radius: 50%;
-    margin-right: 10px;
-    box-shadow: 0 0 10px var(--gold);
-    animation: pulse-gold 2s infinite;
-}
+        .btn-remind:hover {
+            border-color: var(--titan);
+            color: var(--titan);
+        }
 
-@keyframes pulse-gold {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(3); opacity: 0; }
-}
+        .pulse-circle {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 10px var(--gold);
+            animation: pulse-gold 2s infinite;
+        }
 
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-    .treasure-grid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 30px;
-        gap: 20px;
-    }
-    
-    .treasure-card {
-        min-width: 85%;
-        scroll-snap-align: center;
-    }
+        @keyframes pulse-gold {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
 
-    .serif-title { font-size: 2.5rem; }
-    .global-countdown { display: none; }
-    .treasure-grid::-webkit-scrollbar { display: none; }
-}
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .treasure-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 30px;
+                gap: 20px;
+            }
+
+            .treasure-card {
+                min-width: 85%;
+                scroll-snap-align: center;
+            }
+
+            .serif-title {
+                font-size: 2.5rem;
+            }
+
+            .global-countdown {
+                display: none;
+            }
+
+            .treasure-grid::-webkit-scrollbar {
+                display: none;
+            }
+        }
 
         /* -------------------------------- section 4 ------------------------  */
+        .trust-transparency {
+            background: #020202;
+            /* Matte Black */
+            padding: 120px 0;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        .ledger-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .ledger-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .secure-tag {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 12px;
+            color: #001F3F;
+            background: #00F2FF;
+            padding: 4px 12px;
+            border-radius: 4px;
+            letter-spacing: 2px;
+        }
+
+        .ledger-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+
+        .header-line {
+            width: 60px;
+            height: 2px;
+            background: #00F2FF;
+            margin: 20px auto;
+        }
+
+        /* Triad Grid */
+        .triad-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .trust-card {
+            background: #0D0D0D;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 450px;
+            position: relative;
+            cursor: pointer;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .trust-card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .card-content,
+        .card-back {
+            position: absolute;
+            inset: 0;
+            padding: 40px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card-back {
+            background: #001F3F;
+            /* Navy Blue */
+            transform: rotateY(180deg);
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.02);
+            pointer-events: none;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            color: #00F2FF;
+            margin-bottom: 30px;
+        }
+
+        .trust-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .trust-card p {
+            color: #888;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Seal Effect */
+        .seal-box {
+            margin-top: 30px;
+            opacity: 0;
+            transform: scale(2);
+            transition: 0.8s ease;
+        }
+
+        .trust-card.active .seal-box {
+            opacity: 0.4;
+            transform: scale(1);
+        }
+
+        .seal-img {
+            width: 80px;
+            filter: grayscale(1) invert(1);
+        }
+
+        /* Scan Line Effect */
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00F2FF, transparent);
+            opacity: 0;
+            z-index: 10;
+        }
+
+        .trust-card:hover .scan-line {
+            animation: scanning 2s linear infinite;
+            opacity: 1;
+        }
+
+        @keyframes scanning {
+            0% {
+                top: 0%;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        /* Footer */
+        .ledger-footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #555;
+            font-size: 13px;
+        }
+
+        .ledger-footer a {
+            color: #00F2FF;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .ledger-footer a:hover {
+            border-bottom-color: #00F2FF;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .triad-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .trust-card {
+                height: auto;
+                min-height: 300px;
+            }
+
+            /* Tắt hiệu ứng lật trên Mobile để thân thiện với UX chạm */
+            .trust-card:hover {
+                transform: none;
+            }
+
+            .card-back {
+                display: none;
+            }
+
+            .card-content {
+                position: relative;
+                padding: 60px 20px;
+            }
+
+            .trust-transparency {
+                padding: 0;
+            }
+        }
 
         /* -------------------------------- section 5 ------------------------  */
 
@@ -954,6 +1196,84 @@
     </section>
 
     <!-- -----------------------------------section 4 -----------------------------------  -->
+    <section class="trust-transparency" id="trustSection">
+        <div class="ledger-container">
+            <div class="ledger-header reveal-up">
+                <span class="secure-tag"><i class="fas fa-shield-check"></i> SECURITY PROTOCOL ENABLED</span>
+                <h2 class="ledger-title">NIÊM PHONG & MINH BẠCH</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="triad-grid">
+                <div class="trust-card" data-index="1">
+                    <div class="watermark">KYC</div>
+                    <div class="card-content">
+                        <div class="scan-line"></div>
+                        <div class="icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 11c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM12 13c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z" />
+                            </svg>
+                        </div>
+                        <h3>Xác thực định danh</h3>
+                        <p>100% người tham gia được xác minh danh tính qua hệ thống KYC nâng cao, loại bỏ hoàn toàn hiện tượng đẩy giá ảo.</p>
+                        <!-- <div class="seal-box">
+                            <img src="https://i.imgur.com/w9U9Q7D.png" class="seal-img" alt="Verified Seal">
+                        </div> -->
+                    </div>
+                    <div class="card-back">
+                        <h4>ĐIỀU KHOẢN 3.1</h4>
+                        <p>Mọi tài khoản vi phạm quy tắc đấu giá sẽ bị khóa vĩnh viễn và tịch thu tiền ký quỹ theo quy định hiện hành.</p>
+                    </div>
+                </div>
+
+                <div class="trust-card" data-index="2">
+                    <div class="watermark">GOV</div>
+                    <div class="card-content">
+                        <div class="scan-line"></div>
+                        <div class="icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <h3>Liên kết Chính phủ</h3>
+                        <p>Dữ liệu biển số được truy xuất trực tiếp từ Cục CSGT. Đảm bảo tính chính danh và hồ sơ gốc sạch 100%.</p>
+                        <!-- <div class="seal-box">
+                            <img src="https://i.imgur.com/w9U9Q7D.png" class="seal-img" alt="Gov Seal">
+                        </div> -->
+                    </div>
+                    <div class="card-back">
+                        <h4>PHÁP LÝ</h4>
+                        <p>Tài sản được niêm phong điện tử. Quyền sở hữu được bảo vệ bởi Luật đấu giá tài sản số 01/2016/QH14.</p>
+                    </div>
+                </div>
+
+                <div class="trust-card" data-index="3">
+                    <div class="watermark">ESC</div>
+                    <div class="card-content">
+                        <div class="scan-line"></div>
+                        <div class="icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.62 2.48A2 2 0 004.56 21h14.88a2 2 0 001.94-1.52L22 17" />
+                            </svg>
+                        </div>
+                        <h3>Bảo lãnh thanh toán</h3>
+                        <p>Hệ thống ký quỹ an toàn (Escrow). Tiền của bạn chỉ được chuyển đi khi hoàn tất thủ tục sang tên chính chủ.</p>
+                        <!-- <div class="seal-box">
+                            <img src="https://i.imgur.com/w9U9Q7D.png" class="seal-img" alt="Secure Seal">
+                        </div> -->
+                    </div>
+                    <div class="card-back">
+                        <h4>KÝ QUỸ</h4>
+                        <p>Tiền đặt cọc được giữ tại ngân hàng bảo lãnh và hoàn trả 100% trong vòng 24h nếu đấu giá không thành công.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ledger-footer reveal-up">
+                <p>Cần hỗ trợ pháp lý? <a href="#">Kết nối với luật sư của chúng tôi</a></p>
+            </div>
+        </div>
+    </section>
 
     <!-- -----------------------------------section 5 -----------------------------------  -->
 
@@ -1104,69 +1424,103 @@
 
     // ------------------------------- section 3 ----------------------------------//
     document.addEventListener("DOMContentLoaded", function() {
-    // 1. Reveal on Scroll (GSAP)
-    gsap.from(".reveal-item", {
-        scrollTrigger: {
-            trigger: "#upcomingSection",
-            start: "top 80%",
-        },
-        y: 80,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 1.2,
-        ease: "power4.out"
-    });
+        // 1. Reveal on Scroll (GSAP)
+        gsap.from(".reveal-item", {
+            scrollTrigger: {
+                trigger: "#upcomingSection",
+                start: "top 80%",
+            },
+            y: 80,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 1.2,
+            ease: "power4.out"
+        });
 
-    // 2. Xoay 3D nhẹ khi di chuột trên Desktop
-    if (window.innerWidth > 1024) {
-        const cards = document.querySelectorAll('.treasure-card');
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const xc = rect.width / 2;
-                const yc = rect.height / 2;
-                const dx = x - xc;
-                const dy = y - yc;
-                
-                gsap.to(card.querySelector('.card-inner'), {
-                    rotationY: dx / 15,
-                    rotationX: -dy / 15,
-                    duration: 0.5
+        // 2. Xoay 3D nhẹ khi di chuột trên Desktop
+        if (window.innerWidth > 1024) {
+            const cards = document.querySelectorAll('.treasure-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const xc = rect.width / 2;
+                    const yc = rect.height / 2;
+                    const dx = x - xc;
+                    const dy = y - yc;
+
+                    gsap.to(card.querySelector('.card-inner'), {
+                        rotationY: dx / 15,
+                        rotationX: -dy / 15,
+                        duration: 0.5
+                    });
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card.querySelector('.card-inner'), {
+                        rotationY: 0,
+                        rotationX: 0,
+                        duration: 0.5
+                    });
                 });
             });
+        }
 
-            card.addEventListener('mouseleave', () => {
-                gsap.to(card.querySelector('.card-inner'), {
-                    rotationY: 0,
-                    rotationX: 0,
-                    duration: 0.5
-                });
+        // 3. Logic Chạm và giữ (Long Press) trên Mobile
+        const mobileCards = document.querySelectorAll('.treasure-card');
+        mobileCards.forEach(card => {
+            let timer;
+            card.addEventListener('touchstart', () => {
+                timer = setTimeout(() => {
+                    card.style.transform = "scale(0.95)";
+                    // Hiển thị tooltip hoặc thông tin chi tiết tại đây
+                }, 500);
+            });
+            card.addEventListener('touchend', () => {
+                clearTimeout(timer);
+                card.style.transform = "scale(1)";
             });
         });
-    }
-
-    // 3. Logic Chạm và giữ (Long Press) trên Mobile
-    const mobileCards = document.querySelectorAll('.treasure-card');
-    mobileCards.forEach(card => {
-        let timer;
-        card.addEventListener('touchstart', () => {
-            timer = setTimeout(() => {
-                card.style.transform = "scale(0.95)";
-                // Hiển thị tooltip hoặc thông tin chi tiết tại đây
-            }, 500);
-        });
-        card.addEventListener('touchend', () => {
-            clearTimeout(timer);
-            card.style.transform = "scale(1)";
-        });
     });
-});
 
 
     // ------------------------------- section 4 ----------------------------------//
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Hiệu ứng Reveal các thẻ khi cuộn tới
+        gsap.from(".trust-card", {
+            scrollTrigger: {
+                trigger: "#trustSection",
+                start: "top 70%",
+            },
+            y: 0,
+            opacity: 0,
+            stagger: 0.3,
+            duration: 1,
+            ease: "power3.out",
+            onComplete: () => {
+                // Sau khi hiện xong, kích hoạt con dấu (Seal)
+                document.querySelectorAll('.trust-card').forEach(card => {
+                    card.classList.add('active');
+                });
+            }
+        });
 
+        // 2. Hiệu ứng Stamp (Đóng dấu) đặc biệt
+        document.querySelectorAll('.trust-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.fromTo(card.querySelector('.seal-box'), {
+                    scale: 3,
+                    opacity: 0
+                }, {
+                    scale: 1,
+                    opacity: 0.4,
+                    duration: 0.4,
+                    ease: "bounce.out"
+                });
+            });
+        });
+    });
 
     // ------------------------------- section 5 ----------------------------------//
 
