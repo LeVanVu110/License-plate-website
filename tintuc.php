@@ -537,146 +537,381 @@
 
         /* ----------------------------- section 4 -----------------------------  */
         .expert-voice {
-    background: #0D0D0D;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding: 80px 0;
-}
+            background: #0D0D0D;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
 
-.expert-container {
-    display: flex;
-    width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-    align-items: center;
-}
+        .expert-container {
+            display: flex;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            align-items: center;
+        }
 
-/* Visual Side */
-.expert-visual {
-    flex: 1;
-    height: 90vh;
-    padding-left: 5%;
-    position: relative;
-}
+        /* Visual Side */
+        .expert-visual {
+            flex: 1;
+            height: 90vh;
+            padding-left: 5%;
+            position: relative;
+        }
 
-.portrait-wrapper {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    filter: grayscale(100%) contrast(110%);
-    transition: filter 0.5s ease;
-}
+        .portrait-wrapper {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            filter: grayscale(100%) contrast(110%);
+            transition: filter 0.5s ease;
+        }
 
-.expert-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    will-change: transform;
-}
+        .expert-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            will-change: transform;
+        }
 
-.expert-visual:hover .portrait-wrapper {
-    filter: grayscale(0%) contrast(100%);
-}
+        .expert-visual:hover .portrait-wrapper {
+            filter: grayscale(0%) contrast(100%);
+        }
 
-/* Content Side */
-.expert-content {
-    flex: 1;
-    padding: 0 8%;
-    position: relative;
-}
+        /* Content Side */
+        .expert-content {
+            flex: 1;
+            padding: 0 8%;
+            position: relative;
+        }
 
-.quote-bg {
-    position: absolute;
-    top: -50px;
-    left: 20px;
-    font-family: 'Playfair Display', serif;
-    font-size: 25rem;
-    color: rgba(212, 175, 55, 0.05); /* Gold mờ */
-    line-height: 1;
-    pointer-events: none;
-}
+        .quote-bg {
+            position: absolute;
+            top: -50px;
+            left: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 25rem;
+            color: rgba(212, 175, 55, 0.05);
+            /* Gold mờ */
+            line-height: 1;
+            pointer-events: none;
+        }
 
-.golden-quote {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    color: #fff;
-    line-height: 1.2;
-    margin-bottom: 40px;
-}
+        .golden-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 40px;
+        }
 
-.golden-quote .word {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(20px);
-}
+        .golden-quote .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+        }
 
-.gold-text {
-    color: #D4AF37;
-}
+        .gold-text {
+            color: #D4AF37;
+        }
 
-.expert-info {
-    border-left: 2px solid #D4AF37;
-    padding-left: 25px;
-    margin-bottom: 50px;
-}
+        .expert-info {
+            border-left: 2px solid #D4AF37;
+            padding-left: 25px;
+            margin-bottom: 50px;
+        }
 
-.expert-name {
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 5px;
-    font-weight: 900;
-    color: #fff;
-    margin-bottom: 5px;
-}
+        .expert-name {
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 5px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 5px;
+        }
 
-.expert-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+        .expert-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-.btn-interview {
-    font-family: 'Inter', sans-serif;
-    color: #fff;
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 3px;
-    display: inline-flex;
-    align-items: center;
-    gap: 15px;
-    transition: gap 0.3s ease;
-}
+        .btn-interview {
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: gap 0.3s ease;
+        }
 
-.btn-interview:hover {
-    gap: 30px;
-    color: #D4AF37;
-}
+        .btn-interview:hover {
+            gap: 30px;
+            color: #D4AF37;
+        }
 
-/* Responsive */
-@media (max-width: 1024px) {
-    .expert-container { flex-direction: column; }
-    .expert-visual { 
-        height: 60vh; 
-        padding-left: 0; 
-        width: 100%; 
-        order: 2;
-    }
-    .expert-content { 
-        padding: 60px 5%; 
-        order: 1;
-        text-align: center;
-    }
-    .golden-quote { font-size: 2.2rem; }
-    .quote-bg { left: 50%; transform: translateX(-50%); top: 0; }
-    .expert-info { border-left: none; padding-left: 0; }
-}
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .expert-container {
+                flex-direction: column;
+            }
+
+            .expert-visual {
+                height: 60vh;
+                padding-left: 0;
+                width: 100%;
+                order: 2;
+            }
+
+            .expert-content {
+                padding: 60px 5%;
+                order: 1;
+                text-align: center;
+            }
+
+            .golden-quote {
+                font-size: 2.2rem;
+            }
+
+            .quote-bg {
+                left: 50%;
+                transform: translateX(-50%);
+                top: 0;
+            }
+
+            .expert-info {
+                border-left: none;
+                padding-left: 0;
+            }
+        }
 
         /* ----------------------------- section 5 -----------------------------  */
+        .inner-circle {
+            position: relative;
+            background: #000000;
+            min-height: 150vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 100px 5%;
+        }
+
+        #dustCanvas {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .circle-container {
+            max-width: 800px;
+            width: 100%;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .invitation-header .sub-title {
+            color: #D4AF37;
+            letter-spacing: 5px;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            color: #F7E7CE;
+            /* Champagne */
+            font-size: 3rem;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .description {
+            color: #A1A1A6;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        /* Subscribe Form */
+        .subscribe-form {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding-top: 30%;
+        }
+
+        .input-group {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .input-group input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px 0;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            text-align: center;
+            transition: border-color 0.5s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-bottom-color: #D4AF37;
+        }
+
+        .input-focus-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #D4AF37;
+            box-shadow: 0 0 15px #D4AF37;
+            transition: width 0.6s ease;
+        }
+
+        .input-group input:focus+.input-focus-line {
+            width: 100%;
+        }
+
+        /* Nút bấm con dấu */
+        .btn-seal {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
+            padding: 18px 45px;
+            font-size: 12px;
+            letter-spacing: 4px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+        }
+
+        .btn-seal:hover {
+            background: #D4AF37;
+            color: #000;
+        }
+
+        .seal-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 60px;
+            opacity: 0;
+        }
+
+        /* Success State */
+        .success-message {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .wax-seal-final {
+            width: 100px;
+            height: 100px;
+            background: url('https://cdn-icons-png.flaticon.com/512/3601/3601649.png') no-repeat center;
+            background-size: contain;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1024px) {
+    .inner-circle {
+        min-height: 80vh; /* Giảm chiều cao từ 150vh xuống để vừa màn hình tablet */
+        padding: 80px 5%;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .subscribe-form {
+        padding-top: 10% !important; /* Giảm khoảng cách đẩy phía trên */
+    }
+}
+
+@media (max-width: 768px) {
+    .inner-circle {
+        min-height: 100vh; /* Đảm bảo phủ kín màn hình mobile */
+        padding: 60px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .main-title {
+        font-size: 1.8rem; /* Chữ nhỏ lại để không bị tràn dòng */
+        margin-bottom: 20px;
+    }
+
+    .description {
+        font-size: 14px;
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+
+    .subscribe-form {
+        padding-top: 20px !important; /* Xóa bỏ việc đẩy 30% trên mobile */
+        width: 100%;
+        gap: 20px;
+    }
+
+    .input-group {
+        max-width: 100%;
+    }
+
+    .input-group input {
+        font-size: 16px; /* Ngăn chặn iOS tự động zoom màn hình khi nhập liệu */
+        padding: 12px 0;
+    }
+
+    .btn-seal {
+        width: 100%; /* Nút bấm chiếm toàn màn hình mobile dễ thao tác */
+        max-width: 100%;
+        padding: 18px 0;
+        letter-spacing: 2px;
+    }
+
+    /* Đảm bảo header không bị trôi quá xa */
+    .invitation-header {
+        bottom: auto !important; 
+        position: relative !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+    
+    .inner-circle {
+        min-height: 70vh; /* Tối ưu cho các dòng máy nhỏ */
+    }
+}
     </style>
 </head>
 
@@ -959,47 +1194,84 @@
     </section>
 
     <!-- ------------------------------ section 4 ------------------------------  -->
-     <section class="expert-voice" id="expertSection">
-    <div class="expert-container">
-        <div class="expert-visual">
-            <div class="portrait-wrapper">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974" class="expert-img" alt="Chuyên gia sưu tầm">
-                <div class="liquid-overlay"></div> </div>
-        </div>
-
-        <div class="expert-content">
-            <div class="quote-bg">“</div> <div class="quote-wrapper">
-                <h2 class="golden-quote">
-                    <span class="word">Biển</span> 
-                    <span class="word">số</span> 
-                    <span class="word">không</span> 
-                    <span class="word">chỉ</span> 
-                    <span class="word">là</span> 
-                    <span class="word">định</span> 
-                    <span class="word">danh,</span> 
-                    <span class="word">nó</span> 
-                    <span class="word">là</span> 
-                    <span class="word">di</span> 
-                    <span class="word">sản</span> 
-                    <span class="word">số</span> 
-                    <span class="word">vĩnh</span> 
-                    <span class="word gold-text">cửu.</span>
-                </h2>
-                
-                <div class="expert-info">
-                    <h4 class="expert-name">MR. PHẠM GIA LÂM</h4>
-                    <p class="expert-title">Chủ tịch Hiệp hội Sưu tầm Số Việt Nam</p>
+    <section class="expert-voice" id="expertSection">
+        <div class="expert-container">
+            <div class="expert-visual">
+                <div class="portrait-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974" class="expert-img" alt="Chuyên gia sưu tầm">
+                    <div class="liquid-overlay"></div>
                 </div>
+            </div>
 
-                <a href="#" class="btn-interview">
-                    XEM TOÀN BỘ PHỎNG VẤN <span class="long-arrow">→</span>
-                </a>
+            <div class="expert-content">
+                <div class="quote-bg">“</div>
+                <div class="quote-wrapper">
+                    <h2 class="golden-quote">
+                        <span class="word">Biển</span>
+                        <span class="word">số</span>
+                        <span class="word">không</span>
+                        <span class="word">chỉ</span>
+                        <span class="word">là</span>
+                        <span class="word">định</span>
+                        <span class="word">danh,</span>
+                        <span class="word">nó</span>
+                        <span class="word">là</span>
+                        <span class="word">di</span>
+                        <span class="word">sản</span>
+                        <span class="word">số</span>
+                        <span class="word">vĩnh</span>
+                        <span class="word gold-text">cửu.</span>
+                    </h2>
+
+                    <div class="expert-info">
+                        <h4 class="expert-name">MR. PHẠM GIA LÂM</h4>
+                        <p class="expert-title">Chủ tịch Hiệp hội Sưu tầm Số Việt Nam</p>
+                    </div>
+
+                    <a href="#" class="btn-interview">
+                        XEM TOÀN BỘ PHỎNG VẤN <span class="long-arrow">→</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- ------------------------------ section 5 ------------------------------  -->
+    <section class="inner-circle" id="subscribeSection">
+        <canvas id="dustCanvas"></canvas>
+
+        <div class="circle-container">
+            <div class="invitation-box reveal-item">
+                <header class="invitation-header" style="bottom: 90%">
+                    <span class="sub-title">MEMBERS ONLY</span>
+                    <h2 class="main-title">ĐỪNG CHỈ ĐỌC TIN TỨC.<br>HÃY DẪN ĐẦU THỊ TRƯỜNG.</h2>
+                    <p class="description">
+                        Đăng ký nhận <strong>'The Monthly Plate'</strong> – Bản tin phân tích xu hướng
+                        và các thương vụ kín dành riêng cho thành viên VIP.
+                    </p>
+                </header>
+
+                <form class="subscribe-form" id="sealForm">
+                    <div class="input-group">
+                        <input type="email" placeholder="Địa chỉ Email của bạn" required id="emailInput">
+                        <div class="input-focus-line"></div>
+                    </div>
+
+                    <button type="submit" class="btn-seal" id="submitBtn">
+                        <span class="btn-text">YÊU CẦU GIA NHẬP</span>
+                        <div class="seal-icon">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3601/3601649.png" alt="Seal">
+                        </div>
+                    </button>
+                </form>
+
+                <div class="success-message" id="successMsg">
+                    <div class="wax-seal-final"></div>
+                    <p>CHÀO MỪNG BẠN ĐẾN VỚI CÂU LẠC BỘ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <?php include "footer.php" ?>
@@ -1177,48 +1449,159 @@
 
     // ------------------------ section 4 ------------------------ //
     document.addEventListener("DOMContentLoaded", function() {
-    // 1. Text Reveal Animation (Khi cuộn đến nơi mới hiện chữ)
-    gsap.registerPlugin(ScrollTrigger);
+        // 1. Text Reveal Animation (Khi cuộn đến nơi mới hiện chữ)
+        gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to(".golden-quote .word", {
-        scrollTrigger: {
-            trigger: ".golden-quote",
-            start: "top 80%",
-        },
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power4.out"
-    });
+        gsap.to(".golden-quote .word", {
+            scrollTrigger: {
+                trigger: ".golden-quote",
+                start: "top 80%",
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power4.out"
+        });
 
-    // 2. Parallax Portrait
-    gsap.to(".expert-img", {
-        scrollTrigger: {
-            trigger: ".expert-visual",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-        },
-        y: "15%", // Di chuyển chậm hơn trang
-        scale: 1.1
-    });
-
-    // 3. Liquid Distortion Mockup (Hiệu ứng tinh tế khi rê chuột)
-    const portrait = document.querySelector('.portrait-wrapper');
-    portrait.addEventListener('mousemove', (e) => {
-        const { left, top, width, height } = portrait.getBoundingClientRect();
-        const x = (e.clientX - left) / width;
-        const y = (e.clientY - top) / height;
-        
+        // 2. Parallax Portrait
         gsap.to(".expert-img", {
-            transformOrigin: `${x * 100}% ${y * 100}%`,
-            duration: 1
+            scrollTrigger: {
+                trigger: ".expert-visual",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            },
+            y: "15%", // Di chuyển chậm hơn trang
+            scale: 1.1
+        });
+
+        // 3. Liquid Distortion Mockup (Hiệu ứng tinh tế khi rê chuột)
+        const portrait = document.querySelector('.portrait-wrapper');
+        portrait.addEventListener('mousemove', (e) => {
+            const {
+                left,
+                top,
+                width,
+                height
+            } = portrait.getBoundingClientRect();
+            const x = (e.clientX - left) / width;
+            const y = (e.clientY - top) / height;
+
+            gsap.to(".expert-img", {
+                transformOrigin: `${x * 100}% ${y * 100}%`,
+                duration: 1
+            });
         });
     });
-});
 
     // ------------------------ section 5 ------------------------ //
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Floating Gold Dust (Canvas Animation)
+        const canvas = document.getElementById('dustCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.opacity = Math.random() * 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y > canvas.height) this.y = 0;
+            }
+            draw() {
+                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 100; i++) particles.push(new Particle());
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // 2. The Wax Seal Animation
+        const form = document.getElementById('sealForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const sealIcon = submitBtn.querySelector('.seal-icon');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // GSAP Animation cho con dấu
+            const tl = gsap.timeline();
+
+            tl.to(btnText, {
+                    opacity: 0,
+                    duration: 0.2
+                })
+                .to(submitBtn, {
+                    width: 80,
+                    height: 80,
+                    borderRadius: "50%",
+                    duration: 0.4,
+                    ease: "back.inOut"
+                })
+                .to(sealIcon, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "expo.out"
+                })
+                .to(submitBtn, {
+                    scale: 0.8,
+                    yoyo: true,
+                    repeat: 1,
+                    duration: 0.1
+                }) // Hiệu ứng "đóng bộp"
+                .to(".circle-container", {
+                    opacity: 0,
+                    y: -20,
+                    delay: 0.5,
+                    duration: 0.5
+                })
+                .add(() => {
+                    form.style.display = 'none';
+                    document.querySelector('.invitation-header').style.display = 'none';
+                    successMsg.style.display = 'flex';
+                })
+                .fromTo(successMsg, {
+                    opacity: 0,
+                    scale: 0.8
+                }, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.8,
+                    ease: "elastic.out(1, 0.5)"
+                });
+        });
+    });
 </script>
 <!-- -------------------- section 3 ------------------  -->
 <style>
