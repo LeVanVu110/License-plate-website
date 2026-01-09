@@ -211,6 +211,163 @@
         }
 
         /* -------------------------section 2-----------------  */
+        .narrative-body {
+    background: #000;
+    color: #F5F5F5;
+    padding: 100px 0;
+    position: relative;
+}
+
+.narrative-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 0 5%;
+}
+
+/* Sidebar */
+.narrative-sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    padding-top: 100px;
+}
+
+.sidebar-inner {
+    position: sticky;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.side-btn {
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #D4AF37;
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.side-btn:hover { background: #D4AF37; color: #000; }
+
+/* Article Content */
+.main-article {
+    max-width: 800px; /* Độ rộng tối ưu để đọc không mỏi mắt */
+    width: 100%;
+}
+
+.article-lead {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    font-style: italic;
+    color: #A1A1A6;
+    margin-bottom: 50px;
+}
+
+.article-paragraph {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #E0E0E0;
+}
+
+.drop-cap {
+    float: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    line-height: 1;
+    color: #D4AF37;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+.sub-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1rem;
+    color: #D4AF37;
+    margin: 60px 0 30px;
+}
+
+/* Full-bleed Image */
+.full-bleed-image {
+    margin: 60px -100px; /* Tràn lề văn bản */
+    position: relative;
+}
+
+.full-bleed-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.full-bleed-image figcaption {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Pull Quote */
+.pull-quote {
+    margin: 80px 0;
+    text-align: center;
+    position: relative;
+}
+
+.pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    color: #fff;
+    padding: 30px 0;
+}
+
+.pull-quote cite {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: #D4AF37;
+    font-style: normal;
+}
+
+.quote-line {
+    width: 60px;
+    height: 1px;
+    background: #D4AF37;
+    margin: 0 auto;
+}
+
+/* Tooltip */
+.tooltip-trigger {
+    border-bottom: 1px dashed #D4AF37;
+    cursor: help;
+    position: relative;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .full-bleed-image { margin: 60px 0; }
+    .narrative-sidebar { display: none; } /* Ẩn sidebar trên tablet/mobile */
+}
+
+@media (max-width: 768px) {
+    .article-lead { font-size: 1.4rem; }
+    .article-paragraph { font-size: 1.1rem; line-height: 1.6; }
+    .pull-quote p { font-size: 1.6rem; }
+}
 
         /* -------------------------section 3-----------------  */
 
@@ -262,8 +419,57 @@
         </div>
     </section>
 
-    <div style="height: 2000px; background: #0A0A0B;"></div>
     <!-- --------------------------------- section 2 --------------------------------- -->
+     <section class="narrative-body">
+    <div class="narrative-container">
+        
+        <aside class="narrative-sidebar">
+            <div class="sidebar-inner">
+                <button class="side-btn" title="Lưu bài viết"><i class="far fa-bookmark"></i></button>
+                <div class="side-divider"></div>
+                <button class="side-btn"><i class="fab fa-facebook-f"></i></button>
+                <button class="side-btn"><i class="fab fa-twitter"></i></button>
+                <button class="side-btn"><i class="fas fa-link"></i></button>
+            </div>
+        </aside>
+
+        <article class="main-article">
+            <p class="article-lead">
+                Trong thế giới của những nhà sưu tầm tinh hoa, biển số xe không còn đơn thuần là những con số định danh trên mặt kim loại. Nó đã chuyển mình thành một loại "di sản số", một biểu tượng của quyền lực, phong thủy và giá trị đầu tư vượt thời gian.
+            </p>
+
+            <p class="article-paragraph">
+                <span class="drop-cap">T</span>ại Việt Nam, thị trường biển số đẹp đang chứng kiến những bước ngoặt lịch sử. Kể từ khi chính sách định danh biển số đi vào thực thi, giá trị của những dãy số "Ngũ quý" hay "Sảnh tiến" đã tăng vọt. Giới thượng lưu không chỉ tìm kiếm một tấm biển đẹp cho chiếc xe của mình, mà họ đang tìm kiếm một <span class="tooltip-trigger" data-tooltip="Phương pháp phân tích dựa trên dữ liệu lịch sử và thuật toán AI để xác định giá trị thực của dãy số.">Định giá AI</span> chính xác để tích sản.
+            </p>
+
+            <h3 class="sub-heading">Giá trị của sự độc bản</h3>
+            
+            <p class="article-paragraph">
+                Khác với bất động sản hay đồng hồ xa xỉ, biển số xe là duy nhất. Không bao giờ có hai tấm biển số giống hệt nhau trên cùng một quốc gia. Sự khan hiếm tuyệt đối này chính là "chất xúc tác" mạnh mẽ nhất đẩy giá trị của chúng lên hàng triệu USD tại các thị trường như Dubai hay Hong Kong.
+            </p>
+
+            <figure class="full-bleed-image">
+                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070" alt="Luxury Car License Plate">
+                <figcaption>Ánh sáng hoàng hôn trên tấm biển số ngũ quý tại một sự kiện kín.</figcaption>
+            </figure>
+
+            <p class="article-paragraph">
+                Nhiều nhà sưu tầm chia sẻ rằng, việc sở hữu một dãy số <span class="tooltip-trigger" data-tooltip="Dãy số có 5 chữ số giống hệt nhau, biểu tượng cho sự viên mãn và quyền lực tuyệt đối.">Biển ngũ quý</span> không chỉ mang lại may mắn theo quan niệm phong thủy, mà còn là lời khẳng định vị thế cá nhân mà không cần phô trương.
+            </p>
+
+            <blockquote class="pull-quote">
+                <div class="quote-line"></div>
+                <p>"Biển số đẹp là thứ trang sức duy nhất mà bạn có thể mang theo trên mọi hành trình để khẳng định đẳng cấp mà không cần thốt ra một lời nào."</p>
+                <cite>— MR. PHẠM GIA LÂM</cite>
+                <div class="quote-line"></div>
+            </blockquote>
+
+            <p class="article-paragraph">
+                Kết thúc một thập kỷ biến động, thị trường biển số đẹp hiện nay đã trở thành một sân chơi chuyên nghiệp, minh bạch và đầy tiềm năng cho những ai hiểu rõ quy luật của các con số.
+            </p>
+        </article>
+    </div>
+</section>
 
     <!-- --------------------------------- section 3 --------------------------------- -->
 
@@ -318,6 +524,64 @@
 });
 
     // ----------------------------- section 2 ------------------------ // 
+    document.addEventListener("DOMContentLoaded", function() {
+    // 1. Reveal on Scroll (Sử dụng ScrollTrigger)
+    const paragraphs = document.querySelectorAll('.article-paragraph, .sub-heading, .pull-quote, .full-bleed-image');
+    
+    paragraphs.forEach((p) => {
+        gsap.from(p, {
+            scrollTrigger: {
+                trigger: p,
+                start: "top 85%",
+                toggleActions: "play none none none"
+            },
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+    });
+
+    // 2. Smooth Text Focus (Mờ các đoạn văn xung quanh khi đọc lâu)
+    let focusTimer;
+    paragraphs.forEach((p) => {
+        p.addEventListener('mouseenter', () => {
+            clearTimeout(focusTimer);
+            focusTimer = setTimeout(() => {
+                paragraphs.forEach(other => {
+                    if (other !== p) gsap.to(other, { opacity: 0.3, duration: 1 });
+                });
+            }, 3000); // 3 giây
+        });
+        
+        p.addEventListener('mouseleave', () => {
+            clearTimeout(focusTimer);
+            gsap.to(paragraphs, { opacity: 1, duration: 0.5 });
+        });
+    });
+
+    // 3. Interactive Tooltip (Đơn giản bằng CSS/JS)
+    document.querySelectorAll('.tooltip-trigger').forEach(trigger => {
+        trigger.addEventListener('mouseenter', function(e) {
+            const text = this.getAttribute('data-tooltip');
+            const tooltip = document.createElement('div');
+            tooltip.className = 'custom-tooltip';
+            tooltip.innerText = text;
+            document.body.appendChild(tooltip);
+
+            const rect = this.getBoundingClientRect();
+            tooltip.style.left = rect.left + 'px';
+            tooltip.style.top = (rect.top - 40) + 'px';
+            
+            gsap.fromTo(tooltip, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 });
+        });
+
+        trigger.addEventListener('mouseleave', () => {
+            const tooltip = document.querySelector('.custom-tooltip');
+            if (tooltip) tooltip.remove();
+        });
+    });
+});
 
     // ----------------------------- section 3 ------------------------ // 
 
@@ -325,5 +589,22 @@
 
     // ----------------------------- section 5 ------------------------ // 
 </script>
+<!-- ---------------------------- section 2 -----------------------  -->\
+ <style>
+/* CSS cho Tooltip */
+.custom-tooltip {
+    position: fixed;
+    background: rgba(212, 175, 55, 0.95);
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 9999;
+    max-width: 250px;
+    font-family: 'Inter', sans-serif;
+    pointer-events: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+</style>
 
 </html>
