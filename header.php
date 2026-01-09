@@ -174,6 +174,7 @@
             <a href="suutam.php">Sưu tập</a>
             <a href="dinhgia.php">Định giá AI</a>
             <a>Đấu giá</a>
+            <a href="">Tin tức</a>
             <a href="">Liên hệ</a>
         </nav>
     </header>
