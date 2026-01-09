@@ -545,6 +545,134 @@
         }
 
         /* -------------------------section 4-----------------  */
+        .authority-insight-wrapper {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 5%;
+    position: relative;
+}
+
+.insight-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* Authority Card - Glassmorphism */
+.authority-card {
+    flex: 0 0 380px; /* Chiếm khoảng 30-40% chiều rộng */
+    position: sticky;
+    top: 100px; /* Hiệu ứng Sticky Reveal */
+    background: rgba(15, 15, 15, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.card-glow {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    box-shadow: inset 0 0 30px rgba(212, 175, 55, 0.05);
+    pointer-events: none;
+}
+
+.expert-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.expert-image-wrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    filter: grayscale(100%);
+    border: 1px solid var(--gold-bronze);
+}
+
+.expert-portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.expert-name {
+    font-family: 'Inter', sans-serif;
+    color: #F7E7CE; /* Rose Gold */
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.expert-rank {
+    font-size: 9px;
+    color: #888;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.insight-content {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #E0E0E0;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Chữ ký điện tử */
+.signature-container {
+    text-align: right;
+    position: relative;
+}
+
+.ink-signature {
+    width: 150px;
+    height: 50px;
+}
+
+#signaturePath {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500; /* Ẩn đi để vẽ */
+}
+
+.sign-label {
+    display: block;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(212, 175, 55, 0.5);
+    margin-top: -10px;
+}
+
+.accompanying-text {
+    flex: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #A1A1A6;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .insight-container { flex-direction: column; }
+    .authority-card {
+        flex: 1;
+        position: relative;
+        top: 0;
+        width: 100%;
+        margin-bottom: 40px;
+        order: 2; /* Đưa xuống sau đoạn văn đầu tiên trên mobile */
+    }
+    .accompanying-text { order: 1; }
+}
+        
 
         /* -------------------------section 5-----------------  */
     </style>
@@ -687,6 +815,42 @@
     </section>
 
     <!-- --------------------------------- section 4 --------------------------------- -->
+     <section class="authority-insight-wrapper">
+    <div class="insight-container">
+        
+        <aside class="authority-card reveal-insight">
+            <div class="card-glow"></div>
+            
+            <div class="expert-profile">
+                <div class="expert-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070" alt="Expert Portrait" class="expert-portrait">
+                </div>
+                <div class="expert-meta">
+                    <h4 class="expert-name">NAM NGUYEN</h4>
+                    <p class="expert-rank">CHUYÊN GIA PHONG THỦY & SƯU TẦM SỐ</p>
+                </div>
+            </div>
+
+            <div class="insight-content">
+                <p class="insight-quote">
+                    "Giá trị của một dãy số không nằm ở cách nó hiển thị trên mặt kim loại, mà ở cách nó cộng hưởng với bản mệnh của chủ nhân. Một dãy ngũ quý 9 trong vận 9 không chỉ là tài sản, nó là một cổng năng lượng dẫn lối tài lộc."
+                </p>
+            </div>
+
+            <div class="signature-container">
+                <svg viewBox="0 0 200 60" class="ink-signature">
+                    <path d="M20,40 Q50,10 80,40 T140,40 Q160,20 180,50" fill="none" stroke="#D4AF37" stroke-width="2" id="signaturePath" />
+                </svg>
+                <span class="sign-label">Verified Authority</span>
+            </div>
+        </aside>
+
+        <div class="accompanying-text">
+            <p>Như đã đề cập ở phần trước, sự dịch chuyển năng lượng từ vận 8 sang vận 9 đã thay đổi hoàn toàn tư duy của giới sưu tầm. Các dãy số mang hành Hỏa và Thổ đang trở thành mục tiêu săn đón hàng đầu...</p>
+            <p>Nhiều phiên đấu giá gần đây cho thấy mức giá kỷ lục thường rơi vào các tấm biển có sự xuất hiện của số 9. Đây không phải là ngẫu nhiên mà là một chiến lược tích sản có tính toán của giới tinh hoa.</p>
+        </div>
+    </div>
+</section>
 
     <!-- --------------------------------- section 5 --------------------------------- -->
 
@@ -891,6 +1055,42 @@
     });
 
     // ----------------------------- section 4 ------------------------ // 
+    document.addEventListener("DOMContentLoaded", function() {
+    // 1. Hiệu ứng "Ink Signature" khi cuộn đến
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to("#signaturePath", {
+        scrollTrigger: {
+            trigger: ".signature-container",
+            start: "top 90%",
+            toggleActions: "play none none none"
+        },
+        strokeDashoffset: 0,
+        duration: 2.5,
+        ease: "power1.inOut"
+    });
+
+    // 2. Reveal hiệu ứng card (Fade & Glow)
+    gsap.from(".authority-card", {
+        scrollTrigger: {
+            trigger: ".authority-card",
+            start: "top 80%",
+        },
+        opacity: 0,
+        x: 50,
+        duration: 1.2,
+        ease: "expo.out"
+    });
+
+    // 3. Hiệu ứng Glow tỏa sáng nhẹ liên tục
+    gsap.to(".card-glow", {
+        boxShadow: "inset 0 0 50px rgba(212, 175, 55, 0.15)",
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+    });
+});
 
     // ----------------------------- section 5 ------------------------ // 
 </script>
