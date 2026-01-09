@@ -546,135 +546,330 @@
 
         /* -------------------------section 4-----------------  */
         .authority-insight-wrapper {
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 5%;
-    position: relative;
-}
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 5%;
+            position: relative;
+        }
 
-.insight-container {
-    display: flex;
-    gap: 50px;
-    align-items: flex-start;
-}
+        .insight-container {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
 
-/* Authority Card - Glassmorphism */
-.authority-card {
-    flex: 0 0 380px; /* Chiếm khoảng 30-40% chiều rộng */
-    position: sticky;
-    top: 100px; /* Hiệu ứng Sticky Reveal */
-    background: rgba(15, 15, 15, 0.7);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    padding: 40px;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-}
+        /* Authority Card - Glassmorphism */
+        .authority-card {
+            flex: 0 0 380px;
+            /* Chiếm khoảng 30-40% chiều rộng */
+            position: sticky;
+            top: 100px;
+            /* Hiệu ứng Sticky Reveal */
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 40px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
 
-.card-glow {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    box-shadow: inset 0 0 30px rgba(212, 175, 55, 0.05);
-    pointer-events: none;
-}
+        .card-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 30px rgba(212, 175, 55, 0.05);
+            pointer-events: none;
+        }
 
-.expert-profile {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 30px;
-}
+        .expert-profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
 
-.expert-image-wrapper {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    overflow: hidden;
-    filter: grayscale(100%);
-    border: 1px solid var(--gold-bronze);
-}
+        .expert-image-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            filter: grayscale(100%);
+            border: 1px solid var(--gold-bronze);
+        }
 
-.expert-portrait {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .expert-portrait {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.expert-name {
-    font-family: 'Inter', sans-serif;
-    color: #F7E7CE; /* Rose Gold */
-    font-size: 14px;
-    letter-spacing: 2px;
-    margin-bottom: 5px;
-}
+        .expert-name {
+            font-family: 'Inter', sans-serif;
+            color: #F7E7CE;
+            /* Rose Gold */
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
 
-.expert-rank {
-    font-size: 9px;
-    color: #888;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
+        .expert-rank {
+            font-size: 9px;
+            color: #888;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-.insight-content {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: #E0E0E0;
-    margin-bottom: 30px;
-    position: relative;
-}
+        .insight-content {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #E0E0E0;
+            margin-bottom: 30px;
+            position: relative;
+        }
 
-/* Chữ ký điện tử */
-.signature-container {
-    text-align: right;
-    position: relative;
-}
+        /* Chữ ký điện tử */
+        .signature-container {
+            text-align: right;
+            position: relative;
+        }
 
-.ink-signature {
-    width: 150px;
-    height: 50px;
-}
+        .ink-signature {
+            width: 150px;
+            height: 50px;
+        }
 
-#signaturePath {
-    stroke-dasharray: 500;
-    stroke-dashoffset: 500; /* Ẩn đi để vẽ */
-}
+        #signaturePath {
+            stroke-dasharray: 500;
+            stroke-dashoffset: 500;
+            /* Ẩn đi để vẽ */
+        }
 
-.sign-label {
-    display: block;
-    font-size: 8px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: rgba(212, 175, 55, 0.5);
-    margin-top: -10px;
-}
+        .sign-label {
+            display: block;
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(212, 175, 55, 0.5);
+            margin-top: -10px;
+        }
 
-.accompanying-text {
-    flex: 1;
-    font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #A1A1A6;
-}
+        .accompanying-text {
+            flex: 1;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #A1A1A6;
+        }
 
-/* Mobile Responsive */
-@media (max-width: 1024px) {
-    .insight-container { flex-direction: column; }
-    .authority-card {
-        flex: 1;
-        position: relative;
-        top: 0;
-        width: 100%;
-        margin-bottom: 40px;
-        order: 2; /* Đưa xuống sau đoạn văn đầu tiên trên mobile */
-    }
-    .accompanying-text { order: 1; }
-}
-        
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .insight-container {
+                flex-direction: column;
+            }
+
+            .authority-card {
+                flex: 1;
+                position: relative;
+                top: 0;
+                width: 100%;
+                margin-bottom: 40px;
+                order: 2;
+                /* Đưa xuống sau đoạn văn đầu tiên trên mobile */
+            }
+
+            .accompanying-text {
+                order: 1;
+            }
+        }
+
 
         /* -------------------------section 5-----------------  */
+        .continued-journey {
+            background: linear-gradient(to bottom, #000000, #0F0F0F);
+            padding: 120px 0 0 0;
+            overflow: hidden;
+        }
+
+        .journey-container {
+            width: 100%;
+        }
+
+        .related-section {
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 5%;
+        }
+
+        .journey-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            color: #D4AF37;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* Related Grid */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .chronicle-card {
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .chronicle-link {
+            text-decoration: none;
+            display: block;
+        }
+
+        .chronicle-img-wrapper {
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 2px;
+            margin-bottom: 25px;
+            background: #111;
+        }
+
+        .chronicle-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .chronicle-meta {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #666;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .chronicle-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #fff;
+            line-height: 1.4;
+            transition: color 0.3s;
+        }
+
+        /* Effects on Hover */
+        .chronicle-card:hover .chronicle-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .chronicle-card:hover .chronicle-title {
+            color: #D4AF37;
+        }
+
+        #relatedGrid:hover .chronicle-card:not(:hover) {
+            opacity: 0.4;
+            filter: grayscale(1);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            position: relative;
+            padding: 100px 0;
+            text-align: center;
+            background: #050505;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .infinite-path {
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 200%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #D4AF37, transparent);
+            animation: pathFlow 8s linear infinite;
+        }
+
+        @keyframes pathFlow {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(50%);
+            }
+        }
+
+        .cta-message {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 40px;
+            line-height: 1.3;
+        }
+
+        .btn-cta-gold {
+            display: inline-block;
+            padding: 20px 50px;
+            background: transparent;
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-glow {
+            position: absolute;
+            inset: 0;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0);
+            animation: breathGlow 3s infinite;
+        }
+
+        @keyframes breathGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .related-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 30px;
+                gap: 20px;
+            }
+
+            .chronicle-card {
+                flex: 0 0 85%;
+                scroll-snap-align: start;
+            }
+
+            .cta-message {
+                font-size: 1.5rem;
+            }
+
+            .btn-cta-gold {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 
@@ -815,44 +1010,88 @@
     </section>
 
     <!-- --------------------------------- section 4 --------------------------------- -->
-     <section class="authority-insight-wrapper">
-    <div class="insight-container">
-        
-        <aside class="authority-card reveal-insight">
-            <div class="card-glow"></div>
-            
-            <div class="expert-profile">
-                <div class="expert-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070" alt="Expert Portrait" class="expert-portrait">
+    <section class="authority-insight-wrapper">
+        <div class="insight-container">
+
+            <aside class="authority-card reveal-insight">
+                <div class="card-glow"></div>
+
+                <div class="expert-profile">
+                    <div class="expert-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070" alt="Expert Portrait" class="expert-portrait">
+                    </div>
+                    <div class="expert-meta">
+                        <h4 class="expert-name">NAM NGUYEN</h4>
+                        <p class="expert-rank">CHUYÊN GIA PHONG THỦY & SƯU TẦM SỐ</p>
+                    </div>
                 </div>
-                <div class="expert-meta">
-                    <h4 class="expert-name">NAM NGUYEN</h4>
-                    <p class="expert-rank">CHUYÊN GIA PHONG THỦY & SƯU TẦM SỐ</p>
+
+                <div class="insight-content">
+                    <p class="insight-quote">
+                        "Giá trị của một dãy số không nằm ở cách nó hiển thị trên mặt kim loại, mà ở cách nó cộng hưởng với bản mệnh của chủ nhân. Một dãy ngũ quý 9 trong vận 9 không chỉ là tài sản, nó là một cổng năng lượng dẫn lối tài lộc."
+                    </p>
                 </div>
-            </div>
 
-            <div class="insight-content">
-                <p class="insight-quote">
-                    "Giá trị của một dãy số không nằm ở cách nó hiển thị trên mặt kim loại, mà ở cách nó cộng hưởng với bản mệnh của chủ nhân. Một dãy ngũ quý 9 trong vận 9 không chỉ là tài sản, nó là một cổng năng lượng dẫn lối tài lộc."
-                </p>
-            </div>
+                <div class="signature-container">
+                    <svg viewBox="0 0 200 60" class="ink-signature">
+                        <path d="M20,40 Q50,10 80,40 T140,40 Q160,20 180,50" fill="none" stroke="#D4AF37" stroke-width="2" id="signaturePath" />
+                    </svg>
+                    <span class="sign-label">Verified Authority</span>
+                </div>
+            </aside>
 
-            <div class="signature-container">
-                <svg viewBox="0 0 200 60" class="ink-signature">
-                    <path d="M20,40 Q50,10 80,40 T140,40 Q160,20 180,50" fill="none" stroke="#D4AF37" stroke-width="2" id="signaturePath" />
-                </svg>
-                <span class="sign-label">Verified Authority</span>
+            <div class="accompanying-text">
+                <p>Như đã đề cập ở phần trước, sự dịch chuyển năng lượng từ vận 8 sang vận 9 đã thay đổi hoàn toàn tư duy của giới sưu tầm. Các dãy số mang hành Hỏa và Thổ đang trở thành mục tiêu săn đón hàng đầu...</p>
+                <p>Nhiều phiên đấu giá gần đây cho thấy mức giá kỷ lục thường rơi vào các tấm biển có sự xuất hiện của số 9. Đây không phải là ngẫu nhiên mà là một chiến lược tích sản có tính toán của giới tinh hoa.</p>
             </div>
-        </aside>
-
-        <div class="accompanying-text">
-            <p>Như đã đề cập ở phần trước, sự dịch chuyển năng lượng từ vận 8 sang vận 9 đã thay đổi hoàn toàn tư duy của giới sưu tầm. Các dãy số mang hành Hỏa và Thổ đang trở thành mục tiêu săn đón hàng đầu...</p>
-            <p>Nhiều phiên đấu giá gần đây cho thấy mức giá kỷ lục thường rơi vào các tấm biển có sự xuất hiện của số 9. Đây không phải là ngẫu nhiên mà là một chiến lược tích sản có tính toán của giới tinh hoa.</p>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- --------------------------------- section 5 --------------------------------- -->
+    <section class="continued-journey">
+        <div class="journey-container">
+            <div class="related-section">
+                <h3 class="journey-label">CÂU CHUYỆN TIẾP THEO</h3>
+
+                <div class="related-grid" id="relatedGrid">
+                    <div class="chronicle-card">
+                        <a href="chi-tiet-tin-tuc.php?id=2" class="chronicle-link">
+                            <div class="chronicle-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070" alt="Related Article">
+                            </div>
+                            <div class="chronicle-info">
+                                <span class="chronicle-meta">THỊ TRƯỜNG • 5 PHÚT ĐỌC</span>
+                                <h4 class="chronicle-title">Tương lai của biển số xe định danh trong kỷ nguyên số</h4>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="chronicle-card">
+                        <a href="chi-tiet-tin-tuc.php?id=3" class="chronicle-link">
+                            <div class="chronicle-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070" alt="Related Article">
+                            </div>
+                            <div class="chronicle-info">
+                                <span class="chronicle-meta">BỘ SƯU TẬP • 12 PHÚT ĐỌC</span>
+                                <h4 class="chronicle-title">Chiêm ngưỡng bộ sưu tập "Ngũ Quý" của đại gia Sài Thành</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-banner">
+                <div class="infinite-path"></div>
+                <div class="cta-content">
+                    <h2 class="cta-message">Cảm hứng từ những con số? <br>Khám phá những báu vật đang chờ đợi chủ nhân.</h2>
+                    <a href="daugia.php" class="btn-cta-gold">
+                        <span class="btn-text">GIA NHẬP ĐẤU TRƯỜNG</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <?php include "footer.php" ?>
 </body>
@@ -1056,45 +1295,92 @@
 
     // ----------------------------- section 4 ------------------------ // 
     document.addEventListener("DOMContentLoaded", function() {
-    // 1. Hiệu ứng "Ink Signature" khi cuộn đến
-    gsap.registerPlugin(ScrollTrigger);
+        // 1. Hiệu ứng "Ink Signature" khi cuộn đến
+        gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to("#signaturePath", {
-        scrollTrigger: {
-            trigger: ".signature-container",
-            start: "top 90%",
-            toggleActions: "play none none none"
-        },
-        strokeDashoffset: 0,
-        duration: 2.5,
-        ease: "power1.inOut"
+        gsap.to("#signaturePath", {
+            scrollTrigger: {
+                trigger: ".signature-container",
+                start: "top 90%",
+                toggleActions: "play none none none"
+            },
+            strokeDashoffset: 0,
+            duration: 2.5,
+            ease: "power1.inOut"
+        });
+
+        // 2. Reveal hiệu ứng card (Fade & Glow)
+        gsap.from(".authority-card", {
+            scrollTrigger: {
+                trigger: ".authority-card",
+                start: "top 80%",
+            },
+            opacity: 0,
+            x: 50,
+            duration: 1.2,
+            ease: "expo.out"
+        });
+
+        // 3. Hiệu ứng Glow tỏa sáng nhẹ liên tục
+        gsap.to(".card-glow", {
+            boxShadow: "inset 0 0 50px rgba(212, 175, 55, 0.15)",
+            duration: 2,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
     });
 
-    // 2. Reveal hiệu ứng card (Fade & Glow)
-    gsap.from(".authority-card", {
-        scrollTrigger: {
-            trigger: ".authority-card",
-            start: "top 80%",
-        },
-        opacity: 0,
-        x: 50,
-        duration: 1.2,
-        ease: "expo.out"
-    });
-
-    // 3. Hiệu ứng Glow tỏa sáng nhẹ liên tục
-    gsap.to(".card-glow", {
-        boxShadow: "inset 0 0 50px rgba(212, 175, 55, 0.15)",
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-    });
-});
 
     // ----------------------------- section 5 ------------------------ // 
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Hiệu ứng Magnetic (Di chuyển nhẹ theo chuột) cho thẻ bài viết
+        const cards = document.querySelectorAll('.chronicle-card');
+
+        if (window.innerWidth > 1024) {
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+                    gsap.to(card, {
+                        x: x * 20,
+                        y: y * 20,
+                        rotationY: x * 5,
+                        rotationX: -y * 5,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, {
+                        x: 0,
+                        y: 0,
+                        rotationY: 0,
+                        rotationX: 0,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                });
+            });
+        }
+
+        // 2. Reveal Scroll cho CTA
+        gsap.from(".cta-content", {
+            scrollTrigger: {
+                trigger: ".cta-banner",
+                start: "top 80%",
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1.5,
+            ease: "expo.out"
+        });
+    });
 </script>
-<!-- ---------------------------- section 2 -----------------------  -->\
+<!-- ---------------------------- section 2 -----------------------  -->
 <style>
     /* CSS cho Tooltip */
     .custom-tooltip {
