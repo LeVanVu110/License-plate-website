@@ -175,7 +175,7 @@
             <a href="dinhgia.php">Định giá AI</a>
             <a href="daugia.php">Đấu giá</a>
             <a href="tintuc.php">Tin tức</a>
-            <a href="">Liên hệ</a>
+            <a href="lienhe.php">Liên hệ</a>
         </nav>
     </header>
 </body>
