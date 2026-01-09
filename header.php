@@ -171,9 +171,10 @@
             <span class="bar"></span>
         </div>
         <nav id="nav-menu">
-            <a href="">Sưu tập</a>
-            <a>Định giá AI</a>
-            <a>Đấu giá</a>
+            <a href="suutam.php">Sưu tập</a>
+            <a href="dinhgia.php">Định giá AI</a>
+            <a href="daugia.php">Đấu giá</a>
+            <a href="tintuc.php">Tin tức</a>
             <a href="">Liên hệ</a>
         </nav>
     </header>
