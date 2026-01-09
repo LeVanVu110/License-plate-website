@@ -536,6 +536,145 @@
         }
 
         /* ----------------------------- section 4 -----------------------------  */
+        .expert-voice {
+    background: #0D0D0D;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.expert-container {
+    display: flex;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+/* Visual Side */
+.expert-visual {
+    flex: 1;
+    height: 90vh;
+    padding-left: 5%;
+    position: relative;
+}
+
+.portrait-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    filter: grayscale(100%) contrast(110%);
+    transition: filter 0.5s ease;
+}
+
+.expert-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    will-change: transform;
+}
+
+.expert-visual:hover .portrait-wrapper {
+    filter: grayscale(0%) contrast(100%);
+}
+
+/* Content Side */
+.expert-content {
+    flex: 1;
+    padding: 0 8%;
+    position: relative;
+}
+
+.quote-bg {
+    position: absolute;
+    top: -50px;
+    left: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 25rem;
+    color: rgba(212, 175, 55, 0.05); /* Gold mờ */
+    line-height: 1;
+    pointer-events: none;
+}
+
+.golden-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 40px;
+}
+
+.golden-quote .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.gold-text {
+    color: #D4AF37;
+}
+
+.expert-info {
+    border-left: 2px solid #D4AF37;
+    padding-left: 25px;
+    margin-bottom: 50px;
+}
+
+.expert-name {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 5px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.expert-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-interview {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    transition: gap 0.3s ease;
+}
+
+.btn-interview:hover {
+    gap: 30px;
+    color: #D4AF37;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .expert-container { flex-direction: column; }
+    .expert-visual { 
+        height: 60vh; 
+        padding-left: 0; 
+        width: 100%; 
+        order: 2;
+    }
+    .expert-content { 
+        padding: 60px 5%; 
+        order: 1;
+        text-align: center;
+    }
+    .golden-quote { font-size: 2.2rem; }
+    .quote-bg { left: 50%; transform: translateX(-50%); top: 0; }
+    .expert-info { border-left: none; padding-left: 0; }
+}
 
         /* ----------------------------- section 5 -----------------------------  */
     </style>
@@ -820,6 +959,45 @@
     </section>
 
     <!-- ------------------------------ section 4 ------------------------------  -->
+     <section class="expert-voice" id="expertSection">
+    <div class="expert-container">
+        <div class="expert-visual">
+            <div class="portrait-wrapper">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974" class="expert-img" alt="Chuyên gia sưu tầm">
+                <div class="liquid-overlay"></div> </div>
+        </div>
+
+        <div class="expert-content">
+            <div class="quote-bg">“</div> <div class="quote-wrapper">
+                <h2 class="golden-quote">
+                    <span class="word">Biển</span> 
+                    <span class="word">số</span> 
+                    <span class="word">không</span> 
+                    <span class="word">chỉ</span> 
+                    <span class="word">là</span> 
+                    <span class="word">định</span> 
+                    <span class="word">danh,</span> 
+                    <span class="word">nó</span> 
+                    <span class="word">là</span> 
+                    <span class="word">di</span> 
+                    <span class="word">sản</span> 
+                    <span class="word">số</span> 
+                    <span class="word">vĩnh</span> 
+                    <span class="word gold-text">cửu.</span>
+                </h2>
+                
+                <div class="expert-info">
+                    <h4 class="expert-name">MR. PHẠM GIA LÂM</h4>
+                    <p class="expert-title">Chủ tịch Hiệp hội Sưu tầm Số Việt Nam</p>
+                </div>
+
+                <a href="#" class="btn-interview">
+                    XEM TOÀN BỘ PHỎNG VẤN <span class="long-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- ------------------------------ section 5 ------------------------------  -->
 
@@ -998,6 +1176,47 @@
     });
 
     // ------------------------ section 4 ------------------------ //
+    document.addEventListener("DOMContentLoaded", function() {
+    // 1. Text Reveal Animation (Khi cuộn đến nơi mới hiện chữ)
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".golden-quote .word", {
+        scrollTrigger: {
+            trigger: ".golden-quote",
+            start: "top 80%",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power4.out"
+    });
+
+    // 2. Parallax Portrait
+    gsap.to(".expert-img", {
+        scrollTrigger: {
+            trigger: ".expert-visual",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+        },
+        y: "15%", // Di chuyển chậm hơn trang
+        scale: 1.1
+    });
+
+    // 3. Liquid Distortion Mockup (Hiệu ứng tinh tế khi rê chuột)
+    const portrait = document.querySelector('.portrait-wrapper');
+    portrait.addEventListener('mousemove', (e) => {
+        const { left, top, width, height } = portrait.getBoundingClientRect();
+        const x = (e.clientX - left) / width;
+        const y = (e.clientY - top) / height;
+        
+        gsap.to(".expert-img", {
+            transformOrigin: `${x * 100}% ${y * 100}%`,
+            duration: 1
+        });
+    });
+});
 
     // ------------------------ section 5 ------------------------ //
 </script>
