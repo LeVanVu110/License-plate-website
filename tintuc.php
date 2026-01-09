@@ -840,78 +840,86 @@
         }
 
         @media (max-width: 1024px) {
-    .inner-circle {
-        min-height: 80vh; /* Giảm chiều cao từ 150vh xuống để vừa màn hình tablet */
-        padding: 80px 5%;
-    }
-    
-    .main-title {
-        font-size: 2.5rem;
-    }
+            .inner-circle {
+                min-height: 80vh;
+                /* Giảm chiều cao từ 150vh xuống để vừa màn hình tablet */
+                padding: 80px 5%;
+            }
 
-    .subscribe-form {
-        padding-top: 10% !important; /* Giảm khoảng cách đẩy phía trên */
-    }
-}
+            .main-title {
+                font-size: 2.5rem;
+            }
 
-@media (max-width: 768px) {
-    .inner-circle {
-        min-height: 100vh; /* Đảm bảo phủ kín màn hình mobile */
-        padding: 60px 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+            .subscribe-form {
+                padding-top: 10% !important;
+                /* Giảm khoảng cách đẩy phía trên */
+            }
+        }
 
-    .main-title {
-        font-size: 1.8rem; /* Chữ nhỏ lại để không bị tràn dòng */
-        margin-bottom: 20px;
-    }
+        @media (max-width: 768px) {
+            .inner-circle {
+                min-height: 100vh;
+                /* Đảm bảo phủ kín màn hình mobile */
+                padding: 60px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
 
-    .description {
-        font-size: 14px;
-        margin-bottom: 30px;
-        padding: 0 10px;
-    }
+            .main-title {
+                font-size: 1.8rem;
+                /* Chữ nhỏ lại để không bị tràn dòng */
+                margin-bottom: 20px;
+            }
 
-    .subscribe-form {
-        padding-top: 20px !important; /* Xóa bỏ việc đẩy 30% trên mobile */
-        width: 100%;
-        gap: 20px;
-    }
+            .description {
+                font-size: 14px;
+                margin-bottom: 30px;
+                padding: 0 10px;
+            }
 
-    .input-group {
-        max-width: 100%;
-    }
+            .subscribe-form {
+                padding-top: 20px !important;
+                /* Xóa bỏ việc đẩy 30% trên mobile */
+                width: 100%;
+                gap: 20px;
+            }
 
-    .input-group input {
-        font-size: 16px; /* Ngăn chặn iOS tự động zoom màn hình khi nhập liệu */
-        padding: 12px 0;
-    }
+            .input-group {
+                max-width: 100%;
+            }
 
-    .btn-seal {
-        width: 100%; /* Nút bấm chiếm toàn màn hình mobile dễ thao tác */
-        max-width: 100%;
-        padding: 18px 0;
-        letter-spacing: 2px;
-    }
+            .input-group input {
+                font-size: 16px;
+                /* Ngăn chặn iOS tự động zoom màn hình khi nhập liệu */
+                padding: 12px 0;
+            }
 
-    /* Đảm bảo header không bị trôi quá xa */
-    .invitation-header {
-        bottom: auto !important; 
-        position: relative !important;
-    }
-}
+            .btn-seal {
+                width: 100%;
+                /* Nút bấm chiếm toàn màn hình mobile dễ thao tác */
+                max-width: 100%;
+                padding: 18px 0;
+                letter-spacing: 2px;
+            }
 
-@media (max-width: 480px) {
-    .main-title {
-        font-size: 1.5rem;
-    }
-    
-    .inner-circle {
-        min-height: 70vh; /* Tối ưu cho các dòng máy nhỏ */
-    }
-}
+            /* Đảm bảo header không bị trôi quá xa */
+            .invitation-header {
+                bottom: auto !important;
+                position: relative !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 1.5rem;
+            }
+
+            .inner-circle {
+                min-height: 70vh;
+                /* Tối ưu cho các dòng máy nhỏ */
+            }
+        }
     </style>
 </head>
 
@@ -1023,17 +1031,19 @@
             </div>
             <div class="masonry-grid">
                 <div class="art-card big-card phap-ly" data-category="phap-ly">
-                    <div class="card-inner">
-                        <div class="parallax-wrapper">
-                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070" class="parallax-img" alt="Pháp lý">
+                    <a href="chitiettintuc.php" style="text-decoration: none; color: inherit;">
+                        <div class="card-inner">
+                            <div class="parallax-wrapper">
+                                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070" class="parallax-img" alt="Pháp lý">
+                            </div>
+                            <div class="card-overlay"></div>
+                            <div class="card-content">
+                                <span class="card-meta">PHÁP LÝ • 12 THÁNG 10, 2023</span>
+                                <h2 class="card-title">Quy trình định danh biển số: Những điều giới sưu tầm cần lưu ý</h2>
+                                <p class="card-excerpt">Cập nhật những thay đổi mới nhất về luật định và cách thức bảo tồn tài sản số...</p>
+                            </div>
                         </div>
-                        <div class="card-overlay"></div>
-                        <div class="card-content">
-                            <span class="card-meta">PHÁP LÝ • 12 THÁNG 10, 2023</span>
-                            <h2 class="card-title">Quy trình định danh biển số: Những điều giới sưu tầm cần lưu ý</h2>
-                            <p class="card-excerpt">Cập nhật những thay đổi mới nhất về luật định và cách thức bảo tồn tài sản số...</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="art-card thi-truong" data-category="thi-truong">
                     <div class="card-inner">
@@ -1443,6 +1453,21 @@
                         });
                     }
                 });
+            });
+        });
+    });
+    // Khi click vào bài viết, làm mờ trang cũ trước khi sang trang mới
+    document.querySelectorAll('.art-card a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const destination = this.href;
+
+            gsap.to("body", {
+                opacity: 0,
+                duration: 0.5,
+                onComplete: () => {
+                    window.location.href = destination;
+                }
             });
         });
     });
