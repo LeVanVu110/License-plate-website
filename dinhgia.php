@@ -18,6 +18,10 @@
             --obsidian-dark: #020202;
             --titanium-white: #E5E5E5;
             --neon-error: #FF3131;
+            --card-bg: #121212;
+            --border-soft: rgba(255, 255, 255, 0.08);
+            --text-dim: #888888;
+            --green-success: #00FF41;
         }
 
         body {
@@ -594,6 +598,221 @@
         }
 
         /* ------------------------------ section 4--------------------------  */
+        /* --- SECTION 4: MARKET BENCHMARKS (RE-DESIGNED) --- */
+        .market-benchmarks {
+            position: relative;
+            min-height: 200vh;
+            background: #0a0a0a;
+            /* Đen xám chì để tách biệt khối */
+            padding: 120px 5%;
+            z-index: 5;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Lớp phủ tránh đụng màu với Section 3 */
+        .market-benchmarks::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to bottom, #020202, transparent);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .benchmarks-container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benchmarks-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .benchmarks-header .section-title {
+            color: #FFFFFF !important;
+            /* Trắng tuyệt đối */
+            font-size: 0.9rem;
+            letter-spacing: 10px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            margin-bottom: 15px;
+        }
+
+        .system-status {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.75rem;
+            color: #00FF41;
+            /* Xanh lá nhạt - Đã bán/Thành công */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #00FF41;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00FF41;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Thẻ Card đối chiếu */
+        .comparison-cards-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .benchmark-card {
+            background: #121212;
+            /* Nền thẻ Card */
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .benchmark-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--cyan-electric);
+            background: #161616;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 242, 255, 0.05);
+        }
+
+        .card-plate-display {
+            background: #000;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mini-plate {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: 3px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            color: #888;
+            /* Màu chữ mờ cho nhãn */
+        }
+
+        .info-row .val {
+            color: #E5E5E5;
+            /* Trắng Titanium cho giá trị */
+            font-weight: 600;
+        }
+
+        .price-row {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .price-val {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            /* Màu trắng cho giá tiền */
+        }
+
+        .card-footer {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .similarity-tag {
+            font-size: 0.65rem;
+            padding: 5px 12px;
+            background: rgba(0, 242, 255, 0.1);
+            color: var(--cyan-electric);
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .status-tag {
+            font-size: 0.7rem;
+            color: #00FF41;
+            font-weight: 800;
+        }
+
+        .btn-load-more {
+            display: block;
+            margin: 60px auto 0;
+            background: transparent;
+            border: 1px solid #333;
+            color: #888;
+            padding: 12px 30px;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-load-more:hover {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        /* Hiệu ứng biểu đồ nền mờ */
+        .bg-chart-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            right: 5%;
+            height: 350px;
+            display: flex;
+            align-items: flex-end;
+            gap: 15px;
+            opacity: 0.03;
+            /* Cực mờ để không làm rối mắt */
+            z-index: 1;
+        }
+
+        .bar-item {
+            flex: 1;
+            background: #FFFFFF;
+            border-radius: 4px 4px 0 0;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-cards-wrapper {
+                display: flex;
+                overflow-x: auto;
+                padding-bottom: 30px;
+                gap: 20px;
+                scroll-snap-type: x mandatory;
+            }
+
+            .benchmark-card {
+                min-width: 85vw;
+                scroll-snap-align: center;
+            }
+
+            .market-benchmarks {
+                min-height: 130vh !important;
+            }
+        }
+
         /* ------------------------------ section 5--------------------------  */
         /* ------------------------------ section 6--------------------------  */
         /* ------------------------------ section 7--------------------------  */
@@ -730,7 +949,100 @@
     </section>
 
     <!-- /* ------------------------------ section 4--------------------------  */ -->
+    <section class="market-benchmarks" id="benchmarksSection">
+        <div class="bg-chart-overlay">
+            <div class="bar-item" style="height: 45%"></div>
+            <div class="bar-item" style="height: 60%"></div>
+            <div class="bar-item" style="height: 90%"></div>
+            <div class="bar-item" style="height: 55%"></div>
+            <div class="bar-item" style="height: 80%"></div>
+            <div class="bar-item" style="height: 65%"></div>
+        </div>
 
+        <div class="benchmarks-container">
+            <div class="benchmarks-header">
+                <h2 class="section-title">DỮ LIỆU GIAO DỊCH TƯƠNG ĐỒNG</h2>
+                <div class="system-status">
+                    <span class="pulse-dot"></span>
+                    <span style="opacity: 0.9; letter-spacing: 1px;">TÌM THẤY 1,240 DỮ LIỆU KHỚP VỚI BIẾN SỐ CỦA BẠN</span>
+                </div>
+            </div>
+
+            <div class="comparison-cards-wrapper">
+                <div class="benchmark-card">
+                    <div class="card-plate-display">
+                        <div class="mini-plate">29A-888.68</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-row">
+                            <span>Ngày giao dịch:</span>
+                            <span class="val">12/10/2025</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Khu vực:</span>
+                            <span class="val">Hà Nội</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-val">850,000,000</span><small style="color:#888; margin-left:5px;">đ</small>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="similarity-tag">GIỐNG 95%</span>
+                        <span class="status-tag">ĐÃ BÁN</span>
+                    </div>
+                </div>
+
+                <div class="benchmark-card">
+                    <div class="card-plate-display">
+                        <div class="mini-plate">30K-999.88</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-row">
+                            <span>Ngày giao dịch:</span>
+                            <span class="val">05/11/2025</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Khu vực:</span>
+                            <span class="val">TP. HCM</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-val">1,200,000,000</span><small style="color:#888; margin-left:5px;">đ</small>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="similarity-tag">CÙNG ĐẦU SỐ</span>
+                        <span class="status-tag">ĐÃ BÁN</span>
+                    </div>
+                </div>
+
+                <div class="benchmark-card">
+                    <div class="card-plate-display">
+                        <div class="mini-plate">30L-888.99</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-row">
+                            <span>Ngày giao dịch:</span>
+                            <span class="val">20/12/2025</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Khu vực:</span>
+                            <span class="val">Hà Nội</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-val">980,000,000</span><small style="color:#888; margin-left:5px;">đ</small>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="similarity-tag">GIỐNG 88%</span>
+                        <span class="status-tag">ĐÃ BÁN</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="btn-load-more">XEM THÊM DỮ LIỆU THỊ TRƯỜNG</button>
+        </div>
+    </section>
     <!-- /* ------------------------------ section 5--------------------------  */ -->
 
     <!-- /* ------------------------------ section 6--------------------------  */ -->
@@ -749,11 +1061,11 @@
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
     // -------------------------------------- LOGIC ĐIỀU KHIỂN CHUNG ------------------- //
-    
+
     // Hàm trung tâm điều phối luồng chạy của trang
     function startValuationFlow() {
         const plateNumber = document.getElementById('plateInput').value.trim();
-        
+
         // 1. Chuyển từ Section 1 -> Section 2
         gsap.to(window, {
             duration: 1.2,
@@ -792,7 +1104,11 @@
             setTimeout(() => inputFrame.classList.remove('error-state'), 1000);
         } else {
             // Hiệu ứng quét laser cục bộ tại nút trước khi chuyển trang
-            gsap.to(".scan-bar", { top: "100%", duration: 0.5, repeat: 1 });
+            gsap.to(".scan-bar", {
+                top: "100%",
+                duration: 0.5,
+                repeat: 1
+            });
             // Bắt đầu luồng chuyển cảnh
             startValuationFlow();
         }
@@ -801,7 +1117,7 @@
     // -------------------------------------- SECTION 2: PROCESSING -------------------- //
     function runNeuralProcessing() {
         const logs = [
-            "Analyzing: Region code " + plateInput.value.substring(0,2) + "...",
+            "Analyzing: Region code " + plateInput.value.substring(0, 2) + "...",
             "Scanning: Feng Shui Balance...",
             "Fetching: Auction History 2026...",
             "Rule Detection: Unique Patterns...",
@@ -821,7 +1137,11 @@
                 p.innerText = `> ${logs[logIndex]}`;
                 p.style.opacity = "0";
                 logLeft.appendChild(p);
-                gsap.to(p, { opacity: 1, x: 5, duration: 0.3 });
+                gsap.to(p, {
+                    opacity: 1,
+                    x: 5,
+                    duration: 0.3
+                });
                 logIndex++;
             } else {
                 clearInterval(logInterval);
@@ -836,10 +1156,15 @@
             onUpdate: function() {
                 const progress = Math.round(this.progress() * 100);
                 document.getElementById('procPercent').innerText = progress + "%";
-                
+
                 // Hiệu ứng Glitch cuối tiến trình
                 if (progress === 99) {
-                    gsap.to("#processingSection", { x: 3, yoyo: true, repeat: 10, duration: 0.05 });
+                    gsap.to("#processingSection", {
+                        x: 3,
+                        yoyo: true,
+                        repeat: 10,
+                        duration: 0.05
+                    });
                 }
             },
             onComplete: () => {
@@ -869,7 +1194,9 @@
         gsap.to(priceElement, {
             innerText: finalValue,
             duration: 2.5,
-            snap: { innerText: 1 },
+            snap: {
+                innerText: 1
+            },
             ease: "power4.out",
             onUpdate: function() {
                 priceElement.innerText = parseFloat(priceElement.innerText).toLocaleString('vi-VN');
@@ -893,13 +1220,29 @@
             options: {
                 scales: {
                     r: {
-                        angleLines: { color: 'rgba(255,255,255,0.05)' },
-                        grid: { color: 'rgba(255,255,255,0.05)' },
-                        pointLabels: { color: '#888', font: { size: 11 } },
-                        ticks: { display: false, max: 100 }
+                        angleLines: {
+                            color: 'rgba(255,255,255,0.05)'
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.05)'
+                        },
+                        pointLabels: {
+                            color: '#888',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        ticks: {
+                            display: false,
+                            max: 100
+                        }
                     }
                 },
-                plugins: { legend: { display: false } }
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
             }
         });
 
@@ -925,6 +1268,40 @@
             });
         }
     }
+    // -------------------------------------- SECTION 4: BENCHMARKS -------------------- //
+    function animateSection4() {
+        // Đảm bảo section hiện thị và reset opacity của card
+        gsap.set(".benchmark-card", {
+            opacity: 0,
+            y: 50
+        });
+
+        ScrollTrigger.create({
+            trigger: "#benchmarksSection",
+            start: "top 70%",
+            onEnter: () => {
+                gsap.to(".benchmark-card", {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: "power4.out"
+                });
+            }
+        });
+
+        // Hiệu ứng biểu đồ cột nền nhấp nhô mờ ảo
+        gsap.to(".bar-item", {
+            height: "random(20, 95)%",
+            duration: 2.5,
+            repeat: -1,
+            yoyo: true,
+            stagger: 0.2,
+            ease: "sine.inOut"
+        });
+
+    }
+    window.addEventListener('load', animateSection4);
 </script>
 
 </html>
