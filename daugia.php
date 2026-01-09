@@ -15,6 +15,9 @@
             --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #8A6E2F 100%);
             --glass: rgba(255, 255, 255, 0.03);
             --cyan-glow: rgba(0, 242, 255, 0.15);
+            --champagne: #F7E7CE;
+            --gold: #D4AF37;
+            --dark-grey: #0D0D0D;
         }
 
         body {
@@ -567,6 +570,187 @@
         }
 
         /* -------------------------------- section 3 ------------------------  */
+        .upcoming-treasures {
+    background: #010101;
+    padding: 120px 0;
+    overflow: hidden;
+}
+
+.showroom-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* Header */
+.showroom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 80px;
+}
+
+.serif-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: #fff;
+    margin: 0;
+}
+
+.subtitle {
+    color: #666;
+    letter-spacing: 5px;
+    font-size: 0.7rem;
+    margin-top: 10px;
+}
+
+.global-countdown {
+    text-align: right;
+    border-left: 1px solid #333;
+    padding-left: 30px;
+}
+
+.next-timer {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-top: 5px;
+}
+
+/* Grid & Cards */
+.treasure-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.treasure-card {
+    background: var(--dark-grey);
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+/* Hiệu ứng Glow Border khi Hover */
+.treasure-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    z-index: -1;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.treasure-card:hover::before { opacity: 1; }
+
+.card-inner {
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.plate-preview {
+    position: relative;
+    height: 180px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.plate-mockup {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #333; /* Lúc đầu hơi mờ */
+    filter: blur(8px);
+    transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.treasure-card:hover .plate-mockup {
+    filter: blur(0);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.starting-label {
+    position: absolute;
+    bottom: 10px; left: 15px;
+    font-size: 10px;
+    color: var(--champagne);
+    letter-spacing: 1px;
+}
+
+.fengshui-tags {
+    margin-bottom: 15px;
+}
+
+.fengshui-tags span {
+    font-size: 9px;
+    border: 0.5px solid #444;
+    padding: 3px 10px;
+    margin-right: 5px;
+    color: #888;
+}
+
+.plate-id { font-size: 1.5rem; margin: 10px 0; color: #fff; }
+.launch-date { font-size: 12px; color: #555; margin-bottom: 25px; }
+
+/* Nút Nhận thông báo */
+.btn-remind {
+    background: transparent;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 15px;
+    width: 100%;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-remind:hover { border-color: var(--titan); color: var(--titan); }
+
+.pulse-circle {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 10px var(--gold);
+    animation: pulse-gold 2s infinite;
+}
+
+@keyframes pulse-gold {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .treasure-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 30px;
+        gap: 20px;
+    }
+    
+    .treasure-card {
+        min-width: 85%;
+        scroll-snap-align: center;
+    }
+
+    .serif-title { font-size: 2.5rem; }
+    .global-countdown { display: none; }
+    .treasure-grid::-webkit-scrollbar { display: none; }
+}
 
         /* -------------------------------- section 4 ------------------------  */
 
@@ -686,6 +870,88 @@
     </section>
 
     <!-- -----------------------------------section 3 -----------------------------------  -->
+    <section class="upcoming-treasures" id="upcomingSection">
+        <div class="showroom-container">
+            <div class="showroom-header">
+                <div class="title-group">
+                    <h2 class="serif-title">SẮP LÊN SÀN</h2>
+                    <p class="subtitle">NHỮNG CƠ HỘI ĐẦU TƯ TIẾP THEO</p>
+                </div>
+                <div class="global-countdown">
+                    <span class="wait-label">PHIÊN KẾ TIẾP:</span>
+                    <div class="next-timer" id="nextSessionTimer">02D : 14H : 05M</div>
+                </div>
+            </div>
+
+            <div class="treasure-grid" id="treasureGrid">
+                <div class="treasure-card reveal-item">
+                    <div class="card-inner">
+                        <div class="plate-preview">
+                            <div class="plate-img-wrapper">
+                                <div class="plate-mockup">51K-888.88</div>
+                                <div class="glass-overlay"></div>
+                            </div>
+                            <div class="starting-label">KHỞI ĐIỂM: 500,000,000đ</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="fengshui-tags">
+                                <span>ĐẠI CÁT</span> <span>PHÁT LỘC</span>
+                            </div>
+                            <h3 class="plate-id">51K-888.88</h3>
+                            <div class="launch-date">Khai cuộc: 15/10 | 09:00</div>
+                            <button class="btn-remind">
+                                <span class="pulse-circle"></span> NHẬN THÔNG BÁO
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="treasure-card reveal-item">
+                    <div class="card-inner">
+                        <div class="plate-preview">
+                            <div class="plate-img-wrapper">
+                                <div class="plate-mockup">30L-666.66</div>
+                                <div class="glass-overlay"></div>
+                            </div>
+                            <div class="starting-label">KHỞI ĐIỂM: 450,000,000đ</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="fengshui-tags">
+                                <span>LỤC QUÝ</span> <span>TRƯỜNG CỬU</span>
+                            </div>
+                            <h3 class="plate-id">30L-666.66</h3>
+                            <div class="launch-date">Khai cuộc: 16/10 | 14:00</div>
+                            <button class="btn-remind">
+                                <span class="pulse-circle"></span> NHẬN THÔNG BÁO
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="treasure-card reveal-item">
+                    <div class="card-inner">
+                        <div class="plate-preview">
+                            <div class="plate-img-wrapper">
+                                <div class="plate-mockup">43A-999.99</div>
+                                <div class="glass-overlay"></div>
+                            </div>
+                            <div class="starting-label">KHỞI ĐIỂM: 600,000,000đ</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="fengshui-tags">
+                                <span>VĨNH CỬU</span> <span>QUYỀN LỰC</span>
+                            </div>
+                            <h3 class="plate-id">43A-999.99</h3>
+                            <div class="launch-date">Khai cuộc: 17/10 | 10:30</div>
+                            <button class="btn-remind">
+                                <span class="pulse-circle"></span> NHẬN THÔNG BÁO
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- -----------------------------------section 4 -----------------------------------  -->
 
@@ -837,6 +1103,66 @@
 
 
     // ------------------------------- section 3 ----------------------------------//
+    document.addEventListener("DOMContentLoaded", function() {
+    // 1. Reveal on Scroll (GSAP)
+    gsap.from(".reveal-item", {
+        scrollTrigger: {
+            trigger: "#upcomingSection",
+            start: "top 80%",
+        },
+        y: 80,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 1.2,
+        ease: "power4.out"
+    });
+
+    // 2. Xoay 3D nhẹ khi di chuột trên Desktop
+    if (window.innerWidth > 1024) {
+        const cards = document.querySelectorAll('.treasure-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const xc = rect.width / 2;
+                const yc = rect.height / 2;
+                const dx = x - xc;
+                const dy = y - yc;
+                
+                gsap.to(card.querySelector('.card-inner'), {
+                    rotationY: dx / 15,
+                    rotationX: -dy / 15,
+                    duration: 0.5
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card.querySelector('.card-inner'), {
+                    rotationY: 0,
+                    rotationX: 0,
+                    duration: 0.5
+                });
+            });
+        });
+    }
+
+    // 3. Logic Chạm và giữ (Long Press) trên Mobile
+    const mobileCards = document.querySelectorAll('.treasure-card');
+    mobileCards.forEach(card => {
+        let timer;
+        card.addEventListener('touchstart', () => {
+            timer = setTimeout(() => {
+                card.style.transform = "scale(0.95)";
+                // Hiển thị tooltip hoặc thông tin chi tiết tại đây
+            }, 500);
+        });
+        card.addEventListener('touchend', () => {
+            clearTimeout(timer);
+            card.style.transform = "scale(1)";
+        });
+    });
+});
 
 
     // ------------------------------- section 4 ----------------------------------//
