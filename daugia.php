@@ -8,6 +8,7 @@
     <title>The Live Arena | Đấu giá trực tuyến</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:wght@400;700;900&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
         :root {
@@ -18,6 +19,12 @@
             --champagne: #F7E7CE;
             --gold: #D4AF37;
             --dark-grey: #0D0D0D;
+            --rose-gold: #B76E79;
+            --rose-gold-light: #E0B0FF;
+            /* Chút sắc bạc Rose */
+            --black-charcoal: #080808;
+            --carbon: rgba(255, 255, 255, 0.02);
+            -webkit-link: #ff53d7ff
         }
 
         body {
@@ -997,6 +1004,180 @@
         }
 
         /* -------------------------------- section 5 ------------------------  */
+        .vip-lounge {
+            background: #000;
+            padding: 150px 0;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lounge-bg-parallax {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
+            z-index: 1;
+        }
+
+        .lounge-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Thẻ VIP Card */
+        .vip-card {
+            width: 70%;
+            background: var(--black-charcoal);
+            border-radius: 2px;
+            /* Góc vuông vức sang trọng */
+            position: relative;
+            padding: 80px;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            border: 1px solid rgba(183, 110, 121, 0.1);
+        }
+
+        /* Họa tiết Carbon mờ */
+        .card-texture {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(45deg, var(--carbon) 25%, transparent 25%),
+                linear-gradient(-45deg, var(--carbon) 25%, transparent 25%);
+            background-size: 4px 4px;
+            opacity: 0.3;
+        }
+
+        .card-inner {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .concierge-tag {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 6px;
+            color: var(--dynamic-blue);
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        .boutique-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 3.5rem);
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+
+        .serif-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto 60px;
+            line-height: 1.8;
+        }
+
+        /* Nút kết nối VIP */
+        .btn-vip-connect {
+            background: transparent;
+            border: 1px solid var(--dynamic-blue);
+            color: var(--dynamic-blue);
+            padding: 20px 40px;
+            font-size: 11px;
+            letter-spacing: 4px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .btn-vip-connect:hover {
+            background: var(--dynamic-blue);
+            color: #000;
+        }
+
+        .btn-shimmer {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: skewX(-30deg);
+            animation: shimmer 4s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            20% {
+                left: 150%;
+            }
+
+            100% {
+                left: 150%;
+            }
+        }
+
+        /* Viền sáng chạy chậm */
+        .soft-glow-border {
+            position: absolute;
+            inset: 0;
+            border: 1px solid transparent;
+            background: linear-gradient(90deg, transparent, var(--dynamic-blue), transparent) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0.2;
+            animation: border-flow 10s linear infinite;
+        }
+
+        @keyframes border-flow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
+        .legal-disclaimer {
+            margin-top: 40px;
+            font-size: 10px;
+            color: #b2b2b2;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .vip-card {
+                width: 100%;
+                padding: 60px 25px;
+                border-radius: 0;
+            }
+
+            .serif-text {
+                font-size: 1rem;
+            }
+
+            .btn-vip-connect {
+                width: 100%;
+            }
+        }
 
         /* -------------------------------- section 6 ------------------------  */
     </style>
@@ -1276,6 +1457,47 @@
     </section>
 
     <!-- -----------------------------------section 5 -----------------------------------  -->
+    <section class="vip-lounge" id="vipSection">
+        <div class="lounge-bg-parallax"></div>
+
+        <div class="lounge-container">
+            <div class="vip-card reveal-expand">
+                <div class="card-texture"></div>
+                <div class="card-inner">
+                    <div class="vip-header">
+                        <span class="concierge-tag">PRIVATE CONCIERGE</span>
+                        <h2 class="boutique-title">DỊCH VỤ SĂN TÌM ĐỘC BẢN</h2>
+                    </div>
+
+                    <div class="vip-body">
+                        <p class="serif-text">
+                            Bỏ lỡ phiên đấu giá? Hãy để đội ngũ chuyên gia của chúng tôi
+                            săn lùng biển số trong mơ dành riêng cho bộ sưu tập của bạn
+                            với sự bảo mật tuyệt đối.
+                        </p>
+                    </div>
+
+                    <div class="vip-footer">
+                        <button class="btn-vip-connect" onclick="triggerVIPContact()">
+                            <span class="btn-label">KẾT NỐI VỚI CHUYÊN VIÊN VIP</span>
+                            <div class="btn-shimmer"></div>
+                        </button>
+
+                        <div class="social-minimal" style="padding-top: 4%;">
+                            <a style="color: var(--dynamic-blue);" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a style="color: var(--dynamic-blue);" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="soft-glow-border"></div>
+            </div>
+
+            <div class="legal-disclaimer">
+                Dịch vụ dành riêng cho thành viên Private Club. <a style="color: var(--dynamic-blue);" href="#">Tìm hiểu điều kiện.</a>
+            </div>
+        </div>
+    </section>
+
 
     <!-- -----------------------------------section 6 -----------------------------------  -->
 
@@ -1523,7 +1745,51 @@
     });
 
     // ------------------------------- section 5 ----------------------------------//
+    gsap.registerPlugin(ScrollTrigger);
 
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Hiệu ứng The Greeting (Mở rộng từ tâm)
+        gsap.from(".reveal-expand", {
+            scrollTrigger: {
+                trigger: "#vipSection",
+                start: "top 80%",
+            },
+            scaleX: 0.8,
+            opacity: 0,
+            duration: 1.5,
+            ease: "expo.out"
+        });
+
+        // 2. Parallax cho hình nền
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            gsap.to(".lounge-bg-parallax", {
+                y: scrolled * 0.1,
+                duration: 0.5,
+                ease: "none"
+            });
+        });
+
+        // 3. Custom Cursor cho vùng VIP (Desktop)
+        if (window.innerWidth > 1024) {
+            const vipCard = document.querySelector('.vip-card');
+            vipCard.addEventListener('mouseenter', () => {
+                // Logic đổi cursor tại đây (Vd: thêm một div nhỏ chạy theo chuột)
+                console.log("Welcome to VIP Lounge");
+            });
+        }
+    });
+
+    function triggerVIPContact() {
+        // Hiệu ứng Fade out nhẹ trước khi mở form liên hệ
+        gsap.to(".vip-card", {
+            opacity: 0.5,
+            duration: 0.3,
+            yoyo: true,
+            repeat: 1
+        });
+        alert("Chuyên viên tư vấn Private Club sẽ kết nối với bạn trong ít phút.");
+    }
 
     // ------------------------------- section 6 ----------------------------------//
 </script>
