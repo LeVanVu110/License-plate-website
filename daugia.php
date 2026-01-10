@@ -791,6 +791,11 @@
             }
         }
 
+        .reveal-item {
+            opacity: 1 !important;
+        }
+
+
         /* -------------------------------- section 4 ------------------------  */
         .trust-transparency {
             background: #020202;
@@ -1506,6 +1511,8 @@
 
 </body>
 <script>
+    gsap.registerPlugin(ScrollTrigger);
+
     // ------------------------------- section 1 ----------------------------------//
     // 1. Hiệu ứng 3D Tilt cho biển số
     const plate = document.querySelector('.glass-frame');
@@ -1645,6 +1652,7 @@
 
 
     // ------------------------------- section 3 ----------------------------------//
+
     document.addEventListener("DOMContentLoaded", function() {
         // 1. Reveal on Scroll (GSAP)
         gsap.from(".reveal-item", {
@@ -1745,7 +1753,6 @@
     });
 
     // ------------------------------- section 5 ----------------------------------//
-    gsap.registerPlugin(ScrollTrigger);
 
     document.addEventListener("DOMContentLoaded", function() {
         // 1. Hiệu ứng The Greeting (Mở rộng từ tâm)
