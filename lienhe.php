@@ -834,6 +834,177 @@
         }
 
         /* --------------------------- section 5 ------------------------  */
+        .security-oath {
+            background: #000000;
+            min-height: 120vh;
+            /* Tạo không gian rộng phía trên */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-bottom: 100px;
+            overflow: hidden;
+        }
+
+        .oath-container {
+            max-width: 800px;
+            text-align: center;
+            z-index: 5;
+        }
+
+        /* Biểu tượng con dấu & Hiệu ứng Aura */
+        .vault-icon-wrapper {
+            position: relative;
+            width: 65%;
+            height: 50%;
+            margin: 0 auto 60px;
+        }
+
+        .metallic-seal {
+            width: 250px;
+            /* Tăng kích thước để thấy rõ bóng đổ */
+            height: 250px;
+            margin: 0 auto;
+        }
+
+        .rotating-seal {
+            width: 100%;
+            animation: slowRotate 20s linear infinite;
+            /* Dynamic Lighting Effect */
+            transition: filter 0.3s ease;
+        }
+
+        @keyframes slowRotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .gold-aura {
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: silentGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes silentGlow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 0.6;
+            }
+        }
+
+        /* Typography */
+        .oath-message {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 2rem;
+            color: #F7E7CE;
+            /* Rose Gold Light */
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .security-commitments {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .commit-label {
+            font-family: sans-serif;
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #888;
+        }
+
+        .commitment-divider {
+            width: 1px;
+            height: 15px;
+            background: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Signature */
+        .signature-wrapper {
+            opacity: 0;
+            /* Hiện ra khi scroll đến */
+        }
+
+        .digital-signature {
+            width: 250px;
+            height: auto;
+        }
+
+        #signature-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+
+        .signature-title {
+            font-size: 9px;
+            letter-spacing: 4px;
+            color: var(--gold-primary);
+            margin-top: -10px;
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: absolute;
+            bottom: 50px;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--gold-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-to-top:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        #mainSealSVG {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            /* Quan trọng để bóng đổ không bị cắt mất */
+            transition: transform 0.1s ease-out;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .oath-message {
+                font-size: 1.4rem;
+                padding: 0 20px;
+            }
+
+            .security-commitments {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .commitment-divider {
+                width: 30px;
+                height: 1px;
+            }
+        }
     </style>
 </head>
 
@@ -1049,6 +1220,68 @@
     </section>
 
     <!-- ---------------------------- section 5 ---------------------------- -->
+    <section class="security-oath" id="securitySection">
+        <div class="vault-background"></div>
+
+        <div class="oath-container">
+            <div class="vault-icon-wrapper">
+                <div class="gold-aura"></div>
+                <div class="metallic-seal">
+                    <svg viewBox="0 0 200 200" class="rotating-seal" id="mainSealSVG" style="width:100%; height:100%; overflow:visible;">
+                        <defs>
+                            <filter id="dynamicShadow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feDropShadow id="sealShadow" dx="0" dy="0" stdDeviation="8" flood-opacity="0.8" />
+                            </filter>
+
+                            <radialGradient id="goldGradient" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#F7E7CE" />
+                                <stop offset="70%" stop-color="#D4AF37" />
+                                <stop offset="100%" stop-color="#996515" />
+                            </radialGradient>
+                        </defs>
+
+                        <g filter="url(#dynamicShadow)">
+                            <circle cx="100" cy="100" r="80" fill="url(#goldGradient)" stroke="#88540b" stroke-width="1" />
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="2" />
+                            <path d="M70 80 L100 130 L130 80 M90 70 L110 70" fill="none" stroke="#5d3a0a" stroke-width="6" stroke-linecap="round" />
+                            <text x="100" y="155" text-anchor="middle" style="font-size: 10px; fill: #5d3a0a; font-family: serif; letter-spacing: 4px; font-weight: bold;">Lê Văn Vũ</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="oath-content">
+                <h2 class="oath-message">Sự riêng tư của quý khách là tài sản quý giá nhất của chúng tôi.</h2>
+
+                <div class="security-commitments">
+                    <div class="commitment-item">
+                        <span class="commit-label">BẢO MẬT DANH TÍNH</span>
+                    </div>
+                    <div class="commitment-divider"></div>
+                    <div class="commitment-item">
+                        <span class="commit-label">MÃ HÓA GIAO DỊCH</span>
+                    </div>
+                    <div class="commitment-divider"></div>
+                    <div class="commitment-item">
+                        <span class="commit-label">PHÁP LÝ MINH BẠCH</span>
+                    </div>
+                </div>
+
+                <div class="signature-wrapper">
+                    <svg viewBox="0 0 400 150" class="digital-signature">
+                        <path id="signature-path" d="M50,80 Q100,20 150,80 T250,80 T350,60" fill="none" stroke="var(--gold-primary)" stroke-width="2" />
+                    </svg>
+                    <p class="signature-title">FOUNDER & CEO</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <button class="back-to-top" id="backToTop">
+            <svg viewBox="0 0 24 24">
+                <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor" />
+            </svg>
+        </button> -->
+    </section>
 
     <?php include "footer.php" ?>
 </body>
@@ -1353,6 +1586,93 @@
     });
 
     // ------------------------- section 5 --------------------- //
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Điều khiển bóng đổ bên trong SVG (Dynamic Shadow)
+        const sealSVG = document.getElementById('mainSealSVG');
+        const sealShadow = document.getElementById('sealShadow');
+
+        if (sealSVG && sealShadow) {
+            window.addEventListener('mousemove', (e) => {
+                const rect = sealSVG.getBoundingClientRect();
+                const sealX = rect.left + rect.width / 2;
+                const sealY = rect.top + rect.height / 2;
+
+                // Tính toán độ lệch bóng (dx, dy) - Bóng chạy ngược hướng chuột
+                const shadowX = (sealX - e.clientX) / 10;
+                const shadowY = (sealY - e.clientY) / 10;
+
+                // Cập nhật bóng đổ qua thuộc tính attr của SVG để mượt hơn CSS
+                gsap.to(sealShadow, {
+                    attr: {
+                        dx: shadowX,
+                        dy: shadowY,
+                        stdDeviation: Math.max(5, Math.abs(shadowX) + 5)
+                    },
+                    duration: 0.4,
+                    ease: "power1.out"
+                });
+
+                // Hiệu ứng nghiêng nhẹ con dấu (Tilt effect)
+                const tiltX = (e.clientY - sealY) / 30;
+                const tiltY = (sealX - e.clientX) / 30;
+                gsap.to(sealSVG, {
+                    rotationX: tiltX,
+                    rotationY: tiltY,
+                    transformPerspective: 600,
+                    duration: 0.5
+                });
+            });
+        }
+
+        // 2. Hiệu ứng vẽ chữ ký tay (Digital Signature) khi cuộn đến
+        const signaturePath = document.getElementById('signature-path');
+        if (signaturePath) {
+            gsap.to(signaturePath, {
+                strokeDashoffset: 0,
+                duration: 3,
+                scrollTrigger: {
+                    trigger: ".signature-wrapper",
+                    start: "top 90%",
+                    onEnter: () => gsap.to(".signature-wrapper", {
+                        opacity: 1,
+                        duration: 1.5
+                    })
+                }
+            });
+        }
+
+        // 3. Hiệu ứng Parallax cho toàn bộ Section 5 (Tạo độ sâu khi cuộn)
+        gsap.to(".security-oath", {
+            scale: 1.02,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".security-oath",
+                start: "top bottom",
+                end: "bottom bottom",
+                scrub: true
+            }
+        });
+
+        // 4. Mobile Haptic & Quay lại đầu trang
+        const btt = document.getElementById('backToTop');
+        if (btt) {
+            btt.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                // Rung nhẹ trên điện thoại khi bấm
+                if ("vibrate" in navigator) navigator.vibrate(30);
+            });
+        }
+
+        // Rung nhẹ khi người dùng cuộn xuống kịch sàn trang web (Báo hiệu kết thúc)
+        window.addEventListener('scroll', () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                if ("vibrate" in navigator) navigator.vibrate(15);
+            }
+        });
+    });
 
     // ------------------------- section 6 --------------------- //
 </script>
