@@ -614,6 +614,224 @@
         }
 
         /* --------------------------- section 4 ------------------------  */
+        .prestige-network {
+            background: #121212;
+            /* Carbon Black */
+            padding: 120px 5%;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .network-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        /* Map Visual Styling */
+        .map-visual {
+            flex: 1;
+            position: relative;
+        }
+
+        .map-wrapper {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .vietnam-map-svg {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
+        }
+
+        .map-outline {
+            stroke: #E0E0E0;
+            /* Silver Silver */
+            opacity: 0.3;
+        }
+
+        .map-label {
+            fill: #888;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        /* Hotspots & Pulse Animation */
+        .core-point {
+            fill: var(--gold-primary);
+        }
+
+        .pulse-ring {
+            fill: var(--gold-primary);
+            opacity: 0;
+            transform-origin: center;
+            transform-box: fill-box;
+            animation: pulseWave 2s infinite;
+        }
+
+        @keyframes pulseWave {
+            0% {
+                transform: scale(0.5);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        /* Floating Info */
+        .floating-info {
+            position: absolute;
+            top: 20%;
+            right: -20px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 20px;
+            width: 180px;
+        }
+
+        .info-tag {
+            font-size: 9px;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .floating-info p {
+            font-size: 11px;
+            margin: 0;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
+        /* Tooltip */
+        .map-tooltip {
+            position: fixed;
+            pointer-events: none;
+            background: var(--gold-primary);
+            color: #000;
+            padding: 8px 15px;
+            font-size: 11px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .map-tooltip span {
+            display: block;
+            font-weight: bold;
+        }
+
+        /* Content Side */
+        .network-content {
+            flex: 0 0 450px;
+        }
+
+        .network-title {
+            font-family: sans-serif;
+            font-size: 12px;
+            letter-spacing: 5px;
+            color: var(--gold-primary);
+            margin-bottom: 30px;
+        }
+
+        .network-desc {
+            color: #888;
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+
+        .region-card {
+            border-left: 1px solid #333;
+            padding: 20px 30px;
+            margin-bottom: 15px;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .region-card.active,
+        .region-card:hover {
+            border-left: 2px solid var(--gold-primary);
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+        }
+
+        .region-card h4 {
+            margin: 0 0 10px;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .region-card p {
+            margin: 0;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .region-card .stat {
+            display: block;
+            margin-top: 10px;
+            font-size: 10px;
+            color: var(--gold-primary);
+        }
+
+        .btn-locate {
+            margin-top: 40px;
+            background: transparent;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-locate:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .network-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .network-content {
+                flex: 1;
+                width: 100%;
+            }
+
+            .region-carousel {
+                display: flex;
+                overflow-x: auto;
+                gap: 15px;
+                padding-bottom: 20px;
+            }
+
+            .region-card {
+                flex: 0 0 280px;
+                border-left: none;
+                border-bottom: 1px solid #333;
+            }
+
+            .map-visual {
+                order: 2;
+                margin-top: 50px;
+            }
+
+            .floating-info {
+                display: none;
+            }
+        }
 
         /* --------------------------- section 5 ------------------------  */
     </style>
@@ -763,6 +981,72 @@
     </section>
 
     <!-- ---------------------------- section 4 ---------------------------- -->
+    <section class="prestige-network" id="networkSection">
+        <div class="network-container">
+
+            <div class="map-visual">
+                <div class="map-wrapper">
+                    <svg viewBox="0 0 500 800" class="vietnam-map-svg">
+                        <path class="map-outline" d="M150,50 L180,30 L250,80 L230,150 L280,250 L300,400 L250,550 L280,700 L200,750 L150,700 Z" fill="none" stroke="#333" stroke-width="1" />
+
+                        <path class="connecting-line line-1" d="M180,80 Q250,200 280,450" fill="none" stroke="var(--gold-primary)" stroke-width="0.5" stroke-dasharray="1000" stroke-dashoffset="1000" />
+                        <path class="connecting-line line-2" d="M180,80 Q100,300 280,700" fill="none" stroke="var(--gold-primary)" stroke-width="0.5" stroke-dasharray="1000" stroke-dashoffset="1000" />
+
+                        <g class="hotspot" data-region="Miền Bắc" data-count="350+">
+                            <circle cx="180" cy="80" r="4" class="core-point" />
+                            <circle cx="180" cy="80" r="12" class="pulse-ring" />
+                            <text x="195" y="85" class="map-label">Hà Nội</text>
+                        </g>
+                        <g class="hotspot" data-region="Miền Trung" data-count="150+">
+                            <circle cx="280" cy="450" r="4" class="core-point" />
+                            <circle cx="280" cy="450" r="12" class="pulse-ring" />
+                            <text x="295" y="455" class="map-label">Đà Nẵng</text>
+                        </g>
+                        <g class="hotspot" data-region="Miền Nam" data-count="500+">
+                            <circle cx="280" cy="700" r="4" class="core-point" />
+                            <circle cx="280" cy="700" r="12" class="pulse-ring" />
+                            <text x="295" y="705" class="map-label">TP. Hồ Chí Minh</text>
+                        </g>
+                    </svg>
+
+                    <div class="floating-info">
+                        <div class="info-tag">MẠNG LƯỚI 63 TỈNH THÀNH</div>
+                        <p>Bàn giao trực tiếp và xử lý thủ tục tận nơi</p>
+                    </div>
+
+                    <div id="mapTooltip" class="map-tooltip">
+                        <span class="region-name">Miền Nam</span>
+                        <span class="region-stat">500+ thương vụ thành công</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="network-content">
+                <h2 class="network-title">MẠNG LƯỚI HỖ TRỢ TOÀN QUỐC</h2>
+                <p class="network-desc">Xóa bỏ rào cản địa lý, chúng tôi mang đến trải nghiệm giao dịch xuyên suốt từ Bắc chí Nam với quy trình bàn giao "Chìa khóa trao tay".</p>
+
+                <div class="region-carousel">
+                    <div class="region-card active">
+                        <h4>MIỀN BẮC</h4>
+                        <p>Trung tâm đấu giá và pháp lý thủ đô</p>
+                        <span class="stat">Trực tiếp tại 25 tỉnh thành</span>
+                    </div>
+                    <div class="region-card">
+                        <h4>MIỀN TRUNG</h4>
+                        <p>Kết nối bàn giao dọc hành lang ven biển</p>
+                        <span class="stat">Hỗ trợ nhanh 24/7</span>
+                    </div>
+                    <div class="region-card">
+                        <h4>MIỀN NAM</h4>
+                        <p>Mạng lưới xử lý biển số lớn nhất cả nước</p>
+                        <span class="stat">Văn phòng đại diện Quận 1</span>
+                    </div>
+                </div>
+
+                <button class="btn-locate">TÌM VĂN PHÒNG GẦN NHẤT</button>
+            </div>
+        </div>
+    </section>
 
     <!-- ---------------------------- section 5 ---------------------------- -->
 
@@ -1019,6 +1303,54 @@
     });
 
     // ------------------------- section 4 --------------------- //
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Hiệu ứng Connecting Lines (Vẽ đường kẻ vàng khi vào vùng nhìn thấy)
+        ScrollTrigger.create({
+            trigger: "#networkSection",
+            start: "top 70%",
+            onEnter: () => {
+                gsap.to(".connecting-line", {
+                    strokeDashoffset: 0,
+                    duration: 3,
+                    ease: "power2.inOut"
+                });
+            }
+        });
+
+        // 2. Tooltip tương tác trên Desktop
+        const hotspots = document.querySelectorAll('.hotspot');
+        const tooltip = document.getElementById('mapTooltip');
+
+        hotspots.forEach(spot => {
+            spot.addEventListener('mousemove', (e) => {
+                const region = spot.getAttribute('data-region');
+                const count = spot.getAttribute('data-count');
+
+                tooltip.style.display = 'block';
+                tooltip.querySelector('.region-name').innerText = region;
+                tooltip.querySelector('.region-stat').innerText = count + " thương vụ thành công";
+
+                gsap.to(tooltip, {
+                    x: e.clientX + 15,
+                    y: e.clientY + 15,
+                    duration: 0.1
+                });
+            });
+
+            spot.addEventListener('mouseleave', () => {
+                tooltip.style.display = 'none';
+            });
+        });
+
+        // 3. Tự động đổi Region Card định kỳ
+        let currentIdx = 0;
+        const cards = document.querySelectorAll('.region-card');
+        setInterval(() => {
+            cards.forEach(c => c.classList.remove('active'));
+            currentIdx = (currentIdx + 1) % cards.length;
+            cards[currentIdx].classList.add('active');
+        }, 4000);
+    });
 
     // ------------------------- section 5 --------------------- //
 
