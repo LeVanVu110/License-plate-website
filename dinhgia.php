@@ -26,6 +26,7 @@
 
         body {
             margin-top: 5% !important;
+            
         }
 
         .ai-valuation-hero {

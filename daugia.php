@@ -32,7 +32,9 @@
             padding: 0;
             background: #010101;
             color: #fff;
-            font-family: 'Inter', sans-serif;
+            /* font-family: 'Inter', sans-serif; */
+            font-family: 'Roboto', sans-serif;
+
             overflow-x: hidden;
             padding-top: 5% !important;
             overflow-x: hidden;
