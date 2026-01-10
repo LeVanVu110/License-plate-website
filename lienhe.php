@@ -219,6 +219,133 @@
         }
 
         /* --------------------------- section 2 ------------------------  */
+        .exclusive-channels {
+    background: #000;
+    padding: 100px 5%;
+    position: relative;
+    z-index: 5;
+}
+
+.channels-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px; /* Gutter thoáng đạt */
+}
+
+.privilege-card {
+    background: #121212; /* Đen Obsidian */
+    padding: 60px 40px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5); /* Deep Shadows */
+    border: 1px solid rgba(255,255,255,0.03);
+    text-align: center;
+}
+
+/* Hiệu ứng Glow & Hover Lift */
+.card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(212,175,55,0.15) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.privilege-card:hover {
+    transform: translateY(-20px);
+    border-color: rgba(212,175,55,0.3);
+}
+
+.privilege-card:hover .card-glow { opacity: 1; }
+
+.channels-container:hover .privilege-card:not(:hover) {
+    opacity: 0.4;
+    filter: blur(2px);
+}
+
+/* Typography & Icons */
+.icon-box {
+    height: 80px;
+    margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gold-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--gold-primary);
+}
+
+.channel-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--gold-primary);
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.contact-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: #F5F5F7;
+    margin-bottom: 15px;
+}
+
+.contact-value.address { font-size: 1.4rem; }
+
+.channel-desc {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Mobile Actions */
+.mobile-direct-btn {
+    display: none; /* Chỉ hiện trên mobile */
+    margin-top: 30px;
+    padding: 15px;
+    background: rgba(212,175,55,0.1);
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-primary);
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Typing Indicator Animation */
+.typing-indicator {
+    position: absolute;
+    top: 10px; right: 40%;
+    display: flex; gap: 4px;
+}
+.typing-indicator span {
+    width: 4px; height: 4px; background: var(--gold-primary);
+    border-radius: 50%; animation: bounce 1.4s infinite ease-in-out;
+}
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .channels-container { grid-template-columns: 1fr; gap: 20px; }
+    .privilege-card { padding: 40px 20px; }
+    .mobile-direct-btn { display: block; }
+    .privilege-card:hover { transform: none; }
+    .channels-container:hover .privilege-card:not(:hover) { opacity: 1; filter: none; }
+}
 
         /* --------------------------- section 3 ------------------------  */
 
@@ -256,6 +383,57 @@
     </section>
 
     <!-- ---------------------------- section 2 ---------------------------- -->
+     <section class="exclusive-channels" id="channelsSection">
+    <div class="channels-container">
+        
+        <div class="privilege-card" id="hotlineCard">
+            <div class="card-glow"></div>
+            <div class="card-content">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24" class="gold-icon phone-icon">
+                        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3 class="channel-label">HOTLINE VIP</h3>
+                <div class="contact-value counter" data-target="0988999999">0</div>
+                <p class="channel-desc">Ưu tiên xử lý các yêu cầu khẩn cấp 24/7</p>
+                <a href="tel:0988999999" class="mobile-direct-btn">BẤM ĐỂ GỌI</a>
+            </div>
+        </div>
+
+        <div class="privilege-card" id="chatCard">
+            <div class="card-glow"></div>
+            <div class="card-content">
+                <div class="icon-box">
+                    <div class="typing-indicator"><span></span><span></span><span></span></div>
+                    <svg viewBox="0 0 24 24" class="gold-icon chat-icon">
+                        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3 class="channel-label">PRIVATE CHAT</h3>
+                <div class="contact-value">ZALO / WHATSAPP</div>
+                <p class="channel-desc">Trao đổi hồ sơ và hình ảnh trực tiếp qua mã hóa</p>
+                <a href="#" class="mobile-direct-btn">MỞ ZALO</a>
+            </div>
+        </div>
+
+        <div class="privilege-card" id="officeCard">
+            <div class="card-glow"></div>
+            <div class="card-content">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24" class="gold-icon map-icon">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3 class="channel-label">HEADQUARTERS</h3>
+                <div class="contact-value address">Landmark 81, TP. HCM</div>
+                <p class="channel-desc">Gặp gỡ trực tiếp và chiêm ngưỡng bộ sưu tập</p>
+                <a href="#" class="mobile-direct-btn">XEM BẢN ĐỒ</a>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <!-- ---------------------------- section 3 ---------------------------- -->
 
@@ -271,7 +449,7 @@
         // 1. Logic Custom Cursor (Fix lỗi lệch tâm và mượt mà hơn)
         const cursor = document.querySelector('.hero-cursor');
         const hero = document.getElementById('contactHero');
-        
+
         // Sử dụng GSAP QuickSetter để tối ưu hiệu năng di chuyển chuột
         const xSetter = gsap.quickSetter(cursor, "x", "px");
         const ySetter = gsap.quickSetter(cursor, "y", "px");
@@ -288,24 +466,30 @@
 
         // Hiệu ứng Hover vào vùng Hero
         hero.addEventListener('mouseenter', () => {
-            gsap.to(cursor, { 
-                opacity: 1, 
-                scale: 1, 
-                duration: 0.3 
+            gsap.to(cursor, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.3
             });
         });
 
         hero.addEventListener('mouseleave', () => {
-            gsap.to(cursor, { 
-                opacity: 0, 
-                scale: 0.5, 
-                duration: 0.3 
+            gsap.to(cursor, {
+                opacity: 0,
+                scale: 0.5,
+                duration: 0.3
             });
         });
 
         // Hiệu ứng click chuột (bóp nhỏ vòng tròn)
-        window.addEventListener('mousedown', () => gsap.to(cursor, { scale: 0.8, duration: 0.2 }));
-        window.addEventListener('mouseup', () => gsap.to(cursor, { scale: 1, duration: 0.2 }));
+        window.addEventListener('mousedown', () => gsap.to(cursor, {
+            scale: 0.8,
+            duration: 0.2
+        }));
+        window.addEventListener('mouseup', () => gsap.to(cursor, {
+            scale: 1,
+            duration: 0.2
+        }));
 
 
         // 2. Hiệu ứng "The Arrival" (Xuất hiện khi tải trang)
@@ -369,7 +553,7 @@
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const threshold = 700;
-            
+
             gsap.to("#contactHero", {
                 opacity: Math.max(0, 1 - (scrolled / threshold)),
                 y: -scrolled * 0.15,
@@ -383,8 +567,8 @@
         if (window.DeviceOrientationEvent && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             window.addEventListener('deviceorientation', (e) => {
                 // gamma: nghiêng trái/phải, beta: nghiêng trước/sau
-                const tiltX = e.gamma / 12; 
-                const tiltY = e.beta / 12; 
+                const tiltX = e.gamma / 12;
+                const tiltY = e.beta / 12;
 
                 gsap.to(".hero-video", {
                     x: tiltX * 8,
@@ -397,6 +581,57 @@
     });
 
     // ------------------------- section 2 --------------------- //
+    document.addEventListener("DOMContentLoaded", function() {
+    // 1. Number Counting Animation cho Hotline
+    const counters = document.querySelectorAll('.counter');
+    
+    const countTo = (element) => {
+        const target = element.getAttribute('data-target');
+        const countObj = { val: 0 };
+        
+        gsap.to(countObj, {
+            val: target,
+            duration: 2.5,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: element,
+                start: "top 90%",
+            },
+            onUpdate: function() {
+                // Định dạng số điện thoại đẹp: 09xx.xxx.xxx
+                let raw = Math.ceil(countObj.val).toString().padStart(10, '0');
+                element.innerText = raw.replace(/(\d{4})(\d{3})(\d{3})/, '$1.$2.$3');
+            }
+        });
+    };
+
+    counters.forEach(countTo);
+
+    // 2. Icon Animations
+    // Rung nhẹ icon điện thoại định kỳ
+    gsap.to(".phone-icon", {
+        rotation: 15,
+        duration: 0.1,
+        repeat: 5,
+        yoyo: true,
+        paused: true,
+        id: "ring"
+    });
+    
+    setInterval(() => {
+        gsap.fromTo(".phone-icon", {rotation: -10}, {rotation: 10, duration: 0.1, repeat: 10, yoyo: true});
+    }, 4000);
+
+    // 3. Mobile Haptic Feedback (Rung phản hồi khi nhấn thẻ)
+    const cards = document.querySelectorAll('.privilege-card');
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            if ("vibrate" in navigator) {
+                navigator.vibrate(20); // Rung nhẹ 20ms
+            }
+        });
+    });
+});
 
     // ------------------------- section 3 --------------------- //
 
