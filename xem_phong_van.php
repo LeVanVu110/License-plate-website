@@ -144,12 +144,19 @@
             }
 
             .portrait-content {
-                transform: translateY(-15vh);
+                transform: translateY(+0vh);
             }
 
             /* Đưa lên 1/3 màn hình */
             .portrait-media-wrapper {
                 height: 100%;
+            }
+            .expert-title{
+                font-size: 12px;
+                padding: 10px;
+            }
+            .living-portrait{
+                height: 60vh;
             }
         }
 
