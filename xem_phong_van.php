@@ -23,7 +23,7 @@
         /* ------------------------------ section 1 ------------------------------   */
         .living-portrait {
             position: relative;
-            height: 100vh;
+            height: 135vh;
             width: 100%;
             background: #000;
             overflow: hidden;
@@ -47,8 +47,11 @@
         .portrait-video,
         .portrait-fallback {
             width: 100%;
-            height: 100%;
+            height: 230%;
             object-fit: cover;
+            display: block;
+            object-position: center 360%;
+            filter: grayscale(100%);
         }
 
         /* Lớp phủ chuyển màu */
@@ -144,19 +147,31 @@
             }
 
             .portrait-content {
-                transform: translateY(+0vh);
+                transform: translateY(+20vh);
             }
 
             /* Đưa lên 1/3 màn hình */
             .portrait-media-wrapper {
                 height: 100%;
             }
-            .expert-title{
+
+            .expert-title {
                 font-size: 12px;
                 padding: 10px;
             }
-            .living-portrait{
+
+            .living-portrait {
                 height: 60vh;
+            }
+
+            .portrait-video,
+            .portrait-fallback {
+                height: 130%;
+                filter: grayscale(50%);
+            }
+
+            .media-controls {
+                bottom: 5px;
             }
         }
 
@@ -244,7 +259,7 @@
             letter-spacing: 3px;
             color: #444;
             /* Mờ ẩn trong bóng tối */
-            margin-bottom: 20px;
+            margin-bottom: -5px;
             transform: rotate(-90deg);
             transform-origin: left bottom;
             white-space: nowrap;
@@ -862,7 +877,8 @@
 
         .wisdom-footer {
             position: absolute;
-            bottom: 5px; /* 40px  */
+            bottom: 5px;
+            /* 40px  */
             width: 100%;
             left: 0;
             opacity: 0.4;
@@ -896,12 +912,14 @@
                 padding: 20px 0;
                 font-size: 12px;
             }
-            .wisdom-footer{
+
+            .wisdom-footer {
                 height: 10%;
             }
-            .final-wisdom{
+
+            .final-wisdom {
                 height: 55vh;
-            
+
             }
         }
     </style>
@@ -913,24 +931,24 @@
         <div class="initial-blackout"></div>
 
         <div class="portrait-media-wrapper">
-            <video autoplay muted loop playsinline class="portrait-video" id="portraitVideo">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-thoughtful-man-sitting-by-the-window-40455-large.mp4" type="video/mp4">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974" alt="Expert Portrait" class="portrait-fallback">
-            </video>
+            <!-- <video autoplay muted loop playsinline class="portrait-video" id="portraitVideo">
+                <source src="Agen_video.mp4" type="video/mp4">
+            </video> -->
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974" alt="Expert Portrait" class="portrait-fallback">
             <div class="color-overlay"></div>
         </div>
 
         <div class="portrait-content">
-            <h1 class="expert-name">NGUYỄN MINH TRÍ</h1>
+            <h1 class="expert-name">PHẠM GIA LÂM</h1>
             <div class="gold-glow"></div>
             <p class="expert-title">BẬC THẦY SƯU TẦM BIỂN SỐ & DI SẢN XE SANG</p>
         </div>
 
-        <div class="media-controls">
+        <!-- <div class="media-controls">
             <button id="toggleMute" class="control-btn">
                 <span class="icon">UNMUTE</span>
             </button>
-        </div>
+        </div> -->
 
         <div class="scroll-hint">
             <div class="mouse-wheel"></div>
@@ -943,8 +961,9 @@
 
         <div class="editorial-container">
             <aside class="interview-meta">
-                <div class="meta-item">LOCATION: PRIVATE VAULT, HK</div>
-                <div class="meta-item">TIME: 03:00 AM</div>
+                <div class="meta-item" style="transform-origin: 23px;margin-bottom: -25px;">LOCATION: PRIVATE VAULT, HK</div>
+                <div class="meta-item" style="
+    transform-origin: 55px;">TIME: 03:00 AM</div>
                 <div class="meta-item">STATUS: CONFIDENTIAL</div>
             </aside>
 
@@ -977,16 +996,16 @@
             <div class="qa-segment active-highlight">
                 <div class="interviewer-col">
                     <span class="q-label">Q: INTERVIEWER</span>
-                    <p class="question-text">Thưa ông, trong thế giới của những con số độc bản, đâu là ranh giới giữa một người kinh doanh và một người sưu tầm di sản?</p>
+                    <p class="question-text">Thưa ông Phạm Gia Lâm, khái niệm "Di sản số" nghe có vẻ khá mới mẻ tại Việt Nam. Ông định nghĩa thế nào về giá trị của một biển số độc bản?</p>
                 </div>
                 <div class="expert-col">
-                    <span class="a-label-mobile" style="display:none;">A: EXPERT</span>
+                    <span class="a-label-mobile" style="display:none;">A: MR. PHẠM GIA LÂM</span>
                     <div class="expert-text-wrapper">
                         <p class="expert-text">
-                            Ranh giới đó thực chất rất mong manh, nhưng nó nằm ở "linh hồn" của vật phẩm. Một người kinh doanh nhìn vào một tấm biển số và thấy những con số <span class="tooltip-trigger" data-tooltip="Biển số có dãy số liên tiếp tăng dần, tượng trưng cho sự thăng tiến không ngừng.">Sảnh tiến</span>, thấy lợi nhuận tiềm năng.
+                            Đối với tôi, một biển số không chỉ là định danh phương tiện. Nó là một thực thể <span class="tooltip-trigger" data-tooltip="Tài sản tồn tại vĩnh viễn trên hệ thống quản lý và không bị hao mòn theo thời gian.">Di sản số</span>.
                         </p>
                         <p class="expert-text">
-                            Còn chúng tôi, những người bảo tồn, chúng tôi thấy câu chuyện đằng sau đó. Một tấm biển không chỉ là thép và sơn, nó là chứng nhân của một thời kỳ, là niềm tự hào của một gia tộc. Khi bạn cầm trên tay một di sản, trách nhiệm của bạn là tìm cho nó một người chủ xứng tầm thay vì chỉ bán cho người trả giá cao nhất.
+                            Khi bạn sở hữu một dãy số như ngũ quý hay sảnh tiến, bạn đang sở hữu một tọa độ duy nhất trong dòng chảy thời gian. Xe có thể hỏng, máy có thể thay, nhưng tấm biển đó sẽ đi cùng gia tộc bạn như một biểu tượng của sự thịnh vượng vĩnh cửu.
                         </p>
                     </div>
                 </div>
@@ -994,25 +1013,25 @@
 
             <div class="pull-quote-wrapper">
                 <blockquote class="cinematic-quote">
-                    “Chúng tôi không bán những con số, chúng tôi chuyển giao những câu chuyện lịch sử được mã hóa.”
+                    “Biển số là thứ duy nhất trên chiếc xe không bao giờ mất giá, nếu đó là một di sản.”
                 </blockquote>
             </div>
 
             <div class="qa-segment active-highlight">
                 <div class="interviewer-col">
-                    <p class="question-text">Vậy làm thế nào để ông duy trì sự tĩnh lặng và bảo mật tuyệt đối trong một thị trường đầy náo nhiệt như hiện nay?</p>
+                    <p class="question-text">Thị trường sưu tầm số hiện nay đang rất náo nhiệt. Lời khuyên của ông dành cho những người mới bắt đầu bước vào thế giới này là gì?</p>
                 </div>
                 <div class="expert-col">
                     <div class="expert-text-wrapper">
                         <p class="expert-text">
-                            Sự tĩnh lặng là một đặc quyền. Trong giới siêu giàu, thông tin là tài sản quý giá nhất. Chúng tôi vận hành giống như một ngân hàng Thụy Sĩ cổ điển: Mọi giao dịch đều diễn ra trong bóng tối, không dấu vết kỹ thuật số, không ồn ào truyền thông.
+                            Đừng chạy theo đám đông. Hãy tìm những con số có sự kết nối với câu chuyện cá nhân của bạn. Một con số "đẹp" theo tiêu chuẩn chung chưa chắc đã là một di sản tốt cho riêng bạn.
                         </p>
                         <div class="side-illustration scroll-reveal-right">
-                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=500" alt="Detail">
-                            <span>Cận cảnh cuốn sổ tay lịch sử</span>
+                            <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1000" alt="Detail">
+                            <span>Triết lý chọn số của Gia Lâm</span>
                         </div>
                         <p class="expert-text">
-                            Chỉ khi sự bảo mật đạt đến mức tuyệt đối, khách hàng mới thực sự mở lòng để chia sẻ về những mong muốn sâu kín nhất của họ đối với bộ sưu tập của mình.
+                            Sưu tầm là một hành trình tĩnh lặng. Tại Hiệp hội, chúng tôi luôn hướng khách hàng đến việc bảo tồn giá trị thay vì đầu cơ lướt sóng. Di sản thực thụ cần thời gian để "chín".
                         </p>
                     </div>
                 </div>
@@ -1082,20 +1101,23 @@
         <div class="wisdom-container">
             <div class="wisdom-content">
                 <blockquote class="the-wisdom">
-                    “Đừng tìm một con số, hãy tìm một định mệnh.”
+                    “Biển số không chỉ là định danh, nó là di sản số vĩnh cửu.”
                 </blockquote>
 
-                <div class="signature-wrapper">
+                <!-- <div class="signature-wrapper">
                     <svg viewBox="0 0 400 150" class="expert-signature">
                         <path id="signature-path" d="M50,80 C100,20 150,150 200,80 C250,20 350,80 380,50"
                             fill="none" stroke="#D4AF37" stroke-width="2" />
                     </svg>
                     <span class="expert-name-text">Bảo tàng Di sản số</span>
+                </div> -->
+                <div class="signature-wrapper">
+                    <span class="expert-name-text">PHẠM GIA LÂM</span>
                 </div>
 
                 <div class="cta-wrapper">
-                    <a href="#" class="cta-magnetic-button">
-                        <span class="cta-text">BẮT ĐẦU DI SẢN CỦA BẠN</span>
+                    <a href="lienhe.php" class="cta-magnetic-button">
+                        <span class="cta-text">KHỞI TẠO DI SẢN CỦA BẠN</span>
                         <div class="pulse-circle"></div>
                     </a>
                 </div>
