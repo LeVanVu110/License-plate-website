@@ -826,6 +826,20 @@
                 })
             });
         });
+        // Hiệu ứng hình ảnh trượt từ lề vào
+        gsap.utils.toArray(".scroll-reveal-right").forEach((img) => {
+            gsap.from(img, {
+                scrollTrigger: {
+                    trigger: img,
+                    start: "top 90%",
+                    toggleActions: "play none none reverse"
+                },
+                x: 100,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power2.out"
+            });
+        });
 
         // 2. Sợi chỉ vàng chạy dọc
         gsap.to(".golden-thread-line", {
