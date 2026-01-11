@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
 
     <style>
+        /* --------------------------------- phần 1video xe banner || phần 2 nav-menu -----------------------  */
         /* --- Video Section --- */
         .video-container {
             position: relative;
@@ -223,7 +224,8 @@
             .search-container:focus-within {
                 width: 85%;
             }
-            .hero-video-placeholder{
+
+            .hero-video-placeholder {
                 height: 400%;
                 top: 6px;
             }
@@ -277,15 +279,6 @@
             .hero h1 {
                 font-size: 28px;
             }
-
-            /* Nếu muốn nút AI Search xuống dòng cho thoáng thì dùng đoạn này */
-
-            /* .search-container {
-        flex-direction: column;
-        gap: 10px;
-        border-radius: 15px;
-    } */
-
         }
 
         /* ------------------------------------------------------------- section 2 ---------------------------------------------------------------  */
@@ -1219,7 +1212,7 @@
             .bike-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
         }
 
         @media (max-width: 600px) {
@@ -1229,7 +1222,8 @@
                 grid-template-columns: 1fr;
                 justify-items: anchor-center;
             }
-            .car-card{
+
+            .car-card {
                 width: 80%;
             }
         }
