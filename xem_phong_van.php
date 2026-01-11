@@ -552,6 +552,194 @@
         }
 
         /* ------------------------------ section 4 ------------------------------   */
+        .legacy-gallery {
+            background-color: #050505;
+            /* Tiếp nối Obsidian Black */
+            padding: 120px 0;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .gallery-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        .gallery-header {
+            margin-bottom: 60px;
+        }
+
+        .gallery-index {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            color: var(--gold-primary);
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .gallery-title {
+            font-family: 'EB Garamond', serif;
+            font-size: 32px;
+            color: var(--gold-primary);
+            margin: 0;
+        }
+
+        .gallery-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 250px;
+            gap: 25px;
+            cursor: crosshair;
+            /* Thay thế biểu tượng magnify qua JS */
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: #111;
+            border-radius: 2px;
+            opacity: 0;
+            /* Cho hiệu ứng reveal */
+            transform: translateY(40px);
+        }
+
+        .item-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1), filter 0.5s;
+            filter: brightness(0.6) grayscale(0.2);
+        }
+
+        /* Grid Spanning */
+        .large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .square {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .wide {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        /* Caption Styles */
+        .caption-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            pointer-events: none;
+        }
+
+        .item-number {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: 16px;
+            color: var(--gold-primary);
+            display: block;
+        }
+
+        .item-caption {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: #E5E5E5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Light Leak Effect */
+        .light-leak {
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+            mix-blend-mode: screen;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        /* Interaction */
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(1) grayscale(0);
+        }
+
+        .gallery-item:hover .light-leak {
+            opacity: 1;
+            animation: leakMove 3s infinite linear;
+        }
+
+        @keyframes leakMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(20%, 20%);
+            }
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .bento-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 15px;
+                grid-auto-rows: unset;
+                padding-bottom: 20px;
+            }
+
+            .gallery-item {
+                min-width: 85vw;
+                height: 50vh;
+                scroll-snap-align: center;
+                flex-shrink: 0;
+                opacity: 1;
+                transform: none;
+            }
+
+            .gallery-title {
+                font-size: 24px;
+            }
+
+            .item-caption {
+                font-size: 12px;
+            }
+
+            .item-number {
+                font-size: 14px;
+            }
+        }
 
         /* ------------------------------ section 5 ------------------------------   */
     </style>
@@ -671,6 +859,61 @@
     </section>
 
     <!-- ------------------------------ section 4 ------------------------------   -->
+    <section class="legacy-gallery" id="section4">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <span class="gallery-index">IV</span>
+                <h2 class="gallery-title">The Legacy Gallery</h2>
+                <p class="gallery-subtitle">NHỮNG MẢNH GHÉP DI SẢN ĐỘC BẢN</p>
+            </div>
+
+            <div class="bento-grid">
+                <div class="gallery-item large" data-index="01">
+                    <div class="item-inner">
+                        <img src="https://images.unsplash.com/photo-1566008885218-90abf9200ddb?q=80&w=1500" alt="Báu vật di sản">
+                        <div class="light-leak"></div>
+                        <div class="caption-overlay">
+                            <span class="item-number">01</span>
+                            <p class="item-caption">Biển số "Vương Triều" - Chứng nhân lịch sử từ năm 1920.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item square" data-index="02">
+                    <div class="item-inner">
+                        <img src="https://images.unsplash.com/photo-1517315003714-a071486bd9ea?q=80&w=800" alt="Chi tiết chất liệu">
+                        <div class="light-leak"></div>
+                        <div class="caption-overlay">
+                            <span class="item-number">02</span>
+                            <p class="item-caption">Chất liệu thép tôi luyện thủ công.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item square" data-index="03">
+                    <div class="item-inner">
+                        <img src="https://images.unsplash.com/photo-1455165814004-1126a7199f9b?q=80&w=800" alt="Giấy tờ chứng nhận">
+                        <div class="light-leak"></div>
+                        <div class="caption-overlay">
+                            <span class="item-number">03</span>
+                            <p class="item-caption">Văn bản chứng thực từ hoàng gia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item wide" data-index="04">
+                    <div class="item-inner">
+                        <img src="https://images.unsplash.com/photo-1502301197179-65228ab57f78?q=80&w=1000" alt="Khoảnh khắc sưu tầm">
+                        <div class="light-leak"></div>
+                        <div class="caption-overlay">
+                            <span class="item-number">04</span>
+                            <p class="item-caption">Góc khuất trong thư viện lưu trữ cá nhân.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ------------------------------ section 5 ------------------------------   -->
 
@@ -862,6 +1105,52 @@
         });
     });
     // ------------------------------ section 4 ------------------------------  //
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Reveal on Scroll (Staggered)
+        gsap.to(".gallery-item", {
+            scrollTrigger: {
+                trigger: ".bento-grid",
+                start: "top 80%",
+            },
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "power3.out",
+            onComplete: () => {
+                // Loại bỏ blur sau khi hiện xong
+                gsap.to(".gallery-item img", {
+                    filter: "brightness(0.6) grayscale(0.2)"
+                });
+            }
+        });
+
+        // 2. Magnificent Zoom & Focus logic
+        const items = document.querySelectorAll('.gallery-item');
+        items.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                items.forEach(other => {
+                    if (other !== item) gsap.to(other, {
+                        opacity: 0.4,
+                        duration: 0.5
+                    });
+                });
+            });
+
+            item.addEventListener('mouseleave', () => {
+                items.forEach(other => gsap.to(other, {
+                    opacity: 1,
+                    duration: 0.5
+                }));
+            });
+        });
+
+        // 3. Custom Cursor (Magnify icon)
+        const gallery = document.querySelector('.bento-grid');
+        gallery.addEventListener('mousemove', (e) => {
+            // Có thể chèn một div cursor custom tại đây nếu muốn
+        });
+    });
 
     // ------------------------------ section 5 ------------------------------  //
 </script>
