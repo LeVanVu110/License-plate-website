@@ -1246,7 +1246,7 @@
                         <p class="expert-title">Chủ tịch Hiệp hội Sưu tầm Số Việt Nam</p>
                     </div>
 
-                    <a href="#" class="btn-interview">
+                    <a href="xem_phong_van.php" class="btn-interview">
                         XEM TOÀN BỘ PHỎNG VẤN <span class="long-arrow">→</span>
                     </a>
                 </div>
