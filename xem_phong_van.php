@@ -150,6 +150,124 @@
         }
 
         /* ------------------------------ section 2 ------------------------------   */
+        .the-monologue {
+    background-color: #0A0A0B; /* Đen Midnight nhám */
+    padding: 160px 0;
+    position: relative;
+    overflow: hidden;
+    color: #E5E5E5; /* Trắng bạc (Silver Silk) */
+}
+
+.editorial-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 0 5%;
+}
+
+/* Parallax Quotation mờ ảo */
+.parallax-quote {
+    position: absolute;
+    top: -50px;
+    right: 5%;
+    font-family: 'Playfair Display', serif;
+    font-size: 35rem;
+    color: rgba(255, 255, 255, 0.03); /* Cực mờ trên nền đen */
+    line-height: 1;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.monologue-content {
+    max-width: 720px;
+    z-index: 2;
+}
+
+/* Drop Cap Modern Gold */
+.drop-cap {
+    float: left;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6.5rem;
+    line-height: 0.75;
+    padding-top: 10px;
+    padding-right: 20px;
+    color: var(--gold-primary);
+    font-weight: 300;
+    /* Hiệu ứng tỏa sáng nhẹ cho chữ cái đầu */
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+}
+
+.monologue-text {
+    font-family: 'EB Garamond', serif;
+    font-size: 21px;
+    line-height: 1.9;
+    color: #CCCCCC; /* Trắng bạc trung tính */
+    margin-bottom: 45px;
+    text-align: justify;
+    opacity: 0;
+    transform: translateY(30px);
+    letter-spacing: 0.3px;
+}
+
+.monologue-text.delayed {
+    color: #999; /* Đoạn sau mờ hơn một chút để tạo nhịp điệu đọc */
+}
+
+/* Interview Meta - Silver */
+.interview-meta {
+    position: absolute;
+    left: 20px;
+    top: 50px;
+}
+
+.meta-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #444; /* Mờ ẩn trong bóng tối */
+    margin-bottom: 20px;
+    transform: rotate(-90deg);
+    transform-origin: left bottom;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+/* Digital Signature Gold */
+.signature-container {
+    margin-top: 80px;
+    text-align: right;
+    opacity: 0;
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.2));
+}
+
+.digital-signature-svg {
+    width: 240px;
+    height: auto;
+}
+
+#ink-flow-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+
+.signature-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    letter-spacing: 5px;
+    color: var(--gold-primary);
+    margin-top: -25px;
+    opacity: 0.7;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .the-monologue { padding: 100px 0; }
+    .monologue-text { font-size: 19px; line-height: 1.7; padding: 0 10px; }
+    .interview-meta { display: none; }
+    .drop-cap { font-size: 5rem; }
+}
 
         /* ------------------------------ section 3 ------------------------------   */
 
@@ -190,6 +308,34 @@
     </section>
 
     <!-- ------------------------------ section 2 ------------------------------   -->
+    <section class="the-monologue" id="monologueSection">
+    <div class="parallax-quote">“</div>
+
+    <div class="editorial-container">
+        <aside class="interview-meta">
+            <div class="meta-item">LOCATION: PRIVATE VAULT, HK</div>
+            <div class="meta-item">TIME: 03:00 AM</div>
+            <div class="meta-item">STATUS: CONFIDENTIAL</div>
+        </aside>
+
+        <article class="monologue-content">
+            <p class="monologue-text">
+                <span class="drop-cap">T</span>ôi vẫn nhớ như in buổi sáng mùa đông tại Geneva, khi kim đồng hồ của chiếc Patek Philippe trên tay vừa điểm 4 giờ. Trong thế giới của những con số, người ta thường bàn về giá trị, nhưng ở đây, chúng tôi bàn về định mệnh. Một biển số không chỉ là những ký tự vô hồn; nó là dấu ấn của một gia tộc, là tiếng nói của một cá nhân mà không cần phải thốt ra lời. 
+            </p>
+            
+            <p class="monologue-text delayed">
+                Cơ duyên đưa tôi đến với nghề săn lùng di sản không phải từ những con số triệu đô, mà từ một lời hứa bảo tồn những giá trị đang dần bị quên lãng giữa dòng chảy cơ giới hóa. Khi tôi đặt bút ký vào một bản hợp đồng, tôi biết mình vừa giúp một mảnh ghép lịch sử tìm thấy đúng chủ nhân. Đó không phải là kinh doanh, đó là sự kế thừa.
+            </p>
+
+            <div class="signature-container">
+                <svg viewBox="0 0 400 150" class="digital-signature-svg">
+                    <path id="ink-flow-path" d="M50,80 C100,20 150,120 200,80 S300,40 350,90 M180,60 L220,100" fill="none" stroke="var(--gold-primary)" stroke-width="2" />
+                </svg>
+                <div class="signature-sub">EXECUTIVE SIGNATURE</div>
+            </div>
+        </article>
+    </div>
+</section>
 
     <!-- ------------------------------ section 3 ------------------------------   -->
 
@@ -273,6 +419,49 @@
     });
 
     // ------------------------------ section 2 ------------------------------  //
+    document.addEventListener("DOMContentLoaded", function() {
+    // Reveal từng đoạn văn khi cuộn
+    gsap.utils.toArray(".monologue-text").forEach((text) => {
+        gsap.to(text, {
+            scrollTrigger: {
+                trigger: text,
+                start: "top 85%",
+            },
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power2.out"
+        });
+    });
+
+    // Hiệu ứng Parallax cho dấu ngoặc kép
+    gsap.to(".parallax-quote", {
+        scrollTrigger: {
+            trigger: "#monologueSection",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1
+        },
+        y: 100,
+        opacity: 0.08
+    });
+
+    // Vẽ chữ ký tay Gold
+    gsap.to("#ink-flow-path", {
+        scrollTrigger: {
+            trigger: ".signature-container",
+            start: "top 90%",
+            onEnter: () => {
+                gsap.to(".signature-container", { opacity: 1, duration: 1 });
+                gsap.to("#ink-flow-path", {
+                    strokeDashoffset: 0,
+                    duration: 3.5,
+                    ease: "power1.inOut"
+                });
+            }
+        }
+    });
+});
 
     // ------------------------------ section 3 ------------------------------  //
 
