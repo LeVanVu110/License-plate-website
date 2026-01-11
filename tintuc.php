@@ -1069,7 +1069,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="art-card tall-card phong-thuy" data-category="phong-thuy">
+                <!-- <div class="art-card tall-card phong-thuy" data-category="phong-thuy">
                     <div class="card-inner">
                         <div class="parallax-wrapper">
                             <img src="https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?q=80&w=2070" class="parallax-img" alt="Cửu tử hỏa tinh">
@@ -1094,8 +1094,8 @@
                             <p class="card-excerpt">Đừng để sự xung khắc về màu sắc cản trở vượng khí của bạn. Hướng dẫn chi tiết cho người mệnh Kim và Thủy...</p>
                         </div>
                     </div>
-                </div>
-                <div class="art-card thuong-luu" data-category="thuong-luu">
+                </div> -->
+                <!-- <div class="art-card thuong-luu" data-category="thuong-luu">
                     <div class="card-inner">
                         <div class="parallax-wrapper">
                             <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069" class="parallax-img" alt="Sự kiện thượng lưu">
@@ -1133,7 +1133,7 @@
                             <p class="card-excerpt">Khi tính thanh khoản của các kênh đầu tư truyền thống chậm lại, "bất động sản trên những con số" đang trở thành nơi trú ẩn an toàn...</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="art-card tall-card thuong-luu" data-category="thuong-luu">
                     <div class="card-inner">
                         <div class="parallax-wrapper">
@@ -1147,7 +1147,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="art-card tall-card thi-truong" data-category="thi-truong">
+                <!-- <div class="art-card tall-card thi-truong" data-category="thi-truong">
                     <div class="card-inner">
                         <div class="parallax-wrapper">
                             <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=2070" class="parallax-img" alt="Chiến lược đầu tư">
@@ -1172,7 +1172,7 @@
                             <p class="card-excerpt">Không chỉ là vẻ ngoài, một dãy số đúng phong thủy là "bùa hộ mệnh" giúp các hợp đồng triệu đô trở nên suôn sẻ hơn...</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="art-card big-card thuong-luu" data-category="thuong-luu">
                     <div class="card-inner">
                         <div class="parallax-wrapper">
@@ -1186,7 +1186,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="art-card tall-card thuong-luu" data-category="thuong-luu">
+                <!-- <div class="art-card tall-card thuong-luu" data-category="thuong-luu">
                     <div class="card-inner">
                         <div class="parallax-wrapper">
                             <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070" class="parallax-img" alt="Siêu xe và Lifestyle">
@@ -1198,7 +1198,7 @@
                             <p class="card-excerpt">Tại sao một chiếc xe 100 tỷ vẫn chưa được coi là hoàn hảo nếu thiếu đi một tấm biển số "ngũ quý" tương xứng?...</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
