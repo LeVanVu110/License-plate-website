@@ -742,6 +742,161 @@
         }
 
         /* ------------------------------ section 5 ------------------------------   */
+        .final-wisdom {
+            background-color: #0A0A0A;
+            /* Đen Obsidian */
+            height: 110vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wisdom-container {
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        /* Hiệu ứng chữ phát sáng */
+        .the-wisdom {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: clamp(32px, 5vw, 64px);
+            color: #E5E5E5;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            opacity: 0;
+            filter: blur(10px);
+            transition: all 1.5s ease-out;
+        }
+
+        .the-wisdom.glow {
+            opacity: 1;
+            filter: blur(0);
+            color: #FFFFFF;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Chữ ký */
+        .signature-wrapper {
+            margin-bottom: 60px;
+            opacity: 0;
+        }
+
+        .expert-signature {
+            width: 250px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        #signature-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            /* Giá trị này sẽ được JS điều khiển */
+        }
+
+        .expert-name-text {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: #D4AF37;
+            margin-top: -30px;
+        }
+
+        /* Nút CTA Magnetic */
+        .cta-magnetic-button {
+            display: inline-block;
+            padding: 22px 50px;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            color: #D4AF37;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cta-magnetic-button:hover {
+            background-color: #D4AF37;
+            color: #000;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+        }
+
+        .pulse-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            animation: pulse-ring 2.5s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        .wisdom-footer {
+            position: absolute;
+            bottom: 5px; /* 40px  */
+            width: 100%;
+            left: 0;
+            opacity: 0.4;
+            height: 20%;
+        }
+
+        .footer-info {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .bottom-gold-glow {
+            position: absolute;
+            bottom: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .the-wisdom {
+                font-size: 32px;
+            }
+
+            .cta-magnetic-button {
+                width: 85%;
+                padding: 20px 0;
+                font-size: 12px;
+            }
+            .wisdom-footer{
+                height: 10%;
+            }
+            .final-wisdom{
+                height: 55vh;
+            
+            }
+        }
     </style>
 </head>
 
@@ -916,6 +1071,43 @@
     </section>
 
     <!-- ------------------------------ section 5 ------------------------------   -->
+    <section class="final-wisdom" id="section5">
+        <div class="wisdom-container">
+            <div class="wisdom-content">
+                <blockquote class="the-wisdom">
+                    “Đừng tìm một con số, hãy tìm một định mệnh.”
+                </blockquote>
+
+                <div class="signature-wrapper">
+                    <svg viewBox="0 0 400 150" class="expert-signature">
+                        <path id="signature-path" d="M50,80 C100,20 150,150 200,80 C250,20 350,80 380,50"
+                            fill="none" stroke="#D4AF37" stroke-width="2" />
+                    </svg>
+                    <span class="expert-name-text">Bảo tàng Di sản số</span>
+                </div>
+
+                <div class="cta-wrapper">
+                    <a href="#" class="cta-magnetic-button">
+                        <span class="cta-text">BẮT ĐẦU DI SẢN CỦA BẠN</span>
+                        <div class="pulse-circle"></div>
+                    </a>
+                </div>
+            </div>
+
+            <footer class="wisdom-footer">
+                <!-- <div class="footer-line"></div> -->
+                <div class="footer-info">
+                    <span>THỰC HIỆN: THE HERITAGE TEAM</span>
+                    <span>•</span>
+                    <span>JANUARY 2024</span>
+                    <span>•</span>
+                    <span>EXCLUSIVE INTERVIEW</span>
+                </div>
+            </footer>
+        </div>
+
+        <div class="bottom-gold-glow"></div>
+    </section>
 
     <?php include "footer.php" ?>
 </body>
@@ -1153,6 +1345,71 @@
     });
 
     // ------------------------------ section 5 ------------------------------  //
+    document.addEventListener("DOMContentLoaded", function() {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Hiệu ứng hiện Lời kết và vẽ Chữ ký
+        ScrollTrigger.create({
+            trigger: "#section5",
+            start: "top 50%", // Bắt đầu khi section vào giữa màn hình
+            onEnter: () => {
+                // Hiện câu nói sáng bừng
+                document.querySelector(".the-wisdom").classList.add("glow");
+
+                // Hiệu ứng vẽ chữ ký tay
+                gsap.to("#signature-path", {
+                    strokeDashoffset: 0,
+                    duration: 3,
+                    ease: "power2.inOut",
+                    delay: 0.8
+                });
+
+                // Hiện wrapper chữ ký
+                gsap.to(".signature-wrapper", {
+                    opacity: 1,
+                    y: -10,
+                    duration: 1.5,
+                    delay: 0.8
+                });
+
+                // Rung nhẹ điện thoại (Haptic)
+                if (window.navigator && window.navigator.vibrate) {
+                    window.navigator.vibrate(40);
+                }
+            }
+        });
+
+        // 2. Hiệu ứng Magnetic cho nút bấm (Desktop)
+        if (window.innerWidth > 1024) {
+            const cta = document.querySelector(".cta-magnetic-button");
+            cta.addEventListener("mousemove", (e) => {
+                const {
+                    offsetX,
+                    offsetY,
+                    target
+                } = e;
+                const {
+                    clientWidth,
+                    clientHeight
+                } = target;
+                const moveX = (offsetX - clientWidth / 2) / 4;
+                const moveY = (offsetY - clientHeight / 2) / 4;
+                gsap.to(cta, {
+                    x: moveX,
+                    y: moveY,
+                    duration: 0.3
+                });
+            });
+
+            cta.addEventListener("mouseleave", () => {
+                gsap.to(cta, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.3
+                });
+            });
+        }
+    });
 </script>
 
 </html>
