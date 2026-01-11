@@ -1683,7 +1683,7 @@
         </div>
 
         <div class="journal-grid">
-            <a href="#" class="journal-card">
+            <a href="chitiettintuc1.php" class="journal-card">
                 <div class="journal-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop" alt="The Art of Speed">
                 </div>
@@ -1692,7 +1692,7 @@
                 <span class="journal-date">OCTOBER 24, 2023</span>
             </a>
 
-            <a href="#" class="journal-card">
+            <a href="chitiettintuc2.php" class="journal-card">
                 <div class="journal-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" alt="Luxury Interior">
                 </div>
@@ -1701,7 +1701,7 @@
                 <span class="journal-date">OCTOBER 20, 2023</span>
             </a>
 
-            <a href="#" class="journal-card">
+            <a href="chitiettintuc3.php" class="journal-card">
                 <div class="journal-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop" alt="Racing Heritage">
                 </div>
