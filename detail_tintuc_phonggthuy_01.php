@@ -881,36 +881,36 @@
         </div>
 
         <div class="sticky-nav" id="stickyNav">
-            <span class="sticky-title">Nghệ thuật chọn biển số: Đẳng cấp khẳng định vị thế chủ nhân</span>
+            <span class="sticky-title">Ngũ hành và màu xe: Tìm sự cân bằng tuyệt đối</span>
         </div>
 
         <div class="hero-media">
             <div class="overlay-gradient"></div>
-            <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop" class="hero-img" alt="Hero Background">
+            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop" class="hero-img" alt="Feng Shui Hero Background">
         </div>
 
         <div class="hero-content">
             <div class="meta-data reveal-item">
-                <span class="meta-tag">Lifestyle</span>
+                <span class="meta-tag">PHONG THỦY</span>
                 <span class="meta-separator">/</span>
-                <span class="meta-date">OCTOBER 24, 2023</span>
+                <span class="meta-date">10 THÁNG 10, 2023</span>
             </div>
 
             <h1 class="main-headline">
-                <span class="line-reveal">Nghệ thuật chọn biển số,</span>
-                <span class="line-reveal">Đẳng cấp khẳng định vị thế <span class="gold-text">chủ nhân.</span></span>
+                <span class="line-reveal">Ngũ hành và màu xe:</span>
+                <span class="line-reveal">Tìm sự <span class="gold-text">cân bằng tuyệt đối.</span></span>
             </h1>
 
             <div class="decoration-line"></div>
 
             <div class="author-info reveal-item" style="padding-top: 1%;">
-                <span class="author-name">BỞI PHẠM GIA LÂM</span>
-                <span class="read-time">8 PHÚT ĐỌC</span>
+                <span class="author-name">BỞI CHUYÊN GIA PHONG THỦY MINH ĐĂNG</span>
+                <span class="read-time">9 PHÚT ĐỌC</span>
             </div>
         </div>
 
         <div class="scroll-hint">
-            <span class="scroll-text">SCROLL DOWN</span>
+            <span class="scroll-text">KHÁM PHÁ NĂNG LƯỢNG</span>
             <div class="scroll-arrow"></div>
         </div>
     </section>
@@ -931,45 +931,41 @@
 
         <article class="main-article">
             <p class="article-lead">
-                Trong thế giới của những cá nhân kiệt xuất, chiếc xe không chỉ đơn thuần là phương tiện di chuyển, mà là một bản tuyên ngôn về phong cách sống. Và để bản tuyên ngôn ấy trở nên trọn vẹn, việc lựa chọn một tấm biển số "xứng tầm" đã trở thành một loại hình nghệ thuật – nơi những con số biết nói thay cho vị thế của chủ nhân.
+                Trong triết lý phương Đông, vạn vật đều vận hành dựa trên sự tương tác của năm yếu tố Ngũ hành. Việc lựa chọn một chiếc xe không chỉ dừng lại ở công suất động cơ, mà còn là tìm kiếm một thực thể mang năng lượng tương sinh, giúp chủ nhân bình an và vượng tiến trên mọi hành trình.
             </p>
 
             <p class="article-paragraph">
-                <span class="drop-cap">N</span>ghệ thuật chọn biển số từ lâu đã vượt ra ngoài ranh giới của những quan niệm may mắn thông thường. Đối với giới thượng lưu, một tấm biển số đẹp là sự kết hợp hoàn hảo giữa tính phong thủy, sự logic của các dãy số và giá trị lịch sử mà nó mang lại. Tại Việt Nam, kể từ khi thị trường <span class="tooltip-trigger" data-tooltip="Thị trường đấu giá biển số định danh cho phép cá nhân sở hữu những dãy số độc bản theo ý thích.">biển số định danh</span> chính thức bùng nổ, khái niệm "biển số đẹp" đã được định nghĩa lại: nó phải là duy nhất, dễ nhớ và phản ánh được cá tính độc bản của người sở hữu.
+                <span class="drop-cap">S</span>ự cân bằng tuyệt đối bắt đầu từ sự hiểu biết về bản mệnh. Mỗi màu sắc của xe đều mang một tần số rung động riêng, tương ứng với Kim, Mộc, Thủy, Hỏa, Thổ. Khi màu sắc của xe tương sinh với mệnh của chủ nhân, nó tạo ra một luồng <span class="tooltip-trigger" data-tooltip="Năng lượng sống hay 'khí' tích cực, giúp tinh thần minh mẫn và giảm thiểu rủi ro khi di chuyển.">Sinh khí</span> bền vững. Ngược lại, một sự lựa chọn sai lệch về màu sắc có thể dẫn đến sự xung đột năng lượng, khiến chủ nhân cảm thấy bất an hoặc gặp những trở ngại không đáng có.
             </p>
 
             <p class="article-paragraph">
-                Một nhà sưu tầm xe lâu năm chia sẻ: "Người ta có thể mua một chiếc Rolls-Royce bằng tiền, nhưng để sở hữu một tấm biển số 'Ngũ Quý' hay 'Sảnh Tiến' phù hợp với chiếc xe đó, bạn cần cả sự kiên nhẫn, tầm nhìn và đôi khi là cái duyên." Những con số không chỉ nằm trên tấm kim loại, chúng là minh chứng cho quyền lực mềm, một loại trang sức vô hình nhưng đầy sức nặng khi xuất hiện tại các sự kiện quan trọng.
+                Ví dụ, những người thuộc mệnh Kim thường tìm thấy sự cộng hưởng tuyệt vời với sắc trắng bạc, xám hoặc vàng đồng. Trong khi đó, mệnh Mộc lại cần sự nuôi dưỡng từ xanh lá cây hoặc các tông màu đen, xanh biển đậm thuộc hành Thủy. Tuy nhiên, nghệ thuật phong thủy hiện đại không chỉ dừng lại ở việc chọn màu đơn thuần, mà còn là sự kết hợp tinh tế giữa ngoại thất và nội thất để tạo thành một vòng tròn năng lượng khép kín.
             </p>
 
-            <h3 class="sub-heading">Khi dãy số trở thành di sản cá nhân</h3>
+            <h3 class="sub-heading">Vòng tương sinh: Từ màu sắc đến những con số</h3>
 
             <p class="article-paragraph">
-                Tại sao giới tài phiệt lại sẵn sàng chi trả hàng tỷ đồng cho những dãy số? Câu trả lời nằm ở "tính khan hiếm". Giống như một bức tranh của Picasso hay một chiếc đồng hồ Patek Philippe phiên bản giới hạn, biển số đẹp là một loại tài sản không có phiên bản thứ hai. Nghệ thuật ở đây nằm ở cách chọn số sao cho tương sinh với bản mệnh, đồng thời phải tạo nên một nhịp điệu hình ảnh hài hòa khi gắn lên đầu xe.
-            </p>
-
-            <p class="article-paragraph">
-                Xu hướng hiện nay không chỉ dừng lại ở việc chọn các số trùng lặp (tứ quý, ngũ quý), mà còn hướng tới các dãy số có ý nghĩa cá nhân hóa sâu sắc như ngày kỷ niệm quan trọng hoặc các con số đại diện cho sự phát triển bền vững trong sự nghiệp kinh doanh.
+                Sự cân bằng sẽ trở nên hoàn hảo khi màu xe được kết hợp với một tấm biển số có ngũ hành tương trợ. Một chiếc xe màu đen (Hành Thủy) sẽ trở nên cực kỳ mạnh mẽ nếu sở hữu dãy số có nhiều số 1 hoặc 6, tạo nên sự thúc đẩy cho tài lộc chảy trôi thuận lợi như dòng nước.
             </p>
 
             <figure class="full-bleed-image">
-                <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2071" alt="The Art of Plate Selection">
-                <figcaption>Mỗi tấm biển số đều mang một câu chuyện riêng, là mảnh ghép cuối cùng hoàn thiện diện mạo đẳng cấp của một chiếc siêu xe.</figcaption>
+                <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=2072" alt="Zen Balance Elements">
+                <figcaption>Sự giao thoa giữa các yếu tố tự nhiên là chìa khóa để kiến tạo nên sự bình an và thịnh vượng cho chủ sở hữu phương tiện.</figcaption>
             </figure>
 
             <p class="article-paragraph">
-                Bên cạnh đó, nghệ thuật trưng bày biển số cũng được chú trọng. Từ việc lựa chọn khung biển bằng vật liệu cao cấp đến việc bảo quản bề mặt luôn sáng bóng dưới mọi điều kiện thời tiết, tất cả đều thể hiện sự chỉn chu và tôn trọng của chủ nhân đối với món tài sản của mình. Màu sắc và độ sáng của tấm biển <span class="tooltip-trigger" data-tooltip="Sự phản chiếu ánh sáng và độ sắc nét của các con số trên biển được giới chơi xe đặc biệt quan tâm.">phải đạt độ hoàn thiện tuyệt đối</span> để không làm giảm đi giá trị thẩm mỹ tổng thể của chiếc xe.
+                "Chúng ta không mua một chiếc xe, chúng ta đang chọn một người bạn đồng hành," chuyên gia Minh Đăng nhận định. "Việc áp dụng <span class="tooltip-trigger" data-tooltip="Quy luật các yếu tố hỗ trợ nhau: Mộc sinh Hỏa, Hỏa sinh Thổ, Thổ sinh Kim, Kim sinh Thủy, Thủy sinh Mộc.">Ngũ hành tương sinh</span> vào lựa chọn xe hơi là cách để con người hiện đại kết nối lại với những giá trị tự nhiên, tìm thấy sự tĩnh lặng và an toàn bên trong khoang lái giữa sự ồn ào của thế giới bên ngoài."
             </p>
 
             <blockquote class="pull-quote">
                 <div class="quote-line"></div>
-                <p>"Biển số xe là dấu gạch nối giữa con người và cỗ máy. Nó biến một vật phẩm công nghiệp thành một di sản có định danh và linh hồn riêng."</p>
-                <cite>— CHUYÊN GIA PHÂN TÍCH THỊ TRƯỜNG XA XỈ</cite>
+                <p>"Màu sắc là ngôn ngữ của năng lượng. Chọn đúng màu xe là bạn đã bắt đầu hành trình của mình bằng một lời chào hòa hợp với vũ trụ."</p>
+                <cite>— TRÍCH DẪN TỪ HÀNH TRÌNH PHONG THỦY HỌC</cite>
                 <div class="quote-line"></div>
             </blockquote>
 
             <p class="article-paragraph">
-                Khép lại câu chuyện về nghệ thuật chọn số, chúng ta thấy rõ một thông điệp: Đẳng cấp không nằm ở việc bạn sở hữu thứ gì đắt nhất, mà nằm ở việc bạn hiểu rõ giá trị của thứ mình đang sở hữu đến đâu. Một tấm biển số được lựa chọn bằng sự am tường và thẩm mỹ tinh tế chính là chiếc chìa khóa vạn năng, khẳng định vị thế chủ nhân một cách tự nhiên và kiêu hãnh nhất.
+                Trong quý cuối năm này, khi dòng năng lượng chuyển dịch mạnh mẽ, việc làm mới năng lượng cho chiếc xe thông qua các vật phẩm phong thủy hoặc đơn giản là giữ cho không gian nội thất luôn sạch sẽ, thơm mát cũng là một cách để duy trì sự cân bằng. Hãy nhớ rằng, phong thủy không phải là điều gì đó quá xa vời, nó hiện hữu trong chính cảm giác thoải mái và tự tin của bạn mỗi khi cầm lái.
             </p>
         </article>
     </div>

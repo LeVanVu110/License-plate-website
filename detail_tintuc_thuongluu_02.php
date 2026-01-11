@@ -881,99 +881,95 @@
         </div>
 
         <div class="sticky-nav" id="stickyNav">
-            <span class="sticky-title">Nghệ thuật chọn biển số: Đẳng cấp khẳng định vị thế chủ nhân</span>
+            <span class="sticky-title">Hành trình xuyên Việt cùng xe biển số định danh đẳng cấp</span>
         </div>
 
         <div class="hero-media">
             <div class="overlay-gradient"></div>
-            <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop" class="hero-img" alt="Hero Background">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop" class="hero-img" alt="Luxury Resort Hero">
         </div>
 
         <div class="hero-content">
             <div class="meta-data reveal-item">
-                <span class="meta-tag">Lifestyle</span>
+                <span class="meta-tag">TRẢI NGHIỆM • THƯỢNG LƯU</span>
                 <span class="meta-separator">/</span>
-                <span class="meta-date">OCTOBER 24, 2023</span>
+                <span class="meta-date">15 THÁNG 10, 2023</span>
             </div>
 
             <h1 class="main-headline">
-                <span class="line-reveal">Nghệ thuật chọn biển số,</span>
-                <span class="line-reveal">Đẳng cấp khẳng định vị thế <span class="gold-text">chủ nhân.</span></span>
+                <span class="line-reveal">Hành trình xuyên Việt,</span>
+                <span class="line-reveal">Đẳng cấp mới của <span class="gold-text">du lịch trải nghiệm.</span></span>
             </h1>
 
             <div class="decoration-line"></div>
 
             <div class="author-info reveal-item" style="padding-top: 1%;">
-                <span class="author-name">BỞI PHẠM GIA LÂM</span>
-                <span class="read-time">8 PHÚT ĐỌC</span>
+                <span class="author-name">BỞI LÊ HOÀNG NAM</span>
+                <span class="read-time">11 PHÚT ĐỌC</span>
             </div>
         </div>
 
         <div class="scroll-hint">
-            <span class="scroll-text">SCROLL DOWN</span>
+            <span class="scroll-text">BẮT ĐẦU HÀNH TRÌNH</span>
             <div class="scroll-arrow"></div>
         </div>
     </section>
 
     <!-- --------------------------------- section 2 --------------------------------- -->
     <section class="narrative-body">
-    <div class="narrative-container">
+        <div class="narrative-container">
 
-        <aside class="narrative-sidebar">
-            <div class="sidebar-inner">
-                <button class="side-btn" title="Lưu bài viết"><i class="far fa-bookmark"></i></button>
-                <div class="side-divider"></div>
-                <button class="side-btn"><i class="fab fa-facebook-f"></i></button>
-                <button class="side-btn"><i class="fab fa-twitter"></i></button>
-                <button class="side-btn"><i class="fas fa-link"></i></button>
-            </div>
-        </aside>
+            <aside class="narrative-sidebar">
+                <div class="sidebar-inner">
+                    <button class="side-btn" title="Lưu bài viết"><i class="far fa-bookmark"></i></button>
+                    <div class="side-divider"></div>
+                    <button class="side-btn"><i class="fab fa-facebook-f"></i></button>
+                    <button class="side-btn"><i class="fab fa-twitter"></i></button>
+                    <button class="side-btn"><i class="fas fa-link"></i></button>
+                </div>
+            </aside>
 
-        <article class="main-article">
-            <p class="article-lead">
-                Trong thế giới của những cá nhân kiệt xuất, chiếc xe không chỉ đơn thuần là phương tiện di chuyển, mà là một bản tuyên ngôn về phong cách sống. Và để bản tuyên ngôn ấy trở nên trọn vẹn, việc lựa chọn một tấm biển số "xứng tầm" đã trở thành một loại hình nghệ thuật – nơi những con số biết nói thay cho vị thế của chủ nhân.
-            </p>
+            <article class="main-article">
+                <p class="article-lead">
+                    Xuyên Việt không còn là một thử thách về sức bền, mà đã nâng tầm thành một cuộc thưởng lãm nghệ thuật. Trên những cung đường di sản, chiếc xe sở hữu tấm biển số định danh độc bản chính là thẻ thông hành khẳng định phong cách sống tự do và vị thế không thể trộn lẫn của giới tinh hoa.
+                </p>
 
-            <p class="article-paragraph">
-                <span class="drop-cap">N</span>ghệ thuật chọn biển số từ lâu đã vượt ra ngoài ranh giới của những quan niệm may mắn thông thường. Đối với giới thượng lưu, một tấm biển số đẹp là sự kết hợp hoàn hảo giữa tính phong thủy, sự logic của các dãy số và giá trị lịch sử mà nó mang lại. Tại Việt Nam, kể từ khi thị trường <span class="tooltip-trigger" data-tooltip="Thị trường đấu giá biển số định danh cho phép cá nhân sở hữu những dãy số độc bản theo ý thích.">biển số định danh</span> chính thức bùng nổ, khái niệm "biển số đẹp" đã được định nghĩa lại: nó phải là duy nhất, dễ nhớ và phản ánh được cá tính độc bản của người sở hữu.
-            </p>
+                <p class="article-paragraph">
+                    <span class="drop-cap">K</span>hái niệm "Luxury Travel" đang được định nghĩa lại bởi những cá nhân yêu cầm lái. Giờ đây, một chuyến đi hoàn hảo không chỉ kết thúc tại những resort 6 sao ven biển, mà nó bắt đầu ngay từ giây phút tiếng động cơ vang lên. Sự xuất hiện của <span class="tooltip-trigger" data-tooltip="Những dãy số ngũ quý hoặc sảnh tiến gắn liền với định danh cá nhân, mang lại niềm tự hào và sự nhận diện đặc biệt trên suốt hành trình.">biển số định danh quyền lực</span> trên các dòng xe Grand Tourer sang trọng đã biến mỗi trạm dừng chân trở thành một sàn diễn của đẳng cấp và gu thẩm mỹ riêng biệt.
+                </p>
 
-            <p class="article-paragraph">
-                Một nhà sưu tầm xe lâu năm chia sẻ: "Người ta có thể mua một chiếc Rolls-Royce bằng tiền, nhưng để sở hữu một tấm biển số 'Ngũ Quý' hay 'Sảnh Tiến' phù hợp với chiếc xe đó, bạn cần cả sự kiên nhẫn, tầm nhìn và đôi khi là cái duyên." Những con số không chỉ nằm trên tấm kim loại, chúng là minh chứng cho quyền lực mềm, một loại trang sức vô hình nhưng đầy sức nặng khi xuất hiện tại các sự kiện quan trọng.
-            </p>
+                <p class="article-paragraph">
+                    Từ những cung đường đèo uốn lượn tại Hà Giang cho đến dải cát trắng mịn ở miền Trung, việc cầm lái một chiếc xe mang "dấu ấn cá nhân" đem lại cảm giác chinh phục khác biệt. Nhà báo Lê Hoàng Nam nhận định: "Khi bạn lái một chiếc xe có tấm biển số tâm huyết, mỗi km đi qua không chỉ là khoảng cách địa lý, đó là sự khẳng định chủ quyền đối với những trải nghiệm sống chất lượng nhất."
+                </p>
 
-            <h3 class="sub-heading">Khi dãy số trở thành di sản cá nhân</h3>
+                <h3 class="sub-heading">Kết nối di sản và sự tiện nghi tột bậc</h3>
 
-            <p class="article-paragraph">
-                Tại sao giới tài phiệt lại sẵn sàng chi trả hàng tỷ đồng cho những dãy số? Câu trả lời nằm ở "tính khan hiếm". Giống như một bức tranh của Picasso hay một chiếc đồng hồ Patek Philippe phiên bản giới hạn, biển số đẹp là một loại tài sản không có phiên bản thứ hai. Nghệ thuật ở đây nằm ở cách chọn số sao cho tương sinh với bản mệnh, đồng thời phải tạo nên một nhịp điệu hình ảnh hài hòa khi gắn lên đầu xe.
-            </p>
+                <p class="article-paragraph">
+                    Hành trình xuyên Việt của giới tài phiệt thường được thiết kế riêng biệt (tailor-made). Họ chọn nghỉ ngơi tại những khu nghỉ dưỡng biệt lập hoàn toàn với thế giới bên ngoài, nơi chiếc xe được đỗ ngay tại sảnh villa cá nhân. Sự kết nối giữa công nghệ xe hơi tiên tiến và dịch vụ nghỉ dưỡng cao cấp tạo nên một vòng khép kín của sự hưởng thụ.
+                </p>
 
-            <p class="article-paragraph">
-                Xu hướng hiện nay không chỉ dừng lại ở việc chọn các số trùng lặp (tứ quý, ngũ quý), mà còn hướng tới các dãy số có ý nghĩa cá nhân hóa sâu sắc như ngày kỷ niệm quan trọng hoặc các con số đại diện cho sự phát triển bền vững trong sự nghiệp kinh doanh.
-            </p>
+                <figure class="full-bleed-image">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2070" alt="Coastal Road Journey">
+                    <figcaption>Tự do tự tại trên những cung đường ven biển miền Trung, nơi biển số định danh khẳng định bản sắc cá nhân giữa thiên nhiên hùng vĩ.</figcaption>
+                </figure>
 
-            <figure class="full-bleed-image">
-                <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2071" alt="The Art of Plate Selection">
-                <figcaption>Mỗi tấm biển số đều mang một câu chuyện riêng, là mảnh ghép cuối cùng hoàn thiện diện mạo đẳng cấp của một chiếc siêu xe.</figcaption>
-            </figure>
+                <p class="article-paragraph">
+                    Đặc biệt, trào lưu <span class="tooltip-trigger" data-tooltip="Sự kết hợp giữa lái xe đường dài và tận hưởng những dịch vụ xa xỉ nhất tại các điểm đến dọc hành trình.">Road-trip Thượng lưu</span> còn là dịp để những người có cùng chí hướng gặp gỡ. Những đoàn xe sở hữu biển số đẹp hội ngộ tại các điểm di sản không chỉ để chia sẻ về niềm đam mê tốc độ, mà còn là nơi khởi đầu cho những kết nối kinh doanh và mối quan hệ bền chặt.
+                </p>
 
-            <p class="article-paragraph">
-                Bên cạnh đó, nghệ thuật trưng bày biển số cũng được chú trọng. Từ việc lựa chọn khung biển bằng vật liệu cao cấp đến việc bảo quản bề mặt luôn sáng bóng dưới mọi điều kiện thời tiết, tất cả đều thể hiện sự chỉn chu và tôn trọng của chủ nhân đối với món tài sản của mình. Màu sắc và độ sáng của tấm biển <span class="tooltip-trigger" data-tooltip="Sự phản chiếu ánh sáng và độ sắc nét của các con số trên biển được giới chơi xe đặc biệt quan tâm.">phải đạt độ hoàn thiện tuyệt đối</span> để không làm giảm đi giá trị thẩm mỹ tổng thể của chiếc xe.
-            </p>
+                <blockquote class="pull-quote">
+                    <div class="quote-line"></div>
+                    <p>"Chúng ta đi không phải để đến, chúng ta đi để thấy vị thế của mình được phản chiếu qua vẻ đẹp của đất nước và sự độc bản của phương tiện đồng hành."</p>
+                    <cite>— LÊ HOÀNG NAM (Chuyên gia Lifestyle & Travel)</cite>
+                    <div class="quote-line"></div>
+                </blockquote>
 
-            <blockquote class="pull-quote">
-                <div class="quote-line"></div>
-                <p>"Biển số xe là dấu gạch nối giữa con người và cỗ máy. Nó biến một vật phẩm công nghiệp thành một di sản có định danh và linh hồn riêng."</p>
-                <cite>— CHUYÊN GIA PHÂN TÍCH THỊ TRƯỜNG XA XỈ</cite>
-                <div class="quote-line"></div>
-            </blockquote>
-
-            <p class="article-paragraph">
-                Khép lại câu chuyện về nghệ thuật chọn số, chúng ta thấy rõ một thông điệp: Đẳng cấp không nằm ở việc bạn sở hữu thứ gì đắt nhất, mà nằm ở việc bạn hiểu rõ giá trị của thứ mình đang sở hữu đến đâu. Một tấm biển số được lựa chọn bằng sự am tường và thẩm mỹ tinh tế chính là chiếc chìa khóa vạn năng, khẳng định vị thế chủ nhân một cách tự nhiên và kiêu hãnh nhất.
-            </p>
-        </article>
-    </div>
-</section>
+                <p class="article-paragraph">
+                    Kết thúc hành trình từ Bắc chí Nam, điều đọng lại trong mỗi nhà sưu tầm không chỉ là những bức ảnh check-in tại các resort lừng danh, mà là niềm kiêu hãnh khi tấm biển số định danh của mình đã cùng chinh phục những cột mốc thiêng liêng nhất của tổ quốc. Đó chính là ý nghĩa thực sự của sự xa xỉ: Sự tự do tuyệt đối trong sự khẳng định bản thân.
+                </p>
+            </article>
+        </div>
+    </section>
 
     <!-- --------------------------------- section 3 --------------------------------- -->
     <section class="immersive-gallery">

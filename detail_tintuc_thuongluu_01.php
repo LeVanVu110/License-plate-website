@@ -881,36 +881,36 @@
         </div>
 
         <div class="sticky-nav" id="stickyNav">
-            <span class="sticky-title">Nghệ thuật chọn biển số: Đẳng cấp khẳng định vị thế chủ nhân</span>
+            <span class="sticky-title">Bộ sưu tập xe của giới tài phiệt Trung Đông</span>
         </div>
 
         <div class="hero-media">
             <div class="overlay-gradient"></div>
-            <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop" class="hero-img" alt="Hero Background">
+            <img src="https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?q=80&w=1974&auto=format&fit=crop" class="hero-img" alt="Middle East Luxury Hero">
         </div>
 
         <div class="hero-content">
             <div class="meta-data reveal-item">
-                <span class="meta-tag">Lifestyle</span>
+                <span class="meta-tag">LIFESTYLE</span>
                 <span class="meta-separator">/</span>
-                <span class="meta-date">OCTOBER 24, 2023</span>
+                <span class="meta-date">05 THÁNG 10, 2023</span>
             </div>
 
             <h1 class="main-headline">
-                <span class="line-reveal">Nghệ thuật chọn biển số,</span>
-                <span class="line-reveal">Đẳng cấp khẳng định vị thế <span class="gold-text">chủ nhân.</span></span>
+                <span class="line-reveal">Bộ sưu tập xe của</span>
+                <span class="line-reveal">giới <span class="gold-text">tài phiệt Trung Đông.</span></span>
             </h1>
 
             <div class="decoration-line"></div>
 
             <div class="author-info reveal-item" style="padding-top: 1%;">
-                <span class="author-name">BỞI PHẠM GIA LÂM</span>
-                <span class="read-time">8 PHÚT ĐỌC</span>
+                <span class="author-name">BỞI QUỐC ANH - TẠP CHÍ THƯỢNG LƯU</span>
+                <span class="read-time">12 PHÚT ĐỌC</span>
             </div>
         </div>
 
         <div class="scroll-hint">
-            <span class="scroll-text">SCROLL DOWN</span>
+            <span class="scroll-text">KHÁM PHÁ GARA TRIỆU ĐÔ</span>
             <div class="scroll-arrow"></div>
         </div>
     </section>
@@ -931,45 +931,41 @@
 
         <article class="main-article">
             <p class="article-lead">
-                Trong thế giới của những cá nhân kiệt xuất, chiếc xe không chỉ đơn thuần là phương tiện di chuyển, mà là một bản tuyên ngôn về phong cách sống. Và để bản tuyên ngôn ấy trở nên trọn vẹn, việc lựa chọn một tấm biển số "xứng tầm" đã trở thành một loại hình nghệ thuật – nơi những con số biết nói thay cho vị thế của chủ nhân.
+                Tại những vùng đất xa xôi của Trung Đông, nơi sa mạc gặp gỡ những tòa tháp chọc trời, xe hơi không còn là phương tiện di chuyển. Chúng là những tác phẩm nghệ thuật, là biểu tượng quyền lực và là những kho báu di động trong các gara có giá trị còn lớn hơn cả một tòa lâu đài.
             </p>
 
             <p class="article-paragraph">
-                <span class="drop-cap">N</span>ghệ thuật chọn biển số từ lâu đã vượt ra ngoài ranh giới của những quan niệm may mắn thông thường. Đối với giới thượng lưu, một tấm biển số đẹp là sự kết hợp hoàn hảo giữa tính phong thủy, sự logic của các dãy số và giá trị lịch sử mà nó mang lại. Tại Việt Nam, kể từ khi thị trường <span class="tooltip-trigger" data-tooltip="Thị trường đấu giá biển số định danh cho phép cá nhân sở hữu những dãy số độc bản theo ý thích.">biển số định danh</span> chính thức bùng nổ, khái niệm "biển số đẹp" đã được định nghĩa lại: nó phải là duy nhất, dễ nhớ và phản ánh được cá tính độc bản của người sở hữu.
+                <span class="drop-cap">V</span>ới giới tài phiệt vùng Vịnh, việc sở hữu một chiếc Bugatti hay Ferrari phiên bản tiêu chuẩn chỉ là bước khởi đầu. Sự khác biệt thực sự nằm ở những tùy chỉnh độc bản (bespoke). Những chiếc xe được dát vàng, bọc da cá sấu bạch tạng hay đính kim cương lên bảng điều khiển là điều không hiếm gặp. Đặc biệt, linh hồn của những bộ sưu tập này chính là các <span class="tooltip-trigger" data-tooltip="Những tấm biển số có ít chữ số (1 hoặc 2 số) tại Dubai hoặc Abu Dhabi thường được đấu giá với mức giá từ vài triệu đến hàng chục triệu USD.">tấm biển số độc mã</span>, đôi khi có giá trị cao gấp 10 lần chiếc siêu xe đắt nhất thế giới.
             </p>
 
             <p class="article-paragraph">
-                Một nhà sưu tầm xe lâu năm chia sẻ: "Người ta có thể mua một chiếc Rolls-Royce bằng tiền, nhưng để sở hữu một tấm biển số 'Ngũ Quý' hay 'Sảnh Tiến' phù hợp với chiếc xe đó, bạn cần cả sự kiên nhẫn, tầm nhìn và đôi khi là cái duyên." Những con số không chỉ nằm trên tấm kim loại, chúng là minh chứng cho quyền lực mềm, một loại trang sức vô hình nhưng đầy sức nặng khi xuất hiện tại các sự kiện quan trọng.
+                Khám phá bên trong các "thánh đường" siêu xe tại Dubai hay Doha, người ta dễ dàng choáng ngợp trước những dãy xe được sắp xếp theo tông màu hoặc theo bề dày lịch sử. Từ những chiếc Rolls-Royce phiên bản giới hạn kỷ niệm 100 năm cho đến những mẫu Hypercar chưa từng được xuất hiện trước công chúng như Lykan Hypersport hay Devel Sixteen. Mỗi chiếc xe đều được chăm sóc trong môi trường điều hòa nhiệt độ chính xác và được bảo vệ bởi đội ngũ an ninh chuyên nghiệp.
             </p>
 
-            <h3 class="sub-heading">Khi dãy số trở thành di sản cá nhân</h3>
+            <h3 class="sub-heading">Khi đam mê vượt qua mọi giới hạn tài chính</h3>
 
             <p class="article-paragraph">
-                Tại sao giới tài phiệt lại sẵn sàng chi trả hàng tỷ đồng cho những dãy số? Câu trả lời nằm ở "tính khan hiếm". Giống như một bức tranh của Picasso hay một chiếc đồng hồ Patek Philippe phiên bản giới hạn, biển số đẹp là một loại tài sản không có phiên bản thứ hai. Nghệ thuật ở đây nằm ở cách chọn số sao cho tương sinh với bản mệnh, đồng thời phải tạo nên một nhịp điệu hình ảnh hài hòa khi gắn lên đầu xe.
-            </p>
-
-            <p class="article-paragraph">
-                Xu hướng hiện nay không chỉ dừng lại ở việc chọn các số trùng lặp (tứ quý, ngũ quý), mà còn hướng tới các dãy số có ý nghĩa cá nhân hóa sâu sắc như ngày kỷ niệm quan trọng hoặc các con số đại diện cho sự phát triển bền vững trong sự nghiệp kinh doanh.
+                Một xu hướng mới của giới siêu giàu Trung Đông hiện nay là sưu tầm các dòng "Super-SUV" để chinh phục các cồn cát sa mạc nhưng vẫn giữ nguyên sự xa hoa của nội thất limousine. Những chiếc Mercedes-AMG G63 phiên bản 6x6 hay Lamborghini Urus độ Mansory với lớp sơn phản quang trở thành "vũ khí" ưa thích của các hoàng thân trong những chuyến đi săn giữa lòng sa mạc.
             </p>
 
             <figure class="full-bleed-image">
-                <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2071" alt="The Art of Plate Selection">
-                <figcaption>Mỗi tấm biển số đều mang một câu chuyện riêng, là mảnh ghép cuối cùng hoàn thiện diện mạo đẳng cấp của một chiếc siêu xe.</figcaption>
+                <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=2070" alt="Middle East Supercar">
+                <figcaption>Ánh đèn laser phản chiếu trên thân xe sợi carbon – một cảnh tượng quen thuộc tại các buổi tụ họp của giới sưu tầm vùng Vịnh.</figcaption>
             </figure>
 
             <p class="article-paragraph">
-                Bên cạnh đó, nghệ thuật trưng bày biển số cũng được chú trọng. Từ việc lựa chọn khung biển bằng vật liệu cao cấp đến việc bảo quản bề mặt luôn sáng bóng dưới mọi điều kiện thời tiết, tất cả đều thể hiện sự chỉn chu và tôn trọng của chủ nhân đối với món tài sản của mình. Màu sắc và độ sáng của tấm biển <span class="tooltip-trigger" data-tooltip="Sự phản chiếu ánh sáng và độ sắc nét của các con số trên biển được giới chơi xe đặc biệt quan tâm.">phải đạt độ hoàn thiện tuyệt đối</span> để không làm giảm đi giá trị thẩm mỹ tổng thể của chiếc xe.
+                "Họ không chỉ mua xe, họ mua lịch sử và sự duy nhất," một chuyên gia giám định quốc tế chia sẻ. Giới tài phiệt Trung Đông thường có mối quan hệ trực tiếp với các hãng xe như McLaren hay Koenigsegg để yêu cầu những <span class="tooltip-trigger" data-tooltip="Những mẫu xe được thiết kế và chế tạo hoàn toàn theo ý muốn của khách hàng, không có chiếc thứ hai trên thế giới.">phiên bản One-off</span>. Đối với họ, việc nhìn thấy một người khác lái chiếc xe giống hệt mình là một điều không thể chấp nhận được.
             </p>
 
             <blockquote class="pull-quote">
                 <div class="quote-line"></div>
-                <p>"Biển số xe là dấu gạch nối giữa con người và cỗ máy. Nó biến một vật phẩm công nghiệp thành một di sản có định danh và linh hồn riêng."</p>
-                <cite>— CHUYÊN GIA PHÂN TÍCH THỊ TRƯỜNG XA XỈ</cite>
+                <p>"Ở đây, gara không phải là nơi để xe, đó là một bảo tàng cá nhân nơi chúng tôi lưu giữ những giấc mơ bằng thép và kim cương."</p>
+                <cite>— HOÀNG THÂN SAUDI ARABIA (Ẩn danh)</cite>
                 <div class="quote-line"></div>
             </blockquote>
 
             <p class="article-paragraph">
-                Khép lại câu chuyện về nghệ thuật chọn số, chúng ta thấy rõ một thông điệp: Đẳng cấp không nằm ở việc bạn sở hữu thứ gì đắt nhất, mà nằm ở việc bạn hiểu rõ giá trị của thứ mình đang sở hữu đến đâu. Một tấm biển số được lựa chọn bằng sự am tường và thẩm mỹ tinh tế chính là chiếc chìa khóa vạn năng, khẳng định vị thế chủ nhân một cách tự nhiên và kiêu hãnh nhất.
+                Cuộc chơi siêu xe tại Trung Đông cũng đang dần chuyển mình sang kỷ nguyên điện hóa với những mẫu siêu xe điện có công suất hàng nghìn mã lực. Tuy nhiên, dù công nghệ có thay đổi, tinh thần về sự sang trọng tột bậc và cái tôi cá nhân mạnh mẽ vẫn luôn là kim chỉ nam cho giới tài phiệt nơi đây. Mỗi bộ sưu tập là một câu chuyện về tầm nhìn, quyền lực và sự khát khao chinh phục mọi giới hạn của con người.
             </p>
         </article>
     </div>

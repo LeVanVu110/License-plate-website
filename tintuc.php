@@ -1031,7 +1031,7 @@
             </div>
             <div class="masonry-grid">
                 <div class="art-card big-card phap-ly" data-category="phap-ly">
-                    <a href="chitiettintuc.php" style="text-decoration: none; color: inherit;">
+                    <a href="detail_tintuc_phaply_01.php" style="text-decoration: none; color: inherit;">
                         <div class="card-inner">
                             <div class="parallax-wrapper">
                                 <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070" class="parallax-img" alt="Pháp lý">
@@ -1046,28 +1046,32 @@
                     </a>
                 </div>
                 <div class="art-card thi-truong" data-category="thi-truong">
-                    <div class="card-inner">
-                        <div class="parallax-wrapper">
-                            <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2073" class="parallax-img" alt="Thị trường">
+                    <a href="detail_tintuc_thitruong_01.php" style="text-decoration: none; color: inherit;">
+                        <div class="card-inner">
+                            <div class="parallax-wrapper">
+                                <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2073" class="parallax-img" alt="Thị trường">
+                            </div>
+                            <div class="card-overlay"></div>
+                            <div class="card-content">
+                                <span class="card-meta">THỊ TRƯỜNG • 08 THÁNG 10, 2023</span>
+                                <h2 class="card-title">Dự báo dòng tiền chảy vào thị trường biển số quý cuối năm</h2>
+                            </div>
                         </div>
-                        <div class="card-overlay"></div>
-                        <div class="card-content">
-                            <span class="card-meta">THỊ TRƯỜNG • 08 THÁNG 10, 2023</span>
-                            <h2 class="card-title">Dự báo dòng tiền chảy vào thị trường biển số quý cuối năm</h2>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="art-card phong-thuy" data-category="phong-thuy">
-                    <div class="card-inner">
-                        <div class="parallax-wrapper">
-                            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070" class="parallax-img" alt="Phong thủy">
+                    <a href="detail_tintuc_phonggthuy_01.php" style="text-decoration: none; color: inherit;">
+                        <div class="card-inner">
+                            <div class="parallax-wrapper">
+                                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070" class="parallax-img" alt="Phong thủy">
+                            </div>
+                            <div class="card-overlay"></div>
+                            <div class="card-content">
+                                <span class="card-meta">PHONG THỦY • 10 THÁNG 10, 2023</span>
+                                <h2 class="card-title">Ngũ hành và màu xe: Tìm sự cân bằng tuyệt đối</h2>
+                            </div>
                         </div>
-                        <div class="card-overlay"></div>
-                        <div class="card-content">
-                            <span class="card-meta">PHONG THỦY • 10 THÁNG 10, 2023</span>
-                            <h2 class="card-title">Ngũ hành và màu xe: Tìm sự cân bằng tuyệt đối</h2>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <!-- <div class="art-card tall-card phong-thuy" data-category="phong-thuy">
                     <div class="card-inner">
@@ -1135,17 +1139,19 @@
                     </div>
                 </div> -->
                 <div class="art-card tall-card thuong-luu" data-category="thuong-luu">
-                    <div class="card-inner">
-                        <div class="parallax-wrapper">
-                            <img src="https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?q=80&w=1974" class="parallax-img" alt="Thượng lưu">
+                    <a href="detail_tintuc_thuongluu_01.php" style="text-decoration: none; color: inherit;">
+                        <div class="card-inner">
+                            <div class="parallax-wrapper">
+                                <img src="https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?q=80&w=1974" class="parallax-img" alt="Thượng lưu">
+                            </div>
+                            <div class="card-overlay"></div>
+                            <div class="card-content">
+                                <span class="card-meta">LIFESTYLE • 05 THÁNG 10, 2023</span>
+                                <h2 class="card-title">Bộ sưu tập xe của giới tài phiệt Trung Đông</h2>
+                                <p class="card-excerpt">Khám phá những gara trị giá hàng trăm triệu USD...</p>
+                            </div>
                         </div>
-                        <div class="card-overlay"></div>
-                        <div class="card-content">
-                            <span class="card-meta">LIFESTYLE • 05 THÁNG 10, 2023</span>
-                            <h2 class="card-title">Bộ sưu tập xe của giới tài phiệt Trung Đông</h2>
-                            <p class="card-excerpt">Khám phá những gara trị giá hàng trăm triệu USD...</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <!-- <div class="art-card tall-card thi-truong" data-category="thi-truong">
                     <div class="card-inner">
@@ -1174,17 +1180,19 @@
                     </div>
                 </div> -->
                 <div class="art-card big-card thuong-luu" data-category="thuong-luu">
-                    <div class="card-inner">
-                        <div class="parallax-wrapper">
-                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070" class="parallax-img" alt="Resort hạng sang">
+                    <a href="detail_tintuc_thuongluu_02.php" style="text-decoration: none; color: inherit;">
+                        <div class="card-inner">
+                            <div class="parallax-wrapper">
+                                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070" class="parallax-img" alt="Resort hạng sang">
+                            </div>
+                            <div class="card-overlay"></div>
+                            <div class="card-content">
+                                <span class="card-meta">TRẢI NGHIỆM • THƯỢNG LƯU</span>
+                                <h2 class="card-title">Hành trình xuyên Việt trên những chiếc xe "biển xanh" định danh: Đẳng cấp mới của du lịch trải nghiệm</h2>
+                                <p class="card-excerpt">Không chỉ là di chuyển, đó là cách giới tinh hoa khẳng định vị thế cá nhân trên mỗi cung đường họ đi qua...</p>
+                            </div>
                         </div>
-                        <div class="card-overlay"></div>
-                        <div class="card-content">
-                            <span class="card-meta">TRẢI NGHIỆM • THƯỢNG LƯU</span>
-                            <h2 class="card-title">Hành trình xuyên Việt trên những chiếc xe "biển xanh" định danh: Đẳng cấp mới của du lịch trải nghiệm</h2>
-                            <p class="card-excerpt">Không chỉ là di chuyển, đó là cách giới tinh hoa khẳng định vị thế cá nhân trên mỗi cung đường họ đi qua...</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <!-- <div class="art-card tall-card thuong-luu" data-category="thuong-luu">
                     <div class="card-inner">

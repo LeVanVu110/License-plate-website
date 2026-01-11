@@ -1,4 +1,3 @@
-
 <?php include "header.php" ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -891,7 +890,7 @@
         </div>
 
         <div class="hero-content">
-            <div class="meta-data reveal-item"> 
+            <div class="meta-data reveal-item">
                 <span class="meta-tag">Exclusive</span>
                 <span class="meta-separator">/</span>
                 <span class="meta-date">OCTOBER 20, 2023</span>
@@ -1061,10 +1060,9 @@
         <div class="journey-container">
             <div class="related-section">
                 <h3 class="journey-label">CÂU CHUYỆN TIẾP THEO</h3>
-
                 <div class="related-grid" id="relatedGrid">
                     <div class="chronicle-card">
-                        <a href="chi-tiet-tin-tuc.php?id=2" class="chronicle-link">
+                        <a href="detail_tintuc_thitruong_02.php" class="chronicle-link">
                             <div class="chronicle-img-wrapper">
                                 <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070" alt="Related Article">
                             </div>
@@ -1076,7 +1074,7 @@
                     </div>
 
                     <div class="chronicle-card">
-                        <a href="chi-tiet-tin-tuc.php?id=3" class="chronicle-link">
+                        <a href="detail_tintuc_thitruong_03.php" class="chronicle-link">
                             <div class="chronicle-img-wrapper">
                                 <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070" alt="Related Article">
                             </div>
