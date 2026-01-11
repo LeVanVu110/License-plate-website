@@ -223,6 +223,11 @@
             .search-container:focus-within {
                 width: 85%;
             }
+            .hero-video-placeholder{
+                height: 400%;
+                top: 6px;
+            }
+
         }
 
         /* Màn hình điện thoại (Dưới 768px) */
