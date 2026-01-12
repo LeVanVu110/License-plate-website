@@ -953,6 +953,243 @@
         }
 
         /* --------------------------- section 4 ---------------------------------  */
+        .vip-concierge {
+            background: #000;
+            padding: 120px 0;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .concierge-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            padding: 0 40px;
+        }
+
+        /* VIP Card Styling */
+        .vip-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vip-card-wrap {
+            perspective: 1500px;
+            margin-bottom: 50px;
+        }
+
+        .vip-card {
+            width: 400px;
+            height: 240px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            position: relative;
+            padding: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            transform-style: preserve-3d;
+        }
+
+        .card-shine {
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .card-logo {
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: var(--gold-power);
+        }
+
+        .card-holder {
+            margin-top: 60px;
+        }
+
+        .card-holder span {
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 2px;
+        }
+
+        .holder-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #fff;
+            margin-top: 5px;
+        }
+
+        .keyring-preview {
+            text-align: center;
+            opacity: 0.6;
+        }
+
+        .keyring-img {
+            width: 120px;
+            filter: drop-shadow(0 10px 15px #000);
+        }
+
+        .keyring-preview p {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        /* Ownership Process Styling */
+        .vip-title {
+            font-family: 'EB Garamond', serif;
+            font-size: 36px;
+            letter-spacing: 4px;
+            margin-bottom: 60px;
+        }
+
+        .process-path {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .path-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .path-progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 0%;
+            background: var(--gold-power);
+            box-shadow: 0 0 15px var(--gold-power);
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 40px;
+            cursor: pointer;
+        }
+
+        .step-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #555;
+            z-index: 2;
+            transition: 0.4s;
+        }
+
+        .step-item.active .step-icon {
+            border-color: var(--gold-power);
+            color: var(--gold-power);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .step-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .step-item.active h3 {
+            color: var(--gold-power);
+        }
+
+        .step-detail {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step-item.active .step-detail {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 15px;
+        }
+
+        .step-detail p {
+            font-size: 15px;
+            color: #999;
+            line-height: 1.6;
+        }
+
+        .legal-info {
+            font-size: 12px;
+            color: var(--gold-power);
+            display: block;
+            margin-top: 10px;
+            opacity: 0.7;
+        }
+
+        .btn-vip-contact {
+            width: 100%;
+            padding: 20px;
+            background: transparent;
+            border: 1px solid var(--gold-power);
+            color: #fff;
+            letter-spacing: 3px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: inset 0 0 0 0 var(--gold-power);
+        }
+
+        .btn-vip-contact:hover {
+            background: var(--gold-power);
+            color: #000;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .concierge-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .vip-card {
+                width: 100%;
+                max-width: 350px;
+                height: 210px;
+            }
+
+            .vip-title {
+                font-size: 26px;
+                text-align: center;
+            }
+
+            .btn-vip-contact {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                z-index: 999;
+                background: #111;
+                border-top: 1px solid var(--gold-power);
+            }
+        }
 
         /* --------------------------- section 5 ---------------------------------  */
     </style>
@@ -1127,6 +1364,76 @@
         </div>
     </section>
     <!-- --------------------------- section 4 ---------------------------------  -->
+    <section class="vip-concierge" id="section5">
+        <div class="concierge-container">
+            <div class="vip-visual">
+                <div class="vip-card-wrap">
+                    <div class="vip-card" id="vipCard">
+                        <div class="card-shine"></div>
+                        <div class="card-content">
+                            <div class="card-logo">VIP MEMBERSHIP</div>
+                            <div class="card-holder">
+                                <span>ĐẶC QUYỀN SỞ HỮU</span>
+                                <div class="holder-name" id="cardPlateName">29-K 777.77</div>
+                            </div>
+                            <div class="card-footer">PREMIUM SERVICE</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="keyring-preview">
+                    <img src="https://i.ibb.co/LzNfS8X/leather-keyring.png" alt="Keyring" class="keyring-img">
+                    <p>Quà tặng: Móc khóa da dập số độc bản</p>
+                </div>
+            </div>
+
+            <div class="ownership-process">
+                <h2 class="vip-title">THE WHITE-GLOVE SERVICE</h2>
+                <div class="process-path">
+                    <div class="path-line">
+                        <div class="path-progress" id="pathProgress"></div>
+                    </div>
+
+                    <div class="steps-wrapper">
+                        <div class="step-item" data-step="1">
+                            <div class="step-icon">01</div>
+                            <div class="step-content">
+                                <h3>ĐẶT CỌC GIỮ CHỖ</h3>
+                                <div class="step-detail">
+                                    <p>Hoàn tất thủ tục ký quỹ online chỉ trong 5 phút. Biển số sẽ được khóa trạng thái dành riêng cho bạn.</p>
+                                    <span class="legal-info">Thời gian: Tức thì | Pháp lý: Hợp đồng điện tử</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-item" data-step="2">
+                            <div class="step-icon">02</div>
+                            <div class="step-content">
+                                <h3>ĐỊNH DANH CHÍNH CHỦ</h3>
+                                <div class="step-detail">
+                                    <p>Chuyên gia của chúng tôi sẽ hỗ trợ toàn bộ hồ sơ đăng ký định danh tại cơ quan chức năng.</p>
+                                    <span class="legal-info">Thời gian: 1-3 ngày | Pháp lý: Chứng nhận định danh</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-item" data-step="3">
+                            <div class="step-icon">03</div>
+                            <div class="step-content">
+                                <h3>BÀN GIAO TẬN NHÀ</h3>
+                                <div class="step-detail">
+                                    <p>Gói Door-to-Door: Đội ngũ mặc suit, găng tay trắng bàn giao & lắp đặt biển số trực tiếp lên xe của bạn.</p>
+                                    <span class="legal-info">Thời gian: Theo yêu cầu | Dịch vụ: White-glove</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-vip-contact">LIÊN HỆ CHUYÊN GIA SỞ HỮU</button>
+            </div>
+        </div>
+    </section>
 
     <!-- --------------------------- section 5 ---------------------------------  -->
 
@@ -1621,6 +1928,73 @@
         window.addEventListener('resize', () => updateShowroom(currentIdx));
     });
     // --------------------------- section 4 --------------------------------- //
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Đồng bộ biển số từ Section 1 vào Thẻ VIP
+        const mainPlate = document.getElementById('plateBottom')?.innerText || "777.77";
+        const mainPrefix = document.getElementById('plateTop')?.innerText || "29-K";
+        document.getElementById('cardPlateName').innerText = `${mainPrefix} ${mainPlate}`;
+
+        // 2. Hiệu ứng Floating VIP Card (Tilt)
+        const card = document.getElementById('vipCard');
+        const shine = card.querySelector('.card-shine');
+
+        document.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+            gsap.to(card, {
+                rotateY: x * 20,
+                rotateX: -y * 20,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+
+            gsap.to(shine, {
+                x: x * 100,
+                y: y * 100,
+                duration: 0.5
+            });
+        });
+
+        // 3. Hiệu ứng "The Golden Step" - Scroll Trigger Progress
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to("#pathProgress", {
+            height: "100%",
+            scrollTrigger: {
+                trigger: ".steps-wrapper",
+                start: "top 60%",
+                end: "bottom 60%",
+                scrub: 1
+            }
+        });
+
+        // 4. Accordion Logic & Auto-active on scroll
+        const steps = document.querySelectorAll('.step-item');
+
+        steps.forEach((step, index) => {
+            // Click để mở thủ công
+            step.addEventListener('click', () => {
+                steps.forEach(s => s.classList.remove('active'));
+                step.classList.add('active');
+            });
+
+            // Tự động active khi scroll qua
+            ScrollTrigger.create({
+                trigger: step,
+                start: "top 70%",
+                onEnter: () => {
+                    steps.forEach(s => s.classList.remove('active'));
+                    step.classList.add('active');
+                },
+                onEnterBack: () => {
+                    steps.forEach(s => s.classList.remove('active'));
+                    step.classList.add('active');
+                }
+            });
+        });
+    });
 
     // --------------------------- section 5 --------------------------------- //
 </script>
