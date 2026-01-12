@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
 
     <style>
+        /* --------------------------------- phần 1video xe banner || phần 2 nav-menu -----------------------  */
         /* --- Video Section --- */
         .video-container {
             position: relative;
@@ -223,6 +224,12 @@
             .search-container:focus-within {
                 width: 85%;
             }
+
+            .hero-video-placeholder {
+                height: 400%;
+                top: 6px;
+            }
+
         }
 
         /* Màn hình điện thoại (Dưới 768px) */
@@ -272,15 +279,6 @@
             .hero h1 {
                 font-size: 28px;
             }
-
-            /* Nếu muốn nút AI Search xuống dòng cho thoáng thì dùng đoạn này */
-
-            /* .search-container {
-        flex-direction: column;
-        gap: 10px;
-        border-radius: 15px;
-    } */
-
         }
 
         /* ------------------------------------------------------------- section 2 ---------------------------------------------------------------  */
@@ -1214,7 +1212,7 @@
             .bike-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
         }
 
         @media (max-width: 600px) {
@@ -1224,7 +1222,8 @@
                 grid-template-columns: 1fr;
                 justify-items: anchor-center;
             }
-            .car-card{
+
+            .car-card {
                 width: 80%;
             }
         }
@@ -1684,7 +1683,7 @@
         </div>
 
         <div class="journal-grid">
-            <a href="#" class="journal-card">
+            <a href="chitiettintuc1.php" class="journal-card">
                 <div class="journal-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop" alt="The Art of Speed">
                 </div>
@@ -1693,7 +1692,7 @@
                 <span class="journal-date">OCTOBER 24, 2023</span>
             </a>
 
-            <a href="#" class="journal-card">
+            <a href="chitiettintuc2.php" class="journal-card">
                 <div class="journal-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" alt="Luxury Interior">
                 </div>
@@ -1702,7 +1701,7 @@
                 <span class="journal-date">OCTOBER 20, 2023</span>
             </a>
 
-            <a href="#" class="journal-card">
+            <a href="chitiettintuc3.php" class="journal-card">
                 <div class="journal-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop" alt="Racing Heritage">
                 </div>

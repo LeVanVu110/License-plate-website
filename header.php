@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --obsidian: #0B0B0B;
@@ -36,8 +37,9 @@
         body {
             background-color: var(--obsidian);
             color: var(--titan-white);
-            font-family: 'Inter', sans-serif;
+            /* font-family: 'Inter', sans-serif; */
             overflow-x: hidden;
+            font-family: 'Roboto', sans-serif;
         }
 
         .logo {
@@ -171,10 +173,11 @@
             <span class="bar"></span>
         </div>
         <nav id="nav-menu">
-            <a href="">Sưu tập</a>
-            <a>Định giá AI</a>
-            <a>Đấu giá</a>
-            <a href="">Liên hệ</a>
+            <a href="suutam.php">Sưu tập</a>
+            <a href="dinhgia.php">Định giá AI</a>
+            <a href="daugia.php">Đấu giá</a>
+            <a href="tintuc.php">Tin tức</a>
+            <a href="lienhe.php">Liên hệ</a>
         </nav>
     </header>
 </body>
