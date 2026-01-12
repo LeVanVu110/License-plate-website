@@ -1192,6 +1192,175 @@
         }
 
         /* --------------------------- section 5 ---------------------------------  */
+        .market-pulse {
+            background: #050505;
+            padding: 100px 0;
+            color: #fff;
+        }
+
+        .market-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .market-title {
+            font-family: 'EB Garamond', serif;
+            font-size: 36px;
+            letter-spacing: 4px;
+            margin-bottom: 60px;
+            color: #fdfdfd;
+        }
+
+        .market-dashboard {
+            display: grid;
+            grid-template-columns: 6fr 4fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Chart Styles */
+        .chart-area {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 4px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .label {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        .growth-badge {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Hiệu ứng nhịp đập Pulse */
+        .pulse-growth {
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .canvas-container {
+            height: 400px;
+            width: 100%;
+        }
+
+        /* Stats Styles */
+        .main-valuation {
+            margin-bottom: 40px;
+        }
+
+        .value-wrap {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--gold-power);
+            margin: 10px 0;
+        }
+
+        .currency {
+            font-size: 24px;
+            margin-left: 10px;
+            opacity: 0.7;
+        }
+
+        .description {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .indicators-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .ind-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 2px solid var(--gold-power);
+        }
+
+        .ind-val {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .ind-desc {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .comparison-box {
+            background: var(--gold-power);
+            color: #000;
+            padding: 20px;
+            border-radius: 2px;
+        }
+
+        .comp-label {
+            font-size: 12px;
+            font-weight: bold;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .market-dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .market-title {
+                font-size: 26px;
+            }
+
+            .value-wrap {
+                font-size: 32px;
+            }
+
+            .canvas-container {
+                height: 250px;
+            }
+
+            .indicators-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chart-area {
+                padding: 15px;
+                border: none;
+                background: transparent;
+            }
+        }
     </style>
 </head>
 
@@ -1363,6 +1532,56 @@
             </button>
         </div>
     </section>
+    <!-- --------------------------- section 5 ---------------------------------  -->
+    <section class="market-pulse" id="section4">
+        <div class="market-container">
+            <h2 class="market-title">THE MARKET PULSE</h2>
+
+            <div class="market-dashboard">
+                <div class="chart-area">
+                    <div class="chart-header">
+                        <span class="label">BIẾN ĐỘNG GIÁ TRỊ (12 THÁNG)</span>
+                        <div class="growth-badge pulse-growth">+15.4%</div>
+                    </div>
+                    <div class="canvas-container">
+                        <canvas id="marketChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="stats-area">
+                    <div class="stat-card main-valuation">
+                        <span class="label">ĐỊNH GIÁ HIỆN TẠI</span>
+                        <div class="value-wrap">
+                            <span class="counting-wealth" data-target="850000000">0</span>
+                            <span class="currency">VND</span>
+                        </div>
+                        <p class="description">Giá trị dựa trên dữ liệu đấu giá thực tế và độ khan hiếm khu vực.</p>
+                    </div>
+
+                    <div class="indicators-grid">
+                        <div class="ind-item">
+                            <span class="label">TÍNH THANH KHOẢN</span>
+                            <div class="ind-val pulse-growth">CAO</div>
+                            <p class="ind-desc">18 người đang tìm kiếm</p>
+                        </div>
+                        <div class="ind-item">
+                            <span class="label">ĐỘ KHAN HIẾM</span>
+                            <div class="ind-val">DUY NHẤT</div>
+                            <p class="ind-desc">Chỉ 1 biển tương đương</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-box">
+                        <div class="comp-label">GIÁ TRỊ TƯƠNG ĐƯƠNG</div>
+                        <div class="comp-content">
+                            <i class="icon-bike"></i>
+                            <span>01 xe <strong>SH 350i (New 2024)</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- --------------------------- section 4 ---------------------------------  -->
     <section class="vip-concierge" id="section5">
         <div class="concierge-container">
@@ -1435,7 +1654,7 @@
         </div>
     </section>
 
-    <!-- --------------------------- section 5 ---------------------------------  -->
+    
 
     <?php include "footer.php" ?>
 </body>
@@ -1997,6 +2216,94 @@
     });
 
     // --------------------------- section 5 --------------------------------- //
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Khởi tạo Biểu đồ (The Market Path)
+        const ctx = document.getElementById('marketChart').getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgba(212, 175, 55, 0.3)');
+        gradient.addColorStop(1, 'rgba(212, 175, 55, 0)');
+
+        const chartData = {
+            labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'],
+            datasets: [{
+                label: 'Giá trị (Triệu VND)',
+                data: [600, 620, 615, 650, 680, 720, 710, 750, 780, 810, 830, 850],
+                borderColor: '#D4AF37',
+                borderWidth: 2,
+                pointBackgroundColor: '#D4AF37',
+                pointRadius: 0,
+                pointHoverRadius: 6,
+                fill: true,
+                backgroundColor: gradient,
+                tension: 0.4
+            }]
+        };
+
+        const marketChart = new Chart(ctx, {
+            type: 'line',
+            data: chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        display: false
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#444'
+                        }
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                },
+                animation: {
+                    duration: 2000,
+                    easing: 'easeInOutQuart'
+                }
+            }
+        });
+
+        // 2. Hiệu ứng Counting Wealth (Chạy số)
+        const countWealth = () => {
+            const wealthElement = document.querySelector('.counting-wealth');
+            const target = parseInt(wealthElement.getAttribute('data-target'));
+            const duration = 2000; // 2s
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    wealthElement.innerText = target.toLocaleString('vi-VN');
+                    clearInterval(timer);
+                } else {
+                    wealthElement.innerText = Math.floor(current).toLocaleString('vi-VN');
+                }
+            }, 16);
+        };
+
+        // 3. Scroll Trigger để kích hoạt hiệu ứng
+        let triggered = false;
+        window.addEventListener('scroll', () => {
+            const section = document.querySelector('.market-pulse');
+            const pos = section.getBoundingClientRect().top;
+            if (pos < window.innerHeight * 0.7 && !triggered) {
+                countWealth();
+                triggered = true;
+            }
+        });
+    });
 </script>
 
 </html>
