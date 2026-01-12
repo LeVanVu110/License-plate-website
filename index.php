@@ -1337,6 +1337,9 @@
             color: #666;
             font-family: 'Inter', sans-serif;
         }
+        #carGrid a {
+    text-decoration: none !important;
+}
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -1522,52 +1525,59 @@
         </div>
 
         <div class="car-grid" id="carGrid">
-            <div class="gallery-card car-card">
+            <a href="detail_home_xemay.php?plate=30K-999.99&price=3.200.000.000" class="gallery-card car-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">30K-999.99</div>
+                 <div class="plate-ui-car" style="color: #fff;" >30K-999.99</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">3.200.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card">
-                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">51K-888.88</div>
-                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">2.850.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card">
-                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">43A-666.66</div>
-                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">1.500.000.000 đ</div>
-            </div>
+            </a>
 
-            <div class="gallery-card car-card ">
+            <a href="detail_home_xemay.php?plate=51K-888.88&price=2.850.000.000" class="gallery-card car-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">30L-555.55</div>
+                 <div class="plate-ui-car" style="color: #fff;">51K-888.88</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">2.850.000.000 đ</div>
+            </a>
+
+            <a href="detail_home_xemay.php?plate=43A-666.66&price=1.500.000.000" class="gallery-card car-card">
+                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
+                 <div class="plate-ui-car" style="color: #fff;">43A-666.66</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">1.500.000.000 đ</div>
+            </a>
+
+            <a href="detail_home_xemay.php?plate=30L-555.55&price=950.000.000" class="gallery-card car-card">
+                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
+                 <div class="plate-ui-car" style="color: #fff;">30L-555.55</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">950.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card ">
+            </a>
+
+            <a href="detail_home_xemay.php?plate=51L-222.22&price=820.000.000" class="gallery-card car-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">51L-222.22</div>
+                 <div class="plate-ui-car" style="color: #fff;">51L-222.22</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">820.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card ">
+            </a>
+
+            <a href="detail_home_xemay.php?plate=15A-999.99&price=1.200.000.000" class="gallery-card car-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">15A-999.99</div>
+                 <div class="plate-ui-car" style="color: #fff;">15A-999.99</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">1.200.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card hidden-card">
+            </a>
+
+            <a href="detail_home_xemay.php?plate=30K-123.45&price=450.000.000" class="gallery-card car-card hidden-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">30K-123.45</div>
+                 <div class="plate-ui-car" style="color: #fff;">30K-123.45</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">450.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card hidden-card">
+            </a>
+
+            <a href="detail_home_xemay.php?plate=51K-678.90&price=380.000.000" class="gallery-card car-card hidden-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">51K-678.90</div>
+                 <div class="plate-ui-car" style="color: #fff;">51K-678.90</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">380.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card hidden-card">
+            </a>
+
+            <a href="detail_home_xemay.php?plate=30L-888.68&price=760.000.000" class="gallery-card car-card hidden-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">30L-888.68</div>
+                 <div class="plate-ui-car" style="color: #fff;">30L-888.68</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">760.000.000 đ</div>
-            </div>
+            </a>
         </div>
 
         <div style="text-align: center; margin-top: 50px;">
