@@ -757,6 +757,527 @@
         }
 
         /* ---------------------------- section 3------------------------------ */
+        /* --- SECTION 3: THE PRESTIGE DRIVE --- */
+        .prestige-drive {
+            background: #050505;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            padding: 60px 0;
+        }
+
+        /* Lớp phủ ánh đèn hắt từ sàn garage */
+        .garage-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: radial-gradient(ellipse at bottom, rgba(212, 175, 55, 0.12), transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .prestige-container {
+            display: grid;
+            grid-template-columns: 35% 65%;
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 5%;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* --- SIDEBAR & TYPOGRAPHY --- */
+        .prestige-sidebar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .prestige-sidebar .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            letter-spacing: 5px;
+            color: #fff;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+
+        #carName {
+            font-family: 'Inter', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #D4AF37;
+            /* Gold */
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        #carDesc {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #888;
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        /* --- CAR SELECTOR (SILHOUETTE) --- */
+        .car-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .select-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            opacity: 0.3;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .select-item.active {
+            opacity: 1;
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateX(10px);
+        }
+
+        .select-item span {
+            font-size: 13px;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .silhouette {
+            width: 80px;
+            height: 40px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: brightness(0) invert(1);
+            /* Biến icon thành màu trắng */
+        }
+
+        /* --- CUSTOM OPTIONS (FRAME & LIGHT) --- */
+        .custom-frame {
+            margin-bottom: 30px;
+        }
+
+        .custom-frame .label {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .frame-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .frame-btn {
+            background: transparent;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 8px 15px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .frame-btn.active,
+        .frame-btn:hover {
+            border-color: #D4AF37;
+            color: #D4AF37;
+        }
+
+        .light-toggle-wrap {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #888;
+        }
+
+        /* --- SHOWROOM DISPLAY (CAR & PLATE) --- */
+        .showroom-display {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1500px;
+        }
+
+        .car-visual-wrap {
+            position: relative;
+            width: 100%;
+            transition: transform 0.1s ease-out;
+        }
+
+        .car-img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.8));
+        }
+
+        /* Biển số 3D gắn trên xe */
+        .dynamic-plate {
+            position: absolute;
+            /* Vị trí sẽ được JS điều khiển tùy theo xe */
+            width: 160px;
+            height: 35px;
+            background: #fff;
+            border-radius: 2px;
+            padding: 1px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            z-index: 50;
+            /* overflow: hidden; */
+        }
+
+        .plate-inner {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border: 2px solid #D4AF37;
+            /* Mặc định khung vàng */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .plate-text {
+            font-family: 'Inter', sans-serif;
+            color: #000;
+            font-weight: 900;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        /* Hiệu ứng đèn soi biển số ban đêm */
+        .plate-glow {
+            position: absolute;
+            top: -20px;
+            /* Đẩy lên trên mép biển số một chút */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            /* Rộng hơn biển số để tỏa sáng sang hai bên */
+            height: 40px;
+            /* Hiệu ứng tỏa sáng màu vàng nắng nhạt cực sang */
+            background: radial-gradient(ellipse at center, rgba(255, 255, 200, 0.8) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease, filter 0.4s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Hiệu ứng khi đèn bật: Thêm độ lóa cho toàn bộ biển số */
+        .light-active .plate-glow {
+            opacity: 1;
+            filter: blur(2px);
+        }
+
+        .light-active.plate-inner {
+            box-shadow: 0 0 20px rgba(255, 255, 190, 0.4), 0 5px 15px rgba(0, 0, 0, 0.5);
+            border-color: #FFF6A5 !important;
+            /* Làm viền sáng rực lên */
+        }
+
+        .light-on .plate-glow {
+            opacity: 1;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 22px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #333;
+            transition: .4s;
+            border-radius: 34px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 3px;
+            bottom: 2px;
+            background-color: #fff;
+            transition: .4s;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Khi gạt nút sang phải */
+        input:checked+.slider {
+            background-color: #D4AF37;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(22px);
+            background-color: #000;
+        }
+
+        /* --- TỐI ƯU RESPONSIVE SECTION 3 --- */
+        @media (max-width: 1024px) {
+            .prestige-container {
+                display: flex !important;
+                flex-direction: column !important;
+                padding: 0 15px !important;
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+
+            .prestige-sidebar {
+                width: 100% !important;
+                text-align: center;
+                order: 2;
+                /* Đưa chữ xuống dưới */
+            }
+
+            .showroom-display {
+                width: 100% !important;
+                order: 1;
+                /* Đưa xe lên đầu */
+                min-height: 250px !important;
+                margin-bottom: 20px;
+            }
+
+            /* Thanh chọn xe dàn hàng ngang */
+            /* --- FIX TRÀN CHO CAR SELECTOR --- */
+            .car-selector {
+                display: flex;
+                gap: 15px;
+                width: 100%;
+                /* Cho phép cuộn ngang nếu nội dung vượt quá chiều rộng màn hình */
+                overflow-x: auto;
+                /* Ẩn thanh cuộn xấu xí trên các trình duyệt */
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                padding: 10px 5px;
+                /* Đảm bảo các item không bị co lại quá mức */
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+                /* Cuộn mượt trên iPhone */
+            }
+
+            .car-selector::-webkit-scrollbar {
+                display: none;
+                /* Ẩn thanh cuộn trên Chrome/Safari */
+            }
+
+            .select-item {
+                /* Quan trọng: Ngăn các item bị bóp méo chiều rộng */
+                flex: 0 0 auto;
+                display: flex;
+                flex-direction: column;
+                /* Chuyển icon lên trên chữ để tiết kiệm diện tích ngang */
+                align-items: center;
+                justify-content: center;
+                min-width: 100px;
+                /* Độ rộng tối thiểu vừa đủ cho Mobile */
+                text-align: center;
+                padding: 10px;
+                background: rgba(255, 255, 255, 0.03);
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .select-item.active {
+                transform: translateY(-5px) !important;
+                /* Hiệu ứng nổi lên thay vì lướt sang phải */
+                /* height: 50px; */
+            }
+
+            .select-item span {
+                font-size: 10px !important;
+                /* Thu nhỏ chữ một chút trên Mobile */
+                margin-top: 8px;
+                white-space: nowrap;
+                /* Giữ chữ trên 1 dòng */
+            }
+
+            .silhouette {
+                width: 50px !important;
+                /* Thu nhỏ icon xe */
+                height: 25px !important;
+            }
+
+            /* Hiệu ứng Active cho Mobile */
+            .select-item.active {
+                background: rgba(212, 175, 55, 0.1);
+                border-color: #D4AF37;
+                transform: scale(1.05);
+            }
+
+            #carDesc {
+                margin: 0 auto 30px;
+            }
+
+            .frame-options {
+                justify-content: center;
+            }
+
+            .light-toggle-wrap {
+                justify-content: center;
+            }
+
+            .showroom-display {
+                order: 1;
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dynamic-plate {
+                width: 110px;
+                height: 25px;
+            }
+
+            .plate-text {
+                font-size: 13px;
+            }
+
+            .silhouette {
+                width: 60px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            /* Thu nhỏ biển số trên xe để cân đối */
+            .dynamic-plate {
+                width: 110px !important;
+                height: 25px !important;
+            }
+
+            .plate-text {
+                font-size: 13px !important;
+            }
+
+            .car-img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .prestige-sidebar .section-title {
+                font-size: 26px;
+                letter-spacing: 3px;
+            }
+
+            #carName {
+                font-size: 22px;
+            }
+
+            /* Thu nhỏ biển số để vừa với đuôi xe trên màn hình nhỏ */
+            .dynamic-plate {
+                width: 120px !important;
+                height: 28px !important;
+            }
+
+            .plate-text {
+                font-size: 13px !important;
+            }
+
+            .silhouette {
+                width: 60px;
+                height: 30px;
+            }
+        }
+
+        /* --- RESPONSIVE SECTION 2 --- */
+        @media (max-width: 992px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                /* Máy tính bảng hiện 2 cột */
+            }
+        }
+
+        @media (max-width: 767px) {
+            .imperial-numerology {
+                padding: 40px 15px !important;
+                overflow: hidden;
+                /* Ngăn chặn số bay ra ngoài */
+            }
+
+            .bento-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                /* Điện thoại hiện 1 cột dọc */
+                gap: 15px !important;
+            }
+
+            .central-matrix {
+                min-height: 300px !important;
+                padding: 20px !important;
+            }
+
+            /* Thu nhỏ vòng tròn số để không chạm mép */
+            .oracle-circle-wrapper {
+                width: 250px !important;
+                height: 250px !important;
+            }
+
+            .grand-score {
+                font-size: 50px !important;
+            }
+        }
+
+        /* Ẩn thanh cuộn của car-selector trên Mobile để đẹp hơn */
+        .car-selector::-webkit-scrollbar {
+            display: none;
+        }
+
+        .car-selector {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            /* Khóa hoàn toàn tràn ngang */
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         /* ---------------------------- section 4------------------------------ */
         /* ---------------------------- section 5------------------------------ */
     </style>
@@ -855,6 +1376,79 @@
         </div>
     </section>
     <!-- ---------------------------- section 3------------------------------ -->
+    <section class="prestige-drive" id="section3">
+        <div class="garage-overlay"></div>
+
+        <div class="prestige-container">
+            <div class="prestige-sidebar">
+                <h2 class="section-title">THE PRESTIGE DRIVE</h2>
+
+                <div class="car-selector">
+                    <div class="select-item active" data-car="sedan">
+                        <div class="silhouette sedan-icon">
+                            <svg viewBox="0 0 100 40" fill="currentColor">
+                                <path d="M10,30 Q10,20 30,20 L70,20 Q90,20 90,30 Z M25,30 A5,5 0 1,1 24.9,30 Z M75,30 A5,5 0 1,1 74.9,30 Z" />
+                            </svg>
+                        </div>
+                        <span>LUXURY SEDAN</span>
+                    </div>
+
+                    <div class="select-item" data-car="suv">
+                        <div class="silhouette suv-icon">
+                            <svg viewBox="0 0 100 40" fill="currentColor">
+                                <path d="M5,30 L5,15 L30,15 L40,10 L85,10 L95,20 L95,30 Z M25,30 A6,6 0 1,1 24.9,30 Z M75,30 A6,6 0 1,1 74.9,30 Z" />
+                            </svg>
+                        </div>
+                        <span>POWERFUL SUV</span>
+                    </div>
+
+                    <div class="select-item" data-car="supercar">
+                        <div class="silhouette supercar-icon">
+                            <svg viewBox="0 0 100 40" fill="currentColor">
+                                <path d="M5,30 Q20,10 50,10 Q80,10 95,30 Z M30,30 A4,4 0 1,1 29.9,30 Z M70,30 A4,4 0 1,1 69.9,30 Z" />
+                            </svg>
+                        </div>
+                        <span>SUPERCAR</span>
+                    </div>
+                </div>
+
+                <div class="car-info">
+                    <h3 id="carName">MAYBACH S680</h3>
+                    <p id="carDesc">Sự kết hợp hoàn hảo giữa quyền uy và lịch lãm. Biển số ngũ quý giúp khẳng định vị thế chủ nhân trong các cuộc gặp gỡ thượng lưu.</p>
+
+                    <div class="custom-frame">
+                        <span class="label">TÙY CHỈNH KHUNG BIỂN</span>
+                        <div class="frame-options">
+                            <button class="frame-btn active" data-frame="gold">VÀNG 24K</button>
+                            <button class="frame-btn" data-frame="carbon">CARBON</button>
+                            <button class="frame-btn" data-frame="inox">INOX</button>
+                        </div>
+                    </div>
+
+                    <div class="light-toggle-wrap">
+                        <span>ĐÈN SOI BIỂN SỐ</span>
+                        <label class="switch">
+                            <input type="checkbox" id="plateLight">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showroom-display">
+                <div class="car-visual-wrap" id="carVisual">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070" alt="Car" class="car-img" id="mainCarImg">
+
+                    <div class="dynamic-plate" id="virtualPlate">
+                        <div class="plate-glow"></div>
+                        <div class="plate-inner">
+                            <div class="plate-text">30K - 999.99</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- ---------------------------- section 4------------------------------ -->
     <!-- ---------------------------- section 5------------------------------ -->
     <?php include "footer.php" ?>
@@ -1014,6 +1608,159 @@
         }, 1500);
     });
     // ---------------------------- section 3------------------------------ //
+    document.addEventListener("DOMContentLoaded", function() {
+        const isMobile = window.innerWidth <= 768;
+        const carData = {
+            sedan: {
+                name: "MAYBACH S680",
+                desc: "Sự kết hợp hoàn hảo giữa quyền uy và lịch lãm. Biển số giúp khẳng định vị thế chủ nhân.",
+                img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070",
+                platePos: isMobile ? {
+                    bottom: "28%",
+                    right: "32%",
+                    rotateY: "-15deg",
+                    scale: 0.8
+                } : {
+                    bottom: "25%",
+                    right: "35%",
+                    rotateY: "-15deg",
+                    scale: 1
+                }
+            },
+            suv: {
+                name: "G-CLASS EDITION",
+                desc: "Biểu tượng của quyền lực và sự thống trị. Biển số phong thủy tạo thế đứng vững chãi.",
+                img: "https://images.unsplash.com/photo-1520031441872-265e4ff70366?q=80&w=2000",
+                platePos: isMobile ? {
+                    bottom: "38%",
+                    right: "42%",
+                    rotateY: "0deg",
+                    scale: 0.8
+                } : {
+                    bottom: "35%",
+                    right: "45%",
+                    rotateY: "0deg",
+                    scale: 1
+                }
+            },
+            supercar: {
+                name: "LAMBORGHINI REVUELTO",
+                desc: "Dành cho những tâm hồn khao khát tốc độ và sự khác biệt tuyệt đối.",
+                img: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=2070",
+                platePos: isMobile ? {
+                    bottom: "20%",
+                    right: "38%",
+                    rotateY: "-15deg",
+                    scale: 0.8
+                } : {
+                    bottom: "15%",
+                    right: "40%",
+                    rotateY: "-15deg",
+                    scale: 1
+                }
+            }
+        };
+
+        const selectItems = document.querySelectorAll('.select-item');
+        const virtualPlate = document.getElementById('virtualPlate');
+        const mainImg = document.getElementById('mainCarImg');
+
+        selectItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const carType = this.dataset.car;
+                const data = carData[carType];
+
+                // 1. Morphing Animation
+                gsap.to(mainImg, {
+                    opacity: 0,
+                    x: -50,
+                    duration: 0.4,
+                    onComplete: () => {
+                        mainImg.src = data.img;
+                        gsap.to(mainImg, {
+                            opacity: 1,
+                            x: 0,
+                            duration: 0.6,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+
+                // 2. Biển số "bay" sang vị trí mới
+                gsap.to(virtualPlate, {
+                    bottom: data.platePos.bottom,
+                    right: data.platePos.right,
+                    rotateY: data.platePos.rotateY,
+                    scale: data.platePos.scale, // Thêm dòng này
+                    duration: 0.8,
+                    ease: "back.out(1.2)"
+                });
+
+                // Update Text
+                document.getElementById('carName').innerText = data.name;
+                document.getElementById('carDesc').innerText = data.desc;
+
+                // Active State
+                selectItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 3. 360 Depth Effect (Mouse Move)
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.pageX) / 30;
+            const y = (window.innerHeight / 2 - e.pageY) / 80;
+            gsap.to("#carVisual", {
+                rotationY: x,
+                rotationX: -y,
+                duration: 1
+            });
+        });
+
+        // 4. Custom Frame Logic
+        document.querySelectorAll('.frame-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const frame = this.dataset.frame;
+                const plateInner = document.querySelector('.plate-inner');
+
+                if (frame === 'gold') plateInner.style.borderColor = "#D4AF37";
+                else if (frame === 'carbon') plateInner.style.borderColor = "#222";
+                else plateInner.style.borderColor = "#ccc";
+
+                document.querySelectorAll('.frame-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    });
+    document.getElementById('plateLight').addEventListener('change', function() {
+        const virtualPlate = document.getElementById('virtualPlate');
+        const plateInner = document.querySelector('.plate-inner');
+        const plateGlow = document.querySelector('.plate-glow');
+
+        if (this.checked) {
+            // Thêm class cho cả khung và hiệu ứng ánh sáng
+            virtualPlate.classList.add('light-active');
+            plateInner.classList.add('light-active');
+            if (plateGlow) plateGlow.style.opacity = '1';
+
+            // Hiệu ứng lóe sáng tức thì khi bật (Cinematic)
+            gsap.fromTo(plateGlow, {
+                opacity: 0,
+                scaleX: 0.5
+            }, {
+                opacity: 1,
+                scaleX: 1,
+                duration: 0.3
+            });
+        } else {
+            plateInner.classList.remove('light-active');
+            if (plateGlow) plateGlow.style.opacity = '0';
+        }
+    });
+    window.addEventListener('resize', () => {
+        // Gọi lại hàm cập nhật vị trí biển số nếu cần
+        location.reload(); // Cách đơn giản nhất để các tọa độ % tính toán lại
+    });
     // ---------------------------- section 4------------------------------ //
     // ---------------------------- section 5------------------------------ //
 </script>
