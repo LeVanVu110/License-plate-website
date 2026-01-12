@@ -1531,6 +1531,337 @@
         }
 
         /* ---------------------------- section 5------------------------------ */
+        .royal-handover {
+            background: #050505;
+            padding: 120px 0 80px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .handover-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            text-align: center;
+        }
+
+        /* Visual trung tâm */
+        .handover-visual {
+            margin-bottom: 80px;
+            perspective: 1000px;
+        }
+
+        .gift-box-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            transition: transform 0.1s ease-out;
+        }
+
+        .gift-box-wrapper:hover .box-img {
+            filter: brightness(0.9) contrast(1.2) saturate(1);
+        }
+
+        .box-img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 4px;
+            /* Tạo hiệu ứng mờ ảo và sang trọng */
+            filter: brightness(0.7) contrast(1.1) saturate(0.8);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 1);
+            transition: filter 0.5s ease;
+        }
+
+        .smart-key-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2), transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: pulseGlow 4s infinite;
+        }
+
+        /* Timeline */
+        .ownership-timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 100px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 25px;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+            opacity: 0.3;
+        }
+
+        .timeline-step {
+            flex: 1;
+            padding: 0 20px;
+            position: relative;
+            cursor: default;
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #D4AF37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            background: #050505;
+            color: #D4AF37;
+            font-family: 'Cinzel', serif;
+            transition: 0.4s;
+        }
+
+        .timeline-step:hover .step-circle {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            background: #D4AF37;
+            color: #000;
+        }
+
+        .step-title {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            font-size: 22px;
+            color: #D4AF37;
+            margin-bottom: 15px;
+        }
+
+        .step-desc {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        /* Thông tin chi tiết hiện ra khi hover */
+        .timeline-step::after {
+            content: attr(data-time);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #D4AF37;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .timeline-step:hover::after {
+            opacity: 1;
+            top: -40px;
+        }
+
+        /* Signature & CTA */
+        .handover-footer {
+            margin-top: 50px;
+        }
+
+        .commitment-text {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .signature-wrap {
+            margin: 30px 0;
+        }
+
+        .sig-path {
+            fill: none;
+            stroke: #D4AF37;
+            stroke-width: 2;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            /* Will animate to 0 */
+        }
+
+        .btn-vip-consultant {
+            background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728);
+            border: none;
+            padding: 22px 45px;
+            color: #000;
+            font-weight: 700;
+            letter-spacing: 5px;
+            cursor: pointer;
+            transition: 0.5s;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-vip-consultant:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Security Badges */
+        .security-badges {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .security-badges span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.4);
+            /* Màu mờ nhẹ nhàng */
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .security-badges span:hover {
+            color: #D4AF37;
+            /* Đổi sang màu Gold khi hover */
+        }
+
+        /* Định nghĩa Icon nếu bạn không dùng thư viện bên ngoài */
+        .shield-icon,
+        .lock-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.6;
+        }
+
+        /* Sử dụng mã hóa SVG trực tiếp trong CSS để đảm bảo luôn hiện icon */
+        .shield-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23D4AF37'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' /%3E%3C/svg%3E");
+        }
+
+        .lock-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23D4AF37'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z' /%3E%3C/svg%3E");
+        }
+
+        .handover-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Tiêu đề chính: Màu Trắng Bạc, Viết hoa, Font Serif */
+        .handover-header .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #E5E4E2;
+            /* Platinum/Silver Color */
+            letter-spacing: 8px;
+            /* Giãn chữ rộng để tạo sự sang trọng */
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Hiệu ứng gạch chân mảnh dưới tiêu đề */
+        .handover-header .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+        }
+
+        /* Tiêu đề phụ: Font chữ thanh mảnh, màu xám nhẹ */
+        .handover-header .section-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 2px;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .ownership-timeline {
+                flex-direction: column;
+                gap: 50px;
+            }
+
+            .security-badges {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+                margin-top: 40px;
+            }
+
+            .timeline-line {
+                display: none;
+            }
+
+            .btn-vip-consultant {
+                width: 100%;
+                position: sticky;
+                bottom: 20px;
+                z-index: 100;
+                padding: 15px;
+                font-size: 14px;
+            }
+
+            .step-title {
+                font-size: 18px;
+            }
+
+            .handover-header .section-title {
+                font-size: 26px;
+                /* Thu nhỏ theo yêu cầu 26px */
+                letter-spacing: 4px;
+            }
+
+            .handover-header .section-subtitle {
+                font-size: 13px;
+                /* Thu nhỏ theo yêu cầu 13px */
+                padding: 0 20px;
+                line-height: 1.5;
+            }
+
+            .handover-header {
+                margin-bottom: 40px;
+            }
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.2;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0.4;
+            }
+        }
     </style>
 </head>
 
@@ -1768,9 +2099,63 @@
             </div>
         </div>
     </section>
-
-
     <!-- ---------------------------- section 5------------------------------ -->
+    <section class="royal-handover" id="section5">
+        <div class="handover-container">
+            <div class="handover-header">
+                <h2 class="section-title">THE ROYAL HANDOVER</h2>
+                <p class="section-subtitle">Quy trình bàn giao xứng tầm vị thế chủ nhân</p>
+            </div>
+
+            <div class="handover-visual">
+                <div class="gift-box-wrapper" id="parallaxBox">
+                    <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=2000" alt="Luxury Box" class="box-img">
+                    <div class="smart-key-glow"></div>
+                </div>
+            </div>
+
+            <div class="ownership-timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-step" data-time="24H">
+                    <div class="step-circle">01</div>
+                    <h3 class="step-title">Xác lập quyền sở hữu</h3>
+                    <p class="step-desc">Hoàn tất thủ tục đặt cọc và xác nhận định danh điện tử ngay lập tức.</p>
+                </div>
+
+                <div class="timeline-step" data-time="FAST-TRACK">
+                    <div class="step-circle">02</div>
+                    <h3 class="step-title">Pháp lý thần tốc</h3>
+                    <p class="step-desc">Đội ngũ chuyên gia xử lý hồ sơ trực tiếp với cơ quan chức năng trong 24h.</p>
+                </div>
+
+                <div class="timeline-step" data-time="DOOR-STEP">
+                    <div class="step-circle">03</div>
+                    <h3 class="step-title">Bàn giao tư gia</h3>
+                    <p class="step-desc">Xe lồng chuyên dụng bàn giao tận hầm, đi kèm thẻ Membership Titanium.</p>
+                </div>
+            </div>
+
+            <div class="handover-footer">
+                <p class="commitment-text">"Chúng tôi không chỉ trao biển số, chúng tôi trao quyền sở hữu một di sản."</p>
+                <div class="signature-wrap">
+                    <svg id="signature-svg" viewBox="0 0 400 100">
+                        <path class="sig-path" d="M50,80 Q70,20 100,50 T150,50 T200,30 T250,70 T300,40" />
+                    </svg>
+                    <span class="ceo-name">Executive Concierge</span>
+                </div>
+
+                <button class="btn-vip-consultant">
+                    YÊU CẦU CHUYÊN GIA TƯ VẤN RIÊNG
+                </button>
+            </div>
+
+            <div class="security-badges">
+                <span><i class="shield-icon"></i> VERIFIED BY GOVERNMENT</span>
+                <span><i class="lock-icon"></i> ENCRYPTED TRANSACTION</span>
+            </div>
+        </div>
+    </section>
     <?php include "footer.php" ?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -2198,6 +2583,41 @@
         observer.observe(document.querySelector('.wealth-projection'));
     });
     // ---------------------------- section 5------------------------------ //
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Hiệu ứng Parallax cho Hộp quà
+        gsap.to("#parallaxBox", {
+            y: -50,
+            scrollTrigger: {
+                trigger: ".royal-handover",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1
+            }
+        });
+
+        // 2. Vẽ chữ ký Signature Reveal khi cuộn đến
+        gsap.to(".sig-path", {
+            strokeDashoffset: 0,
+            duration: 3,
+            ease: "power2.inOut",
+            scrollTrigger: {
+                trigger: ".handover-footer",
+                start: "top 85%",
+            }
+        });
+
+        // 3. Animation cho Timeline Steps
+        gsap.from(".timeline-step", {
+            opacity: 0,
+            y: 30,
+            stagger: 0.3,
+            duration: 1,
+            scrollTrigger: {
+                trigger: ".ownership-timeline",
+                start: "top 80%"
+            }
+        });
+    });
 </script>
 
 </html>
