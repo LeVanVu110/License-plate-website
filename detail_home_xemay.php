@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
@@ -26,6 +27,10 @@
             /* Xanh lá */
             --color-hoa: #F44336;
             /* Đỏ rực */
+            --gold: #D4AF37;
+            --silver: #E5E4E2;
+            --neon-red: #ff3131;
+            --dark-bg: #050505;
         }
 
         /* --------------------------- section 1 ---------------------------------  */
@@ -202,7 +207,8 @@
                 flex: 1;
                 margin: 0 5px;
             }
-            .btn-contact{
+
+            .btn-contact {
                 margin-top: 0 !important;
             }
         }
@@ -694,13 +700,257 @@
             .compatibility-box {
                 bottom: -150px;
             }
-            .btn-share-spirit{
+
+            .btn-share-spirit {
                 margin-left: 0 !important;
             }
-            
+
         }
 
         /* --------------------------- section 3 ---------------------------------  */
+        /* --- SECTION 3: THE VIRTUAL GARAGE --- */
+        .lifestyle-preview {
+            background: #000;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+
+        .led-strip {
+            position: absolute;
+            top: 10%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .showroom-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vehicle-images {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1200px;
+            /* Tạo chiều sâu cho hiệu ứng xoay xe */
+        }
+
+        .bike-img {
+            position: absolute;
+            max-height: 80%;
+            opacity: 0;
+            transform: translateX(150px) rotateY(-30deg);
+            transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.9));
+        }
+
+        .bike-img.active {
+            opacity: 1;
+            transform: translateX(0) rotateY(0);
+        }
+
+        /* Biển số gắn trên xe */
+        .dynamic-plate-wrap {
+            position: absolute;
+            z-index: 20;
+            top: 52%;
+            /* Điều chỉnh tọa độ theo vị trí đuôi xe */
+            left: 45%;
+            pointer-events: none;
+        }
+
+        .plate-mini {
+            background: #fff;
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 800;
+            border: 1.5px solid #222;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .plate-mini .p-top {
+            font-size: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .plate-mini .p-bottom {
+            font-size: 16px;
+        }
+
+        /* Nút mũi tên điều hướng */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #444;
+            font-size: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 100;
+        }
+
+        .nav-arrow:hover {
+            color: var(--gold-primary);
+        }
+
+        .prev-bike {
+            left: 20px;
+        }
+
+        .next-bike {
+            right: 20px;
+        }
+
+        /* Thông tin xe */
+        .vehicle-info {
+            position: absolute;
+            bottom: 10%;
+            width: 100%;
+            text-align: center;
+        }
+
+        .vehicle-info h3 {
+            font-size: 32px;
+            letter-spacing: 3px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .vehicle-info p {
+            color: #888;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        /* Phân trang (Dots) */
+        .dots-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #333;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: var(--gold-primary);
+            box-shadow: 0 0 10px var(--gold-primary);
+        }
+
+        /* Nút AI Preview */
+        .btn-ai-preview {
+            background: transparent;
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+            padding: 15px 35px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.4s;
+            text-transform: uppercase;
+        }
+
+        .btn-ai-preview:hover {
+            background: var(--gold-primary);
+            color: #000;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* --- RESPONSIVE SECTION 3 --- */
+        @media (max-width: 768px) {
+            .lifestyle-preview {
+                height: auto;
+                padding: 60px 0;
+                flex-direction: column;
+                /* Chuyển sang bố cục dọc */
+            }
+
+            .showroom-slider {
+                height: 350px;
+                /* Thu nhỏ chiều cao khu vực xe */
+                margin-bottom: 20px;
+            }
+
+            .bike-img {
+                max-height: 70%;
+                /* Giảm kích thước ảnh xe */
+                width: 90%;
+                object-fit: contain;
+            }
+
+            /* Điều chỉnh biển số nhỏ lại trên Mobile */
+            .plate-mini {
+                padding: 3px 6px;
+                border-width: 1px;
+            }
+
+            .plate-mini .p-top {
+                font-size: 8px;
+            }
+
+            .plate-mini .p-bottom {
+                font-size: 12px;
+            }
+
+            /* Nút điều hướng Mobile */
+            .nav-arrow {
+                font-size: 35px;
+                padding: 10px;
+                background: rgba(0, 0, 0, 0.3);
+                /* Thêm nền mờ để dễ bấm */
+                border-radius: 50%;
+            }
+
+            .vehicle-info {
+                position: relative;
+                /* Đưa text xuống dưới slider */
+                bottom: 0;
+                padding: 0 20px;
+            }
+
+            .vehicle-info h3 {
+                font-size: 20px;
+                letter-spacing: 1px;
+            }
+
+            .vehicle-info p {
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
+            .btn-ai-preview {
+                width: 100%;
+                /* Nút AI dài hết màn hình trên mobile */
+                padding: 12px 20px;
+                font-size: 12px;
+            }
+        }
 
         /* --------------------------- section 4 ---------------------------------  */
 
@@ -828,7 +1078,54 @@
     </section>
 
     <!-- --------------------------- section 3 ---------------------------------  -->
+    <section class="lifestyle-preview">
+        <div class="led-strip"></div>
 
+        <div class="showroom-slider">
+            <button class="nav-arrow prev-bike">←</button>
+
+            <div class="vehicle-images">
+                <div class="dynamic-plate-wrap">
+                    <div class="plate-mini">
+                        <div class="p-top" id="miniPlateTop">59-A3</div>
+                        <div class="p-bottom" id="miniPlateBottom">888.88</div>
+                    </div>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?q=80&w=1000&auto=format&fit=crop"
+                    class="bike-img active"
+                    data-name="HONDA SH 350i"
+                    data-desc="Nước sơn Trắng Ngọc Trai tương sinh hoàn hảo với hành Kim.">
+
+                <img src="https://vespatopcom.com/wp-content/uploads/2024/05/vespa-946-dior-13.webp"
+                    class="bike-img"
+                    data-name="VESPA 946 CHRISTIAN DIOR"
+                    data-desc="Vẻ đẹp di sản kết hợp cùng dãy số ngũ quý tạo nên giá trị độc bản.">
+
+                <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=1000&auto=format&fit=crop"
+                    class="bike-img"
+                    data-name="DUCATI PANIGALE V4"
+                    data-desc="Sắc đỏ Hỏa mạnh mẽ hắt ánh sáng cực phẩm lên mặt biển mica.">
+            </div>
+
+            <button class="nav-arrow next-bike">→</button>
+        </div>
+
+        <div class="vehicle-info">
+            <h3 id="bikeName">HONDA SH 350i</h3>
+            <p id="bikeDesc">Nước sơn Trắng Ngọc Trai tương sinh hoàn hảo với hành Kim.</p>
+
+            <div class="dots-container">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+
+            <button class="btn-ai-preview" style="margin-top: 30px;">
+                ✦ TẢI ẢNH XE CỦA BẠN (AI PREVIEW)
+            </button>
+        </div>
+    </section>
     <!-- --------------------------- section 4 ---------------------------------  -->
 
     <!-- --------------------------- section 5 ---------------------------------  -->
@@ -1170,7 +1467,159 @@
 
 
     // --------------------------- section 3 --------------------------------- //
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Đồng bộ biển số từ Section 1
+        const pTop = document.getElementById('plateTop')?.innerText || "59-A3";
+        const pBottom = document.getElementById('plateBottom')?.innerText || "888.88";
 
+        document.getElementById('miniPlateTop').innerText = pTop;
+        document.getElementById('miniPlateBottom').innerText = pBottom;
+
+        // 2. Slider Logic
+        const bikes = document.querySelectorAll('.bike-img');
+        const dots = document.querySelectorAll('.dot');
+        const bikeName = document.getElementById('bikeName');
+        const bikeDesc = document.getElementById('bikeDesc');
+        const plateWrap = document.querySelector('.dynamic-plate-wrap');
+        let currentIdx = 0;
+        // Tọa độ biển số linh hoạt theo thiết bị
+        const getPlatePosition = (idx) => {
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                // Tọa độ cho Mobile (đã căn chỉnh cho màn hình dọc)
+                return [{
+                        top: '62%',
+                        left: '46%'
+                    }, // SH
+                    {
+                        top: '58%',
+                        left: '32%'
+                    }, // Vespa
+                    {
+                        top: '48%',
+                        left: '52%'
+                    } // Ducati
+                ][idx];
+            } else {
+                // Tọa độ cho Desktop
+                return [{
+                        top: '55%',
+                        left: '42%'
+                    },
+                    {
+                        top: '60%',
+                        left: '35%'
+                    },
+                    {
+                        top: '48%',
+                        left: '48%'
+                    }
+                ][idx];
+            }
+        };
+
+        function updateShowroom(idx) {
+            // Hiệu ứng "Switch" - Xe cũ trượt ra
+            gsap.to(bikes[currentIdx], {
+                opacity: 0,
+                x: -100,
+                rotateY: 20,
+                duration: 0.5
+            });
+            dots[currentIdx].classList.remove('active');
+
+            currentIdx = idx;
+
+            // Hiệu ứng "Snap" - Xe mới trượt vào
+            gsap.fromTo(bikes[currentIdx], {
+                opacity: 0,
+                x: 100,
+                rotateY: -20
+            }, {
+                opacity: 1,
+                x: 0,
+                rotateY: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+            dots[currentIdx].classList.add('active');
+
+            // Cập nhật nội dung văn bản
+            bikeName.innerText = bikes[currentIdx].dataset.name;
+            bikeDesc.innerText = bikes[currentIdx].dataset.desc;
+
+            // Hiệu ứng "Vít ốc" biển số (Bounce)
+            gsap.fromTo(plateWrap, {
+                scale: 1.5,
+                opacity: 0
+            }, {
+                scale: 1,
+                opacity: 1,
+                duration: 0.6,
+                delay: 0.3,
+                ease: "back.out(1.7)"
+            });
+            const pos = getPlatePosition(idx);
+            gsap.to(plateWrap, {
+                top: pos.top,
+                left: pos.left,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+
+            // Hiệu ứng nảy biển số
+            gsap.fromTo(plateWrap, {
+                scale: 1.5,
+                opacity: 0
+            }, {
+                scale: 1,
+                opacity: 1,
+                duration: 0.6,
+                delay: 0.3,
+                ease: "back.out(1.7)"
+            });
+        }
+
+        // Sự kiện Click nút điều hướng
+        document.querySelector('.next-bike').addEventListener('click', () => {
+            updateShowroom((currentIdx + 1) % bikes.length);
+        });
+
+        document.querySelector('.prev-bike').addEventListener('click', () => {
+            updateShowroom((currentIdx - 1 + bikes.length) % bikes.length);
+        });
+
+        // 3. Hiệu ứng Cinematic Orbit (Xoay nhẹ tự động)
+        gsap.to(".vehicle-images", {
+            rotateY: 5,
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+
+        // 4. Zoom & Tilt theo chuột (Chỉ dành cho Desktop)
+        if (window.innerWidth > 1024) {
+            document.querySelector('.showroom-slider').addEventListener('mousemove', (e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+                gsap.to(".vehicle-images", {
+                    rotateY: x * 15,
+                    rotateX: -y * 10,
+                    duration: 0.5
+                });
+            });
+        }
+        // Gán sự kiện Click cho Dot
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => updateShowroom(i));
+        });
+
+        // Cập nhật lại vị trí khi xoay màn hình (Resize)
+        window.addEventListener('resize', () => updateShowroom(currentIdx));
+    });
     // --------------------------- section 4 --------------------------------- //
 
     // --------------------------- section 5 --------------------------------- //
