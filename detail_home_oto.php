@@ -1279,6 +1279,257 @@
         }
 
         /* ---------------------------- section 4------------------------------ */
+        .chart-wrapper {
+            position: relative;
+            /* Khóa chiều cao biểu đồ lại, không cho nhảy quá cao */
+            height: 400px !important;
+            width: 100%;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Overlay dự báo */
+        .forecast-overlay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #D4AF37;
+            border: 1px solid #D4AF37;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+        }
+
+        .wealth-projection {
+            background: #0a0a0a;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        /* Lớp phủ lưới kỹ thuật Financial Scrim */
+        .financial-grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+            pointer-events: none;
+        }
+
+        .projection-container {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 5%;
+            gap: 60px;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Typography Hierarchy */
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            letter-spacing: 4px;
+            color: #E5E4E2;
+            margin-bottom: 40px;
+        }
+
+        .price-counter {
+            font-size: 56px;
+            font-weight: 700;
+            color: #D4AF37;
+            font-family: 'Inter', sans-serif;
+            margin: 10px 0;
+        }
+
+        .price-counter .currency {
+            font-size: 24px;
+            vertical-align: top;
+            margin-right: 10px;
+            opacity: 0.6;
+        }
+
+        .growth-rate {
+            font-size: 24px;
+            color: #50C878;
+            /* Emerald Green */
+            font-weight: 600;
+        }
+
+        /* Right Area Stats */
+        .health-score-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px;
+            border-radius: 4px;
+            margin-top: 155px;
+        }
+
+        .score-item {
+            margin-bottom: 30px;
+        }
+
+        .score-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .label {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #BF953F, #FCF6BA);
+            width: 0;
+            /* Animate this */
+        }
+
+        .rarity-note {
+            font-size: 13px;
+            color: #555;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .btn-pdf-report {
+            width: 100%;
+            margin-top: 30px;
+            background: transparent;
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
+            padding: 20px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            transition: 0.3s;
+        }
+
+        .btn-pdf-report:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .comparison-note {
+            margin-top: 35px;
+            padding: 20px;
+            background: rgba(212, 175, 55, 0.05);
+            /* Nền vàng champagne cực mờ */
+            border-left: 2px solid #D4AF37;
+            /* Đường kẻ dọc tạo điểm nhấn */
+            border-radius: 0 4px 4px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hiệu ứng vệt sáng chạy qua note (tùy chọn) */
+        .comparison-note::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: 0.5s;
+        }
+
+        .comparison-note:hover::before {
+            left: 100%;
+            transition: 0.8s;
+        }
+
+        .comparison-note p {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #aaa;
+            /* Màu xám mờ để nổi bật con số bên trong */
+            margin: 0;
+            font-style: italic;
+        }
+
+        .comparison-note strong {
+            color: #D4AF37;
+            /* Màu vàng Gold cho con số 15% */
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 3px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .projection-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .chart-wrapper {
+                height: 250px !important;
+                /* Trên mobile thu nhỏ lại */
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .price-counter {
+                font-size: 36px;
+            }
+
+            .chart-area {
+                order: 1;
+            }
+
+            .stats-area {
+                order: 2;
+            }
+
+            .comparison-note {
+                margin: 25px 0;
+                padding: 15px;
+                text-align: left;
+            }
+
+            .comparison-note p {
+                font-size: 13px;
+            }
+
+            .health-score-card {
+                margin-top: 0;
+            }
+        }
+
         /* ---------------------------- section 5------------------------------ */
     </style>
 </head>
@@ -1450,9 +1701,79 @@
         </div>
     </section>
     <!-- ---------------------------- section 4------------------------------ -->
+    <section class="wealth-projection" id="section4">
+        <div class="financial-grid-bg"></div>
+
+        <div class="projection-container">
+            <div class="chart-area">
+                <span class="card-tag">ASSET PERFORMANCE</span>
+                <h2 class="section-title">THE WEALTH PROJECTION</h2>
+
+                <div class="main-price-display">
+                    <span class="label">ƯỚC TÍNH GIÁ TRỊ HIỆN TẠI</span>
+                    <div class="price-counter"><span id="assetValue">0</span><span class="currency">VND</span> </div>
+                    <div class="growth-rate">+22.5% <i class="trend-up">↑</i></div>
+                </div>
+
+                <div class="chart-wrapper">
+                    <canvas id="wealthChart"></canvas>
+                    <div class="forecast-overlay">DỰ BÁO 24 THÁNG TỚI</div>
+                </div>
+            </div>
+
+            <div class="stats-area">
+                <div class="health-score-card">
+                    <div class="score-item">
+                        <div class="score-info">
+                            <span class="label">RARITY INDEX (ĐỘ HIẾM)</span>
+                            <span class="value">98/100</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 98%;"></div>
+                        </div>
+                        <p class="rarity-note">Chỉ có 3 biển ngũ quý 9 mã vùng 30K trên toàn quốc.</p>
+                    </div>
+
+                    <div class="score-item">
+                        <div class="score-info">
+                            <span class="label">LIQUIDITY (THANH KHOẢN)</span>
+                            <span class="value">A+</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="score-item">
+                        <div class="score-info">
+                            <span class="label">APPRECIATION POTENTIAL</span>
+                            <span class="value">HIGH</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-note">
+                    <p>Giá trị tăng trưởng trung bình của dòng biển này vượt <strong>15%</strong> so với các kênh đầu tư truyền thống trong cùng kỳ.</p>
+                </div>
+
+                <button class="btn-pdf-report">
+                    <span>NHẬN BÁO CÁO CHI TIẾT (PDF)</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
     <!-- ---------------------------- section 5------------------------------ -->
     <?php include "footer.php" ?>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script>
@@ -1762,6 +2083,120 @@
         location.reload(); // Cách đơn giản nhất để các tọa độ % tính toán lại
     });
     // ---------------------------- section 4------------------------------ //
+    document.addEventListener("DOMContentLoaded", function() {
+        const ctx = document.getElementById('wealthChart').getContext('2d');
+
+        // Gradient cho đường biểu đồ
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgba(212, 175, 55, 0.3)');
+        gradient.addColorStop(1, 'rgba(212, 175, 55, 0)');
+        const chartData = {
+            labels: ['2020', '2021', '2022', '2023', '2024', 'Forecast 2025', 'Forecast 2026'],
+            datasets: [{
+                label: 'Giá trị biển số (Tỷ VND)',
+                data: [1.2, 1.8, 2.5, 4.2, 5.8, 7.5, 9.5],
+                borderColor: '#D4AF37',
+                borderWidth: 3,
+                fill: true,
+                backgroundColor: gradient,
+                tension: 0.4,
+                pointRadius: 0,
+                pointHoverRadius: 6,
+                pointHoverBackgroundColor: '#fff',
+                segment: {
+                    borderDash: ctx => ctx.p0DataIndex >= 4 ? [6, 6] : undefined, // Nét đứt cho Forecast
+                }
+            }]
+        };
+
+        const wealthChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2021', '2022', '2023', '2024', '2025', '2026'],
+                datasets: [{
+                    data: [2.1, 2.8, 3.5, 5.2, 7.8, 9.5], // Đơn vị Tỷ VND
+                    borderColor: '#D4AF37',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#D4AF37',
+                    pointRadius: 4,
+                    fill: true,
+                    backgroundColor: gradient,
+                    tension: 0.4,
+                    // Nét đứt cho phần dự báo từ index 3 trở đi
+                    segment: {
+                        borderDash: ctx => ctx.p0DataIndex >= 3 ? [5, 5] : undefined
+                    }
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // QUAN TRỌNG: Để Chart tuân thủ chiều cao của Wrapper
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        },
+                        ticks: {
+                            color: '#555',
+                            callback: function(value) {
+                                return value + ' Tỷ';
+                            } // Hiển thị đơn vị Tỷ
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#555'
+                        }
+                    }
+                }
+            }
+        });
+
+
+        // Hiệu ứng số nhảy (Counter)
+        const animateCounter = (id, target) => {
+            let current = 0;
+            const duration = 2000;
+            const step = target / (duration / 16);
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    document.getElementById(id).innerText = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    document.getElementById(id).innerText = Math.floor(current).toLocaleString();
+                }
+            }, 16);
+        };
+
+        // Kích hoạt khi cuộn đến
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter('assetValue', 5800000000);
+                    gsap.to(".progress-fill", {
+                        width: (i, el) => el.style.width,
+                        duration: 1.5,
+                        stagger: 0.2
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        observer.observe(document.querySelector('.wealth-projection'));
+    });
     // ---------------------------- section 5------------------------------ //
 </script>
 
