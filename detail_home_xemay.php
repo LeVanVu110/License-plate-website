@@ -18,6 +18,14 @@
             --gold-power: #D4AF37;
             --plate-font: 'Alumni Sans', sans-serif;
             /* Font mô phỏng font biển số */
+            --color-kim: #FFFFFF;
+            /* Trắng bạc */
+            --color-thuy: #2196F3;
+            /* Xanh dương */
+            --color-moc: #4CAF50;
+            /* Xanh lá */
+            --color-hoa: #F44336;
+            /* Đỏ rực */
         }
 
         /* --------------------------- section 1 ---------------------------------  */
@@ -194,9 +202,503 @@
                 flex: 1;
                 margin: 0 5px;
             }
+            .btn-contact{
+                margin-top: 0 !important;
+            }
         }
 
         /* --------------------------- section 2 ---------------------------------  */
+        .numerology-spirit {
+            background-color: #050505;
+            padding: 100px 0;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            height: 150vh;
+
+        }
+
+        .sacred-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .spirit-title {
+            font-family: 'EB Garamond', serif;
+            font-size: 36px;
+            letter-spacing: 5px;
+            color: #E5E5E5;
+        }
+
+        .title-underline {
+            width: 60px;
+            height: 1px;
+            background: var(--gold-primary);
+            margin: 20px auto;
+        }
+
+        .spirit-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        /* Visual Geometry */
+        .sacred-geometry {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1/1;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Vòng tròn SVG và các đường line mảnh */
+        .elements-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .outer-ring {
+            stroke: rgba(212, 175, 55, 0.2);
+            stroke-width: 1;
+            fill: none;
+        }
+
+        .lines {
+            stroke: rgba(212, 175, 55, 0.15);
+            stroke-width: 0.8;
+            stroke-dasharray: 4 4;
+            /* Tạo đường đứt nét như hình */
+        }
+
+        /* Các điểm nút (Nodes) Gold */
+        .element-node {
+            fill: #1A1A1A;
+            stroke: var(--gold-primary);
+            stroke-width: 2;
+            transition: all 0.4s ease;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+        }
+
+        .element-node:hover {
+            fill: var(--gold-primary);
+            filter: drop-shadow(0 0 10px var(--gold-primary));
+        }
+
+        /* Tìm và sửa lại class này */
+        .pulse-energy {
+            position: absolute;
+            top: 50% !important;
+            /* Cố định vị trí 50% */
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            /* Luôn giữ tâm */
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #D4AF37 0%, #000 100%);
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Hiệu ứng xung quanh quả cầu */
+        .pulse-energy::after {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            animation: energy-glow 3s infinite alternate;
+        }
+
+        @keyframes energy-glow {
+            from {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+
+            to {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes energy-pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(15);
+                opacity: 0;
+            }
+        }
+
+        /* Analysis Cards */
+        .info-card {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 2px solid var(--gold-primary);
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: 0.4s;
+        }
+
+        .num-digit {
+            font-family: 'EB Garamond', serif;
+            font-size: 48px;
+            color: var(--gold-primary);
+            margin-right: 30px;
+        }
+
+        .num-detail h3 {
+            font-family: 'EB Garamond', serif;
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .num-detail p {
+            font-size: 14px;
+            color: #D1D1D1;
+            line-height: 1.6;
+        }
+
+        /* Score Block */
+        .score-circle-wrap {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .score-number {
+            font-family: 'EB Garamond', serif;
+            font-size: 60px;
+            color: var(--gold-primary);
+            display: block;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .bike-suggest {
+            font-size: 14px;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        .bike-suggest span {
+            color: var(--gold-primary);
+        }
+
+        /* Styling cho nút Chia sẻ Quẻ số */
+        .btn-share-spirit {
+            margin-top: 40px;
+            background: transparent;
+            color: var(--gold-primary);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 18px 45px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            margin-left: 190px;
+        }
+
+        /* Hiệu ứng lớp nền bóng mờ khi hover */
+        .btn-share-spirit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(212, 175, 55, 0.2),
+                    transparent);
+            transition: all 0.6s;
+            z-index: -1;
+        }
+
+        .btn-share-spirit:hover {
+            color: #000;
+            background-color: var(--gold-primary);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            border-color: var(--gold-primary);
+        }
+
+        .btn-share-spirit:hover::before {
+            left: 100%;
+        }
+
+        /* Khối tính toán hợp mệnh */
+        .compatibility-box {
+            position: absolute;
+            top: 105%;
+            /* Nằm dưới đáy vòng tròn */
+            width: 100%;
+            max-width: 320px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            z-index: 5;
+        }
+
+        /* Ô nhập năm sinh */
+        #birthYear {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #444;
+            color: var(--gold-primary);
+            padding: 10px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #birthYear:focus {
+            border-bottom-color: var(--gold-primary);
+        }
+
+        #birthYear::placeholder {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Thanh tiến trình (Progress Bar) */
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            width: 0%;
+            /* Sẽ được GSAP điều khiển */
+            height: 100%;
+            background: linear-gradient(90deg, #CD7F32, #D4AF37);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            position: relative;
+        }
+
+        /* Hiệu ứng ánh sáng chạy dọc thanh progress */
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine-progress 2s infinite;
+        }
+
+        @keyframes shine-progress {
+            0% {
+                left: -30px;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Văn bản hiển thị % */
+        .comp-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+        #compVal {
+            color: var(--gold-primary);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Nhãn tên */
+        .element-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10;
+            pointer-events: none;
+            text-align: center;
+            width: 100%;
+        }
+
+        .element-label.active {
+            opacity: 1;
+            /* top: 42%; */
+            transform: translate(-50%, -180%);
+            /* Nhích nhẹ lên khi hiện */
+        }
+
+        /* Các lớp màu động sẽ được JS thêm vào */
+        .label-kim {
+            color: var(--color-kim);
+            text-shadow: 0 0 20px var(--color-kim);
+        }
+
+        .label-thuy {
+            color: var(--color-thuy);
+            text-shadow: 0 0 20px var(--color-thuy);
+        }
+
+        .label-moc {
+            color: var(--color-moc);
+            text-shadow: 0 0 20px var(--color-moc);
+        }
+
+        .label-hoa {
+            color: var(--color-hoa);
+            text-shadow: 0 0 20px var(--color-hoa);
+        }
+
+        /* --- Styling cho nút Liên Hệ / Tư vấn --- */
+        .btn-contact {
+            position: relative;
+            display: inline-block;
+            padding: 16px 40px;
+            margin-top: 25px;
+            background: transparent;
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 1;
+        }
+
+        /* Hiệu ứng lớp nền chạy khi hover */
+        .btn-contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold-primary);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: -1;
+        }
+
+        .btn-contact:hover {
+            color: #000;
+            /* Chữ chuyển sang đen trên nền vàng */
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .btn-contact:hover::before {
+            left: 0;
+        }
+
+        .btn-contact:active {
+            transform: translateY(-1px);
+        }
+
+        /* Hiệu ứng tia sáng quét qua nút (Shine Effect) */
+        .btn-contact::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(30deg);
+            transition: none;
+            pointer-events: none;
+        }
+
+        .btn-contact:hover::after {
+            left: 150%;
+            transition: all 0.8s ease-in-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .spirit-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .spirit-visual {
+                order: 2;
+            }
+
+            .spirit-analysis {
+                order: 1;
+            }
+
+            .spirit-title {
+                font-size: 26px;
+            }
+
+            .score-number {
+                font-size: 40px;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+
+            .btn-share-spirit {
+                width: 100%;
+                /* Full width trên mobile để dễ chạm */
+                padding: 15px 0;
+                margin-top: 30px;
+            }
+
+            .pulse-energy {
+                width: 70px;
+                height: 70px;
+            }
+
+            .compatibility-box {
+                bottom: -150px;
+            }
+            .btn-share-spirit{
+                margin-left: 0 !important;
+            }
+            
+        }
 
         /* --------------------------- section 3 ---------------------------------  */
 
@@ -217,8 +719,8 @@
                     <div class="motor-plate">
                         <div class="plate-shine"></div>
                         <div class="plate-content">
-                            <div class="plate-top">59-A3</div>
-                            <div class="plate-bottom">999.99</div>
+                            <div class="plate-top" id="plateTop">29-K</div>
+                            <div class="plate-bottom" id="plateBottom">777.77</div>
                         </div>
                         <div class="plate-frame"></div>
                     </div>
@@ -260,6 +762,70 @@
     </section>
 
     <!-- --------------------------- section 2 ---------------------------------  -->
+    <section class="numerology-spirit" id="section2">
+        <div class="sacred-container">
+            <div class="section-header">
+                <h2 class="spirit-title">THE NUMEROLOGY & SPIRIT</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="spirit-layout">
+                <div class="spirit-visual">
+                    <div class="sacred-geometry">
+                        <div class="pulse-energy"></div>
+                        <div class="pulse-energy"></div>
+                        <div id="element-label" class="element-label">KHÁM PHÁ MỆNH</div>
+                        <svg viewBox="0 0 400 400" class="elements-circle">
+                            <circle cx="200" cy="200" r="180" class="outer-ring" />
+                            <path d="M200 20 L200 380 M20 200 L380 200" class="lines" />
+                            <circle cx="200" cy="20" r="12" class="element-node kim" data-name="HÀNH KIM" />
+                            <circle cx="380" cy="200" r="12" class="element-node thuy" data-name="HÀNH THỦY" />
+                            <circle cx="200" cy="380" r="12" class="element-node moc" data-name="HÀNH MỘC" />
+                            <circle cx="20" cy="200" r="12" class="element-node hoa" data-name="HÀNH HỎA" />
+                        </svg>
+                        <div class="compatibility-box">
+                            <input type="number" placeholder="Năm sinh của bạn..." id="birthYear">
+                            <div class="progress-container">
+                                <div class="progress-bar" id="compBar"></div>
+                            </div>
+                            <span class="comp-text">Độ hợp mệnh: <span id="compVal">0</span>%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spirit-analysis">
+
+                    <div class="numerology-cards">
+                        <div class="info-card" data-number="8">
+                            <span class="num-digit">8</span>
+                            <div class="num-detail">
+                                <h3>BÁT - ĐẠI PHÁT</h3>
+                                <p>Con số của sự thịnh vượng vô tận. Trong tiếng Hán, "Bát" đọc chệch là "Phát", tượng trưng cho sự thăng tiến không ngừng trong kinh doanh.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card" data-number="5">
+                            <span class="num-digit">5</span>
+                            <div class="num-detail">
+                                <h3>NGŨ QUÝ - SINH LỘC</h3>
+                                <p>Năm con số 8 trùng phùng tạo nên nguồn năng lượng Thổ cực thịnh, giúp chủ nhân củng cố địa vị và quyền lực bền vững như núi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="score-circle-wrap">
+                        <div class="score-inner">
+                            <span class="score-label">PHONG THỦY</span>
+                            <span class="score-number">10/10</span>
+                        </div>
+                        <p class="bike-suggest">Hợp mệnh: <span>Thổ & Kim</span>. Gợi ý: SH Đỏ, Vespa Vàng đồng hoặc BMW S1000RR Đen vàng.</p>
+                    </div>
+
+                    <button class="btn-share-spirit">CHIA SẺ QUẺ SỐ</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- --------------------------- section 3 ---------------------------------  -->
 
@@ -308,6 +874,300 @@
     });
 
     // --------------------------- section 2 --------------------------------- //
+    document.addEventListener("DOMContentLoaded", function() {
+        gsap.registerPlugin(ScrollTrigger);
+        // --- Cấu hình dữ liệu phong thủy theo số đuôi ---
+        const fengShuiData = {
+            '0': {
+                name: 'THỦY',
+                class: 'thuy',
+                color: '#2196F3',
+                mean: 'Số 0 - Sự khởi đầu vô tận, viên mãn.'
+            },
+            '1': {
+                name: 'THỦY',
+                class: 'thuy',
+                color: '#2196F3',
+                mean: 'Số 1 - Nhất: Vị thế độc tôn, đứng đầu.'
+            },
+            '2': {
+                name: 'THỔ',
+                class: 'moc',
+                color: '#D4AF37',
+                mean: 'Số 2 - Mãi mãi: Sự bền vững, song hỷ.'
+            },
+            '3': {
+                name: 'MỘC',
+                class: 'moc',
+                color: '#4CAF50',
+                mean: 'Số 3 - Tài: Tài năng và trí tuệ.'
+            },
+            '4': {
+                name: 'MỘC',
+                class: 'moc',
+                color: '#4CAF50',
+                mean: 'Số 4 - Tứ: Sự cân bằng, bốn mùa hưng thịnh.'
+            },
+            '5': {
+                name: 'THỔ',
+                class: 'kim',
+                color: '#D4AF37',
+                mean: 'Số 5 - Ngũ: Trung tâm của quyền lực.'
+            },
+            '6': {
+                name: 'KIM',
+                class: 'kim',
+                color: '#FFFFFF',
+                mean: 'Số 6 - Lộc: Tài lộc dồi dào, suôn sẻ.'
+            },
+            '7': {
+                name: 'KIM',
+                class: 'kim',
+                color: '#FFFFFF',
+                mean: 'Số 7 - Thất: Sức mạnh tâm linh, huyền bí.'
+            },
+            '8': {
+                name: 'THỔ',
+                class: 'kim',
+                color: '#D4AF37',
+                mean: 'Số 8 - Phát: Phát đạt, thịnh vượng.'
+            },
+            '9': {
+                name: 'HỎA',
+                class: 'hoa',
+                color: '#F44336',
+                mean: 'Số 9 - Cửu: Vĩnh cửu, trường thọ.'
+            }
+        };
+        const analyzeFengShui = () => {
+            // 1. Lấy số cuối cùng của biển số
+            const plateText = document.getElementById('plateBottom').innerText;
+            const lastDigit = plateText.replace(/[^0-9]/g, '').slice(-1);
+            const data = fengShuiData[lastDigit];
+
+            // 2. Cập nhật các thẻ thông tin (Info Cards) tự động
+            const cardsWrap = document.querySelector('.numerology-cards');
+            if (cardsWrap) {
+                cardsWrap.innerHTML = `
+                <div class="info-card">
+                    <span class="num-digit">${lastDigit}</span>
+                    <div class="num-detail">
+                        <h3>HÀNH ${data.name}</h3>
+                        <p>${data.mean} Biển số này mang năng lượng tương sinh mạnh mẽ cho chủ nhân.</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <span class="num-digit">★</span>
+                    <div class="num-detail">
+                        <h3>CÁT TƯỜNG</h3>
+                        <p>Dãy số ${plateText} được đánh giá là cực phẩm phong thủy, mang lại vận may đặc biệt.</p>
+                    </div>
+                </div>
+            `;
+            }
+
+            // 3. Tự động kích hoạt Node tương ứng trên vòng tròn
+            const targetNode = document.querySelector(`.element-node.${data.class}`);
+            if (targetNode) {
+                const targetX = targetNode.getAttribute('cx');
+                const targetY = targetNode.getAttribute('cy');
+
+                gsap.to(".pulse-energy", {
+                    left: targetX + "px",
+                    top: targetY + "px",
+                    background: `radial-gradient(circle, ${data.color} 0%, #000 100%)`,
+                    boxShadow: `0 0 80px ${data.color}`,
+                    duration: 1.5,
+                    ease: "power2.out"
+                });
+            }
+
+            // 4. Cập nhật quả cầu năng lượng
+            gsap.to(".pulse-energy", {
+                background: `radial-gradient(circle, ${data.color} 0%, #000 100%)`,
+                boxShadow: `0 0 80px ${data.color}`,
+                duration: 2
+            });
+
+            // 5. Cập nhật phần điểm và gợi ý xe
+            const suggestText = document.querySelector('.bike-suggest');
+            if (suggestText) {
+                suggestText.innerHTML = `Hợp mệnh: <span style="color:${data.color}">${data.name}</span>. Phù hợp cho các dòng xe cao cấp.`;
+            }
+        };
+        // Chạy hàm phân tích ngay khi load
+        analyzeFengShui();
+
+
+        // 1. Reveal hiệu ứng khi cuộn trang
+        gsap.from(".info-card", {
+            scrollTrigger: {
+                trigger: ".numerology-spirit",
+                start: "top 70%",
+            },
+            x: -30,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 1
+        });
+
+        // 2. Logic Tứ Hành - Đổi màu khi Hover
+        const elementLabel = document.getElementById('element-label');
+        const nodes = document.querySelectorAll('.element-node');
+        const energyBall = document.querySelector('.pulse-energy');
+        const nodeMoc = document.querySelector('.element-node.moc');
+        gsap.to(".element-node.moc", {
+            r: 15,
+            fill: "#D4AF37", // Màu vàng gold đại diện cho Thổ/Kim
+            stroke: "#fff",
+            duration: 2,
+            repeat: -1,
+            yoyo: true,
+            filter: "drop-shadow(0 0 10px #D4AF37)"
+        });
+
+        const colorMap = {
+            'kim': '#FFFFFF',
+            'thuy': '#2196F3',
+            'moc': '#4CAF50',
+            'hoa': '#F44336'
+        };
+
+        nodes.forEach(node => {
+            node.addEventListener('mouseenter', function() {
+                const type = this.classList[1]; // kim, thuy, moc, hoa
+                const activeColor = colorMap[type];
+                const name = this.getAttribute('data-name');
+
+                // 1. Hiện nhãn tên
+                elementLabel.innerHTML = name;
+                elementLabel.className = `element-label active label-${type}`;
+
+                // 2. Phóng to Node (Dùng attr vì đây là SVG)
+                gsap.to(this, {
+                    attr: {
+                        r: 18
+                    }, // Thay đổi bán kính r của hình tròn SVG
+                    fill: activeColor,
+                    duration: 0.3
+                });
+
+                // 3. Đổi màu quả cầu năng lượng (Chỉ đổi màu và scale, không chạm vào x/y)
+                gsap.to(energyBall, {
+                    background: `radial-gradient(circle, ${activeColor} 0%, #000 100%)`,
+                    boxShadow: `0 0 60px ${activeColor}`,
+                    scale: 1.3,
+                    duration: 0.4,
+                    overwrite: true // Ngăn chặn xung đột với hiệu ứng nhịp thở
+                });
+            });
+
+            node.addEventListener('mouseleave', function() {
+                elementLabel.classList.remove('active');
+
+                // Trả Node về trạng thái cũ
+                gsap.to(this, {
+                    attr: {
+                        r: 12
+                    },
+                    fill: "#1A1A1A",
+                    duration: 0.3
+                });
+
+                // Trả quả cầu năng lượng về màu Gold ban đầu
+                gsap.to(energyBall, {
+                    background: "radial-gradient(circle, #D4AF37 0%, #856404 100%)",
+                    boxShadow: "0 0 50px rgba(212, 175, 55, 0.3)",
+                    scale: 1,
+                    duration: 0.4
+                });
+            });
+        });
+        // 3. Logic Hợp mệnh (Compatibility)
+        const birthInput = document.getElementById('birthYear');
+        const compBar = document.getElementById('compBar');
+        const compVal = document.getElementById('compVal');
+
+        if (birthInput) {
+            birthInput.addEventListener('input', (e) => {
+                if (e.target.value.length === 4) {
+                    let score = Math.floor(Math.random() * (99 - 75 + 1)) + 75;
+                    gsap.to(compBar, {
+                        width: score + "%",
+                        duration: 1.5,
+                        ease: "power4.out"
+                    });
+
+                    let count = {
+                        val: 0
+                    };
+                    gsap.to(count, {
+                        val: score,
+                        duration: 1.5,
+                        onUpdate: () => {
+                            compVal.innerHTML = Math.floor(count.val);
+                        }
+                    });
+                } else {
+                    gsap.to(compBar, {
+                        width: "0%",
+                        duration: 0.5
+                    });
+                    compVal.innerHTML = "0";
+                }
+            });
+        }
+
+        // 4. Logic nút Chia sẻ
+        const shareBtn = document.querySelector('.btn-share-spirit');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', function() {
+                gsap.to(this, {
+                    scale: 0.95,
+                    duration: 0.1,
+                    yoyo: true,
+                    repeat: 1
+                });
+                alert("Hệ thống đang trích xuất dữ liệu phong thủy...");
+            });
+        }
+
+        // 5. Hiệu ứng nhịp thở cho quả cầu
+        gsap.to(".pulse-energy", {
+            scale: 1.1,
+            opacity: 0.8,
+            duration: 2,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+        });
+    });
+    // Hiệu ứng Magnetic cho nút Contact
+    const contactBtn = document.querySelector('.btn-contact');
+    if (contactBtn) {
+        contactBtn.addEventListener('mousemove', (e) => {
+            const rect = contactBtn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            gsap.to(contactBtn, {
+                x: x * 0.3,
+                y: y * 0.3,
+                duration: 0.4,
+                ease: "power2.out"
+            });
+        });
+
+        contactBtn.addEventListener('mouseleave', () => {
+            gsap.to(contactBtn, {
+                x: 0,
+                y: 0,
+                duration: 0.6,
+                ease: "elastic.out(1, 0.3)"
+            });
+        });
+    }
+
 
     // --------------------------- section 3 --------------------------------- //
 
