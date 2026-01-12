@@ -19,6 +19,7 @@
             --slate-gray: #666666;
             --off-white: #FCFCFC;
         }
+        
 
         /* ------------------------------ section 1 ------------------------------   */
         .living-portrait {
@@ -162,6 +163,7 @@
 
             .living-portrait {
                 height: 60vh;
+                margin-top: 60px;
             }
 
             .portrait-video,
