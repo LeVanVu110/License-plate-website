@@ -539,7 +539,7 @@
         border-image: linear-gradient(135deg, #D4AF37, #E5E5E5, #D4AF37) 1;
         text-align: center;
         max-width: 600px;
-        width: 90%;
+        width: 100%;
     }
 
     /* Biểu tượng vân tay & hiệu ứng nhịp thở */

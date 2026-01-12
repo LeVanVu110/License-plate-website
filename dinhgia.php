@@ -26,7 +26,7 @@
 
         body {
             margin-top: 5% !important;
-            
+
         }
 
         .ai-valuation-hero {
@@ -1038,15 +1038,15 @@
                 <div class="specs-box">
                     <div class="spec-card">
                         <span class="spec-title">PHONG THỦY</span>
-                        <span class="spec-value">Đại Cát - Trường Cửu</span>
+                        <span class="spec-value" id="val-phongthuy">Đang phân tích...</span>
                     </div>
                     <div class="spec-card">
                         <span class="spec-title">THẾ SỐ</span>
-                        <span class="spec-value">Số Lặp Kép (AABB)</span>
+                        <span class="spec-value" id="val-theso">Đang phân tích...</span>
                     </div>
                     <div class="spec-card">
                         <span class="spec-title">TỔNG NÚT</span>
-                        <span class="spec-value">9 Nút (Cực Đỉnh)</span>
+                        <span class="spec-value" id="val-tongnut">Đang phân tích...</span>
                     </div>
                     <div class="spec-card">
                         <span class="spec-title">THANH KHOẢN</span>
@@ -1166,32 +1166,32 @@
     </section>
     <!-- /* ------------------------------ section 5--------------------------  */ -->
     <section class="strategic-call" id="callSection">
-    <div class="split-layout">
-        <div class="gate liquidate-gate" id="gateLeft">
-            <div class="gate-content">
-                <span class="gate-label">DÀNH CHO NGƯỜI BÁN</span>
-                <h3 class="gate-title" style="color: #fff; margin-bottom: 15px;">THANH KHOẢN NGAY</h3>
-                <p class="gate-desc" style="color: #aaa; margin-bottom: 30px;">Bán biển số nhanh chóng với mức giá AI đề xuất thông qua mạng lưới độc quyền.</p>
-                <button class="btn-gate btn-silver" onclick="openGateForm('Bán')">ĐĂNG BÁN ƯU TIÊN</button>
+        <div class="split-layout">
+            <div class="gate liquidate-gate" id="gateLeft">
+                <div class="gate-content">
+                    <span class="gate-label">DÀNH CHO NGƯỜI BÁN</span>
+                    <h3 class="gate-title" style="color: #fff; margin-bottom: 15px;">THANH KHOẢN NGAY</h3>
+                    <p class="gate-desc" style="color: #aaa; margin-bottom: 30px;">Bán biển số nhanh chóng với mức giá AI đề xuất thông qua mạng lưới độc quyền.</p>
+                    <button class="btn-gate btn-silver" onclick="openGateForm('Bán')">ĐĂNG BÁN ƯU TIÊN</button>
+                </div>
             </div>
-        </div>
 
-        <div class="divider-line">
-            <div class="logo-anchor">
-                <div class="mini-logo-circle">PS</div>
+            <div class="divider-line">
+                <div class="logo-anchor">
+                    <div class="mini-logo-circle">PS</div>
+                </div>
             </div>
-        </div>
 
-        <div class="gate secure-gate" id="gateRight">
-            <div class="gate-content">
-                <span class="gate-label">DÀNH CHO NHÀ SƯU TẦM</span>
-                <h3 class="gate-title" style="color: #fff; margin-bottom: 15px;">KÝ GỬI & BẢO MẬT</h3>
-                <p class="gate-desc" style="color: #aaa; margin-bottom: 30px;">Đưa tài sản vào danh mục quản trị chuyên sâu để tối ưu hóa giá trị bền vững.</p>
-                <button class="btn-gate btn-gold" onclick="openGateForm('Ký gửi')">KÝ GỬI CHUYÊN GIA</button>
+            <div class="gate secure-gate" id="gateRight">
+                <div class="gate-content">
+                    <span class="gate-label">DÀNH CHO NHÀ SƯU TẦM</span>
+                    <h3 class="gate-title" style="color: #fff; margin-bottom: 15px;">KÝ GỬI & BẢO MẬT</h3>
+                    <p class="gate-desc" style="color: #aaa; margin-bottom: 30px;">Đưa tài sản vào danh mục quản trị chuyên sâu để tối ưu hóa giá trị bền vững.</p>
+                    <button class="btn-gate btn-gold" onclick="openGateForm('Ký gửi')">KÝ GỬI CHUYÊN GIA</button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- /* ------------------------------ section 6--------------------------  */ -->
 
@@ -1323,21 +1323,36 @@
     }
 
     // -------------------------------------- SECTION 3: VERDICT ----------------------- //
+
+    // Biến toàn cục để quản lý Chart, tránh lỗi chồng đè khi định giá nhiều lần
+    let myRadarChart = null;
+
     function goToVerdict() {
         gsap.to(window, {
             duration: 1.5,
             scrollTo: "#verdictSection",
             ease: "expo.inOut",
             onStart: () => {
-                // Giả lập giá trị định giá dựa trên biển số (Logic mẫu)
-                const mockPrice = Math.floor(Math.random() * (2000000000 - 50000000) + 50000000);
-                triggerVerdict(mockPrice);
+                // Giả lập thuật toán định giá: Biển càng nhiều số trùng, giá càng cao
+                const plateValue = document.getElementById('plateInput').value;
+                const basePrice = 50000000;
+                const randomness = Math.random() * 50000000;
+
+                // Logic giả lập: nếu có số lặp (tứ quý, ngũ quý) thì giá tăng vọt
+                const hasRepeats = /(.)\1{3,}/.test(plateValue.replace(/[^0-9]/g, ''));
+                const multiplier = hasRepeats ? 20 : 1;
+
+                const finalPrice = Math.floor((basePrice + randomness) * multiplier);
+
+                triggerVerdict(finalPrice);
             }
         });
     }
 
     function triggerVerdict(finalValue) {
-        // 1. Nhảy số tiền (Money Counter)
+        const plateRaw = document.getElementById('plateInput').value.trim().toUpperCase();
+
+        // 1. Hiệu ứng nhảy số tiền (Money Counter)
         const priceElement = document.getElementById('finalPrice');
         gsap.to(priceElement, {
             innerText: finalValue,
@@ -1351,33 +1366,53 @@
             }
         });
 
-        // 2. Vẽ biểu đồ Radar (Sử dụng Chart.js)
+        // 2. Logic Phân tích dữ liệu biển số thực tế cho spec-cards
+        analyzePlateSpecs(plateRaw);
+
+        // 3. Vẽ biểu đồ Radar (Sử dụng Chart.js)
         const ctx = document.getElementById('radarChart').getContext('2d');
-        new Chart(ctx, {
+
+        // Hủy biểu đồ cũ nếu đã tồn tại để vẽ mới hoàn toàn
+        if (myRadarChart) {
+            myRadarChart.destroy();
+        }
+
+        myRadarChart = new Chart(ctx, {
             type: 'radar',
             data: {
                 labels: ['PHONG THỦY', 'ĐỘ HIẾM', 'THANH KHOẢN', 'ĐẦU SỐ', 'THẨM MỸ'],
                 datasets: [{
-                    data: [95, 80, 70, 85, 90], // Dữ liệu này có thể thay đổi tùy biển số
+                    label: 'Chỉ số AI',
+                    data: [
+                        Math.floor(Math.random() * 20) + 80, // Phong thủy ngẫu nhiên 80-100
+                        /(.)\1{2,}/.test(plateRaw) ? 98 : 75, // Độ hiếm dựa trên số lặp
+                        Math.floor(Math.random() * 30) + 65,
+                        85,
+                        90
+                    ],
                     backgroundColor: 'rgba(212, 175, 55, 0.2)',
                     borderColor: '#D4AF37',
                     pointBackgroundColor: '#D4AF37',
+                    pointBorderColor: '#fff',
                     borderWidth: 2
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     r: {
                         angleLines: {
-                            color: 'rgba(255,255,255,0.05)'
+                            color: 'rgba(255,255,255,0.1)'
                         },
                         grid: {
-                            color: 'rgba(255,255,255,0.05)'
+                            color: 'rgba(255,255,255,0.1)'
                         },
                         pointLabels: {
-                            color: '#888',
+                            color: '#aaa',
                             font: {
-                                size: 11
+                                size: 12,
+                                family: 'Inter'
                             }
                         },
                         ticks: {
@@ -1394,28 +1429,71 @@
             }
         });
 
-        // 3. Tạo hạt bụi vàng (Gold Dust)
+        // 4. Tạo hạt bụi vàng (Gold Dust) nâng cao
+        createGoldDustEffect();
+    }
+
+    // Hàm bổ trợ phân tích chi tiết biển số để đổ dữ liệu vào UI
+    function analyzePlateSpecs(plate) {
+    const specs = document.querySelectorAll('.spec-value');
+    const numbersOnly = plate.replace(/[^0-9]/g, '');
+    
+    // 1. Cập nhật THẾ SỐ (Chỉ số [1])
+    if (/(.)\1{4}/.test(numbersOnly)) specs[1].innerText = "Ngũ Quý (Cực Phẩm)";
+    else if (/(.)\1{3}/.test(numbersOnly)) specs[1].innerText = "Tứ Quý (Đẳng Cấp)";
+    else if (/(.)\1{2}/.test(numbersOnly)) specs[1].innerText = "Tam Hoa (Phú Quý)";
+    else if (/0123|1234|2345|3456|4567|5678|6789/.test(numbersOnly)) specs[1].innerText = "Số Tiến (Thăng Tiến)";
+    else specs[1].innerText = "Số Cặp (Cân Đối)";
+
+    // 2. Cập nhật TỔNG NÚT (Chỉ số [2])
+    let total = 0;
+    numbersOnly.split('').forEach(num => total += parseInt(num));
+    let nut = total % 10;
+    // Nếu bạn muốn 999.99 ra 6 nút (không theo toán học) thì phải sửa thủ công, 
+    // nhưng tốt nhất nên để theo toán học:
+    specs[2].innerText = nut + " Nút (" + (nut >= 7 ? "Đại Cát" : "Bình An") + ")";
+
+    // 3. Cập nhật PHONG THỦY (Chỉ số [0])
+    // Thêm dòng này để nó không bị fix cứng "Trường Cửu" mãi mãi
+    if (nut === 9) specs[0].innerText = "Đại Cát - Trường Cửu";
+    else specs[0].innerText = "Hanh Thông - Tốt Lành";
+
+    // Kích hoạt hiệu ứng bay vào cho các card
+    gsap.from(".spec-card", {
+        opacity: 0,
+        x: 30,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: "power2.out"
+    });
+}
+
+    function createGoldDustEffect() {
         const container = document.getElementById('dustContainer');
-        container.innerHTML = ""; // Reset bụi
-        for (let i = 0; i < 40; i++) {
+        container.innerHTML = "";
+        for (let i = 0; i < 45; i++) {
             const dust = document.createElement('div');
             dust.style.cssText = `
-                position: absolute; width: 2px; height: 2px; background: #D4AF37;
-                border-radius: 50%; top: ${Math.random()*100}%; left: ${Math.random()*100}%;
+                position: absolute; width: ${Math.random()*3}px; height: ${Math.random()*3}px; 
+                background: #D4AF37; border-radius: 50%; 
+                top: ${Math.random()*100}%; left: ${Math.random()*100}%;
                 opacity: ${Math.random()}; pointer-events: none;
+                box-shadow: 0 0 4px #D4AF37;
             `;
             container.appendChild(dust);
 
             gsap.to(dust, {
-                y: "-=150",
-                x: "+=" + (Math.random() * 60 - 30),
+                y: -150 - Math.random() * 100,
+                x: "+=" + (Math.random() * 40 - 20),
                 opacity: 0,
-                duration: 3 + Math.random() * 2,
+                duration: 2 + Math.random() * 2,
                 repeat: -1,
-                delay: Math.random() * 2
+                delay: Math.random() * 2,
+                ease: "power1.out"
             });
         }
     }
+
     // -------------------------------------- SECTION 4: BENCHMARKS -------------------- //
     function animateSection4() {
         // Đảm bảo section hiện thị và reset opacity của card
@@ -1493,22 +1571,25 @@
 
     // Thêm hiệu ứng ScrollTrigger cho Section 5
     function animateSection5() {
-    // Reset trạng thái ban đầu để tránh bị mất nội dung nếu ScrollTrigger chưa chạy
-    gsap.set(".gate-content", { opacity: 1, y: 0 });
+        // Reset trạng thái ban đầu để tránh bị mất nội dung nếu ScrollTrigger chưa chạy
+        gsap.set(".gate-content", {
+            opacity: 1,
+            y: 0
+        });
 
-    gsap.from(".gate-content", {
-        scrollTrigger: {
-            trigger: "#callSection",
-            start: "top 70%",
-            toggleActions: "play none none reverse"
-        },
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.3,
-        ease: "power3.out"
-    });
-}
+        gsap.from(".gate-content", {
+            scrollTrigger: {
+                trigger: "#callSection",
+                start: "top 70%",
+                toggleActions: "play none none reverse"
+            },
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.3,
+            ease: "power3.out"
+        });
+    }
 
     document.addEventListener('DOMContentLoaded', () => {
         animateSection5();
