@@ -814,6 +814,10 @@
             }
         }
 
+        .benchmark-card {
+            text-decoration: none;
+        }
+
         /* ------------------------------ section 5--------------------------  */
         /* --- SECTION 5: STRATEGIC CALL (FIXED) --- */
         .strategic-call {
@@ -1090,7 +1094,7 @@
             </div>
 
             <div class="comparison-cards-wrapper">
-                <div class="benchmark-card">
+                <a href="detail_home_oto.php?plate=29-A1 888.68&price=850.000.000&area=Hà Nội&date=12/10/2025" class="benchmark-card">
                     <div class="card-plate-display">
                         <div class="mini-plate">29A-888.68</div>
                     </div>
@@ -1104,16 +1108,16 @@
                             <span class="val">Hà Nội</span>
                         </div>
                         <div class="price-row">
-                            <span class="price-val">850,000,000</span><small style="color:#888; margin-left:5px;">đ</small>
+                            <span class="price-val">850.000.000</span><small style="color:#888; margin-left:5px;">đ</small>
                         </div>
                     </div>
                     <div class="card-footer">
                         <span class="similarity-tag">GIỐNG 95%</span>
                         <span class="status-tag">ĐÃ BÁN</span>
                     </div>
-                </div>
+                </a>
 
-                <div class="benchmark-card">
+                <a href="detail_home_oto.php?plate=30K 999.88&price=1.200.000.000&area=TP. HCM&date=12/10/2025" class="benchmark-card">
                     <div class="card-plate-display">
                         <div class="mini-plate">30K-999.88</div>
                     </div>
@@ -1127,16 +1131,16 @@
                             <span class="val">TP. HCM</span>
                         </div>
                         <div class="price-row">
-                            <span class="price-val">1,200,000,000</span><small style="color:#888; margin-left:5px;">đ</small>
+                            <span class="price-val">1.200.000.000</span><small style="color:#888; margin-left:5px;">đ</small>
                         </div>
                     </div>
                     <div class="card-footer">
                         <span class="similarity-tag">CÙNG ĐẦU SỐ</span>
                         <span class="status-tag">ĐÃ BÁN</span>
                     </div>
-                </div>
+                </a>
 
-                <div class="benchmark-card">
+                <a href="detail_home_oto.php?plate=30L-888.99&price=980.000.000&area=Hà Nội&date=20/12/2025" class="benchmark-card">
                     <div class="card-plate-display">
                         <div class="mini-plate">30L-888.99</div>
                     </div>
@@ -1150,14 +1154,14 @@
                             <span class="val">Hà Nội</span>
                         </div>
                         <div class="price-row">
-                            <span class="price-val">980,000,000</span><small style="color:#888; margin-left:5px;">đ</small>
+                            <span class="price-val">980.000.000</span><small style="color:#888; margin-left:5px;">đ</small>
                         </div>
                     </div>
                     <div class="card-footer">
                         <span class="similarity-tag">GIỐNG 88%</span>
                         <span class="status-tag">ĐÃ BÁN</span>
                     </div>
-                </div>
+                </a>
 
             </div>
 
@@ -1435,38 +1439,38 @@
 
     // Hàm bổ trợ phân tích chi tiết biển số để đổ dữ liệu vào UI
     function analyzePlateSpecs(plate) {
-    const specs = document.querySelectorAll('.spec-value');
-    const numbersOnly = plate.replace(/[^0-9]/g, '');
-    
-    // 1. Cập nhật THẾ SỐ (Chỉ số [1])
-    if (/(.)\1{4}/.test(numbersOnly)) specs[1].innerText = "Ngũ Quý (Cực Phẩm)";
-    else if (/(.)\1{3}/.test(numbersOnly)) specs[1].innerText = "Tứ Quý (Đẳng Cấp)";
-    else if (/(.)\1{2}/.test(numbersOnly)) specs[1].innerText = "Tam Hoa (Phú Quý)";
-    else if (/0123|1234|2345|3456|4567|5678|6789/.test(numbersOnly)) specs[1].innerText = "Số Tiến (Thăng Tiến)";
-    else specs[1].innerText = "Số Cặp (Cân Đối)";
+        const specs = document.querySelectorAll('.spec-value');
+        const numbersOnly = plate.replace(/[^0-9]/g, '');
 
-    // 2. Cập nhật TỔNG NÚT (Chỉ số [2])
-    let total = 0;
-    numbersOnly.split('').forEach(num => total += parseInt(num));
-    let nut = total % 10;
-    // Nếu bạn muốn 999.99 ra 6 nút (không theo toán học) thì phải sửa thủ công, 
-    // nhưng tốt nhất nên để theo toán học:
-    specs[2].innerText = nut + " Nút (" + (nut >= 7 ? "Đại Cát" : "Bình An") + ")";
+        // 1. Cập nhật THẾ SỐ (Chỉ số [1])
+        if (/(.)\1{4}/.test(numbersOnly)) specs[1].innerText = "Ngũ Quý (Cực Phẩm)";
+        else if (/(.)\1{3}/.test(numbersOnly)) specs[1].innerText = "Tứ Quý (Đẳng Cấp)";
+        else if (/(.)\1{2}/.test(numbersOnly)) specs[1].innerText = "Tam Hoa (Phú Quý)";
+        else if (/0123|1234|2345|3456|4567|5678|6789/.test(numbersOnly)) specs[1].innerText = "Số Tiến (Thăng Tiến)";
+        else specs[1].innerText = "Số Cặp (Cân Đối)";
 
-    // 3. Cập nhật PHONG THỦY (Chỉ số [0])
-    // Thêm dòng này để nó không bị fix cứng "Trường Cửu" mãi mãi
-    if (nut === 9) specs[0].innerText = "Đại Cát - Trường Cửu";
-    else specs[0].innerText = "Hanh Thông - Tốt Lành";
+        // 2. Cập nhật TỔNG NÚT (Chỉ số [2])
+        let total = 0;
+        numbersOnly.split('').forEach(num => total += parseInt(num));
+        let nut = total % 10;
+        // Nếu bạn muốn 999.99 ra 6 nút (không theo toán học) thì phải sửa thủ công, 
+        // nhưng tốt nhất nên để theo toán học:
+        specs[2].innerText = nut + " Nút (" + (nut >= 7 ? "Đại Cát" : "Bình An") + ")";
 
-    // Kích hoạt hiệu ứng bay vào cho các card
-    gsap.from(".spec-card", {
-        opacity: 0,
-        x: 30,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power2.out"
-    });
-}
+        // 3. Cập nhật PHONG THỦY (Chỉ số [0])
+        // Thêm dòng này để nó không bị fix cứng "Trường Cửu" mãi mãi
+        if (nut === 9) specs[0].innerText = "Đại Cát - Trường Cửu";
+        else specs[0].innerText = "Hanh Thông - Tốt Lành";
+
+        // Kích hoạt hiệu ứng bay vào cho các card
+        gsap.from(".spec-card", {
+            opacity: 0,
+            x: 30,
+            stagger: 0.1,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+    }
 
     function createGoldDustEffect() {
         const container = document.getElementById('dustContainer');
