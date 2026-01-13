@@ -6,6 +6,8 @@ $clean_plate = str_replace(['.', ' ', '-'], '', $plate);
 
 // Nhận dữ liệu giá
 $price_str = isset($_GET['price']) ? $_GET['price'] : "2.500.000.000";
+$area_str = isset($_GET['area']) ? $_GET['area'] : "Hà Nội";
+$date_str = isset($_GET['date']) ? $_GET['date'] : "12/1/2023";
 // Chuyển giá từ dạng "155.000.000" thành số nguyên 155000000 để chạy Counter
 $price_num = (int)str_replace('.', '', $price_str);
 // Logic tính điểm "Đại Cát" mô phỏng dựa trên số cuối của biển số
@@ -1960,7 +1962,7 @@ if (in_array($last_num_hex, [8, 9])) {
         <div class="hero-container">
             <div class="location-tag fade-in">
                 <span class="label">TỈNH THÀNH</span>
-                <span class="value">HÀ NỘI</span>
+                <span class="value"><?php echo $area_str ?></span>
                 <div class="gold-hairline"></div>
             </div>
 
