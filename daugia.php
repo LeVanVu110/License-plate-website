@@ -614,8 +614,8 @@
         /* Đổi tên thành bid-toasts theo yêu cầu */
         .bid-toasts {
             position: fixed;
-            top: 70px;
-            right: 20px;
+            top: -370px;
+            right: 0px;
             background: rgba(0, 0, 0, 0.95);
             color: #D4AF37;
             border: 1px solid #D4AF37;
@@ -771,16 +771,17 @@
         /* Toast Mobile */
         .bid-toast {
             position: fixed;
-            top: 70px;
+            top: 80px;
             right: -300px;
-            background: #00F2FF;
-            color: #000;
+            background: rgba(0, 0, 0, 0.95);
+            color: #D4AF37;
+            border: 1px solid #D4AF37;
             padding: 12px 20px;
             border-radius: 8px;
             font-weight: 800;
             z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.3);
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+             transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         /* Responsive */
@@ -1030,6 +1031,33 @@
 
         .reveal-item {
             opacity: 1 !important;
+        }
+
+        /* function đấu giá hiện thẻ  */
+        .animate-new-bid {
+            animation: slideInDown 0.5s ease forwards, highlightGold 2s ease;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes highlightGold {
+            0% {
+                background: rgba(212, 175, 55, 0.3);
+            }
+
+            100% {
+                background: rgba(255, 255, 255, 0.03);
+            }
         }
 
 
@@ -1447,13 +1475,13 @@
             <div class="control-panel">
                 <div class="countdown-wrapper">
                     <span class="label">THỜI GIAN CÒN LẠI</span>
-                    <div class="timer" id="timer">00:45:12</div>
+                    <div class="timer" id="timer">00:00:12</div>
                 </div>
 
                 <div class="price-display">
                     <span class="label">GIÁ HIỆN TẠI</span>
                     <div class="current-price" id="priceDisplay">
-                        <span class="amount">2,450,000,000</span>
+                        <span class="amount" id="topPrices">2,450,000,000</span>
                         <span class="currency">VNĐ</span>
                     </div>
                 </div>
@@ -1488,9 +1516,9 @@
                         <span>ĐẤU GIÁ TỰ ĐỘNG (PROXY)</span>
                         <input type="checkbox" id="proxyToggle">
                     </div>
-                    <div id="bidToasts" class="bid-toasts">
+                    <!-- <div id="bidToasts" class="bid-toasts">
                         ⚡ Mức giá vừa tăng lên <span id="toastPrice">0</span>!
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="modal-overlay" id="confirmOverlay">
@@ -1572,9 +1600,9 @@
             </div>
         </div>
 
-        <!-- <div id="bidToast" class="bid-toast">
+        <div id="bidToast" class="bid-toast">
             ⚡ Mức giá vừa tăng lên <span id="toastPrice">2.5 tỷ</span>!
-        </div> -->
+        </div>
     </section>
 
     <!-- -----------------------------------section 3 -----------------------------------  -->
@@ -1793,6 +1821,13 @@
 <script>
     gsap.registerPlugin(ScrollTrigger);
 
+
+
+    function parseCurrency(text) {
+        // Xóa tất cả ký tự không phải là số (dấu phẩy, dấu chấm, chữđ, VNĐ...)
+        return parseInt(text.replace(/\D/g, '')) || 0;
+    }
+
     // ------------------------------- section 1 ----------------------------------//
     // 1. Hiệu ứng 3D Tilt cho biển số
     const plate = document.querySelector('.glass-frame');
@@ -1808,15 +1843,21 @@
             });
         });
     }
+    // Hàm này giúp lấy con số đang hiển thị trên màn hình và chuyển về dạng số để tính toán
+    function getCurrentPriceFromUI() {
+        const el = document.querySelector('.current-price .amount');
+        return el ? parseInt(el.innerText.replace(/\D/g, '')) : 0;
+    }
     // --- HIGH-STAKES LOGIC ---
     let currentPriceValue = 2450000000;
-    let timeLeftSeconds = 45 * 60 + 12; // 00:45:12
+    let timeLeftSeconds = 12; // 00:45:12: 45 * 60 + 12
     const minStepValue = 50000000;
 
     // 1. Quick Add
     function addBid(amount) {
         const input = document.getElementById('mainBidInput');
-        let currentInp = parseInt(input.value) || currentPriceValue;
+        let priceNow = getCurrentPriceFromUI();
+        let currentInp = parseInt(input.value) || priceNow;
         input.value = currentInp + amount;
     }
 
@@ -1841,75 +1882,138 @@
     function closeModal() {
         document.getElementById('confirmOverlay').style.display = 'none';
     }
+    let lastBidderName = "";
 
     // 3. Xử lý đặt giá thành công & Sniper Protection
     function processFinalBid() {
-        // 1. Lấy giá trị từ ô input
-    const input = document.getElementById('mainBidInput');
-    const val = parseInt(input.value);
-    
-    if (isNaN(val)) return;
+        // 1. Lấy và kiểm tra giá trị nhập vào
+        const input = document.getElementById('mainBidInput');
+        const val = parseInt(input.value);
+        document.querySelector('.current-price .amount').innerText = val.toLocaleString();
+        const currentBidder = "Bạn"; // Tên hiển thị của người dùng
 
-    // 2. Cập nhật giá hiển thị trên bảng điện tử
-    currentPriceValue = val;
-    const priceDisplay = document.querySelector('.current-price .amount');
-    if (priceDisplay) priceDisplay.innerText = val.toLocaleString();
+        if (isNaN(val)) return;
+        addNewBid("Bạn", val);
 
-        // Cập nhật giá hiển thị
-
-        // 2. Hiệu ứng Sniper Protection (Logic cũ)
-        if (timeLeftSeconds < 30) {
-            timeLeftSeconds += 30;
+        // 2. Cập nhật giá hiển thị chính (Bảng số điện tử)
+        currentPriceValue = val;
+        const priceAmountEl = document.querySelector('.current-price .amount');
+        if (priceAmountEl) {
+            priceAmountEl.innerText = val.toLocaleString();
         }
-        // 3. Hiển thị thông báo Toast (bidToasts)
-    const toast = document.getElementById('bidToasts');
-    const toastPrice = document.getElementById('toastPrice');
-    
-    if (toast && toastPrice) {
-        toastPrice.innerText = val.toLocaleString() + " VNĐ";
-        toast.classList.add('active');
-        
-        // Tự động ẩn sau 3 giây
-        setTimeout(() => {
-            toast.classList.remove('active');
-        }, 3000);
-    }
 
-        // 3. Đóng Modal và Reset trạng thái về ban đầu
-        closeModal(); // Đóng cửa sổ xác nhận
+        // // 3. Logic Sniper Protection: Nếu còn dưới 30s thì cộng thêm 30s
+        // if (typeof timeLeftSeconds !== 'undefined' && timeLeftSeconds < 30) {
+        //     timeLeftSeconds += 30;
+        // }
 
-        /// Ẩn bảng điều khiển nhập liệu (High-Stakes Control)
+        // 4. Cập nhật Lịch sử đặt giá (Section bid-pulse)
+        const topPriceEl = document.getElementById('topPrice');
+        if (topPriceEl) {
+            topPriceEl.innerText = val.toLocaleString();
+        }
+        const topPriceEls = document.getElementById('topPrices');
+        if (topPriceEls) {
+            topPriceEls.innerText = val.toLocaleString();
+        }
+
+        const bidFeed = document.getElementById('bidFeed');
+        if (bidFeed) {
+            // KIỂM TRA: Nếu cùng một người đặt liên tiếp thì không tạo thẻ mới
+            if (currentBidder === lastBidderName) {
+                const currentLeaderAmount = bidFeed.querySelector('.bid-card.leader .bid-amount');
+                if (currentLeaderAmount) {
+                    currentLeaderAmount.innerText = val.toLocaleString() + "đ";
+                    // Hiệu ứng nháy xanh nhẹ báo hiệu giá đã cập nhật
+                    currentLeaderAmount.style.color = "#2ecc71";
+                    setTimeout(() => {
+                        currentLeaderAmount.style.color = "";
+                    }, 1000);
+                }
+            } else {
+                // Nếu là người khác hoặc lần đầu đặt: Tăng số lượng Bid
+                const totalBidsEl = document.getElementById('totalBids');
+                if (totalBidsEl) {
+                    let currentBids = parseCurrency(totalBidsEl.innerText);
+                    totalBidsEl.innerText = currentBids + 1;
+                }
+
+                // Chuyển card cũ thành 'outbid' (mất vương miện)
+                const oldLeader = bidFeed.querySelector('.bid-card.leader');
+                if (oldLeader) {
+                    oldLeader.classList.remove('leader');
+                    oldLeader.classList.add('outbid');
+                    const crown = oldLeader.querySelector('.crown-icon');
+                    const status = oldLeader.querySelector('.bidder-status');
+                    if (crown) crown.remove();
+                    if (status) status.remove();
+                }
+
+                // Chèn card mới lên đầu
+                const newBidHtml = `
+                <div class="bid-card leader animate-new-bid">
+                    <div class="bid-identity">
+                        <div class="crown-icon">👑</div>
+                        <div class="bidder-info">
+                            <span class="bidder-name">${currentBidder}</span>
+                            <span class="bidder-status">DẪN ĐẦU</span>
+                        </div>
+                    </div>
+                    <div class="bid-time">Vừa xong</div>
+                    <div class="bid-amount">${val.toLocaleString()}đ</div>
+                </div>
+            `;
+                bidFeed.insertAdjacentHTML('afterbegin', newBidHtml);
+            }
+        }
+
+        // Lưu lại tên người vừa đặt
+        lastBidderName = currentBidder;
+
+        // 5. Hiển thị thông báo Toast (bidToasts)
+        const toast = document.getElementById('bidToasts');
+        const toastPrice = document.getElementById('toastPrice');
+        if (toast && toastPrice) {
+            toastPrice.innerText = val.toLocaleString() + " VNĐ";
+            toast.classList.add('active');
+            setTimeout(() => toast.classList.remove('active'), 3000);
+        }
+        showToast(val);
+
+        // 6. Reset giao diện về trạng thái ban đầu (Nút nhấn giữ)
+        closeModal(); // Đóng Modal xác nhận
+        resetToInitialState();
+
+        // Ẩn bảng điều khiển High-Stakes
         const highStakesControl = document.getElementById('highStakesControl');
         if (highStakesControl) {
             highStakesControl.classList.remove('high-stakes-visible');
             highStakesControl.style.display = 'none';
         }
-        // Hiện lại khu vực nút "NHẤN GIỮ ĐỂ ĐẶT GIÁ"
+
+        // Hiện lại nút nhấn giữ
         const bidActions = document.querySelector('.bid-actions');
         if (bidActions) {
             bidActions.style.display = 'block';
         }
 
-        // Reset thanh tiến trình và trạng thái nút nhấn giữ
+        // Reset Progress Bar và biến progress
         const btnBid = document.getElementById('btnBid');
         const bidProgress = document.getElementById('bidProgress');
         if (btnBid && bidProgress) {
             btnBid.classList.remove('active');
             bidProgress.style.width = '0%';
         }
-        progress = 0; // Reset biến progress về 0 để có thể nhấn giữ lần sau
+        progress = 0;
 
-        // Nếu đang mở Action Sheet trên Mobile thì đóng lại
+        // Đóng Mobile Action Sheet nếu có
         const mobileSheet = document.getElementById('mobileSheet');
         if (mobileSheet) {
             mobileSheet.classList.remove('active');
         }
-        document.getElementById('mainBidInput').value = '';
-        document.querySelector('.current-price .amount').innerText = val.toLocaleString();
 
-
-        // Thông báo thành công (Tùy chọn)
-        // alert("Đặt giá thành công: " + val.toLocaleString() + " VNĐ");
+        // Xóa trắng ô input cho lần đặt sau
+        input.value = '';
     }
 
     // 4. New Bid Alert (Giả lập khi có người khác đặt đè)
@@ -2020,10 +2124,20 @@
 
     // Logic cho nút GỬI ĐẶT GIÁ sau khi hiện bảng
     document.getElementById('btnSubmitBid').addEventListener('click', function() {
-        const val = document.getElementById('mainBidInput').value;
-        if (val) {
-            document.getElementById('confirmText').innerText = `Bạn có chắc chắn muốn đặt ${parseInt(val).toLocaleString()} VNĐ cho biển số này?`;
-            document.getElementById('confirmOverlay').style.display = 'flex';
+        const input = document.getElementById('mainBidInput');
+        const val = parseInt(input.value);
+        const error = document.getElementById('errorMsg');
+
+        // Lấy giá cao nhất tại ĐÚNG THỜI ĐIỂM bấm nút
+        const latestPrice = getCurrentPriceFromUI();
+
+        if (!val || val < latestPrice + minStepValue) {
+            input.classList.add('input-error');
+            error.style.display = 'block';
+            // Cập nhật thông báo lỗi động với giá mới nhất
+            error.innerText = `Mức giá phải cao hơn giá hiện tại ít nhất ${minStepValue.toLocaleString()}đ`;
+            setTimeout(() => input.classList.remove('input-error'), 400);
+            return;
         } else {
             document.getElementById('mainBidInput').classList.add('input-error');
             setTimeout(() => document.getElementById('mainBidInput').classList.remove('input-error'), 400);
@@ -2092,8 +2206,40 @@
     function addNewBid(name, amount) {
         const feed = document.getElementById('bidFeed');
         const totalBidsEl = document.getElementById('totalBids');
+        const topPriceEl = document.getElementById('topPrice');
 
-        // 1. Tạo HTML cho thẻ mới
+        // Cập nhật ngay lập tức biến toàn cục và con số hiển thị chính
+        currentPriceValue = amount;
+        document.querySelector('.current-price .amount').innerText = amount.toLocaleString();
+
+        // A. Cập nhật Tổng giá trị cực đại (Top Price) ở phần lịch sử
+        if (topPriceEl) {
+            topPriceEl.innerText = amount.toLocaleString();
+        }
+
+        // B. Kiểm tra nếu là cùng một người thì cập nhật giá, không tạo thẻ mới
+        if (name === lastBidderName) {
+            const leaderAmountEl = feed.querySelector('.bid-card.leader .bid-amount');
+            if (leaderAmountEl) {
+                leaderAmountEl.innerText = amount.toLocaleString() + "đ";
+                leaderAmountEl.parentElement.classList.add('new-entry');
+                setTimeout(() => leaderAmountEl.parentElement.classList.remove('new-entry'), 500);
+                return; // Dừng lại, không tạo thêm thẻ
+            }
+        }
+
+        // C. Nếu là người mới: Chuyển leader cũ thành outbid
+        const oldLeader = feed.querySelector('.bid-card.leader');
+        if (oldLeader) {
+            oldLeader.classList.remove('leader');
+            oldLeader.classList.add('outbid');
+            const status = oldLeader.querySelector('.bidder-status');
+            if (status) status.remove();
+            const crown = oldLeader.querySelector('.crown-icon');
+            if (crown) crown.remove();
+        }
+
+        // D. Tạo HTML cho thẻ mới với giá ĐÃ TĂNG
         const newBid = document.createElement('div');
         newBid.className = 'bid-card leader new-entry';
         newBid.innerHTML = `
@@ -2108,36 +2254,17 @@
         <div class="bid-amount">${amount.toLocaleString()}đ</div>
     `;
 
-        // 2. Chuyển thẻ leader cũ thành outbid
-        const oldLeader = feed.querySelector('.leader');
-        if (oldLeader) {
-            oldLeader.classList.remove('leader');
-            oldLeader.classList.add('outbid');
-            oldLeader.querySelector('.crown-icon').style.display = 'none';
-            oldLeader.querySelector('.bidder-status').innerText = 'ĐÃ BỊ VƯỢT';
+        // Chèn vào đầu danh sách
+        feed.prepend(newBid);
+
+        // E. Tăng tổng số lượt Bid
+        if (totalBidsEl) {
+            let currentTotal = parseInt(totalBidsEl.innerText.replace(/\D/g, '')) || 0;
+            totalBidsEl.innerText = currentTotal + 1;
         }
 
-        // 3. Chèn vào đầu danh sách và hiệu ứng trượt
-        feed.insertBefore(newBid, feed.firstChild);
-        gsap.from(newBid, {
-            height: 0,
-            opacity: 0,
-            y: -50,
-            duration: 0.6,
-            ease: "power3.out"
-        });
-
-        // 4. Hiệu ứng phát sáng Cyan/Gold
-        gsap.to(newBid, {
-            boxShadow: "0 0 40px rgba(0, 242, 255, 0.4)",
-            duration: 0.3,
-            yoyo: true,
-            repeat: 1
-        });
-
-        // 5. Cập nhật tổng số Bids và giá trị
-        totalBidsEl.innerText = parseInt(totalBidsEl.innerText) + 1;
-        showToast(amount);
+        // Cập nhật người đặt cuối cùng
+        lastBidderName = name;
     }
 
     // Hàm hiện thông báo Toast trên Mobile
