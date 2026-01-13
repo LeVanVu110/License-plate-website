@@ -220,7 +220,7 @@
             color: #fff;
             position: relative;
             overflow: hidden;
-            height: 150vh;
+            height: 165vh;
 
         }
 

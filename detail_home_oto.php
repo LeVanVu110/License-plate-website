@@ -1,4 +1,90 @@
 <?php include "header.php" ?>
+<?php
+// Nhận dữ liệu biển số
+$plate = isset($_GET['plate']) ? $_GET['plate'] : "30K - 999.99";
+$clean_plate = str_replace(['.', ' ', '-'], '', $plate);
+
+// Nhận dữ liệu giá
+$price_str = isset($_GET['price']) ? $_GET['price'] : "2.500.000.000";
+// Chuyển giá từ dạng "155.000.000" thành số nguyên 155000000 để chạy Counter
+$price_num = (int)str_replace('.', '', $price_str);
+// Logic tính điểm "Đại Cát" mô phỏng dựa trên số cuối của biển số
+// Ví dụ: Đuôi 88, 99 sẽ là 9.5 - 10 điểm, các số khác thấp hơn một chút
+$last_digits = substr(str_replace('.', '', $plate), -2); // Lấy 2 số cuối
+
+if (in_array($last_digits, ['88', '99', '66'])) {
+    $grand_score = "9.9";
+} elseif (in_array($last_digits, ['79', '39', '68'])) {
+    $grand_score = "9.5";
+} elseif (in_array($last_digits, ['22', '55', '33'])) {
+    $grand_score = "8.8";
+} else {
+    $grand_score = "8.2";
+}
+// ngũ hành section 2 
+// Xác định Ngũ hành dựa trên số cuối cùng của biển số
+// 1, 2: Mộc | 3, 4: Hỏa | 5, 6: Thổ | 7, 8: Kim | 9, 0: Thủy
+$last_num = (int)substr($clean_plate, -1);
+
+if (in_array($last_num, [7, 8])) {
+    $hanh = "HÀNH KIM";
+    $colors = [
+        ['bg' => '#E5E4E2', 'title' => 'Trắng Pearl'],
+        ['bg' => '#D4AF37', 'title' => 'Vàng Gold'],
+        ['bg' => '#A9A9A9', 'title' => 'Xám Bạc']
+    ];
+} elseif (in_array($last_num, [9, 0])) {
+    $hanh = "HÀNH THỦY";
+    $colors = [
+        ['bg' => '#0D0D0D', 'title' => 'Đen Obsidian'],
+        ['bg' => '#152238', 'title' => 'Xanh Deep Blue'],
+        ['bg' => '#E5E4E2', 'title' => 'Trắng Bạc']
+    ];
+} elseif (in_array($last_num, [1, 2])) {
+    $hanh = "HÀNH MỘC";
+    $colors = [
+        ['bg' => '#006400', 'title' => 'Xanh Lá'],
+        ['bg' => '#0D0D0D', 'title' => 'Đen'],
+        ['bg' => '#152238', 'title' => 'Xanh Dương']
+    ];
+} elseif (in_array($last_num, [3, 4])) {
+    $hanh = "HÀNH HỎA";
+    $colors = [
+        ['bg' => '#8B0000', 'title' => 'Đỏ Đô'],
+        ['bg' => '#FF4500', 'title' => 'Cam Rực'],
+        ['bg' => '#006400', 'title' => 'Xanh Lá']
+    ];
+} else { // 5, 6
+    $hanh = "HÀNH THỔ";
+    $colors = [
+        ['bg' => '#8B4513', 'title' => 'Nâu Đất'],
+        ['bg' => '#D4AF37', 'title' => 'Vàng Gold'],
+        ['bg' => '#8B0000', 'title' => 'Đỏ Đô']
+    ];
+}
+// kinh dịnh section 2 
+// Xác định Quẻ Dịch dựa trên số cuối (mô phỏng)
+// Trong thực tế sẽ tính theo tổng số hoặc bát quái, ở đây ta dùng logic gợi ý:
+$last_num_hex = (int)substr($clean_plate, -1);
+
+if (in_array($last_num_hex, [8, 9])) {
+    $hex_name = "THIÊN HỎA ĐỒNG NHÂN";
+    $hex_title = "Quẻ Đồng Nhân";
+    $hex_desc = "Tượng trưng cho sự đồng lòng, kết nối những mối quan hệ thượng lưu, vạn sự hanh thông và được quý nhân phù trợ.";
+} elseif (in_array($last_num_hex, [6, 1])) {
+    $hex_name = "THIÊN HẠ HỮU HỎA";
+    $hex_title = "Quẻ Đại Hữu";
+    $hex_desc = "Tượng trưng cho sự giàu có cực thịnh, khẳng định vị thế độc tôn và quyền lực vĩnh cửu trong sự nghiệp.";
+} elseif (in_array($last_num_hex, [5, 2])) {
+    $hex_name = "ĐỊA THIÊN THÁI";
+    $hex_title = "Quẻ Thái";
+    $hex_desc = "Thời kỳ phồn thịnh, trời đất giao hòa. Mang lại sự bình an tuyệt đối và sự tăng trưởng bền vững cho gia tộc.";
+} else {
+    $hex_name = "LÔI THIÊN ĐẠI TRÁNG";
+    $hex_title = "Quẻ Đại Tráng";
+    $hex_desc = "Chí khí lẫm liệt, sức mạnh vô song. Phù hợp cho những chủ nhân đang dẫn dắt những tập đoàn lớn.";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -501,7 +587,7 @@
 
         .element-main {
             font-family: 'Cinzel', serif;
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 700;
             color: #D4AF37;
             margin-bottom: 20px;
@@ -1883,7 +1969,7 @@
                     <div class="plate-mica">
                         <div class="light-sweep"></div>
                         <div class="plate-content">
-                            <span class="plate-number" id="mainPlate">30K - 999.99</span>
+                            <span class="plate-number" id="mainPlate"><?php echo $plate ?></span>
                         </div>
                     </div>
                     <div class="plate-shadow"></div>
@@ -1895,7 +1981,7 @@
                 <div class="valuation-box">
                     <span class="label">GIÁ ĐẤU GIÁ CAO NHẤT</span>
                     <div class="current-price">
-                        <span id="price-counter" data-target="15200000000">0</span>
+                        <span id="price-counter" data-target="<?php echo $price_num ?>">0</span>
                         <span class="currency">VND</span>
                     </div>
                 </div>
@@ -1915,33 +2001,39 @@
                 <div class="grid-item central-matrix">
                     <div class="oracle-circle-wrapper">
                         <div class="oracle-circle" id="numberFlow">
-                            <div class="center-symbol">☯</div>
+                            <div class="center-symbol">
+                                <!-- ☯ -->
+                            </div>
                         </div>
                         <div class="decor-circle circle-1"></div>
                         <div class="decor-circle circle-2"></div>
                     </div>
                     <div class="score-display">
                         <span class="score-label">ĐIỂM ĐẠI CÁT</span>
-                        <div class="grand-score">9.5</div>
+                        <div class="grand-score" id="grandScore"><?php echo $grand_score; ?></div>
                     </div>
                 </div>
 
                 <div class="grid-item card-frosted hexagram-card">
                     <span class="card-tag">KINH DỊCH</span>
-                    <h3 class="hex-name">THIÊN HẠ HỮU HỎA</h3>
-                    <p class="hex-desc">Quẻ Đại Hữu: Tượng trưng cho sự giàu có cực thịnh, khẳng định vị thế độc tôn và quyền lực vĩnh cửu trong sự nghiệp.</p>
+                    <h3 class="hex-name"><?php echo $hex_name; ?></h3>
+                    <p class="hex-desc"><strong><?php echo $hex_title; ?>:</strong> <?php echo $hex_desc; ?></p>
                 </div>
 
                 <div class="grid-item card-frosted element-card">
                     <span class="card-tag">NGŨ HÀNH TRƯỜNG KHÍ</span>
                     <div class="element-content">
-                        <div class="element-main">HÀNH KIM</div>
+                        <div class="element-main"><?php echo $hanh; ?></div>
+
                         <div class="car-suggestion">
                             <span>Hợp màu xe:</span>
                             <div class="color-dots">
-                                <div class="dot" style="background: #E5E4E2;" title="Trắng Pearl"></div>
-                                <div class="dot" style="background: #0D0D0D;" title="Đen Obsidian"></div>
-                                <div class="dot" style="background: #152238;" title="Xanh Deep Blue"></div>
+                                <?php foreach ($colors as $color): ?>
+                                    <div class="dot"
+                                        style="background: <?php echo $color['bg']; ?>;"
+                                        title="<?php echo $color['title']; ?>">
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
@@ -2162,6 +2254,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script>
+    ScrollTrigger.config({
+        ignoreMobileResize: true
+    });
+    ScrollTrigger.normalizeScroll(true);
     // ---------------------------- section 1------------------------------ //
     document.addEventListener("DOMContentLoaded", function() {
         // 1. Hiệu ứng Light Sweep khi tải trang
@@ -2312,6 +2408,31 @@
             this.style.opacity = "1";
             alert("Biển số này ĐẠI CÁT với bản mệnh của bạn!");
         }, 1500);
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        const scoreElement = document.getElementById('grandScore');
+        const targetScore = parseFloat(scoreElement.innerText);
+        let currentScore = 0;
+
+        const scoreTimer = setInterval(() => {
+            currentScore += 0.1;
+            if (currentScore >= targetScore) {
+                scoreElement.innerText = targetScore.toFixed(1);
+                clearInterval(scoreTimer);
+            } else {
+                scoreElement.innerText = currentScore.toFixed(1);
+            }
+        }, 30); // Tốc độ nhảy số
+    });
+    gsap.from(".grid-item", {
+        scrollTrigger: {
+            trigger: ".grid-item",
+            start: "top 90%"
+        },
+        opacity: 0,
+        x: -30,
+        duration: 1,
+        ease: "power2.out"
     });
     // ---------------------------- section 3------------------------------ //
     document.addEventListener("DOMContentLoaded", function() {
@@ -2567,7 +2688,7 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animateCounter('assetValue', 5800000000);
+                    animateCounter('assetValue', <?php echo $price_num ?>);
                     gsap.to(".progress-fill", {
                         width: (i, el) => el.style.width,
                         duration: 1.5,
