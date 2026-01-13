@@ -1338,6 +1338,23 @@
             font-family: 'Inter', sans-serif;
         }
 
+        #carGrid a {
+            text-decoration: none !important;
+        }
+
+        .bike-card a {
+            color: inherit;
+            /* Giữ nguyên màu chữ của cha */
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .bike-card:hover {
+            transform: translateY(-5px);
+            /* Hiệu ứng nổi lên khi di chuột */
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .journal-grid {
@@ -1522,52 +1539,59 @@
         </div>
 
         <div class="car-grid" id="carGrid">
-            <div class="gallery-card car-card">
+            <a href="detail_home_xemay.php?plate=30K-999.99&price=3.200.000.000" class="gallery-card car-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">30K-999.99</div>
+                <div class="plate-ui-car" style="color: #fff;">30K-999.99</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">3.200.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card">
-                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">51K-888.88</div>
-                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">2.850.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card">
-                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">43A-666.66</div>
-                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">1.500.000.000 đ</div>
-            </div>
+            </a>
 
-            <div class="gallery-card car-card ">
+            <a href="detail_home_xemay.php?plate=51K-888.88&price=2.850.000.000" class="gallery-card car-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">30L-555.55</div>
+                <div class="plate-ui-car" style="color: #fff;">51K-888.88</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">2.850.000.000 đ</div>
+            </a>
+
+            <a href="detail_home_xemay.php?plate=43A-666.66&price=1.500.000.000" class="gallery-card car-card">
+                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
+                <div class="plate-ui-car" style="color: #fff;">43A-666.66</div>
+                <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">1.500.000.000 đ</div>
+            </a>
+
+            <a href="detail_home_xemay.php?plate=30L-555.55&price=950.000.000" class="gallery-card car-card">
+                <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
+                <div class="plate-ui-car" style="color: #fff;">30L-555.55</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">950.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card ">
+            </a>
+
+            <a href="detail_home_xemay.php?plate=51L-222.22&price=820.000.000" class="gallery-card car-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">51L-222.22</div>
+                <div class="plate-ui-car" style="color: #fff;">51L-222.22</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">820.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card ">
+            </a>
+
+            <a href="detail_home_xemay.php?plate=15A-999.99&price=1.200.000.000" class="gallery-card car-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">15A-999.99</div>
+                <div class="plate-ui-car" style="color: #fff;">15A-999.99</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">1.200.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card hidden-card">
+            </a>
+
+            <a href="detail_home_xemay.php?plate=30K-123.45&price=450.000.000" class="gallery-card car-card hidden-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">30K-123.45</div>
+                <div class="plate-ui-car" style="color: #fff;">30K-123.45</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">450.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card hidden-card">
+            </a>
+
+            <a href="detail_home_xemay.php?plate=51K-678.90&price=380.000.000" class="gallery-card car-card hidden-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">51K-678.90</div>
+                <div class="plate-ui-car" style="color: #fff;">51K-678.90</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">380.000.000 đ</div>
-            </div>
-            <div class="gallery-card car-card hidden-card">
+            </a>
+
+            <a href="detail_home_xemay.php?plate=30L-888.68&price=760.000.000" class="gallery-card car-card hidden-card">
                 <span style="color: var(--champagnes); font-size: 0.7rem; letter-spacing: 2px;">LUXURY SERIES</span>
-                <div class="plate-ui-car">30L-888.68</div>
+                <div class="plate-ui-car" style="color: #fff;">30L-888.68</div>
                 <div style="color: #fff; text-align: center; font-weight: bold; margin-top: 10px;">760.000.000 đ</div>
-            </div>
+            </a>
         </div>
 
         <div style="text-align: center; margin-top: 50px;">
@@ -1587,85 +1611,112 @@
 
         <div class="bike-grid" id="bikeGrid">
             <div class="gallery-card bike-card">
-                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
-                <div class="plate-ui-bike">
-                    <div class="top">29-A1</div>
-                    <div class="bottom">888.88</div>
-                </div>
-                <div style="color: #fff; text-align: center; font-weight: bold;">155.000.000 đ</div>
+                <a href="detail_home_oto.php?plate=29-A1 888.88&price=155.000.000" style="text-decoration: none; display: block; width: 100%;">
+                    <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
+                    <div class="plate-ui-bike">
+                        <div class="top">29-A1</div>
+                        <div class="bottom">888.88</div>
+                    </div>
+                    <div style="color: #fff; text-align: center; font-weight: bold;">155.000.000 đ</div>
+                </a>
             </div>
             <div class="gallery-card bike-card">
-                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
-                <div class="plate-ui-bike">
-                    <div class="top">59-B2</div>
-                    <div class="bottom">666.66</div>
-                </div>
-                <div style="color: #fff; text-align: center; font-weight: bold;">92.000.000 đ</div>
+                <a href="detail_home_oto.php?plate=59-B2+666.66&price=92.000.000" class="plate-link">
+                    <span class="series-tag">DYNAMIC SERIES</span>
+                    <div class="plate-ui-bike">
+                        <div class="top">59-B2</div>
+                        <div class="bottom">666.66</div>
+                    </div>
+                    <div style="color: #fff; text-align: center; font-weight: bold;">92.000.000 đ</div>
+                </a>
             </div>
+
             <div class="gallery-card bike-card">
-                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
-                <div class="plate-ui-bike">
-                    <div class="top">43-C1</div>
-                    <div class="bottom">799.99</div>
-                </div>
-                <div style="color: #fff; text-align: center; font-weight: bold;">88.000.000 đ</div>
+                <a href="detail_home_oto.php?plate=43-C1+799.99&price=88.000.000" class="plate-link">
+                    <span class="series-tag">DYNAMIC SERIES</span>
+                    <div class="plate-ui-bike">
+                        <div class="top">43-C1</div>
+                        <div class="bottom">799.99</div>
+                    </div>
+                    <div style="color: #fff; text-align: center; font-weight: bold;">88.000.000 đ</div>
+                </a>
             </div>
+
             <div class="gallery-card bike-card">
-                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
-                <div class="plate-ui-bike">
-                    <div class="top">30-Z1</div>
-                    <div class="bottom">123.45</div>
-                </div>
-                <div style="color: #fff; text-align: center; font-weight: bold;">75.000.000 đ</div>
+                <a href="detail_home_oto.php?plate=30-Z1+123.45&price=75.000.000" class="plate-link">
+                    <span class="series-tag">DYNAMIC SERIES</span>
+                    <div class="plate-ui-bike">
+                        <div class="top">30-Z1</div>
+                        <div class="bottom">123.45</div>
+                    </div>
+                    <div style="color: #fff; text-align: center; font-weight: bold;">75.000.000 đ</div>
+                </a>
             </div>
+
             <div class="gallery-card bike-card">
-                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
-                <div class="plate-ui-bike">
-                    <div class="top">29-P1</div>
-                    <div class="bottom">999.99</div>
-                </div>
-                <div style="color: #fff; text-align: center; font-weight: bold;">110.000.000 đ</div>
+                <a href="detail_home_oto.php?plate=29-P1+999.99&price=110.000.000" class="plate-link">
+                    <span class="series-tag">DYNAMIC SERIES</span>
+                    <div class="plate-ui-bike">
+                        <div class="top">29-P1</div>
+                        <div class="bottom">999.99</div>
+                    </div>
+                    <div style="color: #fff; text-align: center; font-weight: bold;">110.000.000 đ</div>
+                </a>
             </div>
+
             <div class="gallery-card bike-card">
-                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
-                <div class="plate-ui-bike">
-                    <div class="top">51-F3</div>
-                    <div class="bottom">555.55</div>
-                </div>
-                <div style="color: #fff; text-align: center; font-weight: bold;">85.000.000 đ</div>
+                <a href="detail_home_oto.php?plate=51-F3+555.55&price=85.000.000" class="plate-link">
+                    <span class="series-tag">DYNAMIC SERIES</span>
+                    <div class="plate-ui-bike">
+                        <div class="top">51-F3</div>
+                        <div class="bottom">555.55</div>
+                    </div>
+                    <div style="color: #fff; text-align: center; font-weight: bold;">85.000.000 đ</div>
+                </a>
             </div>
+
             <div class="gallery-card bike-card">
-                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
-                <div class="plate-ui-bike">
-                    <div class="top">75-G1</div>
-                    <div class="bottom">222.22</div>
-                </div>
-                <div style="color: #fff; text-align: center; font-weight: bold;">65.000.000 đ</div>
+                <a href="detail_home_oto.php?plate=75-G1+222.22&price=65.000.000" class="plate-link">
+                    <span class="series-tag">DYNAMIC SERIES</span>
+                    <div class="plate-ui-bike">
+                        <div class="top">75-G1</div>
+                        <div class="bottom">222.22</div>
+                    </div>
+                    <div style="color: #fff; text-align: center; font-weight: bold;">65.000.000 đ</div>
+                </a>
             </div>
+
             <div class="gallery-card bike-card">
-                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
-                <div class="plate-ui-bike">
-                    <div class="top">37-B2</div>
-                    <div class="bottom">333.33</div>
-                </div>
-                <div style="color: #fff; text-align: center; font-weight: bold;">70.000.000 đ</div>
+                <a href="detail_home_oto.php?plate=37-B2+333.33&price=70.000.000" class="plate-link">
+                    <span class="series-tag">DYNAMIC SERIES</span>
+                    <div class="plate-ui-bike">
+                        <div class="top">37-B2</div>
+                        <div class="bottom">333.33</div>
+                    </div>
+                    <div style="color: #fff; text-align: center; font-weight: bold;">70.000.000 đ</div>
+                </a>
             </div>
 
             <div class="gallery-card bike-card hidden-bike">
-                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
-                <div class="plate-ui-bike">
-                    <div class="top">60-B8</div>
-                    <div class="bottom">888.88</div>
-                </div>
-                <div style="color: #fff; text-align: center; font-weight: bold;">95.000.000 đ</div>
+                <a href="detail_home_oto.php?plate=60-B8+888.88&price=95.000.000" class="plate-link">
+                    <span class="series-tag">DYNAMIC SERIES</span>
+                    <div class="plate-ui-bike">
+                        <div class="top">60-B8</div>
+                        <div class="bottom">888.88</div>
+                    </div>
+                    <div style="color: #fff; text-align: center; font-weight: bold;">95.000.000 đ</div>
+                </a>
             </div>
+
             <div class="gallery-card bike-card hidden-bike">
-                <span style="color: var(--titaniums); font-size: 0.7rem; letter-spacing: 2px;">DYNAMIC SERIES</span>
-                <div class="plate-ui-bike">
-                    <div class="top">92-H1</div>
-                    <div class="bottom">678.89</div>
-                </div>
-                <div style="color: #fff; text-align: center; font-weight: bold;">45.000.000 đ</div>
+                <a href="detail_home_oto.php?plate=92-H1+678.89&price=45.000.000" class="plate-link">
+                    <span class="series-tag">DYNAMIC SERIES</span>
+                    <div class="plate-ui-bike">
+                        <div class="top">92-H1</div>
+                        <div class="bottom">678.89</div>
+                    </div>
+                    <div style="color: #fff; text-align: center; font-weight: bold;">45.000.000 đ</div>
+                </a>
             </div>
         </div>
 

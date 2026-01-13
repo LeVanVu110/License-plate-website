@@ -220,7 +220,7 @@
             color: #fff;
             position: relative;
             overflow: hidden;
-            height: 150vh;
+            height: 165vh;
 
         }
 
@@ -656,6 +656,13 @@
         .btn-contact:hover::after {
             left: 150%;
             transition: all 0.8s ease-in-out;
+        }
+
+        .spirit-analysis {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: none;
+            /* Tránh việc chiếm chỗ khi chưa hiện */
         }
 
         /* Responsive */
@@ -1182,7 +1189,7 @@
             }
 
             .btn-vip-contact {
-                position: fixed;
+                /* position: fixed; */
                 bottom: 0;
                 left: 0;
                 z-index: 999;
@@ -1333,32 +1340,74 @@
             margin-bottom: 5px;
         }
 
-        /* Responsive Mobile */
+        /* --- RESPONSIVE SECTION 4 --- */
         @media (max-width: 768px) {
-            .market-dashboard {
-                grid-template-columns: 1fr;
+            .market-pulse {
+                padding: 60px 0;
+                width: 100%;
+                height: 100%;
             }
 
             .market-title {
                 font-size: 26px;
+                margin-bottom: 30px;
+                text-align: center;
             }
 
-            .value-wrap {
-                font-size: 32px;
-            }
-
-            .canvas-container {
-                height: 250px;
-            }
-
-            .indicators-grid {
+            .market-dashboard {
                 grid-template-columns: 1fr;
+                /* Chuyển về 1 cột */
+                gap: 30px;
             }
 
             .chart-area {
                 padding: 15px;
+                background: rgba(255, 255, 255, 0.01);
                 border: none;
-                background: transparent;
+            }
+
+            .canvas-container {
+                height: 220px;
+                /* Thu nhỏ biểu đồ trên mobile */
+            }
+
+            /* Tối ưu vùng hiển thị tiền */
+            .value-wrap {
+                font-size: 36px;
+                /* Giảm từ 56px xuống 36px */
+                display: flex;
+                flex-wrap: wrap;
+                align-items: baseline;
+            }
+
+            .currency {
+                font-size: 18px;
+            }
+
+            .main-valuation .description {
+                font-size: 14px;
+            }
+
+            /* Grid chỉ số trên mobile */
+            .indicators-grid {
+                grid-template-columns: 1fr;
+                /* Xếp chồng 2 thẻ Liquidity và Rarity */
+                gap: 15px;
+            }
+
+            .ind-item {
+                padding: 15px;
+            }
+
+            .comparison-box {
+                margin-top: 10px;
+            }
+        }
+
+        /* Fix lỗi tràn màn hình nhỏ (iPhone SE/5) */
+        @media (max-width: 380px) {
+            .value-wrap {
+                font-size: 28px;
             }
         }
     </style>
@@ -1375,8 +1424,19 @@
                     <div class="motor-plate">
                         <div class="plate-shine"></div>
                         <div class="plate-content">
-                            <div class="plate-top" id="plateTop">29-K</div>
-                            <div class="plate-bottom" id="plateBottom">777.77</div>
+                            <?php
+                            // 1. Lấy giá trị từ URL, nếu không có thì mặc định là 30K-999.99
+                            $plate_raw = isset($_GET['plate']) ? $_GET['plate'] : '30K-999.99';
+
+                            // 2. Tách chuỗi dựa trên dấu gạch ngang "-"
+                            // Ví dụ: 51K-888.88 sẽ tách thành mảng ["51K", "888.88"]
+                            $plate_parts = explode('-', $plate_raw);
+
+                            $top_part = isset($plate_parts[0]) ? $plate_parts[0] : '30K';
+                            $bottom_part = isset($plate_parts[1]) ? $plate_parts[1] : '999.99';
+                            ?>
+                            <div class="plate-top" id="plateTop"><?php echo htmlspecialchars($top_part); ?></div>
+                            <div class="plate-bottom" id="plateBottom"><?php echo htmlspecialchars($bottom_part); ?></div>
                         </div>
                         <div class="plate-frame"></div>
                     </div>
@@ -1405,8 +1465,12 @@
                 </div>
 
                 <div class="price-block">
+                    <?php
+                    // 1. Lấy giá trị từ URL, nếu không có thì mặc định là 30K-999.99
+                    $price_raw = isset($_GET['price']) ? $_GET['price'] : '920.000.000';
+                    ?>
                     <span class="price-label">Giá hiện tại</span>
-                    <div class="price-value">850.000.000<span>VND</span></div>
+                    <div class="price-value"><?php echo $price_raw ?><span>VND</span></div>
                 </div>
 
                 <div class="action-btns">
@@ -1552,7 +1616,15 @@
                     <div class="stat-card main-valuation">
                         <span class="label">ĐỊNH GIÁ HIỆN TẠI</span>
                         <div class="value-wrap">
-                            <span class="counting-wealth" data-target="850000000">0</span>
+                            <?php
+                            // Lấy giá trị price từ URL, nếu không có thì mặc định là 850.000.000
+                            $price_from_url = isset($_GET['price']) ? $_GET['price'] : '850.000.000';
+
+                            // Xử lý loại bỏ dấu chấm để lấy số thuần túy (Dùng cho data-target)
+                            // Ví dụ: "3.200.000.000" thành "3200000000"
+                            $numeric_price = str_replace('.', '', $price_from_url);
+                            ?>
+                            <span class="counting-wealth" data-target="<?php echo $numeric_price; ?>">0</span>
                             <span class="currency">VND</span>
                         </div>
                         <p class="description">Giá trị dựa trên dữ liệu đấu giá thực tế và độ khan hiếm khu vực.</p>
@@ -1592,8 +1664,9 @@
                         <div class="card-content">
                             <div class="card-logo">VIP MEMBERSHIP</div>
                             <div class="card-holder">
+                                <?php $plate_raw = isset($_GET['plate']) ? $_GET['plate'] : '30K-999.99'; ?>
                                 <span>ĐẶC QUYỀN SỞ HỮU</span>
-                                <div class="holder-name" id="cardPlateName">29-K 777.77</div>
+                                <div class="holder-name" id="cardPlateName"><?php echo $plate_raw ?></div>
                             </div>
                             <div class="card-footer">PREMIUM SERVICE</div>
                         </div>
@@ -1601,7 +1674,7 @@
                 </div>
 
                 <div class="keyring-preview">
-                    <img src="https://i.ibb.co/LzNfS8X/leather-keyring.png" alt="Keyring" class="keyring-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToVN_0y8dObMHrc86RvftHA5vGnxciSN6ZGQ&s" alt="Keyring" class="keyring-img">
                     <p>Quà tặng: Móc khóa da dập số độc bản</p>
                 </div>
             </div>
@@ -1654,17 +1727,19 @@
         </div>
     </section>
 
-    
+
 
     <?php include "footer.php" ?>
 </body>
 <script>
+    gsap.registerPlugin(ScrollTrigger);
+
     // --------------------------- section 1 --------------------------------- //
     document.addEventListener("DOMContentLoaded", function() {
         const plate = document.querySelector('.motor-plate');
         const wrap = document.querySelector('.plate-3d-wrap');
 
-        // 1. Animation lúc load trang (The Plate Slide)
+        // 1. Animation lúc load trang (The Plate Slide)    
         gsap.from(".motor-plate", {
             y: 100,
             opacity: 0,
@@ -1698,7 +1773,6 @@
 
     // --------------------------- section 2 --------------------------------- //
     document.addEventListener("DOMContentLoaded", function() {
-        gsap.registerPlugin(ScrollTrigger);
         // --- Cấu hình dữ liệu phong thủy theo số đuôi ---
         const fengShuiData = {
             '0': {
@@ -1821,18 +1895,18 @@
         // Chạy hàm phân tích ngay khi load
         analyzeFengShui();
 
-
+        ScrollTrigger.refresh();
         // 1. Reveal hiệu ứng khi cuộn trang
-        gsap.from(".info-card", {
-            scrollTrigger: {
-                trigger: ".numerology-spirit",
-                start: "top 70%",
-            },
-            x: -30,
-            opacity: 0,
-            stagger: 0.2,
-            duration: 1
-        });
+        // gsap.from(".info-card", {
+        //     scrollTrigger: {
+        //         trigger: ".numerology-spirit",
+        //         start: "top 70%",
+        //     },
+        //     x: 0,
+        //     opacity: 1,
+        //     stagger: 0.2,
+        //     duration: 1
+        // });
 
         // 2. Logic Tứ Hành - Đổi màu khi Hover
         const elementLabel = document.getElementById('element-label');
@@ -1990,6 +2064,30 @@
             });
         });
     }
+    // Tìm đến đoạn JS điều khiển spirit-analysis và sửa thành:
+    window.addEventListener("load", function() {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Ép ScrollTrigger tính toán lại toàn bộ vị trí sau khi load trang
+        ScrollTrigger.refresh();
+
+        gsap.to(".spirit-analysis", {
+            scrollTrigger: {
+                trigger: ".spirit-analysis",
+                start: "top 85%", // Kích hoạt sớm hơn một chút
+                onEnter: () => console.log("Spirit Analysis Activated"), // Debug để kiểm tra
+            },
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+
+        // Thêm dòng này để hỗ trợ các trình duyệt mobile
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 500);
+    });
 
 
     // --------------------------- section 3 --------------------------------- //
@@ -2177,7 +2275,6 @@
         });
 
         // 3. Hiệu ứng "The Golden Step" - Scroll Trigger Progress
-        gsap.registerPlugin(ScrollTrigger);
 
         gsap.to("#pathProgress", {
             height: "100%",
@@ -2248,18 +2345,28 @@
                 plugins: {
                     legend: {
                         display: false
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: '#1a1a1a',
+                        titleColor: '#D4AF37',
+                        bodyColor: '#fff',
+                        displayColors: false
                     }
                 },
                 scales: {
                     y: {
-                        display: false
+                        display: false // Ẩn trục Y để trông giống Sparkline trên Mobile
                     },
                     x: {
                         grid: {
                             display: false
                         },
                         ticks: {
-                            color: '#444'
+                            color: '#666',
+                            font: {
+                                size: window.innerWidth < 768 ? 10 : 12 // Chữ nhỏ hơn trên Mobile
+                            }
                         }
                     }
                 },
