@@ -1474,7 +1474,7 @@
             <div class="auction-row" id="row-1">
                 <div class="plate-numbers">51K-888.88</div>
                 <div class="bid-info">Người thầu: <span style="color:white">Dương Quý ***</span></div>
-                <div class="current-price">3,450,000,000 đ</div>
+                <div class="current-price">2,450,000,000 đ</div>
                 <div class="countdown-timer">
                     <div class="flip-unit">
                         <div class="flip-card">0</div>
@@ -1491,13 +1491,15 @@
                         <div class="flip-card">8</div>
                     </div>
                 </div>
-                <button class="btn-bid" onclick="simulateBid('row-1')">Trả giá</button>
+                <button class="btn-bid" onclick="goToDetail('51K-888.88', '2450000000')">Trả giá</button>
+
+                <!-- <button class="btn-bid" onclick="simulateBid('row-1')">Trả giá</button> -->
             </div>
 
             <div class="auction-row" id="row-2">
                 <div class="plate-numbers">30L-666.66</div>
                 <div class="bid-info">Người thầu: <span style="color:white">Nguyễn Anh ***</span></div>
-                <div class="current-price">1,200,000,000 đ</div>
+                <div class="current-price">2,450,000,000 đ</div>
                 <div class="countdown-timer">
                     <div class="flip-unit">
                         <div class="flip-card">0</div>
@@ -1514,7 +1516,7 @@
                         <div class="flip-card">2</div>
                     </div>
                 </div>
-                <button class="btn-bid" onclick="simulateBid('row-2')">Trả giá</button>
+                <button class="btn-bid" onclick="goToDetail('30L-666.66', '2450000000')">Trả giá</button>
             </div>
         </div>
     </section>
@@ -1943,6 +1945,11 @@
         }
 
         startCountdown();
+
+        function goToDetail(plate, price) {
+            // Chuyển hướng sang daugia.php kèm tham số trên URL
+            window.location.href = `daugia.php?plate=${plate}&price=${price}`;
+        }
         // --------------------------------- section 5 --------------------------- //
         // 1. Sự kiện cho Ô tô
         document.getElementById('loadMoreBtn').addEventListener('click', function() {

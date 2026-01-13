@@ -1,4 +1,10 @@
 <?php include "header.php" ?>
+<?php 
+// Lấy dữ liệu từ URL, nếu không có thì dùng mặc định
+    $plate = isset($_GET['plate']) ? $_GET['plate'] : "30K-999.99";
+    $price = isset($_GET['price']) ? $_GET['price'] : "2450000000";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1467,7 +1473,7 @@
                     <span class="pulse-red"></span> LIVE • 1,240 WATCHING
                 </div>
                 <div class="glass-frame">
-                    <div class="plate-number">30K-999.99</div>
+                    <div class="plate-number"><?php echo $plate; ?></div>
                     <div class="light-sweep"></div>
                 </div>
             </div>
@@ -1481,7 +1487,7 @@
                 <div class="price-display">
                     <span class="label">GIÁ HIỆN TẠI</span>
                     <div class="current-price" id="priceDisplay">
-                        <span class="amount" id="topPrices">2,450,000,000</span>
+                        <span class="amount" id="topPrices"><?php echo number_format($price); ?></span>
                         <span class="currency">VNĐ</span>
                     </div>
                 </div>
