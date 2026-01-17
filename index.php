@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
         /* --------------------------------- phần 1video xe banner || phần 2 nav-menu -----------------------  */
@@ -17,10 +18,19 @@
             width: 100%;
             height: 100vh;
             background: #000;
+            overflow: hidden;
             display: flex;
+            /* Căn giữa canvas */
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+        }
+
+        #car-canvas {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            display: block;
         }
 
         #car-video {
@@ -30,6 +40,7 @@
             margin-top: 10%;
             margin-left: 30%;
         }
+
 
         .video-overlay {
             position: absolute;
@@ -63,6 +74,26 @@
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
             opacity: 0;
             animation: fadeIn 1.5s forwards 2s;
+            /* Hiện sau khi video chạy 2s */
+        }
+
+        /* Biển số xe */
+        .plate-boxs {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            width: 5% !important;
+            transform: translateX(-50%);
+
+            /* Hiện sau khi video chạy 2s */
+        }
+
+        .plate-boxss {
+            position: absolute;
+            bottom: 7%;
+            left: 50%;
+            transform: translateX(-50%);
+
             /* Hiện sau khi video chạy 2s */
         }
 
@@ -125,7 +156,7 @@
 
         .garage-overlay {
             position: absolute;
-            top: 50%;
+            top: 15%;
             left: 8%;
             z-index: 10;
             pointer-events: none;
@@ -140,10 +171,54 @@
                 margin-left: -5%;
             }
 
+            .garage-overlay {
+                top: 65%;
+                /* Đẩy chữ lên trên để không che xe */
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                width: 100%;
+            }
+
+            .garage-overlay h2 {
+                font-size: 1.8rem !important;
+                /* Chữ nhỏ lại trên mobile */
+                letter-spacing: 4px !important;
+            }
+
             .plate-box {
                 text-align: center;
                 padding: 5px 5px;
                 width: 70%;
+                margin-bottom: -30px !important;
+            }
+
+            .plate-boxs {
+                text-align: center;
+                padding: 0px 5px;
+                width: 16% !important;
+                margin-bottom: -16px !important;
+            }
+
+            .plate-boxss {
+                text-align: center;
+                padding: 5px 5px;
+                width: 70%;
+                margin-bottom: -30px !important;
+            }
+
+            #car-canvas {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                /* Đảm bảo canvas tràn màn hình */
+            }
+
+            .video-container {
+                max-height: 80% !important;
+                max-width: 100% !important;
+
             }
         }
 
@@ -1377,21 +1452,24 @@
     <!-- ------------------------------------------ phần 1video xe banner || phần 2 nav-menu --------------------------------------------  -->
 
     <div class="video-container">
-        <video id="car-video" autoplay muted playsinline>
+        <!-- <video id="car-video" autoplay muted playsinline>
             <source src="Agen_video.mp4" type="video/mp4">
-        </video>
+        </video> -->
+        <canvas id="car-canvas"></canvas>
+
 
         <div class="video-overlay">
             <!-- <h1>THE GATEWAY</h1> -->
         </div>
         <div class="garage-overlay">
             <h2 style="font-size: 2.5rem; font-weight: 300; letter-spacing: 8px;">VIRTUAL<br>GARAGE</h2>
-            <div style="width: 50px; height: 1px; background: var(--champagne); margin: 20px 0;"></div>
-            <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: #666;">Cuộn chuột để xoay
-                xe</p>
+
         </div>
 
         <div class="plate-box">M ZS 7299</div>
+        <div class="plate-boxs" style="width: 50px; height: 1px; background: var(--champagne); margin: 20px 0;"></div>
+        <p class="plate-boxss" style="font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: #666;">Cuộn chuột để xoay
+            xe</p>
 
         <!-- <div class="scroll-indicator">SCROLL TO EXPLORE</div> -->
     </div>
@@ -1769,22 +1847,123 @@
     <script>
         // ------------------------------- phần 1 video xe banner------------------------  //
 
-        // Hiệu ứng hiện nội dung khi cuộn tới
-        const infoSection = document.getElementById('info-section');
+        // Đăng ký plugin
+        gsap.registerPlugin(ScrollTrigger);
 
-        window.addEventListener('scroll', () => {
-            const sectionTop = infoSection.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
+        const canvas = document.getElementById("car-canvas");
+        const context = canvas.getContext("2d");
 
-            if (sectionTop < windowHeight * 0.75) {
-                infoSection.classList.add('visible');
-            }
+        // 1. CẤU HÌNH THÔNG SỐ
+        const frameCount = 200; // Thay đổi số này bằng tổng số lượng ảnh bạn đã cắt ra
+        const currentFrame = index => (
+            `./frames/ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`
+        );
+
+        // 2. TẠI SAO PHẢI DÙNG CANVAS: 
+        // Trình duyệt vẽ ảnh cực nhanh, giúp hiệu ứng bóc tách linh kiện xe mượt mà
+        const images = [];
+        const carAnim = {
+            frame: 0
+        };
+
+        // Tải trước (Preload) toàn bộ ảnh vào bộ nhớ đệm (RAM)
+        for (let i = 0; i < frameCount; i++) {
+            const img = new Image();
+            img.src = currentFrame(i);
+            images.push(img);
+        }
+
+        // 3. GSAP SCROLL TRIGGER
+        gsap.to(carAnim, {
+            frame: frameCount - 1,
+            snap: "frame", // Khớp chính xác vào từng khung hình
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".video-container",
+                start: "top top",
+                end: "+=3500", // Độ dài cuộn (số càng lớn cuộn càng chậm và mượt)
+                scrub: 1.2, // Độ trễ nhẹ để khử sự khựng của chuột
+                pin: true, // Giữ màn hình đứng yên cho đến khi xe xoay xong
+                anticipatePin: 1
+            },
+            onUpdate: render // Vẽ lại khi cuộn
         });
 
-        // Đảm bảo video luôn chạy ở tốc độ mượt nhất
-        const video = document.getElementById('car-video');
-        video.playbackRate = 0.9; // Làm chậm video lại một chút (80%) để cinematic hơn
+        // Hàm vẽ hình ảnh lên Canvas
+        function render() {
+            if (images[carAnim.frame]) {
+                const img = images[carAnim.frame];
 
+                // Lấy kích thước màn hình hiện tại
+                const screenWidth = window.innerWidth;
+                const screenHeight = window.innerHeight;
+
+                // Thiết lập kích thước canvas bằng kích thước màn hình
+                canvas.width = screenWidth;
+                canvas.height = screenHeight;
+
+                const ctx = context;
+
+                // Tính toán tỉ lệ để ảnh không bị tràn (Logic Object-fit: Contain)
+                const imgRatio = img.width / img.height;
+                const screenRatio = screenWidth / screenHeight;
+
+                let drawWidth, drawHeight, offsetX, offsetY;
+
+                // Nếu bạn muốn xe LUÔN HIỆN ĐỦ (không bị mất phần nào):
+                if (screenRatio > imgRatio) {
+                    drawHeight = screenHeight;
+                    drawWidth = screenHeight * imgRatio;
+                    offsetX = (screenWidth - drawWidth) / 2;
+                    offsetY = 0;
+                } else {
+                    drawWidth = screenWidth;
+                    drawHeight = screenWidth / imgRatio;
+                    offsetX = 0;
+                    offsetY = (screenHeight - drawHeight) / 2;
+                }
+
+                ctx.clearRect(0, 0, screenWidth, screenHeight);
+                ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+            }
+        }
+
+
+        // Hàm hỗ trợ vẽ ảnh "Object-fit: Cover" trên Canvas
+        function scaleCanvasImage(img, ctx) {
+            const canvas = ctx.canvas;
+            const hRatio = canvas.width / img.width;
+            const vRatio = canvas.height / img.height;
+            const ratio = Math.max(hRatio, vRatio);
+            const centerShift_x = (canvas.width - img.width * ratio) / 2;
+            const centerShift_y = (canvas.height - img.height * ratio) / 2;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, img.width, img.height,
+                centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
+        }
+
+        // Xử lý Resize màn hình
+
+        // Quan trọng: Lắng nghe sự kiện thay đổi kích thước màn hình
+        window.addEventListener('resize', () => {
+            // Cập nhật lại kích thước canvas ngay khi resize
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            render();
+        });
+        window.addEventListener("resize", render);
+
+        // Nếu dùng mobile, cập nhật khi xoay ngang/dọc
+        window.addEventListener("orientationchange", () => {
+            setTimeout(render, 200);
+        });
+
+        // Khởi tạo lần đầu
+        images[0].onload = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            render();
+        };
 
 
         // --------------------------------- section 1 ------------------------------- //
